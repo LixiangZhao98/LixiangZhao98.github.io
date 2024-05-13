@@ -14,12 +14,10 @@ author_profile: true
 
 <div class="Publications">
 
-<b> 2022 </b> 
-
-<div class="img"><img class="img_responsive" src="http://stevenhan1991.github.io/assets/img/publications/Cylinder-A.gif" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
+<div class="img"><img class="img_responsive" src="https://github.com/LixiangZhao98/asset/blob/master/Publications/Figures/MeTACAST.png" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
 </div>
   <div class="text">
-    <div class="title"><a name="CoordNet" href="http://stevenhan1991.github.io/assets/pdf/CoordNet-Paper.pdf">CoordNet: Data Generation and Visualization Generation for Time-Varying Volumes via a Coordinate-Based Neural Network</a>
+    <div class="title"><a name="MeTACAST" href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Papers/MeTACAST.pdf">MeTACAST: Target-and Context-aware Spatial Selection in VR</a>
     </div> 
     <div class="authors">
 	    <span class="author"><b>Jun Han</b></span>
@@ -35,7 +33,6 @@ author_profile: true
 	
 
 <hr>
-	
 	
 <div class="img"><img class="img_responsive" src="http://stevenhan1991.github.io/assets/img/publications/DL4SciVis.jpg" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
 </div>
