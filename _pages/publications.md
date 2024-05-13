@@ -1,14 +1,9 @@
----
+a---
 layout: archive
 title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
-
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{https://scholar.google.com/citations?hl=zh-CN&user=CeuleY4AAAAJ&view_op=list_works&sortby=pubdate}}">my Google Scholar profile</a>.</div>
-{% endif %}
-
 
 
 
@@ -28,8 +23,8 @@ author_profile: true
     </div>
     <div>
                   <span class="venue">IEEE TVCG</span> /
-                  <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Papers/MeTACAST.pdf">Paper</a></span> /
-	           <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Videos/MeTACAST_Video.mp4">Video</a></span> /
+                  <span class="tag"><a href="https://github.com/LixiangZhao98/asset/master/Publications/Papers/MeTACAST.pdf">Paper</a></span> /
+	           <span class="tag"><a href="https://github.com/LixiangZhao98/asset/master/Publications/Videos/MeTACAST_Video.mp4">Video</a></span> /
 	   	  <span class="tag"><a href="https://github.com/LixiangZhao98/MeTACAST">Github(source code)</a></span> /
 	   	 <span class="tag"><a href="https://github.com/LixiangZhao98/MeTACAST-study">Github(User study R script)</a></span> /
     </div>
