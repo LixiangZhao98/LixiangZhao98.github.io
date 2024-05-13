@@ -1,13 +1,14 @@
 
+---
+title: "Exploring Embodied Asymmetric Two-Handed Interactions for Immersive Data Exploration"
+collection: publications
+permalink: /publication/Exploring Embodied Asymmetric Two-Handed Interactions for Immersive Data Exploration
+excerpt: 'Haonan Yao, Lixiang Zhao, Hai-Ning Liang, Yu Liu, Yue Li and Lingyun Yu'
+date: 2024-05-11
+venue: 'CHI: ACM CHI conference on Human Factors in Computing Systems'
+paperurl: '[paper](http://LixiangZhao98.github.io/files/Exploring Embodied Asymmetric Two-Handed Interactions for Immersive Data Exploration.pdf)'
+---
 
----
-layout: page
-permalink: /Publications/
-title: Publications
-description: 
-years: [2022, 2021, 2020, 2019, 2018, 2017]
-nav: true
----
 <div class="Publications">
 
 <b> 2022 </b> 
