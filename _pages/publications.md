@@ -29,7 +29,9 @@ author_profile: true
     <div>
                   <span class="venue">IEEE TVCG</span> /
                   <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Papers/MeTACAST.pdf">Paper</a></span> /
-	           <span class="tag"><a href="http://stevenhan1991.github.io/assets/pdf/CoordNet.wmv">Video</a></span> /
+	           <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Videos/MeTACAST_Video.mp4">Video</a></span> /
+	   	  <span class="tag"><a href="https://github.com/LixiangZhao98/MeTACAST">Github(source code)</a></span> /
+	   	 <span class="tag"><a href="https://github.com/LixiangZhao98/MeTACAST-study">Github(User study R script)</a></span> /
     </div>
   </div>
 	
