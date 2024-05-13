@@ -20,8 +20,11 @@ author_profile: true
     <div class="title"><a name="MeTACAST" href="https://ieeexplore.ieee.org/document/10292508/">MeTACAST: Target-and Context-aware Spatial Selection in VR</a>
     </div> 
     <div class="authors">
-	    <span class="author"><b>Jun Han</b></span>
-	    <span class="author">and Chaoli Wang</span>
+	    <span class="author"><b>Lixiang Zhao</b></span>
+	    <span class="author">Tobias Isenberg</span>
+	    <span class="author">Fuqi Xie</span>
+	    <span class="author">Hai-Ning Liang</span>
+	    <span class="author">Lingyun Yu</span>
     </div>
     <div>
                   <span class="venue">IEEE TVCG</span> /
