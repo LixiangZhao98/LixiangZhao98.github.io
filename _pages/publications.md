@@ -14,10 +14,10 @@ author_profile: true
 
 <div class="Publications">
 
-<div class="img"><img class="img_responsive" src="https://github.com/LixiangZhao98/asset/blob/master/Publications/Figures/MeTACAST.png" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
+<div class="img"><img class="img_responsive" src="https://github.com/LixiangZhao98/asset/blob/master/Publications/Figures/MeTACAST.png" style="border:1px solid black width:200px;height:100px;" alt="MeTACAST.png" align="left">
 </div>
   <div class="text">
-    <div class="title"><a name="MeTACAST" href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Papers/MeTACAST.pdf">MeTACAST: Target-and Context-aware Spatial Selection in VR</a>
+    <div class="title"><a name="MeTACAST" href="https://ieeexplore.ieee.org/document/10292508/">MeTACAST: Target-and Context-aware Spatial Selection in VR</a>
     </div> 
     <div class="authors">
 	    <span class="author"><b>Jun Han</b></span>
@@ -25,9 +25,8 @@ author_profile: true
     </div>
     <div>
                   <span class="venue">IEEE TVCG</span> /
-                  <span class="tag"><a href="http://stevenhan1991.github.io/assets/pdf/CoordNet-Paper.pdf">Paper</a></span> /
-	          <span class="tag"><a href="http://stevenhan1991.github.io/assets/pdf/CoordNet-Appendix.pdf">Appendix</a></span> /
-	           <span class="tag"><a href="http://stevenhan1991.github.io/assets/pdf/CoordNet.wmv">Video</a></span>
+                  <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Papers/MeTACAST.pdf">Paper</a></span> /
+	           <span class="tag"><a href="http://stevenhan1991.github.io/assets/pdf/CoordNet.wmv">Video</a></span> /
     </div>
   </div>
 	
