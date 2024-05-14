@@ -9,7 +9,7 @@ author_profile: true
 
 <div class="Publications">
 
-<div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/MeTACAST.png?token=GHSAT0AAAAAACKATBXYSIWODNOOMJV65I3KZSC46HQ" style="border:1px solid black width:200px;height:100px;" alt="MeTACAST.png" align="left">
+<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/MeTACAST.png?token=GHSAT0AAAAAACKATBXYSIWODNOOMJV65I3KZSC46HQ" style="border:1px solid black width:200px;height:100px;" alt="MeTACAST.png" align="left">
 </div>
   <div class="text">
     <div class="title"><a name="MeTACAST" href="https://ieeexplore.ieee.org/document/10292508/">MeTACAST: Target-and Context-aware Spatial Selection in VR</a>
@@ -23,8 +23,8 @@ author_profile: true
     </div>
     <div>
                   <span class="venue">VIS: <i>IEEE Transactions on Visualization and Computer Graphics</i>, 2024</span> /
-                  <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Papers/MeTACAST.pdf">Paper</a></span> /
-	           <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Videos/MeTACAST_Video.mp4">Video</a></span> /
+                  <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Papers/MeTACAST.pdf">Paper</a></span> /
+	           <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Videos/MeTACAST_Video.mp4">Video</a></span> /
 	   	  <span class="tag"><a href="https://github.com/LixiangZhao98/MeTACAST">Github(source code)</a></span> /
 	   	 <span class="tag"><a href="https://github.com/LixiangZhao98/MeTACAST-study">Github(User study R script)</a></span> /
     </div>
@@ -33,7 +33,7 @@ author_profile: true
 
 <hr>
 	
-<div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/EEA.png?token=GHSAT0AAAAAACKATBXYQXUVU26MMBLBVXCKZSC47JA" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
+<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/EEA.png?token=GHSAT0AAAAAACKATBXYQXUVU26MMBLBVXCKZSC47JA" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
 </div>
   <div class="text">
     <div class="title"><a name="EEA" href="https://dl.acm.org/doi/fullHtml/10.1145/3613905.3650777">Exploring Embodied Asymmetric Two-Handed Interactions for Immersive Data Exploration</a>
@@ -48,14 +48,14 @@ author_profile: true
     </div>
     <div>
                   <span class="venue">CHI: <i>Late-Breaking Work, ACM CHI conference on Human Factors in Computing Systems</i>, 2024</span> /
-                  <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Papers/EEA.pdf">Paper</a></span>
+                  <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Papers/EEA.pdf">Paper</a></span>
     </div>
   </div>
 	
 
 <hr>
 	
-<div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/ImmerView.png?token=GHSAT0AAAAAACKATBXYAAH3XZNNVTEY2FVOZSC5QMA" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
+<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Figures/ImmerView.png?token=GHSAT0AAAAAACKATBXYAAH3XZNNVTEY2FVOZSC5QMA" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
 </div>
   <div class="text">
     <div class="title"><a name="ImmerView" href="https://ieeexplore.ieee.org/abstract/document/10322236">ImmerView: Adaptive Multi-View Layout for Immersive Situated Visualizations</a>
@@ -68,13 +68,13 @@ author_profile: true
     </div>
     <div>
                   <span class="venue">ISMAR: <i>IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)</i>, 2023</span> /
-                  <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Papers/ImmerView.pdf">Paper</a></span>
+                  <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Papers/ImmerView.pdf">Paper</a></span>
     </div>
   </div>
 
  <hr>
 	
-<div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/L_Wim.png?token=GHSAT0AAAAAACKATBXZG3CK4VG4JXT67TSGZSC5PSQ" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
+<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/L_Wim.png?token=GHSAT0AAAAAACKATBXZG3CK4VG4JXT67TSGZSC5PSQ" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
 </div>
   <div class="text">
     <div class="title"><a name="L-Wim" href="https://ieeexplore.ieee.org/abstract/document/9974567">L-WiM: Collaborative exploration in immersive environments</a>
@@ -88,13 +88,13 @@ author_profile: true
     </div>
     <div>
                   <span class="venue">ISMAR: <i>IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)</i>, 2022</span> /
-                  <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Papers/L-Wim.pdf">Paper</a></span>
+                  <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Papers/L-Wim.pdf">Paper</a></span>
     </div>
   </div>
 
    <hr>
 	
-<div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/IHR.png?token=GHSAT0AAAAAACKATBXYZXOND4W3H5Z2RBUIZSC5MOQ" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
+<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/IHR.png?token=GHSAT0AAAAAACKATBXYZXOND4W3H5Z2RBUIZSC5MOQ" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
 </div>
   <div class="text">
     <div class="title"><a name="IHR" href="https://ieeexplore.ieee.org/abstract/document/9325719">Influence of hand representation design on presence and embodiment in virtual environment</a>
@@ -108,7 +108,7 @@ author_profile: true
     </div>
     <div>
                   <span class="venue">ISCID: <i>International Symposium on Computational Intelligence and Design</i>, 2020</span> /
-                  <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Papers/IHR.pdf">Paper</a></span>
+                  <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Papers/IHR.pdf">Paper</a></span>
     </div>
   </div>
   
