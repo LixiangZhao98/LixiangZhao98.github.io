@@ -15,10 +15,10 @@ author_profile: true
     <div class="title"><a name="MeTACAST" href="https://ieeexplore.ieee.org/document/10292508/">MeTACAST: Target-and Context-aware Spatial Selection in VR</a>
     </div> 
     <div class="authors">
-	    <span class="author"><b>Lixiang Zhao</b></span>
-	    <span class="author">Tobias Isenberg</span>
-	    <span class="author">Fuqi Xie</span>
-	    <span class="author">Hai-Ning Liang</span>
+	    <span class="author"><b>Lixiang Zhao,</b></span>
+	    <span class="author">Tobias Isenberg,</span>
+	    <span class="author">Fuqi Xie,</span>
+	    <span class="author">Hai-Ning Liang, and</span>
 	    <span class="author">Lingyun Yu</span>
     </div>
     <div>
@@ -40,11 +40,11 @@ author_profile: true
     <div class="title"><a name="EEA" href="https://dl.acm.org/doi/fullHtml/10.1145/3613905.3650777">Exploring Embodied Asymmetric Two-Handed Interactions for Immersive Data Exploration</a>
     </div> 
     <div class="authors">
-	    <span class="author">Haonan Yao</span>
-	    <span class="author"><b>Lixiang Zhao</b></span>
-	    <span class="author">Hai-Ning Liang</span>
-	    <span class="author">Yu Liu</span>
-	    <span class="author">Yue Li</span>
+	    <span class="author">Haonan Yao,</span>
+	    <span class="author"><b>Lixiang Zhao,</b></span>
+	    <span class="author">Hai-Ning Liang,</span>
+	    <span class="author">Yu Liu,</span>
+	    <span class="author">Yue Li, and</span>
 	    <span class="author">Lingyun Yu</span>
     </div>
     <div>
@@ -62,9 +62,9 @@ author_profile: true
     <div class="title"><a name="ImmerView" href="https://ieeexplore.ieee.org/abstract/document/10322236">ImmerView: Adaptive Multi-View Layout for Immersive Situated Visualizations</a>
     </div> 
     <div class="authors">
-	    <span class="author">Jiayin Li</span>
-	    <span class="author"><b>Lixiang Zhao</b></span>
-	    <span class="author">Hai-Ning Liang</span>
+	    <span class="author">Jiayin Li,</span>
+	    <span class="author"><b>Lixiang Zhao,</b></span>
+	    <span class="author">Hai-Ning Liang, and</span>
 	    <span class="author">Lingyun Yu</span>
     </div>
     <div>
@@ -85,10 +85,10 @@ author_profile: true
     <div class="title"><a name="L-Wim" href="https://ieeexplore.ieee.org/abstract/document/9974567">L-WiM: Collaborative exploration in immersive environments</a>
     </div> 
     <div class="authors">
-	    <span class="author"><b>Lixiang Zhao</b></span>
-	    <span class="author">Nieyu Cao</span>
-	    <span class="author">Shuqi He</span>
-	    <span class="author">Hai-Ning Liang</span>
+	    <span class="author"><b>Lixiang Zhao,</b></span>
+	    <span class="author">Nieyu Cao,</span>
+	    <span class="author">Shuqi He,</span>
+	    <span class="author">Hai-Ning Liang, and</span>
 	    <span class="author">Lingyun Yu</span>
     </div>
     <div>
@@ -106,13 +106,13 @@ author_profile: true
     <div class="title"><a name="IHR" href="https://ieeexplore.ieee.org/abstract/document/9325719">Influence of hand representation design on presence and embodiment in virtual environment</a>
     </div> 
     <div class="authors">
-	    <span class="author">Jingjing Zhang</span> 
-	    <span class="author">Mengjie Huang</span>
-	    <span class="author"><b>Lixiang Zhao</b></span>
-     	    <span class="author">Rui Yang</span>
-	    <span class="author">Hai-Ning Liang</span>
-	    <span class="author">Ji Han</span>
-	    <span class="author">Liu Wang</span>
+	    <span class="author">Jingjing Zhang,</span> 
+	    <span class="author">Mengjie Huang,</span>
+	    <span class="author"><b>Lixiang Zhao,</b></span>
+     	    <span class="author">Rui Yang,</span>
+	    <span class="author">Hai-Ning Liang,</span>
+	    <span class="author">Ji Han,</span>
+	    <span class="author">Liu Wang, and</span>
 	    <span class="author">Wenxin Sun</span>
     </div>
     <div>
