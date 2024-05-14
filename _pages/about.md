@@ -9,14 +9,14 @@ redirect_from:
 
 
 
-I am a 3rd Ph.D. student at VACT lab in Xi'an Jiaotong Liverpool University, supervised by Dr. [Lingyun Yu](https://yulingyun.com/). My research focuses on Scientific Visualization (SciVis) and Human-Computer Interaction (HCI). My work is dedicated to design and evaluate the spatial interaction techniques and visualization techniques tailored to specific scientific domains including astronomy and biomedicine within Cross-Reality (CR) and Virtual Reality (VR) environments.
+I am a 3rd Ph.D. student at VACT lab in Xi'an Jiaotong Liverpool University, supervised by Dr. [Lingyun Yu](https://yulingyun.com/). My research focuses on Scientific Visualization (SciVis) and Human-Computer Interaction (HCI). My work is dedicated to design and evaluate the spatial interaction techniques and visualization techniques tailored to specific scientific domains including astronomy and biomedicine within Cross-Reality (CR) and Virtual Reality (VR) environments. Here lists an overview of my research topics.
 
 <br>
 <br>
 
 Immersive visualization and interaction
 ======
-<div class="Publications">
+
 
 <div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/Immersive visualization and interaction.png" style="border:1px solid black width:200px;height:100px;" alt="MeTACAST.png" align="left">
 </div>
@@ -24,3 +24,5 @@ Immersive visualization and interaction
    Immersive environments, including virtual, augmented, and mixed reality, offer users an engaging avenue to interact with presented information. However, they also pose challenges in the context of data exploration, such as occlusion and imprecise inputs. Additionally, these environments break the constraints of limited space inherent in 2D screens, the indirect interaction methods of keyboards and mice, and the traditional approaches to collaborative exploration. Our focus revolves around delving into multiple facets of immersive visualizations and interactions, encompassing elements like engaging displays, embodied interaction, situated visualization, user behaviors, and experiences.
     </div> 
   </div>
+
+<hr>
