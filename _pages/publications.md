@@ -37,7 +37,7 @@ author_profile: true
 <div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/EEA.png" style="border:1px solid black height:100px;width:400px;" alt="spotlight_dl4scivis" align="left">
 </div>
   <div class="text">
-    <div class="title"><a name="EEA" href="https://dl.acm.org/doi/fullHtml/10.1145/3613905.3650777">Exploring Embodied Asymmetric Two-Handed Interactions for Immersive Data Exploration</a>
+    <div class="title"><a name="EEA" href="https://dl.acm.org/doi/10.1145/3613905.3650777">Exploring Embodied Asymmetric Two-Handed Interactions for Immersive Data Exploration</a>
     </div> 
     <div class="authors">
 	    <span class="author">Haonan Yao,</span>
