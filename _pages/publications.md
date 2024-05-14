@@ -33,7 +33,7 @@ author_profile: true
 
 <hr>
 	
-<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/EEA.png" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
+<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/EEA.png" style="border:1px solid black height:100px;width:200px;" alt="spotlight_dl4scivis" align="left">
 </div>
   <div class="text">
     <div class="title"><a name="EEA" href="https://dl.acm.org/doi/fullHtml/10.1145/3613905.3650777">Exploring Embodied Asymmetric Two-Handed Interactions for Immersive Data Exploration</a>
@@ -55,7 +55,7 @@ author_profile: true
 
 <hr>
 	
-<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/ImmerView.png" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
+<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/ImmerView.png" style="border:1px solid black height:100px;width:200px;" alt="spotlight_dl4scivis" align="left">
 </div>
   <div class="text">
     <div class="title"><a name="ImmerView" href="https://ieeexplore.ieee.org/abstract/document/10322236">ImmerView: Adaptive Multi-View Layout for Immersive Situated Visualizations</a>
@@ -74,7 +74,7 @@ author_profile: true
 
  <hr>
 	
-<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/L_Wim.png" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
+<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/L_Wim.png" style="border:1px solid black height:100px;width:200px;" alt="spotlight_dl4scivis" align="left">
 </div>
   <div class="text">
     <div class="title"><a name="L-Wim" href="https://ieeexplore.ieee.org/abstract/document/9974567">L-WiM: Collaborative exploration in immersive environments</a>
@@ -94,7 +94,7 @@ author_profile: true
 
    <hr>
 	
-<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/IHR.png" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
+<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/IHR.png" style="border:1px solid black height:100px;width:200px;" alt="spotlight_dl4scivis" align="left">
 </div>
   <div class="text">
     <div class="title"><a name="IHR" href="https://ieeexplore.ieee.org/abstract/document/9325719">Influence of hand representation design on presence and embodiment in virtual environment</a>
