@@ -93,7 +93,7 @@ author_profile: true
     </div>
     <div>
                   <span class="venue">ISMAR: <i>IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)</i>, 2022</span> /
-                  <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Papers/L-Wim.pdf">Paper</a></span>
+                  <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Papers/LWim.pdf">Paper</a></span>
     </div>
   </div>
 <br>
