@@ -74,7 +74,7 @@ author_profile: true
 
  <hr>
 	
-<div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/L_Wim.png?token=GHSAT0AAAAAACKATBXZWAS6KQI2OIAVNNR6ZSC5KQA" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
+<div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/L_Wim.png?token=GHSAT0AAAAAACKATBXZG3CK4VG4JXT67TSGZSC5PSQ" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
 </div>
   <div class="text">
     <div class="title"><a name="L-Wim" href="https://ieeexplore.ieee.org/abstract/document/9974567">L-WiM: Collaborative exploration in immersive environments</a>
