@@ -1,7 +1,7 @@
 ---
 layout: archive
 title: "CV"
-permalink: /cv/
+permalink: CV_LixiangZhao.pdf
 author_profile: true
 
 ---
