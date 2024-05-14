@@ -24,7 +24,7 @@ Immersive Visualization and Interaction
    Immersive environments, including virtual, augmented, and mixed reality, offer users an engaging avenue to interact with presented information. However, they also pose challenges in the context of data exploration, such as occlusion and imprecise inputs. Additionally, these environments break the constraints of limited space inherent in 2D screens, the indirect interaction methods of keyboards and mice, and the traditional approaches to collaborative exploration. Our focus revolves around delving into multiple facets of immersive visualizations and interactions, encompassing elements like engaging displays, embodied interaction, situated visualization, user behaviors, and experiences.
     </div> 
 
-
+<br>
 <hr>
 
 Spatial Data Exploration in Cross-reality (CR)
