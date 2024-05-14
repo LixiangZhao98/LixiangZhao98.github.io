@@ -14,7 +14,7 @@ I am a 3rd Ph.D. student at VACT lab in Xi'an Jiaotong Liverpool University, sup
 <br>
 <br>
 
-Immersive visualization and interaction
+Immersive Visualization and Interaction
 ======
 
 
@@ -27,6 +27,8 @@ Immersive visualization and interaction
 
 <hr>
 
+Cross-reality Spatial Data Exploration
+======
 <div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/Cross_reality.png" style="border:1px solid black width:200px;height:100px;" alt="MeTACAST.png" align="left">
 </div>
   <div class="text">
