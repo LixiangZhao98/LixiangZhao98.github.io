@@ -30,7 +30,8 @@ author_profile: true
     </div>
   </div>
 	
-
+<br>
+<br>
 <hr>
 	
 <div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/EEA.png" style="border:1px solid black height:100px;width:400px;" alt="spotlight_dl4scivis" align="left">
