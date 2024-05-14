@@ -22,12 +22,7 @@ author_profile: true
 	    <span class="author">Lingyun Yu</span>
     </div>
     <div>
-                  <span class="venue">VIS: <i>
-    <font color=blue> 
-     IEEE Transactions on Visualization and Computer Graphics
-    </font>
-   </i>
-	, 2024</span> /
+                  <span class="venue">VIS: <i>IEEE Transactions on Visualization and Computer Graphics</i>, 2024</span> /
                   <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Papers/MeTACAST.pdf">Paper</a></span> /
 	           <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Videos/MeTACAST_Video.mp4">Video</a></span> /
 	   	  <span class="tag"><a href="https://github.com/LixiangZhao98/MeTACAST">Github(source code)</a></span> /
@@ -52,7 +47,7 @@ author_profile: true
 	    <span class="author">Lingyun Yu</span>
     </div>
     <div>
-                  <span class="venue">CHI: Late-Breaking Work, ACM CHI conference on Human Factors in Computing Systems, 2024</span> /
+                  <span class="venue">CHI: <i>Late-Breaking Work, ACM CHI conference on Human Factors in Computing Systems</i>, 2024</span> /
                   <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Papers/EEA.pdf">Paper</a></span>
     </div>
   </div>
@@ -63,7 +58,7 @@ author_profile: true
 <div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/ImmerView.png?token=GHSAT0AAAAAACKATBXYOEJXPXVDMS2CXQYGZSC5DBQ" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
 </div>
   <div class="text">
-    <div class="title"><a name="EEA" href="https://ieeexplore.ieee.org/abstract/document/10322236">Exploring Embodied Asymmetric Two-Handed Interactions for Immersive Data Exploration</a>
+    <div class="title"><a name="ImmerView" href="https://ieeexplore.ieee.org/abstract/document/10322236">ImmerView: Adaptive Multi-View Layout for Immersive Situated Visualizations</a>
     </div> 
     <div class="authors">
 	    <span class="author">Jiayin Li</span>
@@ -72,9 +67,49 @@ author_profile: true
 	    <span class="author">Lingyun Yu</span>
     </div>
     <div>
-                  <span class="venue">ISMAR: IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct), 2023</span> /
+                  <span class="venue">ISMAR: <i>IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)</i>, 2023</span> /
                   <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Papers/ImmerView.pdf">Paper</a></span>
     </div>
   </div>
- 
+
+ <hr>
+	
+<div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/L_Wim.png?token=GHSAT0AAAAAACKATBXZWAS6KQI2OIAVNNR6ZSC5KQA" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
+</div>
+  <div class="text">
+    <div class="title"><a name="L-Wim" href="https://ieeexplore.ieee.org/abstract/document/9974567">L-WiM: Collaborative exploration in immersive environments</a>
+    </div> 
+    <div class="authors">
+	    <span class="author"><b>Lixiang Zhao</b></span>
+	    <span class="author">Nieyu Cao</span>
+	    <span class="author">Shuqi He</span>
+	    <span class="author">Hai-Ning Liang</span>
+	    <span class="author">Lingyun Yu</span>
+    </div>
+    <div>
+                  <span class="venue">ISMAR: <i>IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)</i>, 2022</span> /
+                  <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Papers/L-Wim.pdf">Paper</a></span>
+    </div>
+  </div>
+
+   <hr>
+	
+<div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/IHR.png?token=GHSAT0AAAAAACKATBXYZXOND4W3H5Z2RBUIZSC5MOQ" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
+</div>
+  <div class="text">
+    <div class="title"><a name="IHR" href="https://ieeexplore.ieee.org/abstract/document/9325719">Influence of hand representation design on presence and embodiment in virtual environment</a>
+    </div> 
+    <div class="authors">
+	    <span class="author"><b>Lixiang Zhao</b></span>
+	    <span class="author">Nieyu Cao</span>
+	    <span class="author">Shuqi He</span>
+	    <span class="author">Hai-Ning Liang</span>
+	    <span class="author">Lingyun Yu</span>
+    </div>
+    <div>
+                  <span class="venue">ISCID: <i>International Symposium on Computational Intelligence and Design</i>, 2020</span> /
+                  <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Papers/IHR.pdf">Paper</a></span>
+    </div>
+  </div>
+  
  </div>
