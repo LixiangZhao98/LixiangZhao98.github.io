@@ -73,7 +73,8 @@ author_profile: true
   </div>
 
  <hr>
-	
+<br>
+<br>
 <div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/L_Wim.png" style="border:1px solid black height:100px;width:400px;" alt="spotlight_dl4scivis" align="left">
 </div>
   <div class="text">
