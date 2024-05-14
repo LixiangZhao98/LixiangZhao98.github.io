@@ -25,6 +25,7 @@ Immersive Visualization and Interaction
     </div> 
 
 <br>
+<br>
 <hr>
 
 Spatial Data Exploration in Cross-reality (CR)
