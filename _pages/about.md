@@ -14,7 +14,6 @@ I am a 3rd Ph.D. student at VACT lab in Xi'an Jiaotong Liverpool University, sup
 <br>
 <be>
   
-Here lists an overview of my research topics.
 
 Immersive Visualization and Interaction
 ======
