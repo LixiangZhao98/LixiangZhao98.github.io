@@ -24,7 +24,7 @@ author_profile: true
     <div>
                   <span class="venue">VIS: <i>IEEE Transactions on Visualization and Computer Graphics</i>, 2024</span> /
                   <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Papers/MeTACAST.pdf">Paper</a></span> /
-	           <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Videos/MeTACAST_Video.mp4">Video</a></span> /
+	           <span class="tag"><a href="https://www.youtube.com/watch?v=R_WRfzgnOAM&t=1s">Video</a></span> /
 	   	  <span class="tag"><a href="https://github.com/LixiangZhao98/MeTACAST">Github(source code)</a></span> /
 	   	 <span class="tag"><a href="https://github.com/LixiangZhao98/MeTACAST-study">Github(User study R script)</a></span> /
     </div>
