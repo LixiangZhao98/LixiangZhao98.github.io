@@ -9,7 +9,7 @@ author_profile: true
 
 <div class="Publications">
 
-<div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/MeTACAST.jpg" style="border:1px solid black width:200px;height:100px;" alt="MeTACAST.png" align="left">
+<div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/MeTACAST.png?token=GHSAT0AAAAAACKATBXYSIWODNOOMJV65I3KZSC46HQ" style="border:1px solid black width:200px;height:100px;" alt="MeTACAST.png" align="left">
 </div>
   <div class="text">
     <div class="title"><a name="MeTACAST" href="https://ieeexplore.ieee.org/document/10292508/">MeTACAST: Target-and Context-aware Spatial Selection in VR</a>
@@ -33,10 +33,10 @@ author_profile: true
 
 <hr>
 	
-<div class="img"><img class="img_responsive" src="https://github.com/LixiangZhao98/asset/master/Publications/Figures/EEA.png" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
+<div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/EEA.png?token=GHSAT0AAAAAACKATBXYQXUVU26MMBLBVXCKZSC47JA" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
 </div>
   <div class="text">
-    <div class="title"><a name="EEA" href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Papers/EEA.pdf">Exploring Embodied Asymmetric Two-Handed Interactions for Immersive Data Exploration</a>
+    <div class="title"><a name="EEA" href="https://dl.acm.org/doi/fullHtml/10.1145/3613905.3650777">Exploring Embodied Asymmetric Two-Handed Interactions for Immersive Data Exploration</a>
     </div> 
     <div class="authors">
 	    <span class="author">Haonan Yao</span>
