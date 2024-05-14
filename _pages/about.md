@@ -14,7 +14,7 @@ I am a 3rd Ph.D. student at VACT lab in Xi'an Jiaotong Liverpool University, sup
 <br>
 <br>
 
-Research
+Immersive visualization and interaction
 ======
 <div class="Publications">
 
