@@ -55,7 +55,7 @@ author_profile: true
 
 <hr>
 	
-<div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/ImmerView.png?token=GHSAT0AAAAAACKATBXYOEJXPXVDMS2CXQYGZSC5DBQ" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
+<div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/ImmerView.png?token=GHSAT0AAAAAACKATBXYAAH3XZNNVTEY2FVOZSC5QMA" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
 </div>
   <div class="text">
     <div class="title"><a name="ImmerView" href="https://ieeexplore.ieee.org/abstract/document/10322236">ImmerView: Adaptive Multi-View Layout for Immersive Situated Visualizations</a>
