@@ -26,3 +26,10 @@ Immersive visualization and interaction
   </div>
 
 <hr>
+
+<div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/Cross-reality.png" style="border:1px solid black width:200px;height:100px;" alt="MeTACAST.png" align="left">
+</div>
+  <div class="text">
+   Immersive environments, including virtual, augmented, and mixed reality, offer users an engaging avenue to interact with presented information. However, they also pose challenges in the context of data exploration, such as occlusion and imprecise inputs. Additionally, these environments break the constraints of limited space inherent in 2D screens, the indirect interaction methods of keyboards and mice, and the traditional approaches to collaborative exploration. Our focus revolves around delving into multiple facets of immersive visualizations and interactions, encompassing elements like engaging displays, embodied interaction, situated visualization, user behaviors, and experiences.
+    </div> 
+  </div>
