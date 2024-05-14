@@ -22,7 +22,12 @@ author_profile: true
 	    <span class="author">Lingyun Yu</span>
     </div>
     <div>
-                  <span class="venue">IEEE TVCG, 2024</span> /
+                  <span class="venue">VIS: <i>
+    <font color=blue> 
+     IEEE Transactions on Visualization and Computer Graphics
+    </font>
+   </i>
+	, 2024</span> /
                   <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Papers/MeTACAST.pdf">Paper</a></span> /
 	           <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Videos/MeTACAST_Video.mp4">Video</a></span> /
 	   	  <span class="tag"><a href="https://github.com/LixiangZhao98/MeTACAST">Github(source code)</a></span> /
@@ -55,7 +60,21 @@ author_profile: true
 
 <hr>
 	
-
-	<hr>	
+<div class="img"><img class="img_responsive" src="https://raw.githubusercontent.com/LixiangZhao98/asset/master/Publications/Figures/ImmerView.png?token=GHSAT0AAAAAACKATBXYOEJXPXVDMS2CXQYGZSC5DBQ" style="border:1px solid black width:200px;height:100px;" alt="spotlight_dl4scivis" align="left">
+</div>
+  <div class="text">
+    <div class="title"><a name="EEA" href="https://ieeexplore.ieee.org/abstract/document/10322236">Exploring Embodied Asymmetric Two-Handed Interactions for Immersive Data Exploration</a>
+    </div> 
+    <div class="authors">
+	    <span class="author">Jiayin Li</span>
+	    <span class="author"><b>Lixiang Zhao</b></span>
+	    <span class="author">Hai-Ning Liang</span>
+	    <span class="author">Lingyun Yu</span>
+    </div>
+    <div>
+                  <span class="venue">ISMAR: IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct), 2023</span> /
+                  <span class="tag"><a href="https://github.com/LixiangZhao98/asset/blob/master/Publications/Papers/ImmerView.pdf">Paper</a></span>
+    </div>
+  </div>
  
  </div>
