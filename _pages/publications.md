@@ -96,7 +96,8 @@ author_profile: true
                   <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Papers/L-Wim.pdf">Paper</a></span>
     </div>
   </div>
-
+<br>
+<br>
    <hr>
 	
 <div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/IHR.png" style="border:1px solid black height:100px;width:400px;" alt="spotlight_dl4scivis" align="left">
