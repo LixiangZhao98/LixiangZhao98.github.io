@@ -23,7 +23,7 @@ author_profile: true
     </div>
     <div>
                   <span class="venue">VIS: <i>IEEE Transactions on Visualization and Computer Graphics</i>, 2024</span> /
-                  <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Papers/SpatialTouch.pdf">Paper</a></span> /
+                  <span class="tag"><a href="https://github.com/LixiangZhao98/assets/Publications/Papers/SpatialTouch.pdf">Paper</a></span> /
 	           <span class="tag"><a href="https://www.youtube.com/watch?v=GUXvZKqg-7s">Video</a></span> /
 	   	  <span class="tag"><a href="https://github.com/LixiangZhao98/Cross-Reality-Environment-SpatialTouch">Github(source code)</a></span> /
 	   	 <span class="tag"><a href="https://osf.io/avxr9">OSF(User study data and animation)</a></span> /
