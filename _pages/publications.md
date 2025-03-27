@@ -9,7 +9,7 @@ author_profile: true
 
 <div class="Publications">
 
-
+<b> 2024 </b> 
 
 <html lang="en">
 <head>
@@ -68,69 +68,6 @@ author_profile: true
 </div>
 </body>
 </html>
-
-
-
-<hr>
- 
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-<style>
-  .container {
-    display: flex;
-    align-items: flex-start; /* 垂直对齐方式 */
-  }
-  .img {
-    margin-right: 20px; /* 图片与文字之间的间距 */
-  }
-  .text {
-    max-width: 600px; /* 文字容器的最大宽度 */
-  }
-  .title {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  .authors, .venue, .tag {
-    font-size: 16px;
-  }
-  .tag a {
-    color: blue;
-    text-decoration: none;
-  }
-  .tag a:hover {
-    text-decoration: underline;
-  }
-</style>
-</head>
-<body>
-<div class="container">
-<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/MeTACAST.png" style="border:1px solid black height:100px;width:400px;" alt="MeTACAST.png" align="left">
-</div>
-  <div class="text">
-    <div class="title"><a name="MeTACAST" href="https://ieeexplore.ieee.org/document/10292508/">MeTACAST: Target-and Context-aware Spatial Selection in VR</a>
-    </div> 
-    <div class="authors">
-	    <span class="author"><b>Lixiang Zhao,</b></span>
-	    <span class="author">Tobias Isenberg,</span>
-	    <span class="author">Fuqi Xie,</span>
-	    <span class="author">Hai-Ning Liang, and</span>
-	    <span class="author">Lingyun Yu</span>
-    </div>
-    <div>
-                  <span class="venue">VIS: <i>IEEE Transactions on Visualization and Computer Graphics</i>, 2024</span> /
-                  <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Papers/MeTACAST.pdf">Paper</a></span> /
-	           <span class="tag"><a href="https://www.youtube.com/watch?v=R_WRfzgnOAM&t=1s">Video</a></span> /
-	   	  <span class="tag"><a href="https://github.com/LixiangZhao98/MeTACAST">Github(source code)</a></span> /
-	   	 <span class="tag"><a href="https://github.com/LixiangZhao98/MeTACAST-study">Github(User study R script)</a></span>
-    </div>
-  </div>
-	</div>
-</body>
-</html>
-	
 
 <hr>
 
@@ -194,6 +131,70 @@ author_profile: true
 
 <hr>
 
+<b> 2023 </b> 
+ 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+  .container {
+    display: flex;
+    align-items: flex-start; /* 垂直对齐方式 */
+  }
+  .img {
+    margin-right: 20px; /* 图片与文字之间的间距 */
+  }
+  .text {
+    max-width: 600px; /* 文字容器的最大宽度 */
+  }
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .authors, .venue, .tag {
+    font-size: 16px;
+  }
+  .tag a {
+    color: blue;
+    text-decoration: none;
+  }
+  .tag a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/MeTACAST.png" style="border:1px solid black height:100px;width:400px;" alt="MeTACAST.png" align="left">
+</div>
+  <div class="text">
+    <div class="title"><a name="MeTACAST" href="https://ieeexplore.ieee.org/document/10292508/">MeTACAST: Target-and Context-aware Spatial Selection in VR</a>
+    </div> 
+    <div class="authors">
+	    <span class="author"><b>Lixiang Zhao,</b></span>
+	    <span class="author">Tobias Isenberg,</span>
+	    <span class="author">Fuqi Xie,</span>
+	    <span class="author">Hai-Ning Liang, and</span>
+	    <span class="author">Lingyun Yu</span>
+    </div>
+    <div>
+                  <span class="venue">VIS: <i>IEEE Transactions on Visualization and Computer Graphics</i>, 2024</span> /
+                  <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Papers/MeTACAST.pdf">Paper</a></span> /
+	           <span class="tag"><a href="https://www.youtube.com/watch?v=R_WRfzgnOAM&t=1s">Video</a></span> /
+	   	  <span class="tag"><a href="https://github.com/LixiangZhao98/MeTACAST">Github(source code)</a></span> /
+	   	 <span class="tag"><a href="https://github.com/LixiangZhao98/MeTACAST-study">Github(User study R script)</a></span>
+    </div>
+  </div>
+	</div>
+</body>
+</html>
+	
+
+
+<hr>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -253,7 +254,7 @@ author_profile: true
 
 <hr>
 
-
+<b> 2022 </b> 
 
 <html lang="en">
 <head>
@@ -315,6 +316,7 @@ author_profile: true
 
 <hr>
 
+<b> 2020 </b> 
 
 <html lang="en">
 <head>
