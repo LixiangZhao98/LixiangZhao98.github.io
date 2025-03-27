@@ -9,7 +9,8 @@ author_profile: true
 
 <div class="Publications">
 
-
+<b> 2024 </b> 
+<br>
 
 <html lang="en">
 <head>
@@ -69,9 +70,68 @@ author_profile: true
 </body>
 </html>
 
+<br>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+  .container {
+    display: flex;
+    align-items: flex-start; /* 垂直对齐方式 */
+  }
+  .img {
+    margin-right: 20px; /* 图片与文字之间的间距 */
+  }
+  .text {
+    max-width: 600px; /* 文字容器的最大宽度 */
+  }
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .authors, .venue, .tag {
+    font-size: 16px;
+  }
+  .tag a {
+    color: blue;
+    text-decoration: none;
+  }
+  .tag a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/EEA.png" style="border:1px solid black height:100px;width:400px;" alt="spotlight_dl4scivis" align="left">
+</div>
+  <div class="text">
+    <div class="title"><a name="EEA" href="https://dl.acm.org/doi/10.1145/3613905.3650777">Exploring Embodied Asymmetric Two-Handed Interactions for Immersive Data Exploration</a>
+    </div> 
+    <div class="authors">
+	    <span class="author">Haonan Yao,</span>
+	    <span class="author"><b>Lixiang Zhao,</b></span>
+	    <span class="author">Hai-Ning Liang,</span>
+	    <span class="author">Yu Liu,</span>
+	    <span class="author">Yue Li, and</span>
+	    <span class="author">Lingyun Yu</span>
+    </div>
+    <div>
+                  <span class="venue">CHI: <i>Late-Breaking Work, ACM CHI conference on Human Factors in Computing Systems</i>, 2024</span> /
+                  <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Papers/EEA.pdf">Paper</a></span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
 
 
 <hr>
+<b> 2023 </b> 
+<br>
  
 <html lang="en">
 <head>
@@ -132,67 +192,7 @@ author_profile: true
 </html>
 	
 
-<hr>
-
-
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-<style>
-  .container {
-    display: flex;
-    align-items: flex-start; /* 垂直对齐方式 */
-  }
-  .img {
-    margin-right: 20px; /* 图片与文字之间的间距 */
-  }
-  .text {
-    max-width: 600px; /* 文字容器的最大宽度 */
-  }
-  .title {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  .authors, .venue, .tag {
-    font-size: 16px;
-  }
-  .tag a {
-    color: blue;
-    text-decoration: none;
-  }
-  .tag a:hover {
-    text-decoration: underline;
-  }
-</style>
-</head>
-<body>
-<div class="container">
-  <div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/EEA.png" style="border:1px solid black height:100px;width:400px;" alt="spotlight_dl4scivis" align="left">
-</div>
-  <div class="text">
-    <div class="title"><a name="EEA" href="https://dl.acm.org/doi/10.1145/3613905.3650777">Exploring Embodied Asymmetric Two-Handed Interactions for Immersive Data Exploration</a>
-    </div> 
-    <div class="authors">
-	    <span class="author">Haonan Yao,</span>
-	    <span class="author"><b>Lixiang Zhao,</b></span>
-	    <span class="author">Hai-Ning Liang,</span>
-	    <span class="author">Yu Liu,</span>
-	    <span class="author">Yue Li, and</span>
-	    <span class="author">Lingyun Yu</span>
-    </div>
-    <div>
-                  <span class="venue">CHI: <i>Late-Breaking Work, ACM CHI conference on Human Factors in Computing Systems</i>, 2024</span> /
-                  <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Papers/EEA.pdf">Paper</a></span>
-    </div>
-  </div>
-</div>
-</body>
-</html>
-
-
-<hr>
+<br>
 
 <html lang="en">
 <head>
@@ -252,8 +252,8 @@ author_profile: true
 
 
 <hr>
-
-
+<b> 2022 </b> 
+<br>
 
 <html lang="en">
 <head>
@@ -315,6 +315,9 @@ author_profile: true
 
 <hr>
 
+<b> 2020 </b> 
+
+<br>
 
 <html lang="en">
 <head>

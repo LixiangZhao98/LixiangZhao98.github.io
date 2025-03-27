@@ -8,4 +8,4 @@ author_profile: true
 <br>
 
 
-[CV](http://LixiangZhao98.github.io/assets/Publications/CV/CV_LixiangZhao.pdf)
+[CV](https://LixiangZhao98.github.io/assets/Publications/CV/CV_Lixiang_Zhao.pdf)
