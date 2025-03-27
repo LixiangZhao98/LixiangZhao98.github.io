@@ -107,7 +107,7 @@ author_profile: true
 </head>
 <body>
 <div class="container">
-		<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/MeTACAST.png" style="border:1px solid black height:100px;width:400px;" alt="MeTACAST.png" align="left">
+<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/MeTACAST.png" style="border:1px solid black height:100px;width:400px;" alt="MeTACAST.png" align="left">
 </div>
   <div class="text">
     <div class="title"><a name="MeTACAST" href="https://ieeexplore.ieee.org/document/10292508/">MeTACAST: Target-and Context-aware Spatial Selection in VR</a>
