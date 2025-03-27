@@ -67,14 +67,14 @@ author_profile: true
   </div>
 </div>
 </body>
-</html>
 
- 
 <br>
 <br>
 <hr>
 
-<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/MeTACAST.png" style="border:1px solid black height:100px;width:400px;" alt="MeTACAST.png" align="left">
+<body>
+	<div class="container">
+		<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/MeTACAST.png" style="border:1px solid black height:100px;width:400px;" alt="MeTACAST.png" align="left">
 </div>
   <div class="text">
     <div class="title"><a name="MeTACAST" href="https://ieeexplore.ieee.org/document/10292508/">MeTACAST: Target-and Context-aware Spatial Selection in VR</a>
@@ -94,10 +94,23 @@ author_profile: true
 	   	 <span class="tag"><a href="https://github.com/LixiangZhao98/MeTACAST-study">Github(User study R script)</a></span> /
     </div>
   </div>
-	
+	</div>
+</body>
+
 <br>
 <br>
 <hr>
+
+
+
+</html>
+
+ 
+
+
+
+	
+
 	
 <div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/EEA.png" style="border:1px solid black height:100px;width:400px;" alt="spotlight_dl4scivis" align="left">
 </div>
