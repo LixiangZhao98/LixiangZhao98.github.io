@@ -67,32 +67,6 @@ author_profile: true
   </div>
 </div>
 </body>
-
-
- <body>
-<div class="container">
-  <div class="img">
-    <img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/Cross_reality.png" style="border:1px solid black; height:100px; width:400px;" alt="Cross_reality.png" align="left">
-  </div>
-  <div class="text">
-    <div class="title"><a name="SpatialTouch" href="https://arxiv.org/abs/2407.14833">SpatialTouch: Exploring Spatial Data Visualizations in Cross-reality</a></div> 
-    <div class="authors">
-      <span class="author"><b>Lixiang Zhao,</b></span>
-      <span class="author">Tobias Isenberg,</span>
-      <span class="author">Fuqi Xie,</span>
-      <span class="author">Hai-Ning Liang, and</span>
-      <span class="author">Lingyun Yu</span>
-    </div>
-    <div>
-      <span class="venue">VIS: <i>IEEE Transactions on Visualization and Computer Graphics</i>, 2024</span> /
-      <span class="tag"><a href="https://arxiv.org/abs/2407.14833">Paper</a></span> /
-      <span class="tag"><a href="https://www.youtube.com/watch?v=GUXvZKqg-7s">Video</a></span> /
-      <span class="tag"><a href="https://github.com/LixiangZhao98/Cross-Reality-Environment-SpatialTouch">Github(source code)</a></span> /
-      <span class="tag"><a href="https://osf.io/avxr9">OSF(User study data and animation)</a></span> /
-    </div>
-  </div>
-</div>
-</body>
 </html>
 
  
