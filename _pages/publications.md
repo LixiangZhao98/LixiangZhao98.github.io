@@ -10,6 +10,7 @@ author_profile: true
 <div class="Publications">
 
 <b> 2024 </b> 
+<hr>
 
 <html lang="en">
 <head>
@@ -69,7 +70,6 @@ author_profile: true
 </body>
 </html>
 
-<hr>
 
 
 <html lang="en">
@@ -130,8 +130,8 @@ author_profile: true
 
 
 <hr>
-
 <b> 2023 </b> 
+<hr>
  
 <html lang="en">
 <head>
@@ -193,7 +193,6 @@ author_profile: true
 	
 
 
-<hr>
 
 <html lang="en">
 <head>
@@ -253,8 +252,8 @@ author_profile: true
 
 
 <hr>
-
 <b> 2022 </b> 
+<hr>
 
 <html lang="en">
 <head>
@@ -317,6 +316,8 @@ author_profile: true
 <hr>
 
 <b> 2020 </b> 
+
+<hr>
 
 <html lang="en">
 <head>
