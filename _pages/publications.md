@@ -312,64 +312,6 @@ author_profile: true
 
 
 
-<hr>
-
-
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-<style>
-  .container {
-    display: flex;
-    align-items: flex-start; /* 垂直对齐方式 */
-  }
-  .img {
-    margin-right: 20px; /* 图片与文字之间的间距 */
-  }
-  .text {
-    max-width: 600px; /* 文字容器的最大宽度 */
-  }
-  .title {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  .authors, .venue, .tag {
-    font-size: 16px;
-  }
-  .tag a {
-    color: blue;
-    text-decoration: none;
-  }
-  .tag a:hover {
-    text-decoration: underline;
-  }
-</style>
-</head>
-<body>
-<div class="container">
-<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/L_Wim.png" style="border:1px solid black height:100px;width:400px;" alt="spotlight_dl4scivis" align="left">
-</div>
-  <div class="text">
-    <div class="title"><a name="L-Wim" href="https://ieeexplore.ieee.org/abstract/document/9974567">L-WiM: Collaborative exploration in immersive environments</a>
-    </div> 
-    <div class="authors">
-	    <span class="author"><b>Lixiang Zhao,</b></span>
-	    <span class="author">Nieyu Cao,</span>
-	    <span class="author">Shuqi He,</span>
-	    <span class="author">Hai-Ning Liang, and</span>
-	    <span class="author">Lingyun Yu</span>
-    </div>
-    <div>
-                  <span class="venue">ISMAR: <i>IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)</i>, 2022</span> /
-                  <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Papers/LWim.pdf">Paper</a></span>
-    </div>
-  </div>
-	</div>
-</body>
-</html>
-
 
 <hr>
 
