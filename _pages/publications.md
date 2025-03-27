@@ -10,6 +10,38 @@ author_profile: true
 <div class="Publications">
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+  .container {
+    display: flex;
+    align-items: flex-start; /* 垂直对齐方式 */
+  }
+  .img {
+    margin-right: 20px; /* 图片与文字之间的间距 */
+  }
+  .text {
+    max-width: 600px; /* 文字容器的最大宽度 */
+  }
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .authors, .venue, .tag {
+    font-size: 16px;
+  }
+  .tag a {
+    color: blue;
+    text-decoration: none;
+  }
+  .tag a:hover {
+    text-decoration: underline;
+  }
+</style>
 </head>
 <body>
 <div class="container">
