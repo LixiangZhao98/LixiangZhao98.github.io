@@ -77,7 +77,7 @@ author_profile: true
 
 
 
-
+<hr>
 <b> 2024 </b> 
 <br>
 
@@ -125,7 +125,7 @@ author_profile: true
       <span class="author">Tobias Isenberg,</span>
       <span class="author">Fuqi Xie,</span>
       <span class="author">Hai-Ning Liang, and</span>
-      <span class="author">Lingyun Yu</span>
+      <span class="author">Lingyun Yu*</span>
     </div>
     <div>
       <span class="venue">VIS: <i>IEEE Transactions on Visualization and Computer Graphics</i>, 2024</span> /
@@ -186,7 +186,7 @@ author_profile: true
 	    <span class="author">Hai-Ning Liang,</span>
 	    <span class="author">Yu Liu,</span>
 	    <span class="author">Yue Li, and</span>
-	    <span class="author">Lingyun Yu</span>
+	    <span class="author">Lingyun Yu*</span>
     </div>
     <div>
                   <span class="venue">CHI: <i>Late-Breaking Work, ACM CHI conference on Human Factors in Computing Systems</i>, 2024</span> /
