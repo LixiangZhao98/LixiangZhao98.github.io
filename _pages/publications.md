@@ -9,6 +9,75 @@ author_profile: true
 
 <div class="Publications">
 
+<b> 2025 </b> 
+<br>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+  .container {
+    display: flex;
+    align-items: flex-start; /* 垂直对齐方式 */
+  }
+  .img {
+    margin-right: 20px; /* 图片与文字之间的间距 */
+  }
+  .text {
+    max-width: 600px; /* 文字容器的最大宽度 */
+  }
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .authors, .venue, .tag {
+    font-size: 16px;
+  }
+  .tag a {
+    color: blue;
+    text-decoration: none;
+  }
+  .tag a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/Mozualization.png" style="border:1px solid black height:100px;width:400px;" alt="spotlight_dl4scivis" align="left">
+</div>
+  <div class="text">
+    <div class="title"><a name="Mozualization" href="https://programs.sigchi.org/chi/2025/program/content/194488">Mozualization: Craffing Music and Visual Representation with Multimodal AI</a>
+    </div> 
+    <div class="authors">
+	    <span class="author">Wanfang Xu,</span>
+	    <span class="author"><b>Lixiang Zhao,</b></span>
+	    <span class="author">Haiwen Song,</span>
+	    <span class="author">Xinheng Song,</span>
+	    <span class="author">Zhaolin Lu, and</span>
+	    <span class="author">Yu Liu, and</span>
+	    <span class="author">Min Chen, and</span>
+	    <span class="author">Eng Gee Lim, and</span>
+	    <span class="author">Lingyun Yu*</span>
+    </div>
+    <div>
+                  <span class="venue">CHI: <i>Late-Breaking Work, ACM CHI conference on Human Factors in Computing Systems</i>, 2025</span> /
+                  <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Papers/Mozualization.pdf">Paper</a></span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
 <b> 2024 </b> 
 <br>
 
