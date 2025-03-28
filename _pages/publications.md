@@ -71,9 +71,63 @@ author_profile: true
 </body>
 </html>
 
+<br>
 
-
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+  .container {
+    display: flex;
+    align-items: flex-start; /* 垂直对齐方式 */
+  }
+  .img {
+    margin-right: 20px; /* 图片与文字之间的间距 */
+  }
+  .text {
+    max-width: 600px; /* 文字容器的最大宽度 */
+  }
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .authors, .venue, .tag {
+    font-size: 16px;
+  }
+  .tag a {
+    color: blue;
+    text-decoration: none;
+  }
+  .tag a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/storyline.png" style="border:1px solid black height:100px;width:400px;" alt="spotlight_dl4scivis" align="left">
+</div>
+  <div class="text">
+    <div class="title"><a name="3DStoryline" href="https://doi.org/10.1007/s12650-025-01058-5">3DStoryline: immersive visual storytelling</a>
+    </div> 
+    <div class="authors">
+	    <span class="author">Haonan Yao,</span>
+	    <span class="author"><b>Lixiang Zhao,</b></span>
+	    <span class="author">Boyuan Chen,</span>
+	    <span class="author">Kaiwen Li,</span>
+	    <span class="author">Hai-Ning Liang, and</span>
+	    <span class="author">Lingyun Yu*</span>
+    </div>
+    <div>
+                  <span class="venue">JOV: <i>Journal of Visualization</i>, 2025</span> /
+                  <span class="tag"><a href="https://LixiangZhao98.github.io/assets/Publications/Papers/3DStoryline immersive visual storytelling.pdf">Paper</a></span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
 
 
 
@@ -246,7 +300,7 @@ author_profile: true
 	    <span class="author">Tobias Isenberg,</span>
 	    <span class="author">Fuqi Xie,</span>
 	    <span class="author">Hai-Ning Liang, and</span>
-	    <span class="author">Lingyun Yu</span>
+	    <span class="author">Lingyun Yu*</span>
     </div>
     <div>
                   <span class="venue">VIS: <i>IEEE Transactions on Visualization and Computer Graphics</i>, 2024</span> /
@@ -306,7 +360,7 @@ author_profile: true
 	    <span class="author">Jiayin Li,</span>
 	    <span class="author"><b>Lixiang Zhao,</b></span>
 	    <span class="author">Hai-Ning Liang, and</span>
-	    <span class="author">Lingyun Yu</span>
+	    <span class="author">Lingyun Yu*</span>
     </div>
     <div>
                   <span class="venue">ISMAR: <i>IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)</i>, 2023</span> /
@@ -368,7 +422,7 @@ author_profile: true
 	    <span class="author">Nieyu Cao,</span>
 	    <span class="author">Shuqi He,</span>
 	    <span class="author">Hai-Ning Liang, and</span>
-	    <span class="author">Lingyun Yu</span>
+	    <span class="author">Lingyun Yu*</span>
     </div>
     <div>
                   <span class="venue">ISMAR: <i>IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)</i>, 2022</span> /
