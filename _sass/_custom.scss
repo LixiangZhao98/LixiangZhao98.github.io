@@ -614,14 +614,133 @@ body {
   margin-top: 0.55rem;
 }
 
+.cv-page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 5.5rem 1.25rem 4rem;
+}
+
+.cv-hero {
+  padding: 1.35rem 1.45rem;
+}
+
+.cv-title {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 2rem;
+  line-height: 1.1;
+  letter-spacing: 0;
+  text-transform: lowercase;
+}
+
+.cv-hero p {
+  max-width: 680px;
+  margin: 0.55rem 0 0;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.cv-pdf-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05)),
+    rgba(4, 10, 26, 0.5);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  color: rgba(255, 232, 184, 0.94);
+  font-size: 1rem;
+  text-decoration: none;
+  transition: transform 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.cv-pdf-icon:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 232, 184, 0.56);
+  color: rgba(255, 255, 255, 1);
+}
+
 .cv-card {
-  margin-top: 5.5rem;
-  padding: 1.5rem;
+  margin-top: 1rem;
+  padding: 1.35rem 1.45rem 0.35rem;
   color: rgba(255, 255, 255, 0.82);
 }
 
-.cv-card p {
+.cv-section {
+  padding: 1.35rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.cv-section:first-child {
+  padding-top: 0.2rem;
+  border-top: 0;
+}
+
+.cv-section h2 {
+  margin: 0 0 0.95rem;
+  color: rgba(125, 211, 252, 0.96);
+  font-size: 1.02rem;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.cv-timeline {
   margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cv-entry {
+  display: grid;
+  grid-template-columns: minmax(8.2rem, 0.28fr) 1fr;
+  gap: 1.1rem;
+  padding: 0.78rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cv-entry:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.cv-entry__side {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  color: rgba(255, 232, 184, 0.82);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.cv-entry__side span + span {
+  color: rgba(255, 255, 255, 0.48);
+  font-weight: 600;
+}
+
+.cv-entry__body h3 {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.98rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.cv-entry__body p {
+  margin: 0.22rem 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9rem;
+  line-height: 1.52;
+}
+
+.cv-timeline--compact .cv-entry {
+  padding: 0.58rem 0;
 }
 
 .feature__wrapper {
@@ -813,6 +932,30 @@ body {
 
   .home-hero__title {
     font-size: 2rem;
+  }
+
+  .cv-page {
+    padding: 4.2rem 1rem 2.5rem;
+  }
+
+  .cv-hero,
+  .cv-card {
+    padding: 1.1rem;
+  }
+
+  .cv-title {
+    font-size: 1.8rem;
+  }
+
+  .cv-entry {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .cv-entry__side {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
   }
 
   .pub-card {
