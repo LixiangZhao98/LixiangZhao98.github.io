@@ -18,11 +18,24 @@ redirect_from:
       </p>
     </div>
     <nav class="academic-home__quick-links" aria-label="Profile links">
-      <a class="btn btn--glass" href="mailto:{{ site.author.email }}">Email</a>
-      {% if site.author.googlescholar %}<a class="btn btn--glass" href="{{ site.author.googlescholar }}">Google Scholar</a>{% endif %}
-      {% if site.author.orcid %}<a class="btn btn--glass" href="{{ site.author.orcid }}">ORCID</a>{% endif %}
-      {% if site.author.github %}<a class="btn btn--glass" href="https://github.com/{{ site.author.github }}">GitHub</a>{% endif %}
-      <a class="btn btn--glass" href="/publications/">Publications</a>
+      <a class="profile-icon" href="mailto:{{ site.author.email }}" aria-label="Email" title="Email">
+        <i class="fas fa-envelope" aria-hidden="true"></i>
+      </a>
+      {% if site.author.googlescholar %}
+        <a class="profile-icon" href="{{ site.author.googlescholar }}" aria-label="Google Scholar" title="Google Scholar">
+          <i class="ai ai-google-scholar" aria-hidden="true"></i>
+        </a>
+      {% endif %}
+      {% if site.author.orcid %}
+        <a class="profile-icon" href="{{ site.author.orcid }}" aria-label="ORCID" title="ORCID">
+          <i class="ai ai-orcid" aria-hidden="true"></i>
+        </a>
+      {% endif %}
+      {% if site.author.github %}
+        <a class="profile-icon" href="https://github.com/{{ site.author.github }}" aria-label="GitHub" title="GitHub">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      {% endif %}
     </nav>
   </header>
 
@@ -58,20 +71,16 @@ redirect_from:
         <table>
           <tbody>
             <tr>
-              <th scope="row">2025</th>
-              <td><em>Mozualization</em> appeared at CHI Late-Breaking Work.</td>
-            </tr>
-            <tr>
-              <th scope="row">2025</th>
-              <td><em>3DStoryline: Immersive Visual Storytelling</em> was published in <em>Journal of Visualization</em>.</td>
-            </tr>
-            <tr>
               <th scope="row">2024</th>
               <td><em>SpatialTouch</em> was published in <em>IEEE Transactions on Visualization and Computer Graphics</em>.</td>
             </tr>
             <tr>
               <th scope="row">2023</th>
               <td><em>MeTACAST</em> was published in <em>IEEE Transactions on Visualization and Computer Graphics</em>.</td>
+            </tr>
+            <tr>
+              <th scope="row">2022</th>
+              <td><em>L-WiM</em> appeared at <em>IEEE International Symposium on Mixed and Augmented Reality Adjunct</em>.</td>
             </tr>
           </tbody>
         </table>
@@ -80,7 +89,7 @@ redirect_from:
 
     <section class="academic-section">
       <h2 class="academic-heading"><a href="/publications/">selected publications</a></h2>
-      {% assign selected_ids = "spatialtouch,metacast,mozualization,3dstoryline" | split: "," %}
+      {% assign selected_ids = "spatialtouch,metacast,l-wim" | split: "," %}
       <ol class="selected-publications">
         {% for selected_id in selected_ids %}
           {% for group in site.data.publications %}

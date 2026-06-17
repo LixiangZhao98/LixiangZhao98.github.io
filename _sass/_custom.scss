@@ -3,40 +3,45 @@
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(1200px 800px at 20% 10%, rgba(56, 189, 248, 0.12), transparent 60%),
-    radial-gradient(1000px 700px at 80% 30%, rgba(167, 139, 250, 0.12), transparent 55%),
-    radial-gradient(900px 600px at 50% 90%, rgba(34, 211, 238, 0.08), transparent 55%),
-    linear-gradient(180deg, #050816 0%, #030712 100%);
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 18% 18%, rgba(67, 199, 255, 0.28), transparent 32%),
+    radial-gradient(ellipse at 78% 26%, rgba(221, 121, 255, 0.22), transparent 34%),
+    radial-gradient(ellipse at 55% 82%, rgba(255, 191, 94, 0.1), transparent 30%),
+    linear-gradient(180deg, #050816 0%, #050713 46%, #02040d 100%);
 }
 
 .site-bg::before,
 .site-bg::after {
   content: "";
   position: absolute;
-  inset: -20%;
-  background-repeat: repeat;
-  background-size: 240px 240px;
-  mix-blend-mode: screen;
-  opacity: 0.75;
-  filter: blur(0.2px);
+  inset: -28%;
   transform: translateZ(0);
-  animation: star-drift 40s linear infinite;
+  will-change: transform, opacity;
 }
 
 .site-bg::before {
-  background-image: radial-gradient(circle at 20px 30px, rgba(255, 255, 255, 0.95) 1px, transparent 1.6px),
-    radial-gradient(circle at 120px 180px, rgba(255, 255, 255, 0.75) 1px, transparent 1.8px),
-    radial-gradient(circle at 200px 90px, rgba(255, 255, 255, 0.85) 1px, transparent 1.7px),
-    radial-gradient(circle at 60px 210px, rgba(255, 255, 255, 0.65) 1px, transparent 1.8px);
+  background:
+    radial-gradient(ellipse at 28% 42%, rgba(92, 216, 255, 0.36), transparent 28%),
+    radial-gradient(ellipse at 52% 48%, rgba(160, 118, 255, 0.28), transparent 26%),
+    radial-gradient(ellipse at 66% 42%, rgba(255, 119, 194, 0.23), transparent 24%),
+    radial-gradient(ellipse at 48% 55%, rgba(255, 226, 151, 0.12), transparent 18%),
+    conic-gradient(from 232deg at 52% 48%, transparent 0deg, rgba(102, 232, 255, 0.12) 34deg, rgba(214, 128, 255, 0.2) 78deg, rgba(255, 216, 145, 0.08) 114deg, transparent 150deg);
+  filter: blur(34px) saturate(1.25);
+  mix-blend-mode: screen;
+  opacity: 0.82;
+  animation: nebula-drift 34s ease-in-out infinite alternate;
 }
 
 .site-bg::after {
-  background-size: 320px 320px;
-  background-image: radial-gradient(circle at 40px 50px, rgba(125, 211, 252, 0.9) 1px, transparent 2px),
-    radial-gradient(circle at 220px 220px, rgba(196, 181, 253, 0.85) 1px, transparent 2.2px),
-    radial-gradient(circle at 160px 90px, rgba(34, 211, 238, 0.8) 1px, transparent 2.2px);
-  opacity: 0.55;
-  animation-duration: 65s;
+  background-size: 220px 220px, 340px 340px, 520px 520px;
+  background-image:
+    radial-gradient(circle at 20px 30px, rgba(255, 255, 255, 0.95) 1px, transparent 1.7px),
+    radial-gradient(circle at 120px 180px, rgba(125, 211, 252, 0.85) 1.15px, transparent 2px),
+    radial-gradient(circle at 430px 120px, rgba(255, 232, 184, 0.78) 1.2px, transparent 2.1px);
+  mix-blend-mode: screen;
+  opacity: 0.72;
+  animation: star-drift 58s linear infinite, star-twinkle 5.5s ease-in-out infinite alternate;
 }
 
 @keyframes star-drift {
@@ -44,7 +49,32 @@
     transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate3d(-160px, 120px, 0);
+    transform: translate3d(-130px, 96px, 0);
+  }
+}
+
+@keyframes nebula-drift {
+  0% {
+    transform: translate3d(-2%, 1%, 0) rotate(-7deg) scale(1.02);
+  }
+  100% {
+    transform: translate3d(3%, -2%, 0) rotate(5deg) scale(1.1);
+  }
+}
+
+@keyframes star-twinkle {
+  0% {
+    opacity: 0.52;
+  }
+  100% {
+    opacity: 0.86;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-bg::before,
+  .site-bg::after {
+    animation: none;
   }
 }
 
@@ -232,6 +262,34 @@ body {
   gap: 0.55rem;
 }
 
+.profile-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.45rem;
+  height: 2.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04)),
+    rgba(4, 10, 26, 0.46);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.26), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1.1rem;
+  text-decoration: none !important;
+  backdrop-filter: blur(12px);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.profile-icon:hover {
+  transform: translateY(-2px);
+  border-color: rgba(125, 211, 252, 0.62);
+  background:
+    linear-gradient(135deg, rgba(125, 211, 252, 0.22), rgba(221, 121, 255, 0.12)),
+    rgba(4, 10, 26, 0.6);
+  color: rgba(255, 255, 255, 1) !important;
+}
+
 .academic-home__body {
   margin-top: 1rem;
   padding: 1.5rem;
@@ -246,6 +304,9 @@ body {
 .academic-profile__photo {
   display: block;
   width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
   border-radius: 12px;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.32);
 }
