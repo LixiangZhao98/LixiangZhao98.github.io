@@ -424,7 +424,7 @@ body {
 }
 
 .selected-publication__title a {
-  color: rgba(255, 255, 255, 0.94);
+  color: rgba(244, 249, 255, 0.96);
   text-decoration: none;
 }
 
@@ -441,15 +441,34 @@ body {
 
 .selected-publication__meta a,
 .pub-card__meta a {
-  color: rgba(125, 211, 252, 0.95);
+  color: rgba(166, 215, 245, 0.92);
   text-decoration: none;
-  border-bottom: 1px solid rgba(125, 211, 252, 0.32);
+  border-bottom: 1px solid rgba(166, 215, 245, 0.24);
 }
 
 .selected-publication__meta a:hover,
 .pub-card__meta a:hover {
   color: rgba(255, 255, 255, 0.96);
   border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+
+.selected-publication__meta strong a,
+.pub-card__meta strong a {
+  display: inline-block;
+  padding: 0.02rem 0.24rem;
+  border: 1px solid rgba(255, 218, 118, 0.4);
+  border-radius: 6px;
+  background: rgba(255, 218, 118, 0.13);
+  color: rgba(255, 244, 199, 0.98);
+  font-weight: 800;
+  text-shadow: 0 0 14px rgba(255, 218, 118, 0.34);
+}
+
+.selected-publication__meta strong a:hover,
+.pub-card__meta strong a:hover {
+  border-color: rgba(255, 232, 162, 0.68);
+  background: rgba(255, 218, 118, 0.2);
+  color: rgba(255, 255, 255, 1);
 }
 
 .selected-publication__links {
@@ -529,6 +548,15 @@ body {
 .pub-card__title {
   font-size: 1.05rem;
   margin: 0;
+}
+
+.pub-card__title a {
+  color: rgba(244, 249, 255, 0.96);
+  text-decoration: none;
+}
+
+.pub-card__title a:hover {
+  color: rgba(125, 211, 252, 0.96);
 }
 
 .pub-card__meta {
