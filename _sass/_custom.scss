@@ -5,82 +5,75 @@
   pointer-events: none;
   overflow: hidden;
   background:
-    linear-gradient(115deg, rgba(2, 6, 23, 0.34), rgba(9, 5, 18, 0.74) 52%, rgba(2, 6, 23, 0.9)),
-    url("/assets/backgrounds/pillars-of-creation.jpg") center / cover no-repeat;
-  animation: cosmos-base-drift 44s ease-in-out infinite alternate;
+    radial-gradient(ellipse at 18% 18%, rgba(67, 199, 255, 0.28), transparent 32%),
+    radial-gradient(ellipse at 78% 26%, rgba(221, 121, 255, 0.22), transparent 34%),
+    radial-gradient(ellipse at 55% 82%, rgba(255, 191, 94, 0.1), transparent 30%),
+    linear-gradient(180deg, #050816 0%, #050713 46%, #02040d 100%);
 }
 
 .site-bg::before,
 .site-bg::after {
   content: "";
   position: absolute;
-  inset: -8%;
+  inset: -28%;
   transform: translateZ(0);
   will-change: transform, opacity;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .site-bg::before {
   background:
-    linear-gradient(115deg, rgba(2, 6, 23, 0.22), rgba(8, 6, 24, 0.72) 58%, rgba(2, 6, 23, 0.9)),
-    url("/assets/backgrounds/milky-way-panorama.jpg") center / cover no-repeat;
-  opacity: 0;
-  animation: cosmos-fade-one 42s ease-in-out infinite, cosmos-layer-drift 42s ease-in-out infinite alternate;
+    radial-gradient(ellipse at 28% 42%, rgba(92, 216, 255, 0.36), transparent 28%),
+    radial-gradient(ellipse at 52% 48%, rgba(160, 118, 255, 0.28), transparent 26%),
+    radial-gradient(ellipse at 66% 42%, rgba(255, 119, 194, 0.23), transparent 24%),
+    radial-gradient(ellipse at 48% 55%, rgba(255, 226, 151, 0.12), transparent 18%),
+    conic-gradient(from 232deg at 52% 48%, transparent 0deg, rgba(102, 232, 255, 0.12) 34deg, rgba(214, 128, 255, 0.2) 78deg, rgba(255, 216, 145, 0.08) 114deg, transparent 150deg);
+  filter: blur(34px) saturate(1.25);
+  mix-blend-mode: screen;
+  opacity: 0.82;
+  animation: nebula-drift 34s ease-in-out infinite alternate;
 }
 
 .site-bg::after {
   background:
-    radial-gradient(ellipse at 50% 50%, rgba(251, 146, 60, 0.08), transparent 38%),
-    linear-gradient(115deg, rgba(2, 6, 23, 0.2), rgba(8, 5, 14, 0.78) 54%, rgba(2, 6, 23, 0.94)),
-    url("/assets/backgrounds/m87-black-hole.jpg") center / cover no-repeat;
-  opacity: 0;
-  animation: cosmos-fade-two 42s ease-in-out infinite, cosmos-layer-drift-alt 42s ease-in-out infinite alternate;
+    radial-gradient(circle at 20px 30px, rgba(255, 255, 255, 0.95) 1px, transparent 1.7px),
+    radial-gradient(circle at 120px 180px, rgba(125, 211, 252, 0.85) 1.15px, transparent 2px),
+    radial-gradient(circle at 430px 120px, rgba(255, 232, 184, 0.78) 1.2px, transparent 2.1px),
+    linear-gradient(118deg, transparent 0 58%, rgba(255, 255, 255, 0.8) 58.15%, rgba(125, 211, 252, 0.42) 58.7%, transparent 62%),
+    radial-gradient(circle at 58% 39%, rgba(255, 255, 255, 0.95) 0 2px, rgba(125, 211, 252, 0.38) 3px, transparent 7px),
+    linear-gradient(112deg, transparent 0 27%, rgba(255, 232, 184, 0.72) 27.2%, rgba(221, 121, 255, 0.34) 27.8%, transparent 31%),
+    radial-gradient(circle at 27% 61%, rgba(255, 255, 255, 0.86) 0 1.6px, rgba(255, 232, 184, 0.34) 2.8px, transparent 7px),
+    linear-gradient(126deg, transparent 0 72%, rgba(255, 255, 255, 0.62) 72.15%, rgba(125, 211, 252, 0.24) 72.85%, transparent 75%);
+  background-size: 220px 220px, 340px 340px, 520px 520px, 900px 900px, 1100px 1100px, 1250px 1250px, 1250px 1250px, 1450px 1450px;
+  filter: drop-shadow(0 0 10px rgba(125, 211, 252, 0.18));
+  mix-blend-mode: screen;
+  opacity: 0.74;
+  animation: star-drift 58s linear infinite, star-twinkle 5.5s ease-in-out infinite alternate;
 }
 
-@keyframes cosmos-base-drift {
+@keyframes star-drift {
   0% {
-    background-position: center, 50% 50%;
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    background-position: center, 55% 48%;
+    transform: translate3d(-130px, 96px, 0);
   }
 }
 
-@keyframes cosmos-layer-drift {
+@keyframes nebula-drift {
   0% {
-    transform: translate3d(-1.2%, 0.5%, 0) scale(1.06);
+    transform: translate3d(-2%, 1%, 0) rotate(-7deg) scale(1.02);
   }
   100% {
-    transform: translate3d(1.6%, -0.8%, 0) scale(1.13);
+    transform: translate3d(3%, -2%, 0) rotate(5deg) scale(1.1);
   }
 }
 
-@keyframes cosmos-layer-drift-alt {
+@keyframes star-twinkle {
   0% {
-    transform: translate3d(1.2%, -0.8%, 0) scale(1.08);
+    opacity: 0.52;
   }
   100% {
-    transform: translate3d(-1.5%, 1.1%, 0) scale(1.16);
-  }
-}
-
-@keyframes cosmos-fade-one {
-  0%, 18%, 88%, 100% {
-    opacity: 0;
-  }
-  30%, 56% {
-    opacity: 0.78;
-  }
-}
-
-@keyframes cosmos-fade-two {
-  0%, 48%, 100% {
-    opacity: 0;
-  }
-  62%, 82% {
-    opacity: 0.7;
+    opacity: 0.86;
   }
 }
 
@@ -386,7 +379,7 @@ body {
 }
 
 .academic-news th {
-  width: 5.5rem;
+  width: 8.2rem;
   color: rgba(255, 255, 255, 0.64);
   font-weight: 700;
   white-space: nowrap;

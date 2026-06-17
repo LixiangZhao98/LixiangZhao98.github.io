@@ -71,8 +71,12 @@ redirect_from:
         <table>
           <tbody>
             <tr>
-              <th scope="row">2026</th>
-              <td><em>ScaleFree</em> appeared at <em>IEEE Conference on Virtual Reality and 3D User Interfaces</em>.</td>
+              <th scope="row">Jan 10, 2026</th>
+              <td>Our paper <a href="https://www.computer.org/csdl/proceedings-article/vr/2026/594500a358/2fmc6RGKEdG">“ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR”</a> is accepted by IEEE VR 2026!</td>
+            </tr>
+            <tr>
+              <th scope="row">Feb 03, 2026</th>
+              <td>I successfully defended my Ph.D. dissertation “Bridging Immersion Levels in Spatial Data Exploration: Visualization, Interaction, and Computing”!</td>
             </tr>
             <tr>
               <th scope="row">2024</th>
