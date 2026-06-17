@@ -51,14 +51,13 @@ redirect_from:
 
     <section class="academic-home__intro">
       <p>
-        I am a Ph.D. student working on Scientific Visualization (SciVis) and
-        Human-Computer Interaction (HCI), with a focus on immersive
-        visualization, spatial interaction, and cross-reality data exploration.
+        I am a Ph.D. student in Computer Science and Software Engineering at
+        Xi'an Jiaotong-Liverpool University.
       </p>
       <p>
-        My research explores how people perceive, select, manipulate, and make
-        sense of spatial data across virtual, augmented, and physical
-        environments.
+        My research focuses on immersive visualization, spatial interaction
+        techniques, and cross-reality environments for exploring complex
+        spatial data.
       </p>
       <p>
         Feel free to reach out by email if you are interested in collaboration.
