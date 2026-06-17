@@ -1,8 +1,8 @@
 ---
-layout: archive
-title: "Publications"
-permalink: /publications/
-author_profile: true
+layout: wide
+title: "Publications (Legacy)"
+permalink: /publications-legacy/
+author_profile: false
 ---
 
 

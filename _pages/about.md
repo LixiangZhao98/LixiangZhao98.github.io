@@ -1,40 +1,112 @@
 ---
 permalink: /
-title: "About"
-author_profile: true
-redirect_from: 
+layout: splash
+title: "Home"
+author_profile: false
+redirect_from:
   - /about/
   - /about.html
 ---
 
+<main class="academic-home">
+  <header class="academic-home__header glass-card">
+    <div>
+      <h1 class="academic-home__title">{{ site.author.name }}</h1>
+      <p class="academic-home__desc">
+        Ph.D. student in Computer Science and Software Engineering,
+        Xi'an Jiaotong-Liverpool University.
+      </p>
+    </div>
+    <nav class="academic-home__quick-links" aria-label="Profile links">
+      <a class="btn btn--glass" href="mailto:{{ site.author.email }}">Email</a>
+      {% if site.author.googlescholar %}<a class="btn btn--glass" href="{{ site.author.googlescholar }}">Google Scholar</a>{% endif %}
+      {% if site.author.orcid %}<a class="btn btn--glass" href="{{ site.author.orcid }}">ORCID</a>{% endif %}
+      {% if site.author.github %}<a class="btn btn--glass" href="https://github.com/{{ site.author.github }}">GitHub</a>{% endif %}
+      <a class="btn btn--glass" href="/publications/">Publications</a>
+    </nav>
+  </header>
 
+  <article class="academic-home__body glass-card">
+    <aside class="academic-profile">
+      <img class="academic-profile__photo" src="/images/{{ site.author.avatar }}" alt="{{ site.author.name }}">
+      <div class="academic-profile__info">
+        <p>VIIS Lab</p>
+        <p>Xi'an Jiaotong-Liverpool University</p>
+        {% if site.author.location %}<p>{{ site.author.location }}</p>{% endif %}
+      </div>
+    </aside>
 
-I am a 4th year Ph.D. student at VIIS lab in Xi'an Jiaotong-Liverpool University, supervised by Dr. [Lingyun Yu](https://yulingyun.com/). My research focuses on Scientific Visualization (SciVis) and Human-Computer Interaction (HCI). My work is dedicated to designing and evaluating spatial interaction techniques and visualization techniques tailored to specific scientific domains, including astronomy and biomedicine, within Extended-Reality (XR) environments. 
+    <section class="academic-home__intro">
+      <p>
+        I am a Ph.D. student working on Scientific Visualization (SciVis) and
+        Human-Computer Interaction (HCI), with a focus on immersive
+        visualization, spatial interaction, and cross-reality data exploration.
+      </p>
+      <p>
+        My research explores how people perceive, select, manipulate, and make
+        sense of spatial data across virtual, augmented, and physical
+        environments.
+      </p>
+      <p>
+        Feel free to reach out by email if you are interested in collaboration.
+      </p>
+    </section>
 
-<br>
-<hr>
-  
+    <section class="academic-section">
+      <h2 class="academic-heading">news</h2>
+      <div class="academic-news">
+        <table>
+          <tbody>
+            <tr>
+              <th scope="row">2025</th>
+              <td><em>Mozualization</em> appeared at CHI Late-Breaking Work.</td>
+            </tr>
+            <tr>
+              <th scope="row">2025</th>
+              <td><em>3DStoryline: Immersive Visual Storytelling</em> was published in <em>Journal of Visualization</em>.</td>
+            </tr>
+            <tr>
+              <th scope="row">2024</th>
+              <td><em>SpatialTouch</em> was published in <em>IEEE Transactions on Visualization and Computer Graphics</em>.</td>
+            </tr>
+            <tr>
+              <th scope="row">2023</th>
+              <td><em>MeTACAST</em> was published in <em>IEEE Transactions on Visualization and Computer Graphics</em>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-Immersive Visualization and Interaction
-======
-
-
-<div class="img"><img class="img_responsive" src="http://LixiangZhao98.github.io/assets/Publications/Figures/MeTACAST.jpg" style="border:1px solid black height:200px;width:1000px;" alt="MeTACAST.png" align="top">
-</div>
-  <div class="text">
-   Immersive environments, including <b>virtual, augmented, and mixed reality</b>, offer users an engaging avenue to interact with presented information. However, they also pose challenges in the context of data exploration, such as occlusion and imprecise inputs. Additionally, these environments break the constraints of limited space inherent in 2D screens, the indirect interaction methods of keyboards and mice, and the traditional approaches to collaborative exploration. My focus revolves around delving into multiple facets of immersive visualizations and interactions, encompassing elements like <b>engaging displays, embodied interaction, situated visualization, user behaviors, and experiences</b>.
-    </div> 
-
-<br>
-
-<hr>
-
-Spatial Data Exploration in Cross-reality (CR)
-======
-<div class="img"><img class="img_responsive" src="https://LixiangZhao98.github.io/assets/Publications/Figures/Cross_reality.png" style="border:1px solid black height:200px;width:1000px;" alt="MeTACAST.png" align="top">
-</div>
-  <div class="text">
-Cross-reality is thus more than simply merging various levels of reality-virtuality continuum (RVC), where spatial data is either positioned at a single space or moved to another place. Instead, it stands as an innovative and integrated environment for data presentation and exploration. Holding this vision, spatial data can appear in any form and at any corner of the environment, tailored to the specific needs of each scientific domain. For understanding data or completing tasks, it is crucial to allow users to <b>control data transformations</b>, such as transforming data across spaces or change visual representations. Yet, the most critical aspect to consider is <b>why CR is the appropriate choice for the task and data</b>. This rationale shapes all other design aspects: <b>the choices of environment, visualization, and interaction designs</b>.
-
-    </div> 
-
+    <section class="academic-section">
+      <h2 class="academic-heading"><a href="/publications/">selected publications</a></h2>
+      {% assign selected_ids = "spatialtouch,metacast,mozualization,3dstoryline" | split: "," %}
+      <ol class="selected-publications">
+        {% for selected_id in selected_ids %}
+          {% for group in site.data.publications %}
+            {% assign pub = group.items | where: "id", selected_id | first %}
+            {% if pub %}
+              <li id="home-{{ pub.id }}" class="selected-publication">
+                <div class="selected-publication__image">
+                  <img src="{{ pub.image }}" alt="{{ pub.title }}">
+                </div>
+                <div class="selected-publication__body">
+                  <h3 class="selected-publication__title"><a href="{{ pub.url }}">{{ pub.title }}</a></h3>
+                  {% if pub.authors %}<div class="selected-publication__meta">{{ pub.authors }}</div>{% endif %}
+                  {% if pub.venue %}<div class="selected-publication__meta"><em>{{ pub.venue }}</em></div>{% endif %}
+                  {% if pub.links and pub.links.size > 0 %}
+                    <div class="selected-publication__links">
+                      {% for link in pub.links %}
+                        <a class="pub-chip" href="{{ link.url }}">{{ link.label }}</a>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </div>
+              </li>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </ol>
+    </section>
+  </article>
+</main>

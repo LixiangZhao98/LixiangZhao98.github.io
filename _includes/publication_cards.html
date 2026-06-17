@@ -1,0 +1,26 @@
+{% assign pub_groups = site.data.publications %}
+
+{% for group in pub_groups %}
+  <h2 class="pub-year reveal">{{ group.year }}</h2>
+
+  {% for pub in group.items %}
+    <div id="{{ pub.id }}" class="pub-card reveal">
+      <div class="pub-card__img">
+        <img src="{{ pub.image }}" alt="{{ pub.title }}">
+      </div>
+      <div class="pub-card__body">
+        <h3 class="pub-card__title"><a href="{{ pub.url }}">{{ pub.title }}</a></h3>
+        {% if pub.authors %}<div class="pub-card__meta">{{ pub.authors }}</div>{% endif %}
+        {% if pub.venue %}<div class="pub-card__meta">{{ pub.venue }}</div>{% endif %}
+        {% if pub.links and pub.links.size > 0 %}
+          <div class="pub-card__links">
+            {% for link in pub.links %}
+              <a class="pub-chip" href="{{ link.url }}">{{ link.label }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+{% endfor %}
+

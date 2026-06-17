@@ -3,6 +3,10 @@
    ========================================================================== */
 
 $(document).ready(function(){
+  $(window).on("load", function() {
+    document.documentElement.classList.remove("is-loading");
+  });
+
   // Sticky footer
   var bumpIt = function() {
       $("body").css("margin-bottom", $(".page__footer").outerHeight(true));
@@ -95,5 +99,29 @@ $(document).ready(function(){
     closeOnContentClick: true,
     midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
   });
+
+  var revealElements = document.querySelectorAll(".reveal, .Publications .container");
+  if (revealElements.length) {
+    if ("IntersectionObserver" in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -10% 0px", threshold: 0.1 });
+
+      revealElements.forEach(function(el) {
+        el.classList.add("reveal");
+        observer.observe(el);
+      });
+    } else {
+      revealElements.forEach(function(el) {
+        el.classList.add("reveal");
+        el.classList.add("is-visible");
+      });
+    }
+  }
 
 });

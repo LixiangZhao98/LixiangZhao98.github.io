@@ -1,0 +1,98 @@
+- year: 2025
+  items:
+    - id: mozualization
+      title: "Mozualization: Crafting Music and Visual Representation with Multimodal AI"
+      url: "https://programs.sigchi.org/chi/2025/program/content/194488"
+      image: "https://LixiangZhao98.github.io/assets/Publications/Figures/Mozualization.png"
+      authors: "Wanfang Xu, <strong>Lixiang Zhao</strong>, Haiwen Song, Xinheng Song, Zhaolin Lu, Yu Liu, Min Chen, Eng Gee Lim, Lingyun Yu*"
+      venue: "CHI (LBW), 2025"
+      links:
+        - label: "Paper"
+          url: "https://LixiangZhao98.github.io/assets/Publications/Papers/Mozualization.pdf"
+    - id: 3dstoryline
+      title: "3DStoryline: Immersive Visual Storytelling"
+      url: "https://doi.org/10.1007/s12650-025-01058-5"
+      image: "https://LixiangZhao98.github.io/assets/Publications/Figures/storyline.png"
+      authors: "Haonan Yao, <strong>Lixiang Zhao</strong>, Boyuan Chen, Kaiwen Li, Hai-Ning Liang, Lingyun Yu*"
+      venue: "Journal of Visualization, 2025"
+      links:
+        - label: "Paper"
+          url: "https://LixiangZhao98.github.io/assets/Publications/Papers/3DStoryline immersive visual storytelling.pdf"
+
+- year: 2024
+  items:
+    - id: spatialtouch
+      title: "SpatialTouch: Exploring Spatial Data Visualizations in Cross-reality"
+      url: "https://arxiv.org/abs/2407.14833"
+      image: "https://LixiangZhao98.github.io/assets/Publications/Figures/Cross_reality.png"
+      authors: "<strong>Lixiang Zhao</strong>, Tobias Isenberg, Fuqi Xie, Hai-Ning Liang, Lingyun Yu*"
+      venue: "IEEE Transactions on Visualization and Computer Graphics (TVCG), 2024"
+      links:
+        - label: "Paper"
+          url: "https://arxiv.org/abs/2407.14833"
+        - label: "Video"
+          url: "https://www.youtube.com/watch?v=GUXvZKqg-7s"
+        - label: "Code"
+          url: "https://github.com/LixiangZhao98/Cross-Reality-Environment-SpatialTouch"
+        - label: "OSF"
+          url: "https://osf.io/avxr9"
+    - id: eea
+      title: "Exploring Embodied Asymmetric Two-Handed Interactions for Immersive Data Exploration"
+      url: "https://dl.acm.org/doi/10.1145/3613905.3650777"
+      image: "https://LixiangZhao98.github.io/assets/Publications/Figures/EEA.png"
+      authors: "Haonan Yao, <strong>Lixiang Zhao</strong>, Hai-Ning Liang, Yu Liu, Yue Li, Lingyun Yu*"
+      venue: "CHI (LBW), 2024"
+      links:
+        - label: "Paper"
+          url: "https://LixiangZhao98.github.io/assets/Publications/Papers/EEA.pdf"
+
+- year: 2023
+  items:
+    - id: metacast
+      title: "MeTACAST: Target-and Context-aware Spatial Selection in VR"
+      url: "https://ieeexplore.ieee.org/document/10292508/"
+      image: "https://LixiangZhao98.github.io/assets/Publications/Figures/MeTACAST.png"
+      authors: "<strong>Lixiang Zhao</strong>, Tobias Isenberg, Fuqi Xie, Hai-Ning Liang, Lingyun Yu*"
+      venue: "IEEE Transactions on Visualization and Computer Graphics (TVCG), 2023"
+      links:
+        - label: "Paper"
+          url: "https://LixiangZhao98.github.io/assets/Publications/Papers/MeTACAST.pdf"
+        - label: "Video"
+          url: "https://www.youtube.com/watch?v=R_WRfzgnOAM&t=1s"
+        - label: "Code"
+          url: "https://github.com/LixiangZhao98/MeTACAST"
+        - label: "Study"
+          url: "https://github.com/LixiangZhao98/MeTACAST-study"
+    - id: immerview
+      title: "ImmerView: Adaptive Multi-View Layout for Immersive Situated Visualizations"
+      url: "https://ieeexplore.ieee.org/abstract/document/10322236"
+      image: "https://LixiangZhao98.github.io/assets/Publications/Figures/ImmerView.png"
+      authors: "Jiayin Li, <strong>Lixiang Zhao</strong>, Hai-Ning Liang, Lingyun Yu*"
+      venue: "ISMAR-Adjunct, 2023"
+      links:
+        - label: "Paper"
+          url: "https://LixiangZhao98.github.io/assets/Publications/Papers/ImmerView.pdf"
+
+- year: 2022
+  items:
+    - id: l-wim
+      title: "L-WiM: Collaborative Exploration in Immersive Environments"
+      url: "https://ieeexplore.ieee.org/abstract/document/9974567"
+      image: "https://LixiangZhao98.github.io/assets/Publications/Figures/L_Wim.png"
+      authors: "<strong>Lixiang Zhao</strong>, Nieyu Cao, Shuqi He, Hai-Ning Liang, Lingyun Yu*"
+      venue: "ISMAR-Adjunct, 2022"
+      links:
+        - label: "Paper"
+          url: "https://LixiangZhao98.github.io/assets/Publications/Papers/LWim.pdf"
+
+- year: 2020
+  items:
+    - id: ihr
+      title: "Influence of Hand Representation Design on Presence and Embodiment in Virtual Environment"
+      url: "https://ieeexplore.ieee.org/abstract/document/9325719"
+      image: "https://LixiangZhao98.github.io/assets/Publications/Figures/IHR.png"
+      authors: "Jingjing Zhang, Mengjie Huang, <strong>Lixiang Zhao</strong>, Rui Yang, Hai-Ning Liang, Ji Han, Liu Wang, Wenxin Sun"
+      venue: "ISCID, 2020"
+      links:
+        - label: "Paper"
+          url: "https://LixiangZhao98.github.io/assets/Publications/Papers/IHR.pdf"

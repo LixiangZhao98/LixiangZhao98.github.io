@@ -1,11 +1,12 @@
 ---
-layout: archive
+layout: wide
 title: "CV"
 permalink: /cv/
-author_profile: true
-
+author_profile: false
 ---
-<br>
 
-
-[CV](https://LixiangZhao98.github.io/assets/Publications/CV/CV_Lixiang_Zhao.pdf)
+<div class="glass-card cv-card">
+  <p>
+    <a class="btn btn--glass" href="/assets/Publications/CV/CV_Lixiang_Zhao.pdf">Download CV</a>
+  </p>
+</div>
