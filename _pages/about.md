@@ -13,8 +13,10 @@ redirect_from:
     <div>
       <h1 class="academic-home__title">{{ site.author.name }}</h1>
       <p class="academic-home__desc">
-        Ph.D. student in Computer Science and Software Engineering,
-        Xi'an Jiaotong-Liverpool University.
+        <a href="https://www.xjtlu.edu.cn/en/study/departments/school-of-advanced-technology/computer-science-and-software-engineering">
+          School of Advanced Technology, Department of Computing,
+          Xi'an Jiaotong-Liverpool University.
+        </a>
       </p>
     </div>
     <nav class="academic-home__quick-links" aria-label="Profile links">
@@ -71,23 +73,11 @@ redirect_from:
           <tbody>
             <tr>
               <th scope="row">Jan 10, 2026</th>
-              <td>Our paper <a href="https://www.computer.org/csdl/proceedings-article/vr/2026/594500a358/2fmc6RGKEdG">“ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR”</a> is accepted by IEEE VR 2026!</td>
+              <td>Our paper <a href="https://www.computer.org/csdl/proceedings-article/vr/2026/594500a358/2fmc6RGKEdG">&ldquo;ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR&rdquo;</a> is accepted by IEEE VR 2026!</td>
             </tr>
             <tr>
               <th scope="row">Feb 03, 2026</th>
-              <td>I successfully defended my Ph.D. dissertation “Bridging Immersion Levels in Spatial Data Exploration: Visualization, Interaction, and Computing”!</td>
-            </tr>
-            <tr>
-              <th scope="row">2024</th>
-              <td><em>SpatialTouch</em> was published in <em>IEEE Transactions on Visualization and Computer Graphics</em>.</td>
-            </tr>
-            <tr>
-              <th scope="row">2023</th>
-              <td><em>MeTACAST</em> was published in <em>IEEE Transactions on Visualization and Computer Graphics</em>.</td>
-            </tr>
-            <tr>
-              <th scope="row">2022</th>
-              <td><em>L-WiM</em> appeared at <em>IEEE International Symposium on Mixed and Augmented Reality Adjunct</em>.</td>
+              <td>I successfully defended my Ph.D. dissertation &ldquo;Bridging Immersion Levels in Spatial Data Exploration: Visualization, Interaction, and Computing&rdquo;!</td>
             </tr>
           </tbody>
         </table>
