@@ -5,73 +5,87 @@
   pointer-events: none;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 18% 18%, rgba(67, 199, 255, 0.28), transparent 32%),
-    radial-gradient(ellipse at 78% 26%, rgba(221, 121, 255, 0.22), transparent 34%),
-    radial-gradient(ellipse at 55% 82%, rgba(255, 191, 94, 0.1), transparent 30%),
-    linear-gradient(180deg, #050816 0%, #050713 46%, #02040d 100%);
+    linear-gradient(115deg, rgba(2, 6, 23, 0.34), rgba(9, 5, 18, 0.74) 52%, rgba(2, 6, 23, 0.9)),
+    url("/assets/backgrounds/pillars-of-creation.jpg") center / cover no-repeat;
+  animation: cosmos-base-drift 44s ease-in-out infinite alternate;
 }
 
 .site-bg::before,
 .site-bg::after {
   content: "";
   position: absolute;
-  inset: -28%;
+  inset: -8%;
   transform: translateZ(0);
   will-change: transform, opacity;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .site-bg::before {
   background:
-    radial-gradient(ellipse at 28% 42%, rgba(92, 216, 255, 0.36), transparent 28%),
-    radial-gradient(ellipse at 52% 48%, rgba(160, 118, 255, 0.28), transparent 26%),
-    radial-gradient(ellipse at 66% 42%, rgba(255, 119, 194, 0.23), transparent 24%),
-    radial-gradient(ellipse at 48% 55%, rgba(255, 226, 151, 0.12), transparent 18%),
-    conic-gradient(from 232deg at 52% 48%, transparent 0deg, rgba(102, 232, 255, 0.12) 34deg, rgba(214, 128, 255, 0.2) 78deg, rgba(255, 216, 145, 0.08) 114deg, transparent 150deg);
-  filter: blur(34px) saturate(1.25);
-  mix-blend-mode: screen;
-  opacity: 0.82;
-  animation: nebula-drift 34s ease-in-out infinite alternate;
+    linear-gradient(115deg, rgba(2, 6, 23, 0.22), rgba(8, 6, 24, 0.72) 58%, rgba(2, 6, 23, 0.9)),
+    url("/assets/backgrounds/milky-way-panorama.jpg") center / cover no-repeat;
+  opacity: 0;
+  animation: cosmos-fade-one 42s ease-in-out infinite, cosmos-layer-drift 42s ease-in-out infinite alternate;
 }
 
 .site-bg::after {
-  background-size: 220px 220px, 340px 340px, 520px 520px;
-  background-image:
-    radial-gradient(circle at 20px 30px, rgba(255, 255, 255, 0.95) 1px, transparent 1.7px),
-    radial-gradient(circle at 120px 180px, rgba(125, 211, 252, 0.85) 1.15px, transparent 2px),
-    radial-gradient(circle at 430px 120px, rgba(255, 232, 184, 0.78) 1.2px, transparent 2.1px);
-  mix-blend-mode: screen;
-  opacity: 0.72;
-  animation: star-drift 58s linear infinite, star-twinkle 5.5s ease-in-out infinite alternate;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(251, 146, 60, 0.08), transparent 38%),
+    linear-gradient(115deg, rgba(2, 6, 23, 0.2), rgba(8, 5, 14, 0.78) 54%, rgba(2, 6, 23, 0.94)),
+    url("/assets/backgrounds/m87-black-hole.jpg") center / cover no-repeat;
+  opacity: 0;
+  animation: cosmos-fade-two 42s ease-in-out infinite, cosmos-layer-drift-alt 42s ease-in-out infinite alternate;
 }
 
-@keyframes star-drift {
+@keyframes cosmos-base-drift {
   0% {
-    transform: translate3d(0, 0, 0);
+    background-position: center, 50% 50%;
   }
   100% {
-    transform: translate3d(-130px, 96px, 0);
-  }
-}
-
-@keyframes nebula-drift {
-  0% {
-    transform: translate3d(-2%, 1%, 0) rotate(-7deg) scale(1.02);
-  }
-  100% {
-    transform: translate3d(3%, -2%, 0) rotate(5deg) scale(1.1);
+    background-position: center, 55% 48%;
   }
 }
 
-@keyframes star-twinkle {
+@keyframes cosmos-layer-drift {
   0% {
-    opacity: 0.52;
+    transform: translate3d(-1.2%, 0.5%, 0) scale(1.06);
   }
   100% {
-    opacity: 0.86;
+    transform: translate3d(1.6%, -0.8%, 0) scale(1.13);
+  }
+}
+
+@keyframes cosmos-layer-drift-alt {
+  0% {
+    transform: translate3d(1.2%, -0.8%, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-1.5%, 1.1%, 0) scale(1.16);
+  }
+}
+
+@keyframes cosmos-fade-one {
+  0%, 18%, 88%, 100% {
+    opacity: 0;
+  }
+  30%, 56% {
+    opacity: 0.78;
+  }
+}
+
+@keyframes cosmos-fade-two {
+  0%, 48%, 100% {
+    opacity: 0;
+  }
+  62%, 82% {
+    opacity: 0.7;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .site-bg,
   .site-bg::before,
   .site-bg::after {
     animation: none;
@@ -196,7 +210,7 @@ body {
   color: rgba(255, 255, 255, 0.78);
   font-size: 0.9rem;
   font-weight: 500;
-  text-transform: lowercase;
+  text-transform: none;
 }
 
 .greedy-nav a:hover {
@@ -214,14 +228,7 @@ body {
 }
 
 .page__footer {
-  background: rgba(3, 7, 18, 0.74);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.66);
-  backdrop-filter: blur(14px);
-}
-
-.page__footer footer {
-  max-width: 980px;
+  display: none;
 }
 
 .academic-home {
@@ -439,6 +446,19 @@ body {
   line-height: 1.45;
 }
 
+.selected-publication__meta a,
+.pub-card__meta a {
+  color: rgba(125, 211, 252, 0.95);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(125, 211, 252, 0.32);
+}
+
+.selected-publication__meta a:hover,
+.pub-card__meta a:hover {
+  color: rgba(255, 255, 255, 0.96);
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+
 .selected-publication__links {
   display: flex;
   flex-wrap: wrap;
@@ -544,6 +564,53 @@ body {
 
 .pub-chip:hover {
   background: rgba(255, 255, 255, 0.14);
+}
+
+.teaching-card {
+  margin-top: 5.5rem;
+  padding: 1.5rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.teaching-card p {
+  margin: 0 0 1rem;
+}
+
+.teaching-table {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+.teaching-table tbody,
+.teaching-table tr {
+  border: 0;
+}
+
+.teaching-table th,
+.teaching-table td {
+  padding: 0.45rem 0.25rem;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  vertical-align: top;
+}
+
+.teaching-table tr:first-child th,
+.teaching-table tr:first-child td {
+  border-top: 0;
+}
+
+.teaching-table th {
+  width: 6.2rem;
+  color: rgba(255, 255, 255, 0.68);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.teaching-table td {
+  color: rgba(255, 255, 255, 0.82);
 }
 
 @media (max-width: 720px) {

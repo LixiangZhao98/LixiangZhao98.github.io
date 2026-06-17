@@ -71,6 +71,10 @@ redirect_from:
         <table>
           <tbody>
             <tr>
+              <th scope="row">2026</th>
+              <td><em>ScaleFree</em> appeared at <em>IEEE Conference on Virtual Reality and 3D User Interfaces</em>.</td>
+            </tr>
+            <tr>
               <th scope="row">2024</th>
               <td><em>SpatialTouch</em> was published in <em>IEEE Transactions on Visualization and Computer Graphics</em>.</td>
             </tr>
@@ -89,7 +93,7 @@ redirect_from:
 
     <section class="academic-section">
       <h2 class="academic-heading"><a href="/publications/">selected publications</a></h2>
-      {% assign selected_ids = "spatialtouch,metacast,l-wim" | split: "," %}
+      {% assign selected_ids = "scalefree,spatialtouch,metacast,l-wim" | split: "," %}
       <ol class="selected-publications">
         {% for selected_id in selected_ids %}
           {% for group in site.data.publications %}
