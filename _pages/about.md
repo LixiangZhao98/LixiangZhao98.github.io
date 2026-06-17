@@ -15,7 +15,7 @@ redirect_from:
       <p class="academic-home__desc">
         <a href="https://www.xjtlu.edu.cn/en/study/departments/school-of-advanced-technology/computer-science-and-software-engineering">
           School of Advanced Technology, Department of Computing,
-          Xi'an Jiaotong-Liverpool University.
+          Xi'an Jiaotong-Liverpool University
         </a>
       </p>
     </div>
@@ -45,24 +45,29 @@ redirect_from:
     <aside class="academic-profile">
       <img class="academic-profile__photo" src="/images/{{ site.author.avatar }}" alt="{{ site.author.name }}">
       <div class="academic-profile__info">
-        <p>VIIS Lab</p>
-        <p>Xi'an Jiaotong-Liverpool University</p>
+        <!-- <p>VIIS Lab</p>
+        <p>Xi'an Jiaotong-Liverpool University</p> -->
         {% if site.author.location %}<p>{{ site.author.location }}</p>{% endif %}
       </div>
     </aside>
 
     <section class="academic-home__intro">
       <p>
-        I am a Ph.D. student in Computer Science and Software Engineering at
-        Xi'an Jiaotong-Liverpool University.
+        I am Lixiang Zhao. I obtained my Ph.D. from the University of Xi'an Jiaotong-Liverpool University, with
+        <a href="https://yulingyun.com/">
+          Prof. Lingyun Yu
+        </a>
+         as my advisor.
       </p>
       <p>
         My research focuses on immersive visualization, spatial interaction
-        techniques, and cross-reality environments for exploring complex
-        spatial data.
+        techniques, high-performance computing and machine learning.
       </p>
       <p>
-        Feel free to reach out by email if you are interested in collaboration.
+        Feel free to reach out by email if you are interested in collaboration. I am currently seeking for postdoctoral research position.
+      </p>
+      <p>
+        By the way, I am currently seeking for postdoctoral research position.
       </p>
     </section>
 
@@ -73,7 +78,7 @@ redirect_from:
           <tbody>
             <tr>
               <th scope="row">Jan 10, 2026</th>
-              <td>Our paper <a href="https://www.computer.org/csdl/proceedings-article/vr/2026/594500a358/2fmc6RGKEdG">&ldquo;ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR&rdquo;</a> is accepted by IEEE VR 2026!</td>
+              <td>Our paper <a href="https://ieeexplore.ieee.org/document/11457550">&ldquo;ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR&rdquo;</a> is accepted by IEEE VR 2026!</td>
             </tr>
             <tr>
               <th scope="row">Feb 03, 2026</th>
