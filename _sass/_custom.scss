@@ -52,8 +52,8 @@
   width: clamp(88px, 10vw, 150px);
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, transparent 0%, rgba(125, 211, 252, 0.12) 24%, rgba(255, 255, 255, 0.78) 72%, rgba(255, 232, 184, 0.92) 100%);
-  box-shadow: 0 0 16px rgba(125, 211, 252, 0.32);
+  background: linear-gradient(90deg, transparent 0%, rgba(125, 211, 252, 0.08) 30%, rgba(255, 255, 255, 0.48) 76%, rgba(255, 232, 184, 0.74) 100%);
+  box-shadow: 0 0 14px rgba(125, 211, 252, 0.24);
   opacity: 0;
   transform: translate3d(var(--comet-from-x), var(--comet-from-y), 0) rotate(var(--comet-angle));
   transform-origin: 100% 50%;
@@ -71,7 +71,7 @@
   height: 5px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 0 22px rgba(125, 211, 252, 0.45);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.62), 0 0 18px rgba(125, 211, 252, 0.34);
   transform: translateY(-50%);
 }
 
@@ -81,7 +81,7 @@
   --comet-to-x: 116vw;
   --comet-to-y: 68vh;
   --comet-angle: 21deg;
-  --comet-duration: 34s;
+  --comet-duration: 46s;
   --comet-delay: -9s;
 }
 
@@ -91,8 +91,8 @@
   --comet-to-x: 112vw;
   --comet-to-y: 8vh;
   --comet-angle: -17deg;
-  --comet-duration: 43s;
-  --comet-delay: -28s;
+  --comet-duration: 58s;
+  --comet-delay: -31s;
   width: clamp(64px, 8vw, 118px);
   opacity: 0;
 }
@@ -103,9 +103,53 @@
   --comet-to-x: 96vw;
   --comet-to-y: 112vh;
   --comet-angle: 54deg;
-  --comet-duration: 52s;
-  --comet-delay: -4s;
+  --comet-duration: 64s;
+  --comet-delay: -47s;
   width: clamp(70px, 8.5vw, 126px);
+}
+
+.site-comet--four {
+  --comet-from-x: -22vw;
+  --comet-from-y: 72vh;
+  --comet-to-x: 118vw;
+  --comet-to-y: 34vh;
+  --comet-angle: -15deg;
+  --comet-duration: 72s;
+  --comet-delay: -16s;
+  width: clamp(78px, 9vw, 136px);
+}
+
+.site-comet--five {
+  --comet-from-x: 4vw;
+  --comet-from-y: -20vh;
+  --comet-to-x: 72vw;
+  --comet-to-y: 108vh;
+  --comet-angle: 58deg;
+  --comet-duration: 82s;
+  --comet-delay: -63s;
+  width: clamp(58px, 7vw, 108px);
+}
+
+.site-comet--six {
+  --comet-from-x: -28vw;
+  --comet-from-y: 28vh;
+  --comet-to-x: 104vw;
+  --comet-to-y: 88vh;
+  --comet-angle: 25deg;
+  --comet-duration: 68s;
+  --comet-delay: -4s;
+  width: clamp(62px, 7.5vw, 112px);
+}
+
+.site-comet--seven {
+  --comet-from-x: 26vw;
+  --comet-from-y: -24vh;
+  --comet-to-x: 118vw;
+  --comet-to-y: 46vh;
+  --comet-angle: 37deg;
+  --comet-duration: 92s;
+  --comet-delay: -76s;
+  width: clamp(82px, 9.5vw, 142px);
 }
 
 @keyframes star-drift {
@@ -137,17 +181,17 @@
 
 @keyframes comet-sweep {
   0%,
-  18% {
+  14% {
     opacity: 0;
     transform: translate3d(var(--comet-from-x), var(--comet-from-y), 0) rotate(var(--comet-angle));
   }
-  27% {
-    opacity: 0.7;
+  32% {
+    opacity: 0.56;
   }
   58% {
-    opacity: 0.52;
+    opacity: 0.46;
   }
-  72% {
+  82% {
     opacity: 0;
     transform: translate3d(var(--comet-to-x), var(--comet-to-y), 0) rotate(var(--comet-angle));
   }
