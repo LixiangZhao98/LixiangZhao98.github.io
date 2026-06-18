@@ -1,8 +1,22 @@
 (function () {
   var TRIGGER = { ctrlKey: true, altKey: true, key: "p" };
-  var TARGET_SELECTOR = "main .plane-text-brick:not(.plane-target-hit), main img:not(.plane-target-hit)";
-  var TEXT_ROOT_SELECTOR = "main h1, main h2, main h3, main p, main th, main td, main li, main figcaption";
-  var SKIP_TEXT_SELECTOR = "script, style, noscript, iframe, video, canvas, svg, pre, code, .plane-game-layer";
+  var TARGET_SELECTOR = [
+    ".plane-text-brick:not(.plane-target-hit)",
+    ".plane-icon-target:not(.plane-target-hit)",
+    "img.plane-image-target:not(.plane-image-consumed)"
+  ].join(", ");
+  var SKIP_TEXT_SELECTOR = "script, style, noscript, iframe, video, canvas, svg, .site-bg, .plane-game-layer";
+  var ICON_SELECTOR = [
+    "i.fa",
+    "i.fas",
+    "i.far",
+    "i.fab",
+    "i.ai",
+    ".pub-chip i",
+    ".cv-pdf-icon i",
+    ".plane-nav-button i",
+    "svg"
+  ].join(", ");
 
   var active = false;
   var layer = null;
@@ -12,6 +26,7 @@
   var hitTargets = [];
   var imageBites = [];
   var crackedImages = [];
+  var iconTargets = [];
   var textWrappers = [];
   var bullets = [];
   var keys = {};
@@ -37,10 +52,10 @@
   }
 
   function isVisibleTarget(target) {
-    if (!target || target.closest(".plane-game-layer")) return false;
-    if (target.classList.contains("plane-target-hit")) return false;
+    if (!target || target.closest(".plane-game-layer") || target.closest(".site-bg")) return false;
+    if (target.classList.contains("plane-target-hit") || target.classList.contains("plane-image-consumed")) return false;
     var rect = target.getBoundingClientRect();
-    return rect.width > 4 && rect.height > 4 && rect.bottom > 0 && rect.top < window.innerHeight && rect.right > 0 && rect.left < window.innerWidth;
+    return rect.width > 3 && rect.height > 3 && rect.bottom > 0 && rect.top < window.innerHeight && rect.right > 0 && rect.left < window.innerWidth;
   }
 
   function collectTargets() {
@@ -49,10 +64,10 @@
 
   function splitToken(token) {
     if (/^[\u4e00-\u9fff]+$/.test(token)) return token.split("");
-    if (token.length <= 14) return [token];
+    if (token.length <= 12) return [token];
     var chunks = [];
-    for (var index = 0; index < token.length; index += 10) {
-      chunks.push(token.slice(index, index + 10));
+    for (var index = 0; index < token.length; index += 8) {
+      chunks.push(token.slice(index, index + 8));
     }
     return chunks;
   }
@@ -68,14 +83,11 @@
         return;
       }
 
-      splitToken(part).forEach(function (chunk, chunkIndex, chunkList) {
+      splitToken(part).forEach(function (chunk) {
         var brick = document.createElement("span");
         brick.className = "plane-text-brick";
         brick.textContent = chunk;
         wrapper.appendChild(brick);
-        if (chunkIndex < chunkList.length - 1) {
-          wrapper.appendChild(document.createTextNode(""));
-        }
       });
     });
 
@@ -83,30 +95,26 @@
   }
 
   function prepareTextTargets() {
-    if (textWrappers.length) return;
+    if (textWrappers.length || !document.body) return;
 
-    Array.prototype.forEach.call(document.querySelectorAll(TEXT_ROOT_SELECTOR), function (root) {
-      if (root.closest(SKIP_TEXT_SELECTOR)) return;
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (node) {
+        if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        if (!node.parentElement || node.parentElement.closest(SKIP_TEXT_SELECTOR)) return NodeFilter.FILTER_REJECT;
+        if (node.parentElement.closest(".plane-text-line")) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
 
-      var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-        acceptNode: function (node) {
-          if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
-          if (!node.parentElement || node.parentElement.closest(SKIP_TEXT_SELECTOR)) return NodeFilter.FILTER_REJECT;
-          if (node.parentElement.closest(".plane-text-line")) return NodeFilter.FILTER_REJECT;
-          return NodeFilter.FILTER_ACCEPT;
-        }
-      });
+    var nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
 
-      var nodes = [];
-      while (walker.nextNode()) nodes.push(walker.currentNode);
-
-      nodes.forEach(function (node) {
-        var parent = node.parentNode;
-        if (!parent) return;
-        var wrapper = buildTextWrapper(node.nodeValue);
-        parent.replaceChild(wrapper, node);
-        textWrappers.push({ wrapper: wrapper, text: node.nodeValue });
-      });
+    nodes.forEach(function (node) {
+      var parent = node.parentNode;
+      if (!parent) return;
+      var wrapper = buildTextWrapper(node.nodeValue);
+      parent.replaceChild(wrapper, node);
+      textWrappers.push({ wrapper: wrapper, text: node.nodeValue });
     });
   }
 
@@ -120,15 +128,35 @@
     textWrappers = [];
   }
 
+  function prepareIconTargets() {
+    iconTargets = [];
+    Array.prototype.forEach.call(document.querySelectorAll(ICON_SELECTOR), function (icon) {
+      if (icon.closest(".plane-game-layer") || icon.closest(".site-bg")) return;
+      icon.classList.add("plane-icon-target");
+      icon.classList.remove("plane-target-hit");
+      icon.style.removeProperty("--plane-hit-x");
+      icon.style.removeProperty("--plane-hit-y");
+      icon.style.removeProperty("--plane-hit-rotate");
+      iconTargets.push(icon);
+    });
+  }
+
+  function clearIconTargets() {
+    iconTargets.forEach(function (icon) {
+      icon.classList.remove("plane-icon-target");
+      icon.classList.remove("plane-target-hit");
+      icon.style.removeProperty("--plane-hit-x");
+      icon.style.removeProperty("--plane-hit-y");
+      icon.style.removeProperty("--plane-hit-rotate");
+    });
+    iconTargets = [];
+  }
+
   function prepareImageTargets() {
-    Array.prototype.forEach.call(document.querySelectorAll("main img"), function (image) {
+    Array.prototype.forEach.call(document.querySelectorAll("body img"), function (image) {
+      if (image.closest(".plane-game-layer") || image.closest(".site-bg")) return;
       image.classList.add("plane-image-target");
-      image.classList.remove("plane-image-cracked");
-      image.classList.remove("plane-target-hit");
-      image.removeAttribute("data-plane-hits");
-      image.style.removeProperty("--plane-hit-x");
-      image.style.removeProperty("--plane-hit-y");
-      image.style.removeProperty("--plane-hit-rotate");
+      clearImageState(image);
     });
   }
 
@@ -155,7 +183,11 @@
       '  <button class="plane-game__button plane-game__restore" type="button" aria-label="Restore page" title="Restore page"><i class="fas fa-redo" aria-hidden="true"></i></button>',
       '  <button class="plane-game__button plane-game__close" type="button" aria-label="Close plane mode" title="Close plane mode"><i class="fas fa-times" aria-hidden="true"></i></button>',
       '</div>',
-      '<div class="plane-game__plane" aria-hidden="true"></div>'
+      '<div class="plane-game__plane" aria-hidden="true">',
+      '  <span class="plane-game__plane-wing"></span>',
+      '  <span class="plane-game__plane-body"></span>',
+      '  <span class="plane-game__plane-flame"></span>',
+      '</div>'
     ].join("");
     document.body.appendChild(layer);
     document.body.classList.add("plane-game-active");
@@ -168,6 +200,7 @@
     });
 
     prepareTextTargets();
+    prepareIconTargets();
     prepareImageTargets();
     collectTargets();
     drawPlane();
@@ -185,6 +218,7 @@
     });
     bullets = [];
     if (restore) restoreTargets();
+    clearIconTargets();
     clearImageTargets();
     restoreTextTargets();
     if (layer) layer.remove();
@@ -217,9 +251,6 @@
       target.style.removeProperty("--plane-hit-x");
       target.style.removeProperty("--plane-hit-y");
       target.style.removeProperty("--plane-hit-rotate");
-      if (target.tagName && target.tagName.toLowerCase() === "img") {
-        clearImageState(target);
-      }
     });
     hitTargets = [];
     crackedImages.forEach(clearImageState);
@@ -234,16 +265,18 @@
   }
 
   function clearImageState(image) {
-    image.classList.remove("plane-target-hit");
     image.classList.remove("plane-image-cracked");
+    image.classList.remove("plane-image-consumed");
     image.removeAttribute("data-plane-hits");
-    image.style.removeProperty("--plane-hit-x");
-    image.style.removeProperty("--plane-hit-y");
-    image.style.removeProperty("--plane-hit-rotate");
+    image.style.removeProperty("--plane-image-damage");
+    image.style.removeProperty("--plane-image-opacity");
+    image.style.removeProperty("--plane-image-saturate");
+    image.style.removeProperty("--plane-image-brightness");
+    image.style.removeProperty("--plane-image-contrast");
   }
 
   function clearImageTargets() {
-    Array.prototype.forEach.call(document.querySelectorAll("main img.plane-image-target"), function (image) {
+    Array.prototype.forEach.call(document.querySelectorAll("body img.plane-image-target"), function (image) {
       clearImageState(image);
       image.classList.remove("plane-image-target");
     });
@@ -255,12 +288,12 @@
   }
 
   function shoot(now) {
-    if (!layer || now - lastShot < 125) return;
+    if (!layer || now - lastShot < 118) return;
     lastShot = now;
     var bullet = {
       x: planeState.x,
-      y: planeState.y - 24,
-      speed: 780,
+      y: planeState.y - 27,
+      speed: 820,
       node: document.createElement("span")
     };
     bullet.node.className = "plane-game__bullet";
@@ -308,8 +341,8 @@
   }
 
   function blastTarget(target, x, y) {
-    if (target.classList.contains("plane-text-brick")) {
-      blastTextBrick(target, x, y);
+    if (target.classList.contains("plane-text-brick") || target.classList.contains("plane-icon-target")) {
+      blastBrick(target);
     } else if (target.tagName && target.tagName.toLowerCase() === "img") {
       blastImage(target, x, y);
     }
@@ -318,10 +351,10 @@
     collectTargets();
   }
 
-  function blastTextBrick(target, x, y) {
-    var driftX = Math.round((Math.random() - 0.5) * 48);
-    var driftY = Math.round(34 + Math.random() * 42);
-    var rotate = Math.round((Math.random() - 0.5) * 24);
+  function blastBrick(target) {
+    var driftX = Math.round((Math.random() - 0.5) * 54);
+    var driftY = Math.round(42 + Math.random() * 56);
+    var rotate = Math.round((Math.random() - 0.5) * 30);
     target.style.setProperty("--plane-hit-x", driftX + "px");
     target.style.setProperty("--plane-hit-y", driftY + "px");
     target.style.setProperty("--plane-hit-rotate", rotate + "deg");
@@ -332,49 +365,50 @@
 
   function imageHitLimit(image) {
     var rect = image.getBoundingClientRect();
-    return clamp(Math.ceil((rect.width * rect.height) / 18000), 4, 12);
+    return clamp(Math.ceil((rect.width * rect.height) / 14000), 8, 28);
   }
 
   function blastImage(image, x, y) {
+    var limit = imageHitLimit(image);
     var hits = Number(image.getAttribute("data-plane-hits") || "0") + 1;
+    var damage = clamp(hits / limit, 0, 1);
     image.setAttribute("data-plane-hits", String(hits));
+    image.style.setProperty("--plane-image-damage", damage.toFixed(3));
+    image.style.setProperty("--plane-image-opacity", Math.max(0.18, 1 - damage * 0.78).toFixed(3));
+    image.style.setProperty("--plane-image-saturate", Math.max(0.36, 1 - damage * 0.48).toFixed(3));
+    image.style.setProperty("--plane-image-brightness", Math.max(0.68, 1 - damage * 0.26).toFixed(3));
+    image.style.setProperty("--plane-image-contrast", (1 + damage * 0.12).toFixed(3));
     image.classList.add("plane-image-cracked");
     if (crackedImages.indexOf(image) < 0) crackedImages.push(image);
-    createImageBite(image, x, y);
+    createImageBite(image, x, y, damage);
     incrementScore(1);
 
-    if (hits >= imageHitLimit(image)) {
-      var driftX = Math.round((Math.random() - 0.5) * 44);
-      var driftY = Math.round(28 + Math.random() * 36);
-      var rotate = Math.round((Math.random() - 0.5) * 10);
-      image.style.setProperty("--plane-hit-x", driftX + "px");
-      image.style.setProperty("--plane-hit-y", driftY + "px");
-      image.style.setProperty("--plane-hit-rotate", rotate + "deg");
-      image.classList.add("plane-target-hit");
-      hitTargets.push(image);
+    if (damage >= 1) {
+      image.classList.add("plane-image-consumed");
     }
   }
 
-  function createImageBite(image, x, y) {
+  function createImageBite(image, x, y, damage) {
     if (!layer) return;
     var bite = document.createElement("span");
-    var size = 22 + Math.random() * 28;
+    var size = 18 + Math.random() * 24 + damage * 12;
     bite.className = "plane-image-bite";
     bite.style.left = x + "px";
     bite.style.top = y + "px";
     bite.style.width = size + "px";
     bite.style.height = size + "px";
     bite.style.setProperty("--bite-rotate", Math.round(Math.random() * 360) + "deg");
+    bite.style.setProperty("--bite-alpha", (0.58 + damage * 0.22).toFixed(2));
     layer.appendChild(bite);
     imageBites.push(bite);
   }
 
   function createBurst(x, y) {
     if (!layer) return;
-    for (var index = 0; index < 7; index += 1) {
+    for (var index = 0; index < 8; index += 1) {
       var spark = document.createElement("span");
-      var angle = (Math.PI * 2 * index) / 7 + Math.random() * 0.45;
-      var distance = 14 + Math.random() * 24;
+      var angle = (Math.PI * 2 * index) / 8 + Math.random() * 0.45;
+      var distance = 12 + Math.random() * 25;
       spark.className = "plane-game__spark";
       spark.style.left = x + "px";
       spark.style.top = y + "px";
@@ -394,10 +428,10 @@
 
     var horizontal = (keys.arrowright || keys.d ? 1 : 0) - (keys.arrowleft || keys.a ? 1 : 0);
     var vertical = (keys.arrowdown || keys.s ? 1 : 0) - (keys.arrowup || keys.w ? 1 : 0);
-    var speed = 360;
+    var speed = 370;
     planeState.x = clamp(planeState.x + horizontal * speed * delta, 28, window.innerWidth - 28);
     planeState.y = clamp(planeState.y + vertical * speed * delta, 52, window.innerHeight - 34);
-    planeState.tilt += (horizontal * 16 - planeState.tilt) * 0.18;
+    planeState.tilt += (horizontal * 18 - planeState.tilt) * 0.18;
 
     if (keys[" "]) shoot(now);
     drawPlane();

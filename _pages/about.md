@@ -71,7 +71,7 @@ redirect_from:
       </p>
     </section>
 
-    <section class="academic-section">
+    <section class="academic-section academic-panel glass-card">
       <h2 class="academic-heading">news</h2>
       <div class="academic-news">
         <table>
@@ -89,7 +89,7 @@ redirect_from:
       </div>
     </section>
 
-    <section class="academic-section">
+    <section class="academic-section academic-panel glass-card">
       <h2 class="academic-heading"><a href="/publications/">selected publications</a></h2>
       {% assign selected_ids = "scalefree,spatialtouch,metacast,l-wim" | split: "," %}
       <ol class="selected-publications">
