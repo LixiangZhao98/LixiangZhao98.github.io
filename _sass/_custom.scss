@@ -582,18 +582,21 @@
 .plane-game-layer {
   position: fixed;
   inset: 0;
-  z-index: 2147483000;
+  z-index: 2147483600;
   pointer-events: none;
   overflow: hidden;
 }
 
 .plane-game__hud {
   position: fixed;
-  right: 1rem;
+  left: 50%;
+  right: auto;
   top: 5.2rem;
+  z-index: 2147483642;
   display: inline-flex;
   align-items: center;
   gap: 0.42rem;
+  max-width: calc(100vw - 1.5rem);
   min-height: 2.2rem;
   padding: 0.28rem 0.38rem 0.28rem 0.68rem;
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -603,6 +606,7 @@
   backdrop-filter: blur(14px);
   color: rgba(255, 255, 255, 0.88);
   pointer-events: auto;
+  transform: translateX(-50%);
 }
 
 .plane-game__score {
@@ -619,14 +623,15 @@
   font-size: 0.76rem;
   font-weight: 700;
   line-height: 1.25;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .plane-game__coach {
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 2147483004;
+  z-index: 2147483643;
+  max-width: min(18rem, calc(100vw - 1.5rem));
   padding: 0.34rem 0.62rem;
   border: 1px solid rgba(255, 232, 184, 0.28);
   border-radius: 999px;
@@ -636,7 +641,8 @@
   font-size: 0.78rem;
   font-weight: 800;
   line-height: 1.2;
-  white-space: nowrap;
+  text-align: center;
+  white-space: normal;
   pointer-events: none;
   backdrop-filter: blur(12px);
   animation: plane-coach 7s ease forwards;
@@ -662,11 +668,44 @@
   background: rgba(125, 211, 252, 0.13);
 }
 
+.plane-game__fire {
+  position: fixed;
+  right: 1rem;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 2147483642;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.45rem;
+  height: 3.45rem;
+  border: 1px solid rgba(255, 232, 184, 0.28);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(255, 232, 184, 0.2), transparent 54%),
+    rgba(4, 10, 26, 0.7);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.34), 0 0 26px rgba(125, 211, 252, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  color: rgba(255, 244, 199, 0.96);
+  font-size: 1.05rem;
+  pointer-events: auto;
+  touch-action: none;
+  backdrop-filter: blur(14px);
+  cursor: pointer;
+}
+
+.plane-game__fire:active,
+.plane-game__fire.is-firing {
+  transform: scale(0.96);
+  border-color: rgba(125, 211, 252, 0.54);
+  background:
+    radial-gradient(circle at 50% 35%, rgba(125, 211, 252, 0.28), transparent 58%),
+    rgba(4, 10, 26, 0.78);
+}
+
 .plane-game__plane {
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 2147483002;
+  z-index: 2147483620;
   width: 46px;
   height: 52px;
   filter: drop-shadow(0 0 14px rgba(125, 211, 252, 0.42)) drop-shadow(0 8px 18px rgba(0, 0, 0, 0.34));
@@ -720,7 +759,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 2147483001;
+  z-index: 2147483635;
   width: 7px;
   height: 18px;
   border-radius: 999px;
@@ -745,7 +784,7 @@
 
 .plane-game__spark {
   position: absolute;
-  z-index: 2147483003;
+  z-index: 2147483638;
   width: 4px;
   height: 4px;
   border-radius: 50%;
@@ -775,27 +814,24 @@
 
 .plane-image-target {
   --plane-image-damage: 0;
-  will-change: opacity, filter;
-  transition: opacity 420ms ease, filter 420ms ease;
+  will-change: auto;
+  transition: none;
 }
 
 .plane-image-cracked {
-  opacity: var(--plane-image-opacity, 1) !important;
-  filter:
-    saturate(var(--plane-image-saturate, 1))
-    brightness(var(--plane-image-brightness, 1))
-    contrast(var(--plane-image-contrast, 1)) !important;
+  opacity: 1 !important;
+  filter: none !important;
 }
 
 .plane-image-consumed {
-  opacity: 0.14 !important;
-  filter: blur(0.5px) saturate(0.22) brightness(0.58) !important;
-  pointer-events: none;
+  opacity: 1 !important;
+  filter: none !important;
+  pointer-events: auto;
 }
 
 .plane-image-bite {
   position: absolute;
-  z-index: 10002;
+  z-index: 2147483636;
   border-radius: 49% 43% 52% 47%;
   background:
     radial-gradient(circle at 44% 42%, rgba(2, 6, 18, var(--bite-alpha, 0.68)) 0 44%, rgba(2, 6, 18, 0.5) 45% 58%, rgba(125, 211, 252, 0.2) 59% 63%, transparent 64%);
@@ -936,6 +972,12 @@
   }
 }
 
+html[data-site-lang="en"] [data-lang-only="zh"],
+html[data-site-lang="zh"] [data-lang-only="en"],
+html:not([data-site-lang]) [data-lang-only="zh"] {
+  display: none !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -1048,7 +1090,7 @@ body {
 
 .greedy-nav {
   background: transparent;
-  padding-right: 5rem;
+  padding-right: 8.8rem;
 }
 
 .greedy-nav a {
@@ -1070,6 +1112,49 @@ body {
   color: rgba(255, 255, 255, 0.94);
   font-size: 1rem;
   text-transform: none;
+}
+
+.site-lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.18rem;
+  padding: 0.18rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+}
+
+.site-lang-toggle button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 1.62rem;
+  padding: 0 0.46rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.site-lang-toggle button[aria-pressed="true"] {
+  background: rgba(125, 211, 252, 0.18);
+  color: rgba(255, 255, 255, 0.96);
+  box-shadow: inset 0 0 0 1px rgba(125, 211, 252, 0.25);
+}
+
+.site-lang-toggle--desktop {
+  position: absolute;
+  right: 5.15rem;
+  top: 50%;
+  z-index: 101;
+  transform: translateY(-50%);
 }
 
 .greedy-nav a.plane-nav-button,
@@ -1142,6 +1227,11 @@ body {
   padding: 1.5rem;
 }
 
+.academic-home__header > div:first-child {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
 .academic-home__title {
   margin: 0;
   color: rgba(255, 255, 255, 0.96);
@@ -1169,11 +1259,16 @@ body {
   border-bottom-color: rgba(125, 211, 252, 0.72);
 }
 
+.academic-home__nowrap {
+  white-space: nowrap;
+}
+
 .academic-home__quick-links {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-end;
   gap: 0.55rem;
+  min-width: max-content;
 }
 
 .profile-icon {
@@ -1261,11 +1356,11 @@ body {
 .academic-heading {
   margin: 0 0 0.95rem;
   color: rgba(125, 211, 252, 0.96);
-  font-size: 1.05rem;
+  font-size: 1.12rem;
   font-weight: 800;
   line-height: 1.3;
   letter-spacing: 0;
-  text-transform: lowercase;
+  text-transform: uppercase;
 }
 
 .academic-heading a {
@@ -1457,43 +1552,6 @@ body {
   align-items: center;
   gap: 0.65rem;
   margin-left: auto;
-}
-
-.cv-lang-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.2rem;
-  padding: 0.18rem;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.cv-lang-toggle__button {
-  min-height: 1.9rem;
-  padding: 0.2rem 0.62rem;
-  border: 0;
-  border-radius: 999px;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.78rem;
-  font-weight: 800;
-  cursor: pointer;
-}
-
-.cv-lang-toggle__button[aria-pressed="true"] {
-  background: rgba(125, 211, 252, 0.16);
-  color: rgba(255, 255, 255, 0.96);
-  box-shadow: inset 0 0 0 1px rgba(125, 211, 252, 0.24);
-}
-
-.cv-lang-content {
-  display: none;
-}
-
-.cv-page[data-cv-lang="en"] .cv-lang-content--en,
-.cv-page[data-cv-lang="zh"] .cv-lang-content--zh {
-  display: grid;
 }
 
 .cv-pdf-icon {
@@ -2003,6 +2061,10 @@ body {
     display: none !important;
   }
 
+  .site-lang-toggle--desktop {
+    display: none !important;
+  }
+
   .greedy-nav button,
   .greedy-nav button.hidden {
     display: inline-flex !important;
@@ -2036,7 +2098,8 @@ body {
     position: absolute;
     top: calc(100% + 0.55rem);
     right: 0;
-    min-width: 12rem;
+    min-width: min(16rem, calc(100vw - 1.4rem));
+    max-width: calc(100vw - 1.4rem);
     margin: 0;
     padding: 0.45rem;
     border: 1px solid rgba(255, 255, 255, 0.14);
@@ -2061,6 +2124,34 @@ body {
 
   .greedy-nav .mobile-menu-links a:hover {
     background: rgba(125, 211, 252, 0.12);
+  }
+
+  .greedy-nav .mobile-menu-links .site-lang-toggle {
+    display: flex;
+    width: 100%;
+    margin: 0.18rem 0 0.3rem;
+    padding: 0.2rem;
+  }
+
+  .greedy-nav .mobile-menu-links .site-lang-toggle button {
+    display: inline-flex !important;
+    visibility: visible !important;
+    position: static;
+    right: auto;
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    height: 1.92rem;
+    padding: 0 0.6rem;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.74);
+  }
+
+  .greedy-nav .mobile-menu-links .site-lang-toggle button[aria-pressed="true"] {
+    background: rgba(125, 211, 252, 0.18);
+    color: rgba(255, 255, 255, 0.96);
   }
 
   .greedy-nav .mobile-menu-links .plane-nav-button--mobile {
@@ -2096,6 +2187,7 @@ body {
 
   .academic-home__quick-links {
     justify-content: flex-start;
+    width: 100%;
   }
 
   .academic-home__body {
@@ -2191,12 +2283,21 @@ body {
     right: 0.7rem;
     left: 0.7rem;
     top: 4.8rem;
+    max-width: none;
+    transform: none;
   }
 
   .plane-game__hint {
     flex: 1;
     min-width: 0;
     white-space: normal;
+  }
+
+  .plane-game__fire {
+    right: 0.85rem;
+    bottom: max(0.85rem, env(safe-area-inset-bottom));
+    width: 3.25rem;
+    height: 3.25rem;
   }
 }
 

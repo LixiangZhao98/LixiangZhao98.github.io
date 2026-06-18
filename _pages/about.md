@@ -14,8 +14,8 @@ redirect_from:
       <h1 class="academic-home__title">{{ site.author.name }}</h1>
       <p class="academic-home__desc">
         <a href="https://www.xjtlu.edu.cn/en/study/departments/school-of-advanced-technology/computer-science-and-software-engineering">
-          School of Advanced Technology, Department of Computing,
-          Xi'an Jiaotong-Liverpool University
+          <span data-lang-only="en">School of Advanced Technology, Department of Computing,<br><span class="academic-home__nowrap">Xi'an Jiaotong-Liverpool University</span></span>
+          <span data-lang-only="zh">西交利物浦大学<br>高级技术学院计算机系</span>
         </a>
       </p>
     </div>
@@ -52,37 +52,49 @@ redirect_from:
     </aside>
 
     <section class="academic-home__intro">
-      <p>
-        I am Lixiang Zhao. I obtained my Ph.D. from the University of Xi'an Jiaotong-Liverpool University, with
+      <p data-lang-only="en">
+        I am Lixiang Zhao. I obtained my Ph.D. from Xi'an Jiaotong-Liverpool University, with
         <a href="https://yulingyun.com/">
           Prof. Lingyun Yu
         </a>
          as my advisor.
       </p>
-      <p>
-        My research focuses on immersive visualization, spatial interaction
-        techniques, high-performance computing and machine learning.
+      <p data-lang-only="en">
+        My research focuses on immersive visualization, spatial interaction techniques, and cross-reality environments for exploring complex spatial data.
       </p>
-      <p>
-        Feel free to reach out by email if you are interested in collaboration. I am currently seeking for postdoctoral research position.
+      <p data-lang-only="en">
+        Feel free to reach out by email if you are interested in collaboration. I am currently seeking a postdoctoral research position.
       </p>
-      <p>
-        By the way, I am currently seeking for postdoctoral research position.
+      <p data-lang-only="zh">
+        我是赵理想，博士毕业于西交利物浦大学，导师为
+        <a href="https://yulingyun.com/">郁凌云教授</a>。
+      </p>
+      <p data-lang-only="zh">
+        我的研究关注沉浸式可视化、空间交互技术，以及面向复杂空间数据探索的跨现实环境。
+      </p>
+      <p data-lang-only="zh">
+        如果你对合作感兴趣，欢迎通过邮件联系我。我目前正在寻找博士后研究职位。
       </p>
     </section>
 
     <section class="academic-section academic-panel glass-card">
-      <h2 class="academic-heading">news</h2>
+      <h2 class="academic-heading"><span data-lang-only="en">NEWS</span><span data-lang-only="zh">新闻</span></h2>
       <div class="academic-news">
         <table>
           <tbody>
             <tr>
               <th scope="row">Feb 03, 2026</th>
-              <td>I successfully defended my Ph.D. dissertation &ldquo;Bridging Immersion Levels in Spatial Data Exploration: Visualization, Interaction, and Computing&rdquo;!</td>
+              <td>
+                <span data-lang-only="en">I successfully defended my Ph.D. dissertation &ldquo;Bridging Immersion Levels in Spatial Data Exploration: Visualization, Interaction, and Computing&rdquo;!</span>
+                <span data-lang-only="zh">我顺利通过博士论文答辩，论文题目为 &ldquo;Bridging Immersion Levels in Spatial Data Exploration: Visualization, Interaction, and Computing&rdquo;！</span>
+              </td>
             </tr>
             <tr>
               <th scope="row">Jan 10, 2026</th>
-              <td>Our paper <a href="https://ieeexplore.ieee.org/document/11457550">&ldquo;ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR&rdquo;</a> is accepted by IEEE VR 2026!</td>
+              <td>
+                <span data-lang-only="en">Our paper <a href="https://ieeexplore.ieee.org/document/11457550">&ldquo;ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR&rdquo;</a> is accepted by IEEE VR 2026!</span>
+                <span data-lang-only="zh">我们的论文 <a href="https://ieeexplore.ieee.org/document/11457550">&ldquo;ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR&rdquo;</a> 被 IEEE VR 2026 接收！</span>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -90,7 +102,7 @@ redirect_from:
     </section>
 
     <section class="academic-section academic-panel glass-card">
-      <h2 class="academic-heading"><a href="/publications/">selected publications</a></h2>
+      <h2 class="academic-heading"><a href="/publications/"><span data-lang-only="en">SELECTED PUBLICATIONS</span><span data-lang-only="zh">精选论文</span></a></h2>
       {% assign selected_ids = "scalefree,spatialtouch,metacast,l-wim" | split: "," %}
       <ol class="selected-publications">
         {% for selected_id in selected_ids %}

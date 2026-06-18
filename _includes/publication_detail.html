@@ -9,7 +9,10 @@
 
 {% if pub %}
   <main class="publication-detail">
-    <a class="publication-detail__back" href="/publications/">&larr; Back to publications</a>
+    <a class="publication-detail__back" href="/publications/">
+      <span data-lang-only="en">&larr; Back to publications</span>
+      <span data-lang-only="zh">&larr; 返回论文列表</span>
+    </a>
 
     <article class="publication-detail__hero glass-card">
       <div class="publication-detail__teaser">
@@ -54,14 +57,14 @@
 
     {% if detail.abstract %}
       <section class="publication-detail__section glass-card">
-        <h2>Abstract</h2>
+        <h2><span data-lang-only="en">Abstract</span><span data-lang-only="zh">摘要</span></h2>
         <p>{{ detail.abstract }}</p>
       </section>
     {% endif %}
 
     {% if detail.videos and detail.videos.size > 0 %}
       <section class="publication-detail__section glass-card">
-        <h2>Videos</h2>
+        <h2><span data-lang-only="en">Videos</span><span data-lang-only="zh">视频</span></h2>
         <div class="publication-video-list">
           {% for video in detail.videos %}
             <div class="publication-video-item">
@@ -73,7 +76,8 @@
                   {% else %}
                     <i class="fas fa-play" aria-hidden="true"></i>
                   {% endif %}
-                  <span>Open video</span>
+                  <span data-lang-only="en">Open video</span>
+                  <span data-lang-only="zh">打开视频</span>
                 </a>
               </div>
               {% if video.embed %}
@@ -87,7 +91,7 @@
       </section>
     {% elsif detail.video_embed %}
       <section class="publication-detail__section glass-card">
-        <h2>Video Preview</h2>
+        <h2><span data-lang-only="en">Video Preview</span><span data-lang-only="zh">视频预览</span></h2>
         <div class="publication-video">
           <iframe src="{{ detail.video_embed }}" title="{{ pub.title }} video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
@@ -102,5 +106,5 @@
     {% endif %}
   </main>
 {% else %}
-  <p>Publication not found.</p>
+  <p><span data-lang-only="en">Publication not found.</span><span data-lang-only="zh">未找到该论文。</span></p>
 {% endif %}

@@ -10,12 +10,29 @@
           {% for link in site.data.navigation.main %}
             {% if link.url contains 'http' %}
               {% assign domain = '' %}
-              {% else %}
+            {% else %}
               {% assign domain = base_path %}
             {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+            <li class="masthead__menu-item">
+              <a href="{{ domain }}{{ link.url }}">
+                <span data-lang-only="en">{{ link.title }}</span>
+                {% if link.title == "Publications" %}
+                  <span data-lang-only="zh">论文</span>
+                {% elsif link.title == "Teaching" %}
+                  <span data-lang-only="zh">教学</span>
+                {% elsif link.title == "CV" %}
+                  <span data-lang-only="zh">简历</span>
+                {% else %}
+                  <span data-lang-only="zh">{{ link.title }}</span>
+                {% endif %}
+              </a>
+            </li>
           {% endfor %}
         </ul>
+        <div class="site-lang-toggle site-lang-toggle--desktop" aria-label="Language">
+          <button type="button" data-site-lang-toggle="en" aria-pressed="true">EN</button>
+          <button type="button" data-site-lang-toggle="zh" aria-pressed="false">中</button>
+        </div>
         <a class="plane-nav-button plane-nav-button--desktop" href="#" role="button" data-plane-game-toggle aria-label="Start plane mode" title="Start plane mode">
           <i class="fas fa-fighter-jet" aria-hidden="true"></i>
         </a>
@@ -24,15 +41,35 @@
           {% for link in site.data.navigation.main %}
             {% if link.url contains 'http' %}
               {% assign domain = '' %}
-              {% else %}
+            {% else %}
               {% assign domain = base_path %}
             {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+            <li class="masthead__menu-item">
+              <a href="{{ domain }}{{ link.url }}">
+                <span data-lang-only="en">{{ link.title }}</span>
+                {% if link.title == "Publications" %}
+                  <span data-lang-only="zh">论文</span>
+                {% elsif link.title == "Teaching" %}
+                  <span data-lang-only="zh">教学</span>
+                {% elsif link.title == "CV" %}
+                  <span data-lang-only="zh">简历</span>
+                {% else %}
+                  <span data-lang-only="zh">{{ link.title }}</span>
+                {% endif %}
+              </a>
+            </li>
           {% endfor %}
+          <li class="masthead__menu-item">
+            <div class="site-lang-toggle site-lang-toggle--mobile" aria-label="Language">
+              <button type="button" data-site-lang-toggle="en" aria-pressed="true">EN</button>
+              <button type="button" data-site-lang-toggle="zh" aria-pressed="false">中文</button>
+            </div>
+          </li>
           <li class="masthead__menu-item">
             <a class="plane-nav-button plane-nav-button--mobile" href="#" role="button" data-plane-game-toggle aria-label="Start plane mode" title="Start plane mode">
               <i class="fas fa-fighter-jet" aria-hidden="true"></i>
-              <span>Plane</span>
+              <span data-lang-only="en">Plane</span>
+              <span data-lang-only="zh">小飞机</span>
             </a>
           </li>
         </ul>
@@ -57,11 +94,42 @@
 
     mobileMenu.addEventListener("click", function(event) {
       if (!event.target.closest) return;
+      if (event.target.closest("[data-site-lang-toggle]")) return;
       if (event.target.closest("a") || event.target.closest("[data-plane-game-toggle]")) {
         nav.classList.remove("is-mobile-open");
         button.setAttribute("aria-expanded", "false");
         mobileMenu.style.display = "";
       }
     });
+  })();
+
+  (function() {
+    var buttons = Array.prototype.slice.call(document.querySelectorAll("[data-site-lang-toggle]"));
+    if (!buttons.length) return;
+
+    function applyLanguage(lang) {
+      document.documentElement.setAttribute("data-site-lang", lang);
+      document.documentElement.setAttribute("lang", lang === "zh" ? "zh-Hans" : "{{ site.locale | slice: 0,2 }}");
+      buttons.forEach(function(button) {
+        button.setAttribute("aria-pressed", button.getAttribute("data-site-lang-toggle") === lang ? "true" : "false");
+      });
+      try {
+        window.localStorage.setItem("siteLang", lang);
+      } catch (error) {}
+    }
+
+    buttons.forEach(function(button) {
+      button.addEventListener("click", function(event) {
+        event.preventDefault();
+        applyLanguage(button.getAttribute("data-site-lang-toggle"));
+      });
+    });
+
+    try {
+      var saved = window.localStorage.getItem("siteLang");
+      applyLanguage(saved === "zh" ? "zh" : "en");
+    } catch (error) {
+      applyLanguage("en");
+    }
   })();
 </script>

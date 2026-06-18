@@ -6,21 +6,17 @@ author_profile: false
 hide_title: true
 ---
 
-<main class="cv-page" data-cv-lang="en">
+<main class="cv-page">
   <header class="cv-hero glass-card">
     <h1 class="cv-title">CV</h1>
     <div class="cv-hero__actions">
-      <div class="cv-lang-toggle" aria-label="CV language">
-        <button class="cv-lang-toggle__button" type="button" data-cv-lang-toggle="en" aria-pressed="true">EN</button>
-        <button class="cv-lang-toggle__button" type="button" data-cv-lang-toggle="zh" aria-pressed="false">中文</button>
-      </div>
       <a class="cv-pdf-icon" href="/assets/Publications/CV/CV_Lixiang_Zhao.pdf" download="CV_Lixiang_Zhao.pdf" aria-label="Download full CV PDF" title="Download full CV PDF">
         <i class="fas fa-file-pdf" aria-hidden="true"></i>
       </a>
     </div>
   </header>
 
-  <article class="cv-card cv-lang-content cv-lang-content--en" lang="en">
+  <article class="cv-card" data-lang-only="en" lang="en">
     <section class="cv-section glass-card">
       <h2>Education</h2>
       <ol class="cv-timeline">
@@ -131,7 +127,7 @@ hide_title: true
     </section>
   </article>
 
-  <article class="cv-card cv-lang-content cv-lang-content--zh" lang="zh-Hans">
+  <article class="cv-card" data-lang-only="zh" lang="zh-Hans">
     <section class="cv-section glass-card">
       <h2>教育经历</h2>
       <ol class="cv-timeline">
@@ -236,29 +232,3 @@ hide_title: true
     </section>
   </article>
 </main>
-
-<script>
-  (function () {
-    var root = document.querySelector(".cv-page");
-    if (!root) return;
-    var buttons = Array.prototype.slice.call(root.querySelectorAll("[data-cv-lang-toggle]"));
-    function setLang(lang) {
-      root.setAttribute("data-cv-lang", lang);
-      buttons.forEach(function (button) {
-        button.setAttribute("aria-pressed", button.getAttribute("data-cv-lang-toggle") === lang ? "true" : "false");
-      });
-      try {
-        window.localStorage.setItem("cvLang", lang);
-      } catch (error) {}
-    }
-    buttons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        setLang(button.getAttribute("data-cv-lang-toggle"));
-      });
-    });
-    try {
-      var saved = window.localStorage.getItem("cvLang");
-      if (saved === "zh" || saved === "en") setLang(saved);
-    } catch (error) {}
-  })();
-</script>
