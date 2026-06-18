@@ -1144,7 +1144,8 @@ body {
     list-style: none;
   }
 
-  .greedy-nav button.close ~ .mobile-menu-links {
+  .greedy-nav button.close ~ .mobile-menu-links,
+  .greedy-nav.is-mobile-open .mobile-menu-links {
     display: block;
   }
 

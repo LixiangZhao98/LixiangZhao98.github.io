@@ -4,7 +4,7 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
+        <button type="button" aria-expanded="false" aria-controls="mobile-menu-links"><div class="navicon"></div></button>
         <ul class="visible-links">
           <li class="masthead__menu-item masthead__menu-item--lg"><a href="{{ base_path }}/">{{ site.title }}</a></li>
           {% for link in site.data.navigation.main %}
@@ -17,7 +17,7 @@
           {% endfor %}
         </ul>
         <ul class="hidden-links hidden"></ul>
-        <ul class="mobile-menu-links" aria-label="Mobile menu">
+        <ul id="mobile-menu-links" class="mobile-menu-links" aria-label="Mobile menu">
           {% for link in site.data.navigation.main %}
             {% if link.url contains 'http' %}
               {% assign domain = '' %}
@@ -31,3 +31,27 @@
     </div>
   </div>
 </div>
+
+<script>
+  (function() {
+    var nav = document.getElementById("site-nav");
+    if (!nav) return;
+    var button = nav.querySelector("button");
+    var mobileMenu = nav.querySelector(".mobile-menu-links");
+    if (!button || !mobileMenu) return;
+
+    button.addEventListener("click", function() {
+      var isOpen = nav.classList.toggle("is-mobile-open");
+      button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      mobileMenu.style.display = isOpen ? "block" : "";
+    });
+
+    mobileMenu.addEventListener("click", function(event) {
+      if (event.target.closest("a")) {
+        nav.classList.remove("is-mobile-open");
+        button.setAttribute("aria-expanded", "false");
+        mobileMenu.style.display = "";
+      }
+    });
+  })();
+</script>
