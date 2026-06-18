@@ -12,9 +12,13 @@
         <h3 class="pub-card__title"><a href="{{ pub.url }}">{{ pub.title }}</a></h3>
         {% if pub.authors %}<div class="pub-card__meta">{{ pub.authors }}</div>{% endif %}
         <div class="pub-card__meta pub-card__venue">
-          {% if pub.venue %}<span>{{ pub.venue }}</span>{% endif %}
-          {% if pub.ccf %}<span class="pub-badge">{{ pub.ccf }}</span>{% endif %}
-          {% if pub.jcr %}<span class="pub-badge pub-badge--jcr">{{ pub.jcr }}</span>{% endif %}
+          {% if pub.venue %}<span class="pub-card__venue-text">{{ pub.venue }}</span>{% endif %}
+          {% if pub.ccf or pub.jcr %}
+            <span class="pub-card__badges">
+              {% if pub.ccf %}<span class="pub-badge">{{ pub.ccf }}</span>{% endif %}
+              {% if pub.jcr %}<span class="pub-badge pub-badge--jcr">{{ pub.jcr }}</span>{% endif %}
+            </span>
+          {% endif %}
         </div>
         {% if pub.links and pub.links.size > 0 %}
           <div class="pub-card__links">

@@ -21,6 +21,7 @@
   var active = false;
   var layer = null;
   var plane = null;
+  var coachNode = null;
   var scoreNode = null;
   var targets = [];
   var hitTargets = [];
@@ -172,7 +173,7 @@
     score = 0;
     lastShot = 0;
     planeState.x = window.innerWidth / 2;
-    planeState.y = window.innerHeight - 82;
+    planeState.y = window.innerHeight - 118;
     planeState.tilt = 0;
 
     layer = document.createElement("div");
@@ -180,6 +181,7 @@
     layer.innerHTML = [
       '<div class="plane-game__hud" aria-live="polite">',
       '  <span class="plane-game__score">0</span>',
+      '  <span class="plane-game__hint">Move: WASD / arrows · Shoot: Space · Restore: R · Exit: Esc</span>',
       '  <button class="plane-game__button plane-game__restore" type="button" aria-label="Restore page" title="Restore page"><i class="fas fa-redo" aria-hidden="true"></i></button>',
       '  <button class="plane-game__button plane-game__close" type="button" aria-label="Close plane mode" title="Close plane mode"><i class="fas fa-times" aria-hidden="true"></i></button>',
       '</div>',
@@ -187,12 +189,14 @@
       '  <span class="plane-game__plane-wing"></span>',
       '  <span class="plane-game__plane-body"></span>',
       '  <span class="plane-game__plane-flame"></span>',
-      '</div>'
+      '</div>',
+      '<div class="plane-game__coach" aria-hidden="true">Drive this plane · Space to shoot</div>'
     ].join("");
     document.body.appendChild(layer);
     document.body.classList.add("plane-game-active");
 
     plane = layer.querySelector(".plane-game__plane");
+    coachNode = layer.querySelector(".plane-game__coach");
     scoreNode = layer.querySelector(".plane-game__score");
     layer.querySelector(".plane-game__restore").addEventListener("click", restoreTargets);
     layer.querySelector(".plane-game__close").addEventListener("click", function () {
@@ -224,6 +228,7 @@
     if (layer) layer.remove();
     layer = null;
     plane = null;
+    coachNode = null;
     scoreNode = null;
     document.body.classList.remove("plane-game-active");
     syncToggleButtons();
@@ -285,6 +290,9 @@
   function drawPlane() {
     if (!plane) return;
     plane.style.transform = "translate3d(" + planeState.x + "px, " + planeState.y + "px, 0) translate(-50%, -50%) rotate(" + planeState.tilt + "deg)";
+    if (coachNode) {
+      coachNode.style.transform = "translate3d(" + planeState.x + "px, " + (planeState.y + 44) + "px, 0) translate(-50%, 0)";
+    }
   }
 
   function shoot(now) {
