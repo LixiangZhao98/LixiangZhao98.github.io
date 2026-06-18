@@ -11,7 +11,7 @@ hide_title: true
     <div>
       <h1 class="cv-title">
         cv
-        <a class="cv-pdf-icon" href="/assets/Publications/CV/CV_Lixiang_Zhao.pdf" aria-label="Download full CV PDF" title="Download full CV PDF">
+        <a class="cv-pdf-icon" href="/assets/Publications/CV/CV_Lixiang_Zhao.pdf" download="CV_Lixiang_Zhao.pdf" aria-label="Download full CV PDF" title="Download full CV PDF">
           <i class="fas fa-file-pdf" aria-hidden="true"></i>
         </a>
       </h1>
