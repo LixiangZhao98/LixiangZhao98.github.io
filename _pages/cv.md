@@ -126,61 +126,6 @@ hide_title: true
     </section>
 
     <section class="cv-section">
-      <h2>Conference Talks</h2>
-      <ol class="cv-timeline cv-timeline--compact">
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2026.03</span></div>
-          <div class="cv-entry__body">
-            <h3>Paper Presentation</h3>
-            <p>"ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR", IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR) 2026, Daegu, Republic of Korea</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2025.05</span></div>
-          <div class="cv-entry__body">
-            <h3>Invited Talk</h3>
-            <p>"Outstanding PhD Student Forum", Shanghai Key Laboratory of Data Science, Fudan University</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2024.10</span></div>
-          <div class="cv-entry__body">
-            <h3>Paper Presentation</h3>
-            <p>"SpatialTouch: Exploring Spatial Data Visualizations in Cross-Reality", IEEE Visualization &amp; Visual Analytics (IEEE VIS) 2024, California, United States</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2023.10</span></div>
-          <div class="cv-entry__body">
-            <h3>IEEE VIS and ISMAR Presentations</h3>
-            <p>"MeTACAST: Target- and Context-Aware Spatial Selection in VR", IEEE Visualization &amp; Visual Analytics (IEEE VIS) 2023; Doctoral Colloquium at IEEE Visualization &amp; Visual Analytics (IEEE VIS) 2023; "ImmerView: Adaptive Multi-View Layout for Immersive Situated Visualizations", IEEE International Symposium on Mixed and Augmented Reality (ISMAR) 2023</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2023.07</span></div>
-          <div class="cv-entry__body">
-            <h3>Academic Talk</h3>
-            <p>"Spatial selection techniques in VR", China Visualization and Visual Analytics Conference (ChinaVis) 2023, Chongqing, China</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2022.10</span></div>
-          <div class="cv-entry__body">
-            <h3>Paper Presentation</h3>
-            <p>"L-WiM: Collaborative Exploration in Immersive Environments", IEEE International Symposium on Mixed and Augmented Reality (ISMAR) 2022, Singapore</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2020.06</span></div>
-          <div class="cv-entry__body">
-            <h3>Invited Talk</h3>
-            <p>Experience sharing on University Physics Competition (UPC) and Mathematical Contest in Modeling (MCM), XJTLU</p>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <section class="cv-section">
       <h2>Academic Service</h2>
       <ol class="cv-timeline">
         <li class="cv-entry">

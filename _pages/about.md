@@ -107,6 +107,7 @@ redirect_from:
                   <div class="selected-publication__meta selected-publication__venue">
                     {% if pub.venue %}<em>{{ pub.venue }}</em>{% endif %}
                     {% if pub.ccf %}<span class="pub-badge">{{ pub.ccf }}</span>{% endif %}
+                    {% if pub.jcr %}<span class="pub-badge pub-badge--jcr">{{ pub.jcr }}</span>{% endif %}
                   </div>
                   {% if pub.links and pub.links.size > 0 %}
                     <div class="selected-publication__links">

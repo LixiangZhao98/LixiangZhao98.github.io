@@ -20,6 +20,14 @@ layout: compress
       <span class="site-comet site-comet--five"></span>
       <span class="site-comet site-comet--six"></span>
       <span class="site-comet site-comet--seven"></span>
+      <span class="site-comet site-comet--eight"></span>
+      <span class="site-comet site-comet--nine"></span>
+      <span class="site-comet site-comet--ten"></span>
+      <span class="site-comet site-comet--eleven"></span>
+      <span class="site-comet site-comet--twelve"></span>
+      <span class="site-comet site-comet--thirteen"></span>
+      <span class="site-comet site-comet--fourteen"></span>
+      <span class="site-comet site-comet--fifteen"></span>
     </div>
 
     {% include browser-upgrade.html %}
@@ -35,6 +43,23 @@ layout: compress
     </div>
 
     {% include scripts.html %}
+
+    <script>
+      document.addEventListener("pointerdown", function(event) {
+        if (event.button !== 0 || event.isPrimary === false) return;
+
+        var sparkle = document.createElement("span");
+        sparkle.className = "site-click-star";
+        sparkle.style.left = event.clientX + "px";
+        sparkle.style.top = event.clientY + "px";
+        sparkle.style.setProperty("--click-rotate", Math.round(Math.random() * 360) + "deg");
+        document.body.appendChild(sparkle);
+
+        window.setTimeout(function() {
+          sparkle.remove();
+        }, 1400);
+      });
+    </script>
 
   </body>
 </html>

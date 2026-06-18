@@ -18,6 +18,7 @@
       <div class="publication-detail__intro">
         <div class="publication-detail__badges">
           {% if pub.ccf %}<span class="pub-badge">{{ pub.ccf }}</span>{% endif %}
+          {% if pub.jcr %}<span class="pub-badge pub-badge--jcr">{{ pub.jcr }}</span>{% endif %}
           {% if pub.venue %}<span class="pub-venue-chip">{{ pub.venue }}</span>{% endif %}
         </div>
         <h1>{{ pub.title }}</h1>
@@ -26,12 +27,18 @@
           <div class="publication-detail__links">
             {% for link in pub.links %}
               <a class="pub-action" href="{{ link.url }}">
-                {% if link.label == "Paper" %}
-                  <i class="fas fa-file-alt" aria-hidden="true"></i>
+                {% if link.label == "IEEE" or link.label == "ACM" or link.label == "Springer" %}
+                  <i class="fas fa-university" aria-hidden="true"></i>
+                {% elsif link.label == "arXiv" %}
+                  <i class="fas fa-scroll" aria-hidden="true"></i>
                 {% elsif link.label == "PDF" %}
                   <i class="fas fa-file-pdf" aria-hidden="true"></i>
                 {% elsif link.label == "Video" %}
                   <i class="fas fa-play" aria-hidden="true"></i>
+                {% elsif link.label == "Presentation" %}
+                  <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
+                {% elsif link.label == "Fast Forward" %}
+                  <i class="fas fa-forward" aria-hidden="true"></i>
                 {% elsif link.label == "Code" %}
                   <i class="fab fa-github" aria-hidden="true"></i>
                 {% elsif link.label == "OSF" %}
@@ -54,7 +61,35 @@
       </section>
     {% endif %}
 
-    {% if detail.video_embed %}
+    {% if detail.videos and detail.videos.size > 0 %}
+      <section class="publication-detail__section glass-card">
+        <h2>Videos</h2>
+        <div class="publication-video-list">
+          {% for video in detail.videos %}
+            <div class="publication-video-item">
+              <div class="publication-video-item__head">
+                <h3>{{ video.label }}</h3>
+                <a class="pub-action" href="{{ video.url }}">
+                  {% if video.label == "Fast Forward" %}
+                    <i class="fas fa-forward" aria-hidden="true"></i>
+                  {% elsif video.label == "Presentation" %}
+                    <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
+                  {% else %}
+                    <i class="fas fa-play" aria-hidden="true"></i>
+                  {% endif %}
+                  <span>Open video</span>
+                </a>
+              </div>
+              {% if video.embed %}
+                <div class="publication-video">
+                  <iframe src="{{ video.embed }}" title="{{ pub.title }} {{ video.label }}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% elsif detail.video_embed %}
       <section class="publication-detail__section glass-card">
         <h2>Video Preview</h2>
         <div class="publication-video">

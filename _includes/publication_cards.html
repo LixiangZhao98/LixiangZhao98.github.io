@@ -14,6 +14,7 @@
         <div class="pub-card__meta pub-card__venue">
           {% if pub.venue %}<span>{{ pub.venue }}</span>{% endif %}
           {% if pub.ccf %}<span class="pub-badge">{{ pub.ccf }}</span>{% endif %}
+          {% if pub.jcr %}<span class="pub-badge pub-badge--jcr">{{ pub.jcr }}</span>{% endif %}
         </div>
         {% if pub.links and pub.links.size > 0 %}
           <div class="pub-card__links">

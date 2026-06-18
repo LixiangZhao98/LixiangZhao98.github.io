@@ -8,7 +8,7 @@
       venue: "IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR), 2026"
       ccf: "CCF A"
       links:
-        - label: "Paper"
+        - label: "IEEE"
           url: "https://ieeexplore.ieee.org/document/11457550"
         - label: "Video"
           url: "https://www.youtube.com/watch?v=H-dz_4UXMIE"
@@ -27,7 +27,7 @@
       venue: "CHI Conference on Human Factors in Computing Systems Extended Abstracts (CHI EA), 2025"
       ccf: "CCF A"
       links:
-        - label: "Paper"
+        - label: "ACM"
           url: "https://doi.org/10.1145/3706599.3719686"
         - label: "PDF"
           url: "https://LixiangZhao98.github.io/assets/Publications/Papers/Mozualization.pdf"
@@ -37,9 +37,12 @@
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/storyline.png"
       authors: 'Haonan Yao, <strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, Boyuan Chen, Kaiwen Li, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "Journal of Visualization (JOV), 2025"
+      jcr: "JCR Q3"
       links:
-        - label: "Paper"
+        - label: "Springer"
           url: "https://doi.org/10.1007/s12650-025-01058-5"
+        - label: "arXiv"
+          url: "https://arxiv.org/abs/2408.01775"
         - label: "PDF"
           url: "https://LixiangZhao98.github.io/assets/Publications/Papers/3DStoryline immersive visual storytelling.pdf"
 
@@ -52,11 +55,18 @@
       authors: '<strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, <a href="https://tobias.isenberg.cc/">Tobias Isenberg</a>, <a href="https://scholar.xjtlu.edu.cn/en/persons/FUQIXIE20/">Fuqi Xie</a>, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "IEEE Transactions on Visualization and Computer Graphics (TVCG), 2024"
       ccf: "CCF A"
+      jcr: "JCR Q1"
       links:
-        - label: "Paper"
+        - label: "IEEE"
+          url: "https://doi.org/10.1109/TVCG.2024.3456368"
+        - label: "arXiv"
           url: "https://arxiv.org/abs/2407.14833"
         - label: "Video"
           url: "https://www.youtube.com/watch?v=GUXvZKqg-7s"
+        - label: "Presentation"
+          url: "https://www.youtube.com/watch?v=sO33xoUQ9fk&t=3793s"
+        - label: "Fast Forward"
+          url: "https://www.youtube.com/watch?v=IBhoSoTY-DQ"
         - label: "Code"
           url: "https://github.com/LixiangZhao98/Cross-Reality-Environment-SpatialTouch"
         - label: "OSF"
@@ -69,12 +79,12 @@
       venue: "CHI Conference on Human Factors in Computing Systems Extended Abstracts (CHI EA), 2024"
       ccf: "CCF A"
       links:
-        - label: "Paper"
+        - label: "ACM"
           url: "https://doi.org/10.1145/3613905.3650777"
         - label: "PDF"
           url: "https://LixiangZhao98.github.io/assets/Publications/Papers/EEA.pdf"
         - label: "Video"
-          url: "https://www.youtube.com/watch?v=5c2XPGOkBN8"
+          url: "https://www.youtube.com/watch?v=LWDQJ4wnErw"
 
 - year: 2023
   items:
@@ -85,13 +95,18 @@
       authors: '<strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, <a href="https://tobias.isenberg.cc/">Tobias Isenberg</a>, <a href="https://scholar.xjtlu.edu.cn/en/persons/FUQIXIE20/">Fuqi Xie</a>, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "IEEE Transactions on Visualization and Computer Graphics (TVCG), 2023"
       ccf: "CCF A"
+      jcr: "JCR Q1"
       links:
-        - label: "Paper"
+        - label: "IEEE"
           url: "https://ieeexplore.ieee.org/document/10292508/"
         - label: "PDF"
           url: "https://LixiangZhao98.github.io/assets/Publications/Papers/MeTACAST.pdf"
         - label: "Video"
           url: "https://www.youtube.com/watch?v=R_WRfzgnOAM&t=1s"
+        - label: "Presentation"
+          url: "https://www.youtube.com/watch?v=svIhmLlMcAE&t=3312s"
+        - label: "Fast Forward"
+          url: "https://www.youtube.com/watch?v=KCeMJPRsPxw"
         - label: "Code"
           url: "https://github.com/LixiangZhao98/MeTACAST"
         - label: "OSF"
@@ -104,7 +119,7 @@
       venue: "IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct), 2023"
       ccf: "CCF B"
       links:
-        - label: "Paper"
+        - label: "IEEE"
           url: "https://doi.org/10.1109/ISMAR-Adjunct60411.2023.00030"
         - label: "PDF"
           url: "https://LixiangZhao98.github.io/assets/Publications/Papers/ImmerView.pdf"
@@ -119,10 +134,10 @@
       venue: "IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct), 2022"
       ccf: "CCF B"
       links:
-        - label: "Paper"
+        - label: "IEEE"
           url: "https://doi.org/10.1109/ISMAR-Adjunct57072.2022.00031"
         - label: "PDF"
-          url: "https://LixiangZhao98.github.io/assets/Publications/Papers/LWim.pdf"
+          url: "https://LixiangZhao98.github.io/assets/Publications/Papers/LWiM.pdf"
 
 - year: 2020
   items:
@@ -133,7 +148,7 @@
       authors: 'Jingjing Zhang, Mengjie Huang, <strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, Rui Yang, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://experts.exeter.ac.uk/39056-ji-han">Ji Han</a>, Liu Wang, Wenxin Sun'
       venue: "International Symposium on Computational Intelligence and Design (ISCID), 2020"
       links:
-        - label: "Paper"
+        - label: "IEEE"
           url: "https://doi.org/10.1109/ISCID51228.2020.00088"
         - label: "PDF"
           url: "https://LixiangZhao98.github.io/assets/Publications/Papers/IHR.pdf"
