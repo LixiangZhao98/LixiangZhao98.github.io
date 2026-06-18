@@ -77,12 +77,12 @@ redirect_from:
         <table>
           <tbody>
             <tr>
-              <th scope="row">Jan 10, 2026</th>
-              <td>Our paper <a href="https://ieeexplore.ieee.org/document/11457550">&ldquo;ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR&rdquo;</a> is accepted by IEEE VR 2026!</td>
-            </tr>
-            <tr>
               <th scope="row">Feb 03, 2026</th>
               <td>I successfully defended my Ph.D. dissertation &ldquo;Bridging Immersion Levels in Spatial Data Exploration: Visualization, Interaction, and Computing&rdquo;!</td>
+            </tr>
+            <tr>
+              <th scope="row">Jan 10, 2026</th>
+              <td>Our paper <a href="https://ieeexplore.ieee.org/document/11457550">&ldquo;ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR&rdquo;</a> is accepted by IEEE VR 2026!</td>
             </tr>
           </tbody>
         </table>
