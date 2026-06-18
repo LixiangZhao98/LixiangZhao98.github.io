@@ -48,16 +48,26 @@ layout: compress
       document.addEventListener("pointerdown", function(event) {
         if (event.button !== 0 || event.isPrimary === false) return;
 
-        var sparkle = document.createElement("span");
-        sparkle.className = "site-click-star";
-        sparkle.style.left = event.clientX + "px";
-        sparkle.style.top = event.clientY + "px";
-        sparkle.style.setProperty("--click-rotate", Math.round(Math.random() * 360) + "deg");
-        document.body.appendChild(sparkle);
+        var angle = -34 + Math.random() * 58;
+        var distance = 112 + Math.random() * 78;
+        var duration = 980 + Math.random() * 520;
+        var length = 64 + Math.random() * 44;
+        var radians = angle * Math.PI / 180;
+        var meteor = document.createElement("span");
+        meteor.className = "site-click-meteor";
+        meteor.style.left = event.clientX + "px";
+        meteor.style.top = event.clientY + "px";
+        meteor.style.setProperty("--click-meteor-angle", angle.toFixed(1) + "deg");
+        meteor.style.setProperty("--click-meteor-x", Math.cos(radians) * distance + "px");
+        meteor.style.setProperty("--click-meteor-y", Math.sin(radians) * distance + "px");
+        meteor.style.setProperty("--click-meteor-duration", Math.round(duration) + "ms");
+        meteor.style.setProperty("--click-meteor-length", Math.round(length) + "px");
+        meteor.style.setProperty("--click-meteor-alpha", (0.58 + Math.random() * 0.24).toFixed(2));
+        document.body.appendChild(meteor);
 
         window.setTimeout(function() {
-          sparkle.remove();
-        }, 1400);
+          meteor.remove();
+        }, duration + 180);
       });
     </script>
 

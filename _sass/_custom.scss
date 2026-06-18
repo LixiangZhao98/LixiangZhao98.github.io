@@ -314,37 +314,43 @@
   width: clamp(36px, 4.2vw, 66px);
 }
 
-.site-click-star {
+.site-click-meteor {
   position: fixed;
   z-index: 40;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(0, 0, 0) rotate(var(--click-meteor-angle, -22deg));
+  transform-origin: 0 0;
+  will-change: transform, opacity;
+  animation: click-meteor var(--click-meteor-duration, 1.2s) ease-out forwards;
+}
+
+.site-click-meteor::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: var(--click-meteor-length, 82px);
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent 0%, rgba(125, 211, 252, 0.12) 34%, rgba(255, 255, 255, 0.48) 76%, rgba(255, 232, 184, 0.86) 100%);
+  box-shadow: 0 0 13px rgba(125, 211, 252, 0.28), 0 0 22px rgba(255, 232, 184, 0.16);
+  transform: translate(-100%, -50%);
+}
+
+.site-click-meteor::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  pointer-events: none;
   background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 0 18px rgba(125, 211, 252, 0.72), 0 0 34px rgba(255, 232, 184, 0.28);
-  transform: translate(-50%, -50%) rotate(var(--click-rotate, 0deg)) scale(0.35);
-  animation: click-star 1.25s ease-out forwards;
-}
-
-.site-click-star::before,
-.site-click-star::after {
-  content: "";
-  position: absolute;
-  inset: -18px;
-  border-radius: 50%;
-  opacity: 0.86;
-}
-
-.site-click-star::before {
-  border: 1px solid rgba(125, 211, 252, 0.52);
-  box-shadow: inset 0 0 18px rgba(125, 211, 252, 0.16);
-}
-
-.site-click-star::after {
-  background:
-    linear-gradient(90deg, transparent 48%, rgba(255, 255, 255, 0.8) 50%, transparent 52%),
-    linear-gradient(0deg, transparent 48%, rgba(125, 211, 252, 0.7) 50%, transparent 52%);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.65), 0 0 20px rgba(125, 211, 252, 0.42);
+  transform: translate(-50%, -50%);
 }
 
 @keyframes star-drift {
@@ -396,17 +402,20 @@
   }
 }
 
-@keyframes click-star {
+@keyframes click-meteor {
   0% {
     opacity: 0;
-    transform: translate(-50%, -50%) rotate(var(--click-rotate, 0deg)) scale(0.25);
+    transform: translate3d(0, 0, 0) rotate(var(--click-meteor-angle, -22deg)) scaleX(0.72);
   }
-  16% {
-    opacity: 0.95;
+  14% {
+    opacity: var(--click-meteor-alpha, 0.72);
+  }
+  62% {
+    opacity: var(--click-meteor-alpha, 0.72);
   }
   100% {
     opacity: 0;
-    transform: translate(-50%, -50%) rotate(calc(var(--click-rotate, 0deg) + 46deg)) scale(2.9);
+    transform: translate3d(var(--click-meteor-x, 140px), var(--click-meteor-y, -42px), 0) rotate(var(--click-meteor-angle, -22deg)) scaleX(1);
   }
 }
 
@@ -415,7 +424,7 @@
   .site-bg::before,
   .site-bg::after,
   .site-comet,
-  .site-click-star {
+  .site-click-meteor {
     animation: none;
   }
 }
