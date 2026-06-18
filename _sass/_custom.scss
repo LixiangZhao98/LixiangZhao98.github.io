@@ -353,6 +353,125 @@
   transform: translate(-50%, -50%);
 }
 
+.plane-game-active {
+  cursor: crosshair;
+}
+
+.plane-game-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.plane-game__hud {
+  position: fixed;
+  right: 1rem;
+  top: 5.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  min-height: 2.2rem;
+  padding: 0.28rem 0.38rem 0.28rem 0.68rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(4, 10, 26, 0.58);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  color: rgba(255, 255, 255, 0.88);
+  pointer-events: auto;
+}
+
+.plane-game__score {
+  min-width: 1.4rem;
+  color: rgba(255, 232, 184, 0.94);
+  font-weight: 800;
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+.plane-game__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.76rem;
+  height: 1.76rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.88);
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.plane-game__button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(125, 211, 252, 0.46);
+  background: rgba(125, 211, 252, 0.13);
+}
+
+.plane-game__plane {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 36px;
+  height: 40px;
+  filter: drop-shadow(0 0 16px rgba(125, 211, 252, 0.42));
+  will-change: transform;
+}
+
+.plane-game__plane::before {
+  content: "";
+  position: absolute;
+  inset: 1px 7px 0;
+  clip-path: polygon(50% 0%, 68% 62%, 50% 52%, 32% 62%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(125, 211, 252, 0.68) 54%, rgba(45, 118, 180, 0.34));
+}
+
+.plane-game__plane::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 16px;
+  width: 31px;
+  height: 16px;
+  border-radius: 50% 50% 42% 42%;
+  background: linear-gradient(90deg, transparent 0 9%, rgba(255, 255, 255, 0.74) 10% 28%, rgba(125, 211, 252, 0.74) 50%, rgba(255, 255, 255, 0.74) 72% 90%, transparent 91% 100%);
+  transform: translateX(-50%);
+}
+
+.plane-game__bullet {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 18px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 232, 184, 0.95), rgba(125, 211, 252, 0.4), transparent);
+  box-shadow: 0 0 10px rgba(255, 232, 184, 0.54), 0 0 18px rgba(125, 211, 252, 0.36);
+  will-change: transform;
+}
+
+.plane-game__spark {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 232, 184, 0.94);
+  box-shadow: 0 0 12px rgba(255, 232, 184, 0.58), 0 0 18px rgba(125, 211, 252, 0.32);
+  transform: translate(-50%, -50%);
+  animation: plane-spark 560ms ease-out forwards;
+}
+
+.plane-target-hit {
+  opacity: 0 !important;
+  filter: blur(2px) brightness(1.25) !important;
+  transform: translate3d(var(--plane-hit-x, 0), var(--plane-hit-y, 24px), 0) rotate(var(--plane-hit-rotate, 4deg)) scale(0.96) !important;
+  transition: transform 420ms ease, opacity 420ms ease, filter 420ms ease !important;
+  pointer-events: none;
+}
+
 @keyframes star-drift {
   0% {
     transform: translate3d(0, 0, 0);
@@ -419,12 +538,24 @@
   }
 }
 
+@keyframes plane-spark {
+  0% {
+    opacity: 0.94;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--spark-x, 0px)), calc(-50% + var(--spark-y, 0px))) scale(0.25);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .site-bg,
   .site-bg::before,
   .site-bg::after,
   .site-comet,
-  .site-click-meteor {
+  .site-click-meteor,
+  .plane-game__spark {
     animation: none;
   }
 }
