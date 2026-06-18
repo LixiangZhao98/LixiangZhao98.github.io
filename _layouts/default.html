@@ -50,13 +50,17 @@ layout: compress
         if (event.target.closest("a, button, input, textarea, select, label, [role='button']")) return;
 
         var angle = -34 + Math.random() * 58;
-        var duration = 860 + Math.random() * 360;
+        var distance = 96 + Math.random() * 72;
+        var duration = 1050 + Math.random() * 420;
         var length = 64 + Math.random() * 44;
+        var radians = angle * Math.PI / 180;
         var meteor = document.createElement("span");
         meteor.className = "site-click-meteor";
         meteor.style.left = (event.clientX - length) + "px";
         meteor.style.top = event.clientY + "px";
         meteor.style.setProperty("--click-meteor-angle", angle.toFixed(1) + "deg");
+        meteor.style.setProperty("--click-meteor-x", Math.cos(radians) * distance + "px");
+        meteor.style.setProperty("--click-meteor-y", Math.sin(radians) * distance + "px");
         meteor.style.setProperty("--click-meteor-duration", Math.round(duration) + "ms");
         meteor.style.setProperty("--click-meteor-length", Math.round(length) + "px");
         meteor.style.setProperty("--click-meteor-alpha", (0.58 + Math.random() * 0.24).toFixed(2));

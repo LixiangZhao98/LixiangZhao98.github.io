@@ -514,7 +514,7 @@
 @keyframes click-meteor {
   0% {
     opacity: 0;
-    transform: translateY(-50%) rotate(var(--click-meteor-angle, -22deg)) scaleX(0.86);
+    transform: translate3d(0, 0, 0) translateY(-50%) rotate(var(--click-meteor-angle, -22deg)) scaleX(0.86);
   }
   14% {
     opacity: var(--click-meteor-alpha, 0.72);
@@ -524,7 +524,7 @@
   }
   100% {
     opacity: 0;
-    transform: translateY(-50%) rotate(var(--click-meteor-angle, -22deg)) scaleX(1);
+    transform: translate3d(var(--click-meteor-x, 120px), var(--click-meteor-y, -38px), 0) translateY(-50%) rotate(var(--click-meteor-angle, -22deg)) scaleX(1);
   }
 }
 
