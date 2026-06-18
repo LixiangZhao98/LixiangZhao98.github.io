@@ -1,0 +1,122 @@
+scalefree:
+  abstract: >-
+    ScaleFree introduces a dynamic KDE approach for exploring multiscale point cloud data in virtual reality. The system supports smooth density estimation across scales so users can inspect sparse and dense structures without repeatedly changing tools or losing spatial context. It is designed for immersive scientific data exploration where users need to move between overview, regional patterns, and fine-grained local structures.
+  video_embed: "https://www.youtube.com/embed/H-dz_4UXMIE"
+  bibtex: |
+    @inproceedings{zhao2026scalefree,
+      author = {Zhao, Lixiang and Xie, Fuqi and Isenberg, Tobias and Liang, Hai-Ning and Yu, Lingyun},
+      title = {ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR},
+      booktitle = {Proceedings of the IEEE Conference on Virtual Reality and 3D User Interfaces},
+      pages = {358--368},
+      year = {2026},
+      doi = {10.1109/VR67842.2026.00057}
+    }
+
+mozualization:
+  abstract: >-
+    Mozualization is a multimodal AI tool for creating and editing music through text, image, and audio inputs. It helps users combine emotional descriptions, visual materials, and sound samples into music with customized style, color, and personal expression. The system explores how multimodal generation can make music composition more accessible while preserving creative control.
+  bibtex: |
+    @inproceedings{xu2025mozualization,
+      author = {Xu, Wanfang and Zhao, Lixiang and Song, Haiwen and Song, Xinheng and Lu, Zhaolin and Liu, Yu and Chen, Min and Lim, Eng Gee and Yu, Lingyun},
+      title = {Mozualization: Crafting Music and Visual Representation with Multimodal AI},
+      booktitle = {Extended Abstracts of the CHI Conference on Human Factors in Computing Systems},
+      year = {2025},
+      pages = {1--7},
+      doi = {10.1145/3706599.3719686}
+    }
+
+3dstoryline:
+  abstract: >-
+    3DStoryline studies how immersive virtual reality can extend conventional 2D storyline visualizations. The system lets users view, navigate, and interact with 3D storylines from multiple perspectives, helping them understand stories with complex temporal, spatial, and character relationships. A task-based study showed that immersive storyline visualization can improve comprehension of complex narratives.
+  bibtex: |
+    @article{yao2025threedstoryline,
+      author = {Yao, Haonan and Zhao, Lixiang and Chen, Boyuan and Li, Kaiwen and Liang, Hai-Ning and Yu, Lingyun},
+      title = {3DStoryline: Immersive Visual Storytelling},
+      journal = {Journal of Visualization},
+      volume = {28},
+      number = {2},
+      pages = {463--480},
+      year = {2025},
+      doi = {10.1007/s12650-025-01058-5}
+    }
+
+spatialtouch:
+  abstract: >-
+    SpatialTouch explores spatial data visualization across cross-reality settings. It investigates how users can select, manipulate, and understand spatial data when physical, augmented, and virtual environments are connected. The work focuses on interaction techniques that preserve spatial context while supporting precise exploration of 3D data.
+  video_embed: "https://www.youtube.com/embed/GUXvZKqg-7s"
+  bibtex: |
+    @article{zhao2025spatialtouch,
+      author = {Zhao, Lixiang and Isenberg, Tobias and Xie, Fuqi and Liang, Hai-Ning and Yu, Lingyun},
+      title = {SpatialTouch: Exploring Spatial Data Visualizations in Cross-reality},
+      journal = {IEEE Transactions on Visualization and Computer Graphics},
+      volume = {31},
+      number = {1},
+      pages = {897--907},
+      year = {2025},
+      doi = {10.1109/TVCG.2024.3456368}
+    }
+
+eea:
+  abstract: >-
+    This work examines embodied asymmetric two-handed interaction for immersive data exploration. It compares different levels of embodiment for the dominant and non-dominant hands across visualization tasks such as 3D curve brushing and object manipulation. The findings provide design guidance for balancing directness, comfort, and task performance in two-handed VR interaction.
+  video_embed: "https://www.youtube.com/embed/5c2XPGOkBN8"
+  bibtex: |
+    @inproceedings{yao2024embodied,
+      author = {Yao, Haonan and Zhao, Lixiang and Liang, Hai-Ning and Liu, Yu and Li, Yue and Yu, Lingyun},
+      title = {Exploring Embodied Asymmetric Two-Handed Interactions for Immersive Data Exploration},
+      booktitle = {Extended Abstracts of the CHI Conference on Human Factors in Computing Systems},
+      year = {2024},
+      doi = {10.1145/3613905.3650777}
+    }
+
+metacast:
+  abstract: >-
+    MeTACAST presents target- and context-aware spatial selection techniques for point cloud visualization in VR. The techniques support selection intents such as dense regions, filament-like structures, and clusters while allowing post-selection threshold adjustment. They are designed to reduce the limits of occlusion, non-uniform density, and complex 3D shapes during immersive data selection.
+  video_embed: "https://www.youtube.com/embed/R_WRfzgnOAM?start=1"
+  bibtex: |
+    @article{zhao2024metacast,
+      author = {Zhao, Lixiang and Isenberg, Tobias and Xie, Fuqi and Liang, Hai-Ning and Yu, Lingyun},
+      title = {MeTACAST: Target- and Context-Aware Spatial Selection in VR},
+      journal = {IEEE Transactions on Visualization and Computer Graphics},
+      volume = {30},
+      number = {1},
+      pages = {480--494},
+      year = {2024},
+      doi = {10.1109/TVCG.2023.3326517}
+    }
+
+immerview:
+  abstract: >-
+    ImmerView proposes an adaptive multi-view layout for immersive situated visualizations. It places information views near their corresponding objects and adjusts the layout according to spatial relationships, user viewpoint, and visual search needs. The approach aims to improve situatedness and reduce search difficulty when objects are occluded or outside the current view.
+  bibtex: |
+    @inproceedings{li2023immerview,
+      author = {Li, Jiayin and Zhao, Lixiang and Liang, Hai-Ning and Yu, Lingyun},
+      title = {ImmerView: Adaptive Multi-View Layout for Immersive Situated Visualizations},
+      booktitle = {Proceedings of the IEEE International Symposium on Mixed and Augmented Reality Adjunct},
+      year = {2023},
+      doi = {10.1109/ISMAR-Adjunct60411.2023.00030}
+    }
+
+l-wim:
+  abstract: >-
+    L-WiM supports collaborative exploration of large-scale immersive environments. It uses linked World-in-Miniature views to show collaborators' relative position, scale, and context, making it easier to maintain awareness across vast astronomical datasets. The design helps users coordinate navigation, share findings, and assist each other across multiple spatial scales.
+  bibtex: |
+    @inproceedings{zhao2022lwim,
+      author = {Zhao, Lixiang and Cao, Nieyu and He, Shuqi and Liang, Hai-Ning and Yu, Lingyun},
+      title = {L-WiM: Collaborative Exploration in Immersive Environments},
+      booktitle = {Proceedings of the IEEE International Symposium on Mixed and Augmented Reality Adjunct},
+      year = {2022},
+      doi = {10.1109/ISMAR-Adjunct57072.2022.00031}
+    }
+
+ihr:
+  abstract: >-
+    This study investigates how virtual hand representation affects presence and embodiment in VR. Participants completed tasks using hand representations with different levels of realism, and the study analyzed presence, body ownership, agency, and their relationships. The results indicate that realistic hands can increase presence and body ownership, while agency shows a more nuanced pattern.
+  bibtex: |
+    @inproceedings{zhang2020handrepresentation,
+      author = {Zhang, Jingjing and Huang, Mengjie and Zhao, Lixiang and Yang, Rui and Liang, Hai-Ning and Han, Ji and Wang, Liu and Sun, Wenxin},
+      title = {Influence of Hand Representation Design on Presence and Embodiment in Virtual Environment},
+      booktitle = {Proceedings of the International Symposium on Computational Intelligence and Design},
+      year = {2020},
+      doi = {10.1109/ISCID51228.2020.00088}
+    }

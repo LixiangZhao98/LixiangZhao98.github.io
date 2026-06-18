@@ -50,100 +50,6 @@ hide_title: true
     </section>
 
     <section class="cv-section">
-      <h2>Research Experience</h2>
-      <ol class="cv-timeline">
-        <li class="cv-entry">
-          <div class="cv-entry__side">
-            <span>2025.11 - 2026.06</span>
-            <span>Suzhou, China</span>
-          </div>
-          <div class="cv-entry__body">
-            <h3>AI-driven Research Intelligence System</h3>
-            <p>XJTLU Graduate School</p>
-            <p>Developed faculty expertise modeling, semantic analysis, knowledge profiling, and intelligent matching features.</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side">
-            <span>2025.03</span>
-            <span>China</span>
-          </div>
-          <div class="cv-entry__body">
-            <h3>Large Model-driven Intelligent Visual Analytics and Interaction</h3>
-            <p>NSFC Key Programme, submitted</p>
-            <p>Assisted with proposal preparation.</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side">
-            <span>2025.03</span>
-            <span>Jiangsu, China</span>
-          </div>
-          <div class="cv-entry__body">
-            <h3>Cognitive Enhancement and Intelligent Interaction Techniques in Immersive Environments</h3>
-            <p>Outstanding Young-Scholar Programme in Jiangsu Science and Technology Programme, submitted</p>
-            <p>Assisted with proposal preparation.</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side">
-            <span>2024.06 - 2025.06</span>
-            <span>Hangzhou, China</span>
-          </div>
-          <div class="cv-entry__body">
-            <h3>Cross-reality Immersive Visualization and Exploration for Scientific Data</h3>
-            <p>State Key Lab of CAD&amp;CG, Zhejiang University</p>
-            <p>Supported proposal preparation and project execution.</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side">
-            <span>2024.06 - 2025.03</span>
-            <span>Suzhou, China</span>
-          </div>
-          <div class="cv-entry__body">
-            <h3>Deep Learning based Intelligent Repositioning Guidance System for Femur Fracture Surgery</h3>
-            <p>The Fourth Affiliated Hospital of Soochow University (Suzhou Dushu Lake Hospital)</p>
-            <p>Contributed to an intelligent surgical guidance research collaboration.</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side">
-            <span>2023.06 - 2024.06</span>
-            <span>Suzhou, China</span>
-          </div>
-          <div class="cv-entry__body">
-            <h3>Visualization and Interaction Toolkit for Molecular Data in Mixed-reality Environment</h3>
-            <p>Collaboration with biologists</p>
-            <p>Developed visualization and interaction techniques for molecular data in MR.</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side">
-            <span>2023.01 - 2026.12</span>
-            <span>China</span>
-          </div>
-          <div class="cv-entry__body">
-            <h3>Natural Interaction Techniques for Immersive Data Visualization</h3>
-            <p>NSFC General Programme, ongoing</p>
-            <p>Assisted with proposal preparation.</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side">
-            <span>2020.09 - 2023.06</span>
-            <span>Suzhou, China</span>
-          </div>
-          <div class="cv-entry__body">
-            <h3>Library Management and Book Retrieval System with AR Navigation Techniques</h3>
-            <p>SenseTime Group Inc. and Virtual Engineering Center, XJTLU</p>
-            <p>Developed front-end and back-end components for computer vision, 3D reconstruction, and AR navigation.</p>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <section class="cv-section">
       <h2>Awards</h2>
       <ol class="cv-timeline cv-timeline--compact">
         <li class="cv-entry">
@@ -171,7 +77,7 @@ hide_title: true
           <div class="cv-entry__side"><span>2023.07</span></div>
           <div class="cv-entry__body">
             <h3>Best Poster Award</h3>
-            <p>ChinaVis 2023, for "L-WiM: Collaborative Exploration in Immersive Environments"</p>
+            <p>China Visualization and Visual Analytics Conference (ChinaVis) 2023, for "L-WiM: Collaborative Exploration in Immersive Environments"</p>
           </div>
         </li>
         <li class="cv-entry">
@@ -185,7 +91,7 @@ hide_title: true
           <div class="cv-entry__side"><span>2022.07</span></div>
           <div class="cv-entry__body">
             <h3>Second Prize</h3>
-            <p>ChinaVis 2022 Data Visualization Competition</p>
+            <p>China Visualization and Visual Analytics Conference (ChinaVis) 2022 Data Visualization Competition</p>
           </div>
         </li>
         <li class="cv-entry">
@@ -206,14 +112,14 @@ hide_title: true
           <div class="cv-entry__side"><span>2019.01</span></div>
           <div class="cv-entry__body">
             <h3>Honorable Mention</h3>
-            <p>Mathematical Contest in Modeling 2019</p>
+            <p>Mathematical Contest in Modeling (MCM) 2019</p>
           </div>
         </li>
         <li class="cv-entry">
           <div class="cv-entry__side"><span>2018.11</span></div>
           <div class="cv-entry__body">
             <h3>Silver Medal</h3>
-            <p>The University Physics Competition 2018</p>
+            <p>The University Physics Competition (UPC) 2018</p>
           </div>
         </li>
       </ol>
@@ -226,7 +132,7 @@ hide_title: true
           <div class="cv-entry__side"><span>2026.03</span></div>
           <div class="cv-entry__body">
             <h3>Paper Presentation</h3>
-            <p>"ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR", IEEE VR 2026, Daegu, Republic of Korea</p>
+            <p>"ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR", IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR) 2026, Daegu, Republic of Korea</p>
           </div>
         </li>
         <li class="cv-entry">
@@ -240,35 +146,35 @@ hide_title: true
           <div class="cv-entry__side"><span>2024.10</span></div>
           <div class="cv-entry__body">
             <h3>Paper Presentation</h3>
-            <p>"SpatialTouch: Exploring Spatial Data Visualizations in Cross-Reality", IEEE VIS 2024, California, United States</p>
+            <p>"SpatialTouch: Exploring Spatial Data Visualizations in Cross-Reality", IEEE Visualization &amp; Visual Analytics (IEEE VIS) 2024, California, United States</p>
           </div>
         </li>
         <li class="cv-entry">
           <div class="cv-entry__side"><span>2023.10</span></div>
           <div class="cv-entry__body">
             <h3>IEEE VIS and ISMAR Presentations</h3>
-            <p>"MeTACAST: Target- and Context-Aware Spatial Selection in VR", IEEE VIS 2023; Doctoral Colloquium at IEEE VIS 2023; "ImmerView: Adaptive Multi-View Layout for Immersive Situated Visualizations", ISMAR 2023</p>
+            <p>"MeTACAST: Target- and Context-Aware Spatial Selection in VR", IEEE Visualization &amp; Visual Analytics (IEEE VIS) 2023; Doctoral Colloquium at IEEE Visualization &amp; Visual Analytics (IEEE VIS) 2023; "ImmerView: Adaptive Multi-View Layout for Immersive Situated Visualizations", IEEE International Symposium on Mixed and Augmented Reality (ISMAR) 2023</p>
           </div>
         </li>
         <li class="cv-entry">
           <div class="cv-entry__side"><span>2023.07</span></div>
           <div class="cv-entry__body">
             <h3>Academic Talk</h3>
-            <p>"Spatial selection techniques in VR", ChinaVis 2023, Chongqing, China</p>
+            <p>"Spatial selection techniques in VR", China Visualization and Visual Analytics Conference (ChinaVis) 2023, Chongqing, China</p>
           </div>
         </li>
         <li class="cv-entry">
           <div class="cv-entry__side"><span>2022.10</span></div>
           <div class="cv-entry__body">
             <h3>Paper Presentation</h3>
-            <p>"L-WiM: Collaborative Exploration in Immersive Environments", ISMAR 2022, Singapore</p>
+            <p>"L-WiM: Collaborative Exploration in Immersive Environments", IEEE International Symposium on Mixed and Augmented Reality (ISMAR) 2022, Singapore</p>
           </div>
         </li>
         <li class="cv-entry">
           <div class="cv-entry__side"><span>2020.06</span></div>
           <div class="cv-entry__body">
             <h3>Invited Talk</h3>
-            <p>Experience sharing on University Physics Competition and Mathematical Contest in Modeling, XJTLU</p>
+            <p>Experience sharing on University Physics Competition (UPC) and Mathematical Contest in Modeling (MCM), XJTLU</p>
           </div>
         </li>
       </ol>
@@ -283,7 +189,7 @@ hide_title: true
           </div>
           <div class="cv-entry__body">
             <h3>Programme Committees</h3>
-            <p>IEEE VIS 2026 Poster Programme Committee; ChinaVis 2026 Programme Committee</p>
+            <p>IEEE Visualization &amp; Visual Analytics (IEEE VIS) 2026 Poster Programme Committee; China Visualization and Visual Analytics Conference (ChinaVis) 2026 Programme Committee</p>
           </div>
         </li>
         <li class="cv-entry">
@@ -292,7 +198,7 @@ hide_title: true
           </div>
           <div class="cv-entry__body">
             <h3>Poster Programme Committee</h3>
-            <p>IEEE Visualization &amp; Visual Analytics (VIS 2025)</p>
+            <p>IEEE Visualization &amp; Visual Analytics (IEEE VIS) 2025</p>
           </div>
         </li>
         <li class="cv-entry">
@@ -301,7 +207,7 @@ hide_title: true
           </div>
           <div class="cv-entry__body">
             <h3>Workshop Co-organizer</h3>
-            <p>ISMAR Workshop on the 2nd Joint Workshop on Cross Reality (JWCR)</p>
+            <p>IEEE International Symposium on Mixed and Augmented Reality (ISMAR) Workshop on the 2nd Joint Workshop on Cross Reality (JWCR)</p>
           </div>
         </li>
         <li class="cv-entry">
@@ -310,7 +216,7 @@ hide_title: true
           </div>
           <div class="cv-entry__body">
             <h3>Student Volunteer</h3>
-            <p>IEEE VIS 2023; International Symposium on Mixed and Augmented Reality (ISMAR 2022)</p>
+            <p>IEEE Visualization &amp; Visual Analytics (IEEE VIS) 2023; IEEE International Symposium on Mixed and Augmented Reality (ISMAR) 2022</p>
           </div>
         </li>
         <li class="cv-entry">
@@ -319,104 +225,8 @@ hide_title: true
           </div>
           <div class="cv-entry__body">
             <h3>External Reviewer</h3>
-            <p>Conferences: IEEE VR, CSCW, CHI, ISMAR, EuroVis, PacificVis, ISS</p>
-            <p>Journals: IEEE TVCG, Visual Informatics, Molecular &amp; Cellular Biomechanics</p>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <section class="cv-section">
-      <h2>Mentorship</h2>
-      <ol class="cv-timeline cv-timeline--compact">
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>MSc HCI</span></div>
-          <div class="cv-entry__body">
-            <h3>Jiayin Li</h3>
-            <p>Master student at XJTLU; work published at ISMAR 2023.</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>MSc HCI</span></div>
-          <div class="cv-entry__body">
-            <h3>Haonan Yao</h3>
-            <p>Master student at XJTLU; work published at CHI EA 2024.</p>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <section class="cv-section">
-      <h2>Teaching Assistant</h2>
-      <ol class="cv-timeline cv-timeline--compact">
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2024 - 2025</span></div>
-          <div class="cv-entry__body">
-            <h3>CPT408 / CPT306, Game Design</h3>
-            <p>Graduate and undergraduate, XJTLU</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2024 - 2025</span></div>
-          <div class="cv-entry__body">
-            <h3>CPT204, Advanced OO Programming</h3>
-            <p>Undergraduate, XJTLU</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2022 - 2023</span></div>
-          <div class="cv-entry__body">
-            <h3>CPT105, Introduction to Programming in Java</h3>
-            <p>Undergraduate, XJTLU</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2022 - 2023</span></div>
-          <div class="cv-entry__body">
-            <h3>CPT102, Data Structures</h3>
-            <p>Undergraduate, XJTLU</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2022 - 2023</span></div>
-          <div class="cv-entry__body">
-            <h3>CPT106, C++ Programming and Software Engineering II</h3>
-            <p>Undergraduate, XJTLU</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2022 - 2023</span></div>
-          <div class="cv-entry__body">
-            <h3>Professional Development Programme (Coding with Python)</h3>
-            <p>Undergraduate, XJTLU Taicang</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2021 - 2024</span></div>
-          <div class="cv-entry__body">
-            <h3>CPT405, Interactive Systems</h3>
-            <p>Graduate, XJTLU</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2021 - 2024</span></div>
-          <div class="cv-entry__body">
-            <h3>CPT413, Information Visualization</h3>
-            <p>Graduate, XJTLU</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2021 - 2023</span></div>
-          <div class="cv-entry__body">
-            <h3>CPT401, Research Methods</h3>
-            <p>Graduate, XJTLU</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2021 - 2022</span></div>
-          <div class="cv-entry__body">
-            <h3>CPT412, Human-Robot Interaction</h3>
-            <p>Graduate, XJTLU</p>
+            <p>Conferences: IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR), Computer Supported Cooperative Work and Social Computing (CSCW), CHI Conference on Human Factors in Computing Systems (CHI), IEEE International Symposium on Mixed and Augmented Reality (ISMAR), Eurographics Conference on Visualization (EuroVis), IEEE Pacific Visualization Symposium (PacificVis), ACM Interactive Surfaces and Spaces (ISS)</p>
+            <p>Journals: IEEE Transactions on Visualization and Computer Graphics (TVCG), Visual Informatics (VI), Molecular &amp; Cellular Biomechanics (MCB)</p>
           </div>
         </li>
       </ol>

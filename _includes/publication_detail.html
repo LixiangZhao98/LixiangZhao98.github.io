@@ -1,0 +1,75 @@
+{% assign pub = nil %}
+{% for group in site.data.publications %}
+  {% assign match = group.items | where: "id", page.pub_id | first %}
+  {% if match %}
+    {% assign pub = match %}
+  {% endif %}
+{% endfor %}
+{% assign detail = site.data.publication_details[page.pub_id] %}
+
+{% if pub %}
+  <main class="publication-detail">
+    <a class="publication-detail__back" href="/publications/">&larr; Back to publications</a>
+
+    <article class="publication-detail__hero glass-card">
+      <div class="publication-detail__teaser">
+        <img src="{{ pub.image }}" alt="{{ pub.title }}">
+      </div>
+      <div class="publication-detail__intro">
+        <div class="publication-detail__badges">
+          {% if pub.ccf %}<span class="pub-badge">{{ pub.ccf }}</span>{% endif %}
+          {% if pub.venue %}<span class="pub-venue-chip">{{ pub.venue }}</span>{% endif %}
+        </div>
+        <h1>{{ pub.title }}</h1>
+        {% if pub.authors %}<div class="publication-detail__authors">{{ pub.authors }}</div>{% endif %}
+        {% if pub.links and pub.links.size > 0 %}
+          <div class="publication-detail__links">
+            {% for link in pub.links %}
+              <a class="pub-action" href="{{ link.url }}">
+                {% if link.label == "Paper" %}
+                  <i class="fas fa-file-alt" aria-hidden="true"></i>
+                {% elsif link.label == "PDF" %}
+                  <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                {% elsif link.label == "Video" %}
+                  <i class="fas fa-play" aria-hidden="true"></i>
+                {% elsif link.label == "Code" %}
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                {% elsif link.label == "OSF" %}
+                  <i class="fas fa-database" aria-hidden="true"></i>
+                {% else %}
+                  <i class="fas fa-link" aria-hidden="true"></i>
+                {% endif %}
+                <span>{{ link.label }}</span>
+              </a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </article>
+
+    {% if detail.abstract %}
+      <section class="publication-detail__section glass-card">
+        <h2>Abstract</h2>
+        <p>{{ detail.abstract }}</p>
+      </section>
+    {% endif %}
+
+    {% if detail.video_embed %}
+      <section class="publication-detail__section glass-card">
+        <h2>Video Preview</h2>
+        <div class="publication-video">
+          <iframe src="{{ detail.video_embed }}" title="{{ pub.title }} video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </section>
+    {% endif %}
+
+    {% if detail.bibtex %}
+      <section class="publication-detail__section glass-card">
+        <h2>BibTeX</h2>
+        <pre class="publication-bib"><code>{{ detail.bibtex | escape }}</code></pre>
+      </section>
+    {% endif %}
+  </main>
+{% else %}
+  <p>Publication not found.</p>
+{% endif %}

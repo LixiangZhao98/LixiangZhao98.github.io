@@ -2,10 +2,11 @@
   items:
     - id: scalefree
       title: "ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR"
-      url: "https://ieeexplore.ieee.org/document/11457550"
+      url: "/publications/scalefree/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/ScaleFree.png"
       authors: '<strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, <a href="https://scholar.xjtlu.edu.cn/en/persons/FUQIXIE20/">Fuqi Xie</a>, <a href="https://tobias.isenberg.cc/">Tobias Isenberg</a>, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR), 2026"
+      ccf: "CCF A"
       links:
         - label: "Paper"
           url: "https://ieeexplore.ieee.org/document/11457550"
@@ -20,31 +21,38 @@
   items:
     - id: mozualization
       title: "Mozualization: Crafting Music and Visual Representation with Multimodal AI"
-      url: "https://programs.sigchi.org/chi/2025/program/content/194488"
+      url: "/publications/mozualization/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/Mozualization.png"
       authors: 'Wanfang Xu, <strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, Haiwen Song, <a href="https://www.edu.sot.tum.de/hctl/team/visiting-researchers/xinheng-song/">Xinheng Song</a>, <a href="https://pure.bit.edu.cn/en/persons/zhaolin-lu/">Zhaolin Lu</a>, <a href="https://6ris1.github.io/YuLiu-homepage.github.io/">Yu Liu</a>, <a href="https://scholar.xjtlu.edu.cn/en/persons/MinChen/">Min Chen</a>, <a href="https://scholar.xjtlu.edu.cn/en/persons/enggee-lim/">Eng Gee Lim</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
-      venue: "CHI (LBW), 2025"
+      venue: "CHI Conference on Human Factors in Computing Systems Extended Abstracts (CHI EA), 2025"
+      ccf: "CCF A"
       links:
         - label: "Paper"
+          url: "https://doi.org/10.1145/3706599.3719686"
+        - label: "PDF"
           url: "https://LixiangZhao98.github.io/assets/Publications/Papers/Mozualization.pdf"
     - id: 3dstoryline
       title: "3DStoryline: Immersive Visual Storytelling"
-      url: "https://doi.org/10.1007/s12650-025-01058-5"
+      url: "/publications/3dstoryline/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/storyline.png"
       authors: 'Haonan Yao, <strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, Boyuan Chen, Kaiwen Li, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
-      venue: "Journal of Visualization, 2025"
+      venue: "Journal of Visualization (JOV), 2025"
+      ccf: "CCF N/A"
       links:
         - label: "Paper"
+          url: "https://doi.org/10.1007/s12650-025-01058-5"
+        - label: "PDF"
           url: "https://LixiangZhao98.github.io/assets/Publications/Papers/3DStoryline immersive visual storytelling.pdf"
 
 - year: 2024
   items:
     - id: spatialtouch
       title: "SpatialTouch: Exploring Spatial Data Visualizations in Cross-reality"
-      url: "https://arxiv.org/abs/2407.14833"
+      url: "/publications/spatialtouch/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/Cross_reality.png"
       authors: '<strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, <a href="https://tobias.isenberg.cc/">Tobias Isenberg</a>, <a href="https://scholar.xjtlu.edu.cn/en/persons/FUQIXIE20/">Fuqi Xie</a>, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "IEEE Transactions on Visualization and Computer Graphics (TVCG), 2024"
+      ccf: "CCF A"
       links:
         - label: "Paper"
           url: "https://arxiv.org/abs/2407.14833"
@@ -56,12 +64,15 @@
           url: "https://osf.io/avxr9"
     - id: eea
       title: "Exploring Embodied Asymmetric Two-Handed Interactions for Immersive Data Exploration"
-      url: "https://dl.acm.org/doi/10.1145/3613905.3650777"
+      url: "/publications/eea/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/EEA.png"
       authors: 'Haonan Yao, <strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://6ris1.github.io/YuLiu-homepage.github.io/">Yu Liu</a>, Yue Li, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
-      venue: "CHI (LBW), 2024"
+      venue: "CHI Conference on Human Factors in Computing Systems Extended Abstracts (CHI EA), 2024"
+      ccf: "CCF A"
       links:
         - label: "Paper"
+          url: "https://doi.org/10.1145/3613905.3650777"
+        - label: "PDF"
           url: "https://LixiangZhao98.github.io/assets/Publications/Papers/EEA.pdf"
         - label: "Video"
           url: "https://www.youtube.com/watch?v=5c2XPGOkBN8"
@@ -69,13 +80,16 @@
 - year: 2023
   items:
     - id: metacast
-      title: "MeTACAST: Target-and Context-aware Spatial Selection in VR"
-      url: "https://ieeexplore.ieee.org/document/10292508/"
+      title: "MeTACAST: Target- and Context-Aware Spatial Selection in VR"
+      url: "/publications/metacast/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/MeTACAST.png"
       authors: '<strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, <a href="https://tobias.isenberg.cc/">Tobias Isenberg</a>, <a href="https://scholar.xjtlu.edu.cn/en/persons/FUQIXIE20/">Fuqi Xie</a>, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "IEEE Transactions on Visualization and Computer Graphics (TVCG), 2023"
+      ccf: "CCF A"
       links:
         - label: "Paper"
+          url: "https://ieeexplore.ieee.org/document/10292508/"
+        - label: "PDF"
           url: "https://LixiangZhao98.github.io/assets/Publications/Papers/MeTACAST.pdf"
         - label: "Video"
           url: "https://www.youtube.com/watch?v=R_WRfzgnOAM&t=1s"
@@ -85,34 +99,43 @@
           url: "https://osf.io/dvj9n/"
     - id: immerview
       title: "ImmerView: Adaptive Multi-View Layout for Immersive Situated Visualizations"
-      url: "https://ieeexplore.ieee.org/abstract/document/10322236"
+      url: "/publications/immerview/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/ImmerView.png"
       authors: 'Jiayin Li, <strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
-      venue: "ISMAR-Adjunct, 2023"
+      venue: "IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct), 2023"
+      ccf: "CCF B"
       links:
         - label: "Paper"
+          url: "https://doi.org/10.1109/ISMAR-Adjunct60411.2023.00030"
+        - label: "PDF"
           url: "https://LixiangZhao98.github.io/assets/Publications/Papers/ImmerView.pdf"
 
 - year: 2022
   items:
     - id: l-wim
       title: "L-WiM: Collaborative Exploration in Immersive Environments"
-      url: "https://ieeexplore.ieee.org/abstract/document/9974567"
+      url: "/publications/l-wim/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/L_Wim.png"
       authors: '<strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, Nieyu Cao, Shuqi He, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
-      venue: "ISMAR-Adjunct, 2022"
+      venue: "IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct), 2022"
+      ccf: "CCF B"
       links:
         - label: "Paper"
+          url: "https://doi.org/10.1109/ISMAR-Adjunct57072.2022.00031"
+        - label: "PDF"
           url: "https://LixiangZhao98.github.io/assets/Publications/Papers/LWim.pdf"
 
 - year: 2020
   items:
     - id: ihr
       title: "Influence of Hand Representation Design on Presence and Embodiment in Virtual Environment"
-      url: "https://ieeexplore.ieee.org/abstract/document/9325719"
+      url: "/publications/ihr/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/IHR.png"
       authors: 'Jingjing Zhang, Mengjie Huang, <strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, Rui Yang, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://experts.exeter.ac.uk/39056-ji-han">Ji Han</a>, Liu Wang, Wenxin Sun'
-      venue: "ISCID, 2020"
+      venue: "International Symposium on Computational Intelligence and Design (ISCID), 2020"
+      ccf: "CCF N/A"
       links:
         - label: "Paper"
+          url: "https://doi.org/10.1109/ISCID51228.2020.00088"
+        - label: "PDF"
           url: "https://LixiangZhao98.github.io/assets/Publications/Papers/IHR.pdf"

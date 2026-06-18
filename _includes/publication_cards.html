@@ -11,7 +11,10 @@
       <div class="pub-card__body">
         <h3 class="pub-card__title"><a href="{{ pub.url }}">{{ pub.title }}</a></h3>
         {% if pub.authors %}<div class="pub-card__meta">{{ pub.authors }}</div>{% endif %}
-        {% if pub.venue %}<div class="pub-card__meta">{{ pub.venue }}</div>{% endif %}
+        <div class="pub-card__meta pub-card__venue">
+          {% if pub.venue %}<span>{{ pub.venue }}</span>{% endif %}
+          {% if pub.ccf %}<span class="pub-badge">{{ pub.ccf }}</span>{% endif %}
+        </div>
         {% if pub.links and pub.links.size > 0 %}
           <div class="pub-card__links">
             {% for link in pub.links %}
@@ -23,4 +26,3 @@
     </div>
   {% endfor %}
 {% endfor %}
-

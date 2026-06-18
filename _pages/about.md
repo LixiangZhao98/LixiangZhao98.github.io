@@ -104,7 +104,10 @@ redirect_from:
                 <div class="selected-publication__body">
                   <h3 class="selected-publication__title"><a href="{{ pub.url }}">{{ pub.title }}</a></h3>
                   {% if pub.authors %}<div class="selected-publication__meta">{{ pub.authors }}</div>{% endif %}
-                  {% if pub.venue %}<div class="selected-publication__meta"><em>{{ pub.venue }}</em></div>{% endif %}
+                  <div class="selected-publication__meta selected-publication__venue">
+                    {% if pub.venue %}<em>{{ pub.venue }}</em>{% endif %}
+                    {% if pub.ccf %}<span class="pub-badge">{{ pub.ccf }}</span>{% endif %}
+                  </div>
                   {% if pub.links and pub.links.size > 0 %}
                     <div class="selected-publication__links">
                       {% for link in pub.links %}
