@@ -19,8 +19,8 @@ hide_title: true
     </div>
   </header>
 
-  <article class="cv-card glass-card">
-    <section class="cv-section">
+  <article class="cv-card">
+    <section class="cv-section glass-card">
       <h2>Education</h2>
       <ol class="cv-timeline">
         <li class="cv-entry">
@@ -49,7 +49,7 @@ hide_title: true
       </ol>
     </section>
 
-    <section class="cv-section">
+    <section class="cv-section glass-card">
       <h2>Awards</h2>
       <ol class="cv-timeline cv-timeline--compact">
         <li class="cv-entry">
@@ -125,7 +125,7 @@ hide_title: true
       </ol>
     </section>
 
-    <section class="cv-section">
+    <section class="cv-section glass-card">
       <h2>Academic Service</h2>
       <ol class="cv-timeline">
         <li class="cv-entry">

@@ -37,8 +37,6 @@
                   <i class="fas fa-play" aria-hidden="true"></i>
                 {% elsif link.label == "Presentation" %}
                   <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
-                {% elsif link.label == "Fast Forward" %}
-                  <i class="fas fa-forward" aria-hidden="true"></i>
                 {% elsif link.label == "Code" %}
                   <i class="fab fa-github" aria-hidden="true"></i>
                 {% elsif link.label == "OSF" %}
@@ -70,9 +68,7 @@
               <div class="publication-video-item__head">
                 <h3>{{ video.label }}</h3>
                 <a class="pub-action" href="{{ video.url }}">
-                  {% if video.label == "Fast Forward" %}
-                    <i class="fas fa-forward" aria-hidden="true"></i>
-                  {% elsif video.label == "Presentation" %}
+                  {% if video.label == "Presentation" %}
                     <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
                   {% else %}
                     <i class="fas fa-play" aria-hidden="true"></i>
@@ -82,7 +78,7 @@
               </div>
               {% if video.embed %}
                 <div class="publication-video">
-                  <iframe src="{{ video.embed }}" title="{{ pub.title }} {{ video.label }}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <iframe src="{{ video.embed }}" title="{{ pub.title }} {{ video.label }}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
               {% endif %}
             </div>
@@ -93,7 +89,7 @@
       <section class="publication-detail__section glass-card">
         <h2>Video Preview</h2>
         <div class="publication-video">
-          <iframe src="{{ detail.video_embed }}" title="{{ pub.title }} video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <iframe src="{{ detail.video_embed }}" title="{{ pub.title }} video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
       </section>
     {% endif %}

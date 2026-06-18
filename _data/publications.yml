@@ -65,8 +65,6 @@
           url: "https://www.youtube.com/watch?v=GUXvZKqg-7s"
         - label: "Presentation"
           url: "https://www.youtube.com/watch?v=sO33xoUQ9fk&t=3793s"
-        - label: "Fast Forward"
-          url: "https://www.youtube.com/watch?v=IBhoSoTY-DQ"
         - label: "Code"
           url: "https://github.com/LixiangZhao98/Cross-Reality-Environment-SpatialTouch"
         - label: "OSF"
@@ -84,7 +82,7 @@
         - label: "PDF"
           url: "https://LixiangZhao98.github.io/assets/Publications/Papers/EEA.pdf"
         - label: "Video"
-          url: "https://www.youtube.com/watch?v=LWDQJ4wnErw"
+          url: "https://www.youtube.com/watch?v=5c2XPGOkBN8"
 
 - year: 2023
   items:
@@ -105,8 +103,6 @@
           url: "https://www.youtube.com/watch?v=R_WRfzgnOAM&t=1s"
         - label: "Presentation"
           url: "https://www.youtube.com/watch?v=svIhmLlMcAE&t=3312s"
-        - label: "Fast Forward"
-          url: "https://www.youtube.com/watch?v=KCeMJPRsPxw"
         - label: "Code"
           url: "https://github.com/LixiangZhao98/MeTACAST"
         - label: "OSF"

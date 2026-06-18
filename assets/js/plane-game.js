@@ -54,6 +54,7 @@
   function start() {
     if (active) return;
     active = true;
+    syncToggleButtons();
     keys = {};
     bullets = [];
     hitTargets = [];
@@ -103,6 +104,23 @@
     plane = null;
     scoreNode = null;
     document.body.classList.remove("plane-game-active");
+    syncToggleButtons();
+  }
+
+  function toggle() {
+    if (active) {
+      stop(true);
+    } else {
+      start();
+    }
+  }
+
+  function syncToggleButtons() {
+    Array.prototype.forEach.call(document.querySelectorAll("[data-plane-game-toggle]"), function (button) {
+      button.setAttribute("aria-pressed", active ? "true" : "false");
+      button.setAttribute("aria-label", active ? "Close plane mode" : "Start plane mode");
+      button.setAttribute("title", active ? "Close plane mode" : "Start plane mode");
+    });
   }
 
   function restoreTargets() {
@@ -219,6 +237,14 @@
     frameId = window.requestAnimationFrame(tick);
   }
 
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest) return;
+    var toggleButton = event.target.closest("[data-plane-game-toggle]");
+    if (!toggleButton) return;
+    event.preventDefault();
+    toggle();
+  });
+
   window.addEventListener("keydown", function (event) {
     if (!active && isTrigger(event) && !isEditable(event)) {
       event.preventDefault();
@@ -255,4 +281,6 @@
     planeState.y = clamp(planeState.y, 52, window.innerHeight - 34);
     collectTargets();
   });
+
+  syncToggleButtons();
 })();
