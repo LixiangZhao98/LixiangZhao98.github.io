@@ -662,6 +662,7 @@ body {
 
 .greedy-nav {
   background: transparent;
+  padding-right: 5rem;
 }
 
 .greedy-nav a {
@@ -685,6 +686,7 @@ body {
   text-transform: none;
 }
 
+.greedy-nav a.plane-nav-button,
 .plane-nav-button {
   display: inline-flex;
   align-items: center;
@@ -696,9 +698,14 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.82) !important;
   cursor: pointer;
+  text-decoration: none;
   transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.greedy-nav a.plane-nav-button::before {
+  display: none;
 }
 
 .plane-nav-button:hover,
@@ -706,11 +713,24 @@ body {
   transform: translateY(-1px);
   border-color: rgba(125, 211, 252, 0.46);
   background: rgba(125, 211, 252, 0.13);
-  color: rgba(255, 255, 255, 0.96);
+  color: rgba(255, 255, 255, 0.96) !important;
 }
 
 .plane-nav-button i {
   font-size: 0.85rem;
+}
+
+.plane-nav-button--desktop {
+  position: absolute;
+  right: 2.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 101;
+}
+
+.plane-nav-button--desktop:hover,
+.plane-nav-button--desktop[aria-pressed="true"] {
+  transform: translateY(calc(-50% - 1px));
 }
 
 .mobile-menu-links {
@@ -1469,6 +1489,11 @@ body {
     align-items: center;
     justify-content: space-between;
     min-width: 0;
+    padding-right: 0;
+  }
+
+  .plane-nav-button--desktop {
+    display: none !important;
   }
 
   .greedy-nav button,

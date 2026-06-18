@@ -15,12 +15,10 @@
             {% endif %}
             <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
-          <li class="masthead__menu-item masthead__menu-item--plane">
-            <button class="plane-nav-button" type="button" data-plane-game-toggle aria-label="Start plane mode" title="Start plane mode">
-              <i class="fas fa-fighter-jet" aria-hidden="true"></i>
-            </button>
-          </li>
         </ul>
+        <a class="plane-nav-button plane-nav-button--desktop" href="#" role="button" data-plane-game-toggle aria-label="Start plane mode" title="Start plane mode">
+          <i class="fas fa-fighter-jet" aria-hidden="true"></i>
+        </a>
         <ul class="hidden-links hidden"></ul>
         <ul id="mobile-menu-links" class="mobile-menu-links" aria-label="Mobile menu">
           {% for link in site.data.navigation.main %}
@@ -32,10 +30,10 @@
             <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
           <li class="masthead__menu-item">
-            <button class="plane-nav-button plane-nav-button--mobile" type="button" data-plane-game-toggle aria-label="Start plane mode" title="Start plane mode">
+            <a class="plane-nav-button plane-nav-button--mobile" href="#" role="button" data-plane-game-toggle aria-label="Start plane mode" title="Start plane mode">
               <i class="fas fa-fighter-jet" aria-hidden="true"></i>
               <span>Plane</span>
-            </button>
+            </a>
           </li>
         </ul>
       </nav>
