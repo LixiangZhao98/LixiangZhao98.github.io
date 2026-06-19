@@ -64,10 +64,10 @@ layout: compress
         if (event.button !== 0 || event.isPrimary === false) return;
         if (event.target.closest("a, button, input, textarea, select, label, [role='button']")) return;
 
-        var angle = -34 + Math.random() * 58;
-        var distance = 96 + Math.random() * 72;
-        var duration = 1050 + Math.random() * 420;
-        var length = 64 + Math.random() * 44;
+        var angle = 15 + Math.random() * 10;
+        var distance = 132 + Math.random() * 86;
+        var duration = 1220 + Math.random() * 520;
+        var length = 72 + Math.random() * 42;
         var radians = angle * Math.PI / 180;
         var meteor = document.createElement("span");
         meteor.className = "site-click-meteor";
@@ -78,7 +78,7 @@ layout: compress
         meteor.style.setProperty("--click-meteor-y", Math.sin(radians) * distance + "px");
         meteor.style.setProperty("--click-meteor-duration", Math.round(duration) + "ms");
         meteor.style.setProperty("--click-meteor-length", Math.round(length) + "px");
-        meteor.style.setProperty("--click-meteor-alpha", (0.58 + Math.random() * 0.24).toFixed(2));
+        meteor.style.setProperty("--click-meteor-alpha", (0.72 + Math.random() * 0.18).toFixed(2));
         document.body.appendChild(meteor);
 
         window.setTimeout(function() {

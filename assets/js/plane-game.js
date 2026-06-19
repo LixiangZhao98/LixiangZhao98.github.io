@@ -3,7 +3,7 @@
   var TARGET_SELECTOR = [
     ".plane-text-brick:not(.plane-target-hit)",
     ".plane-icon-target:not(.plane-target-hit)",
-    "img.plane-image-target"
+    "canvas.plane-image-target"
   ].join(", ");
   var SKIP_TEXT_SELECTOR = "script, style, noscript, iframe, video, canvas, svg, .site-bg, .plane-game-layer";
   var ICON_SELECTOR = [
@@ -25,8 +25,7 @@
   var scoreNode = null;
   var targets = [];
   var hitTargets = [];
-  var imageBites = [];
-  var crackedImages = [];
+  var imageRecords = [];
   var iconTargets = [];
   var textWrappers = [];
   var bullets = [];
@@ -36,9 +35,7 @@
   var lastShot = 0;
   var score = 0;
   var planeState = { x: 0, y: 0, tilt: 0 };
-  var fireButton = null;
   var touchPointerId = null;
-  var touchFiring = false;
 
   function isEditable(event) {
     var target = event.target;
@@ -159,8 +156,40 @@
   function prepareImageTargets() {
     Array.prototype.forEach.call(document.querySelectorAll("body img"), function (image) {
       if (image.closest(".plane-game-layer") || image.closest(".site-bg")) return;
-      image.classList.add("plane-image-target");
-      clearImageState(image);
+      if (!image.complete || !image.naturalWidth || !image.naturalHeight) return;
+
+      var rect = image.getBoundingClientRect();
+      if (rect.width < 4 || rect.height < 4) return;
+
+      var canvas = document.createElement("canvas");
+      var context = canvas.getContext("2d");
+      canvas.width = image.naturalWidth;
+      canvas.height = image.naturalHeight;
+      canvas.className = image.className;
+      canvas.classList.add("plane-image-target");
+      canvas.setAttribute("aria-label", image.getAttribute("alt") || "image target");
+      canvas.style.cssText = image.style.cssText || "";
+      canvas.style.display = "block";
+      canvas.style.width = rect.width + "px";
+      canvas.style.height = rect.height + "px";
+      canvas.style.maxWidth = "100%";
+      canvas.style.borderRadius = window.getComputedStyle(image).borderRadius;
+      canvas.style.boxShadow = window.getComputedStyle(image).boxShadow;
+
+      try {
+        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+      } catch (error) {
+        return;
+      }
+
+      canvas._planeImageRecord = {
+        image: image,
+        canvas: canvas,
+        context: context,
+        hits: 0
+      };
+      image.parentNode.replaceChild(canvas, image);
+      imageRecords.push(canvas._planeImageRecord);
     });
   }
 
@@ -171,22 +200,20 @@
     keys = {};
     bullets = [];
     hitTargets = [];
-    imageBites = [];
-    crackedImages = [];
+    imageRecords = [];
     score = 0;
     lastShot = 0;
     planeState.x = window.innerWidth / 2;
-    planeState.y = clamp(window.innerHeight * 0.24, 104, Math.max(112, window.innerHeight - 120));
+    planeState.y = clamp(window.innerHeight * 0.16, 92, Math.max(104, window.innerHeight - 120));
     planeState.tilt = 0;
     touchPointerId = null;
-    touchFiring = false;
 
     layer = document.createElement("div");
     layer.className = "plane-game-layer";
     layer.innerHTML = [
       '<div class="plane-game__hud" aria-live="polite">',
       '  <span class="plane-game__score">0</span>',
-      '  <span class="plane-game__hint">Keyboard: WASD / arrows to move | Space to shoot | R restore | Esc exit. Touch: drag the plane, hold fire.</span>',
+      '  <span class="plane-game__hint">Drag plane · tap to shoot · restore or close anytime</span>',
       '  <button class="plane-game__button plane-game__restore" type="button" aria-label="Restore page" title="Restore page"><i class="fas fa-redo" aria-hidden="true"></i></button>',
       '  <button class="plane-game__button plane-game__close" type="button" aria-label="Close plane mode" title="Close plane mode"><i class="fas fa-times" aria-hidden="true"></i></button>',
       '</div>',
@@ -195,8 +222,7 @@
       '  <span class="plane-game__plane-body"></span>',
       '  <span class="plane-game__plane-flame"></span>',
       '</div>',
-      '<div class="plane-game__coach" aria-hidden="true">Drive this plane | Space or hold fire to shoot</div>',
-      '<button class="plane-game__fire" type="button" aria-label="Fire" title="Fire"><i class="fas fa-bolt" aria-hidden="true"></i></button>'
+      '<div class="plane-game__coach" aria-hidden="true">Drag me · tap me to shoot</div>'
     ].join("");
     document.body.appendChild(layer);
     document.body.classList.add("plane-game-active");
@@ -204,17 +230,11 @@
     plane = layer.querySelector(".plane-game__plane");
     coachNode = layer.querySelector(".plane-game__coach");
     scoreNode = layer.querySelector(".plane-game__score");
-    fireButton = layer.querySelector(".plane-game__fire");
+    plane.addEventListener("pointerdown", handlePlanePointerDown);
     layer.querySelector(".plane-game__restore").addEventListener("click", restoreTargets);
     layer.querySelector(".plane-game__close").addEventListener("click", function () {
       stop(true);
     });
-    if (fireButton) {
-      fireButton.addEventListener("pointerdown", beginTouchFire);
-      fireButton.addEventListener("pointerup", endTouchFire);
-      fireButton.addEventListener("pointercancel", endTouchFire);
-      fireButton.addEventListener("pointerleave", endTouchFire);
-    }
 
     prepareTextTargets();
     prepareIconTargets();
@@ -243,9 +263,7 @@
     plane = null;
     coachNode = null;
     scoreNode = null;
-    fireButton = null;
     touchPointerId = null;
-    touchFiring = false;
     document.body.classList.remove("plane-game-active");
     syncToggleButtons();
   }
@@ -274,33 +292,27 @@
       target.style.removeProperty("--plane-hit-rotate");
     });
     hitTargets = [];
-    crackedImages.forEach(clearImageState);
-    crackedImages = [];
-    imageBites.forEach(function (bite) {
-      bite.remove();
-    });
-    imageBites = [];
+    imageRecords.forEach(redrawImageRecord);
     score = 0;
     if (scoreNode) scoreNode.textContent = "0";
     collectTargets();
   }
 
-  function clearImageState(image) {
-    image.classList.remove("plane-image-cracked");
-    image.classList.remove("plane-image-consumed");
-    image.removeAttribute("data-plane-hits");
-    image.style.removeProperty("--plane-image-damage");
-    image.style.removeProperty("--plane-image-opacity");
-    image.style.removeProperty("--plane-image-saturate");
-    image.style.removeProperty("--plane-image-brightness");
-    image.style.removeProperty("--plane-image-contrast");
+  function redrawImageRecord(record) {
+    if (!record || !record.context || !record.canvas || !record.image) return;
+    record.context.globalCompositeOperation = "source-over";
+    record.context.clearRect(0, 0, record.canvas.width, record.canvas.height);
+    record.context.drawImage(record.image, 0, 0, record.canvas.width, record.canvas.height);
+    record.hits = 0;
   }
 
   function clearImageTargets() {
-    Array.prototype.forEach.call(document.querySelectorAll("body img.plane-image-target"), function (image) {
-      clearImageState(image);
-      image.classList.remove("plane-image-target");
+    imageRecords.forEach(function (record) {
+      if (record.canvas && record.canvas.parentNode) {
+        record.canvas.parentNode.replaceChild(record.image, record.canvas);
+      }
     });
+    imageRecords = [];
   }
 
   function drawPlane() {
@@ -318,7 +330,6 @@
       x: planeState.x,
       y: planeState.y - 27,
       speed: 820,
-      hits: [],
       node: document.createElement("span")
     };
     bullet.node.className = "plane-game__bullet";
@@ -332,10 +343,12 @@
       bullet.y -= bullet.speed * delta;
       bullet.node.style.transform = "translate3d(" + bullet.x + "px, " + bullet.y + "px, 0) translate(-50%, -50%)";
 
-      var hit = findHit(bullet.x, bullet.y, bullet.hits);
+      var hit = findHit(bullet.x, bullet.y);
       if (hit) {
-        bullet.hits.push(hit);
         blastTarget(hit, bullet.x, bullet.y);
+        bullet.node.remove();
+        bullets.splice(index, 1);
+        continue;
       }
 
       if (bullet.y < -24) {
@@ -345,11 +358,10 @@
     }
   }
 
-  function findHit(x, y, ignoredTargets) {
+  function findHit(x, y) {
     var best = null;
     var bestArea = Infinity;
     targets.forEach(function (target) {
-      if (ignoredTargets && ignoredTargets.indexOf(target) >= 0) return;
       if (!isVisibleTarget(target)) return;
       var rect = target.getBoundingClientRect();
       if (x < rect.left || x > rect.right || y < rect.top || y > rect.bottom) return;
@@ -370,7 +382,7 @@
   function blastTarget(target, x, y) {
     if (target.classList.contains("plane-text-brick") || target.classList.contains("plane-icon-target")) {
       blastBrick(target);
-    } else if (target.tagName && target.tagName.toLowerCase() === "img") {
+    } else if (target.tagName && target.tagName.toLowerCase() === "canvas") {
       blastImage(target, x, y);
     }
 
@@ -390,35 +402,36 @@
     incrementScore(1);
   }
 
-  function imageHitLimit(image) {
-    var rect = image.getBoundingClientRect();
-    return clamp(Math.ceil((rect.width * rect.height) / 14000), 8, 28);
-  }
-
-  function blastImage(image, x, y) {
-    var hits = Number(image.getAttribute("data-plane-hits") || "0") + 1;
-    var damage = Math.min(hits / imageHitLimit(image), 1);
-    image.setAttribute("data-plane-hits", String(hits));
-    image.style.setProperty("--plane-image-damage", damage.toFixed(3));
-    image.classList.add("plane-image-cracked");
-    if (crackedImages.indexOf(image) < 0) crackedImages.push(image);
-    createImageBite(image, x, y, damage);
+  function blastImage(canvas, x, y) {
+    var record = canvas._planeImageRecord;
+    if (!record || !record.context) return;
+    var rect = canvas.getBoundingClientRect();
+    var localX = ((x - rect.left) / rect.width) * canvas.width;
+    var localY = ((y - rect.top) / rect.height) * canvas.height;
+    var scale = canvas.width / Math.max(rect.width, 1);
+    var damage = Math.min(record.hits / 18, 1);
+    var radius = (18 + Math.random() * 18 + damage * 10) * scale;
+    record.hits += 1;
+    carveImage(record.context, localX, localY, radius);
     incrementScore(1);
   }
 
-  function createImageBite(image, x, y, damage) {
-    if (!layer) return;
-    var bite = document.createElement("span");
-    var size = 18 + Math.random() * 24 + damage * 12;
-    bite.className = "plane-image-bite";
-    bite.style.left = x + "px";
-    bite.style.top = y + "px";
-    bite.style.width = size + "px";
-    bite.style.height = size + "px";
-    bite.style.setProperty("--bite-rotate", Math.round(Math.random() * 360) + "deg");
-    bite.style.setProperty("--bite-alpha", (0.58 + damage * 0.22).toFixed(2));
-    layer.appendChild(bite);
-    imageBites.push(bite);
+  function carveImage(context, x, y, radius) {
+    context.save();
+    context.globalCompositeOperation = "destination-out";
+    context.beginPath();
+    context.arc(x, y, radius, 0, Math.PI * 2);
+    context.fill();
+
+    for (var index = 0; index < 5; index += 1) {
+      var angle = Math.random() * Math.PI * 2;
+      var distance = radius * (0.28 + Math.random() * 0.7);
+      var chipRadius = radius * (0.22 + Math.random() * 0.28);
+      context.beginPath();
+      context.arc(x + Math.cos(angle) * distance, y + Math.sin(angle) * distance, chipRadius, 0, Math.PI * 2);
+      context.fill();
+    }
+    context.restore();
   }
 
   function createBurst(x, y) {
@@ -439,37 +452,10 @@
     }
   }
 
-  function beginTouchFire(event) {
-    if (!active) return;
-    event.preventDefault();
-    touchFiring = true;
-    if (fireButton) {
-      fireButton.classList.add("is-firing");
-      if (fireButton.setPointerCapture && event.pointerId !== undefined) {
-        try {
-          fireButton.setPointerCapture(event.pointerId);
-        } catch (error) {}
-      }
-    }
-    shoot(performance.now());
-  }
-
-  function endTouchFire(event) {
-    touchFiring = false;
-    if (fireButton) {
-      fireButton.classList.remove("is-firing");
-      if (fireButton.releasePointerCapture && event && event.pointerId !== undefined) {
-        try {
-          fireButton.releasePointerCapture(event.pointerId);
-        } catch (error) {}
-      }
-    }
-  }
-
   function isTouchControlEvent(event) {
     if (!event || event.pointerType === "mouse") return false;
     if (!event.target || !event.target.closest) return true;
-    return !event.target.closest("a, button, input, textarea, select, iframe, video, .plane-game__hud, .plane-game__fire");
+    return !event.target.closest("a, button, input, textarea, select, iframe, video, .plane-game__hud");
   }
 
   function movePlaneToPointer(event) {
@@ -487,6 +473,20 @@
     movePlaneToPointer(event);
   }
 
+  function handlePlanePointerDown(event) {
+    if (!active) return;
+    event.preventDefault();
+    event.stopPropagation();
+    touchPointerId = event.pointerId;
+    if (plane && plane.setPointerCapture && event.pointerId !== undefined) {
+      try {
+        plane.setPointerCapture(event.pointerId);
+      } catch (error) {}
+    }
+    movePlaneToPointer(event);
+    shoot(performance.now());
+  }
+
   function handlePointerMove(event) {
     if (!active || touchPointerId === null || event.pointerId !== touchPointerId) return;
     event.preventDefault();
@@ -495,6 +495,11 @@
 
   function handlePointerEnd(event) {
     if (!active || touchPointerId === null || event.pointerId !== touchPointerId) return;
+    if (plane && plane.releasePointerCapture && event.pointerId !== undefined) {
+      try {
+        plane.releasePointerCapture(event.pointerId);
+      } catch (error) {}
+    }
     touchPointerId = null;
   }
 
@@ -510,7 +515,7 @@
     planeState.y = clamp(planeState.y + vertical * speed * delta, 52, window.innerHeight - 34);
     planeState.tilt += (horizontal * 18 - planeState.tilt) * 0.18;
 
-    if (keys[" "] || touchFiring) shoot(now);
+    if (keys[" "]) shoot(now);
     drawPlane();
     updateBullets(delta);
     frameId = window.requestAnimationFrame(tick);

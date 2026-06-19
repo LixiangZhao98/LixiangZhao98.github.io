@@ -623,7 +623,7 @@
 
 .site-click-meteor {
   position: fixed;
-  z-index: 40;
+  z-index: 2147483000;
   width: var(--click-meteor-length, 82px);
   height: 2px;
   border-radius: 999px;
@@ -657,7 +657,7 @@
 .plane-game-layer {
   position: fixed;
   inset: 0;
-  z-index: 2147483600;
+  z-index: 2147483640;
   pointer-events: none;
   overflow: hidden;
 }
@@ -667,7 +667,7 @@
   left: 50%;
   right: auto;
   top: 5.2rem;
-  z-index: 2147483642;
+  z-index: 2147483647;
   display: inline-flex;
   align-items: center;
   gap: 0.42rem;
@@ -705,7 +705,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 2147483643;
+  z-index: 2147483646;
   max-width: min(18rem, calc(100vw - 1.5rem));
   padding: 0.34rem 0.62rem;
   border: 1px solid rgba(255, 232, 184, 0.28);
@@ -743,47 +743,17 @@
   background: rgba(125, 211, 252, 0.13);
 }
 
-.plane-game__fire {
-  position: fixed;
-  right: 1rem;
-  bottom: max(1rem, env(safe-area-inset-bottom));
-  z-index: 2147483642;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 3.45rem;
-  height: 3.45rem;
-  border: 1px solid rgba(255, 232, 184, 0.28);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 35%, rgba(255, 232, 184, 0.2), transparent 54%),
-    rgba(4, 10, 26, 0.7);
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.34), 0 0 26px rgba(125, 211, 252, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.18);
-  color: rgba(255, 244, 199, 0.96);
-  font-size: 1.05rem;
-  pointer-events: auto;
-  touch-action: none;
-  backdrop-filter: blur(14px);
-  cursor: pointer;
-}
-
-.plane-game__fire:active,
-.plane-game__fire.is-firing {
-  transform: scale(0.96);
-  border-color: rgba(125, 211, 252, 0.54);
-  background:
-    radial-gradient(circle at 50% 35%, rgba(125, 211, 252, 0.28), transparent 58%),
-    rgba(4, 10, 26, 0.78);
-}
-
 .plane-game__plane {
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 2147483620;
+  z-index: 2147483644;
   width: 46px;
   height: 52px;
   filter: drop-shadow(0 0 14px rgba(125, 211, 252, 0.42)) drop-shadow(0 8px 18px rgba(0, 0, 0, 0.34));
+  pointer-events: auto;
+  touch-action: none;
+  cursor: pointer;
   will-change: transform;
 }
 
@@ -834,7 +804,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 2147483635;
+  z-index: 2147483645;
   width: 7px;
   height: 18px;
   border-radius: 999px;
@@ -888,32 +858,7 @@
 }
 
 .plane-image-target {
-  --plane-image-damage: 0;
-  will-change: auto;
   transition: none;
-}
-
-.plane-image-cracked {
-  opacity: 1 !important;
-  filter: none !important;
-}
-
-.plane-image-consumed {
-  opacity: 1 !important;
-  filter: none !important;
-  pointer-events: auto;
-}
-
-.plane-image-bite {
-  position: absolute;
-  z-index: 2147483636;
-  border-radius: 49% 43% 52% 47%;
-  background:
-    radial-gradient(circle at 44% 42%, rgba(2, 6, 18, var(--bite-alpha, 0.68)) 0 44%, rgba(2, 6, 18, 0.5) 45% 58%, rgba(125, 211, 252, 0.2) 59% 63%, transparent 64%);
-  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.52), 0 0 14px rgba(125, 211, 252, 0.14);
-  pointer-events: none;
-  transform: translate(-50%, -50%) rotate(var(--bite-rotate, 0deg)) scale(0.78);
-  animation: plane-bite-in 360ms ease-out forwards;
 }
 
 .plane-target-hit {
@@ -1022,17 +967,6 @@
   }
 }
 
-@keyframes plane-bite-in {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(var(--bite-rotate, 0deg)) scale(0.45);
-  }
-  100% {
-    opacity: 0.88;
-    transform: translate(-50%, -50%) rotate(var(--bite-rotate, 0deg)) scale(1);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .site-bg,
   .site-bg::before,
@@ -1041,8 +975,7 @@
   .site-click-meteor,
   .plane-game__spark,
   .plane-game__plane-flame,
-  .plane-game__coach,
-  .plane-image-bite {
+  .plane-game__coach {
     animation: none;
   }
 }
@@ -1262,7 +1195,7 @@ body {
   position: fixed;
   right: max(0.9rem, env(safe-area-inset-right));
   top: 4.9rem;
-  z-index: 220;
+  z-index: 2147482500;
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -2209,9 +2142,9 @@ body {
 .thesis-paper-tile img {
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: contain;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.92);
+  object-fit: cover;
+  border-radius: 6px;
+  background: rgba(2, 6, 23, 0.42);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
 }
 
@@ -2526,12 +2459,6 @@ body {
     white-space: normal;
   }
 
-  .plane-game__fire {
-    right: 0.85rem;
-    bottom: max(0.85rem, env(safe-area-inset-bottom));
-    width: 3.25rem;
-    height: 3.25rem;
-  }
 }
 
 .Publications {

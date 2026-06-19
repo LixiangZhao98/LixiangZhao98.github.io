@@ -11,7 +11,7 @@ redirect_from:
 <main class="academic-home">
   <header class="academic-home__header glass-card">
     <div>
-      <h1 class="academic-home__title">{{ site.author.name }}</h1>
+      <h1 class="academic-home__title"><span data-lang-only="en">{{ site.author.name }}</span><span data-lang-only="zh">赵锂想</span></h1>
       <p class="academic-home__desc">
         <a href="https://www.xjtlu.edu.cn/en/study/departments/school-of-advanced-technology/computer-science-and-software-engineering">
           <span data-lang-only="en">School of Advanced Technology, Department of Computing,<br><span class="academic-home__nowrap">Xi'an Jiaotong-Liverpool University</span></span>
@@ -66,7 +66,7 @@ redirect_from:
         Feel free to reach out by email if you are interested in collaboration.
       </p>
       <p data-lang-only="zh">
-        我是赵理想，博士毕业于西交利物浦大学，导师为
+        我是赵锂想，博士毕业于西交利物浦大学，导师为
         <a href="https://yulingyun.com/">俞凌云教授</a>。
       </p>
       <p data-lang-only="zh">

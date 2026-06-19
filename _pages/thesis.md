@@ -15,8 +15,8 @@ hide_title: true
       </p>
       <h1>Bridging Immersion Levels in Spatial Data Exploration: Visualization, Interaction, and Computing</h1>
       <p class="thesis-hero__meta">
-        <span data-lang-only="en">Lixiang Zhao · Xi'an Jiaotong-Liverpool University · November 2025</span>
-        <span data-lang-only="zh">赵理想 · 西交利物浦大学 · 2025 年 11 月</span>
+        <span data-lang-only="en">Lixiang Zhao · Xi'an Jiaotong-Liverpool University</span>
+        <span data-lang-only="zh">赵锂想 · 西交利物浦大学</span>
       </p>
     </div>
     <div class="thesis-hero__actions">
@@ -84,8 +84,8 @@ hide_title: true
           <source src="/assets/Publications/thesis/phd_hat_preview.mp4" type="video/mp4">
         </video>
         <p>
-          <span data-lang-only="en">This interactive preview is generated from the graduation-cap video frames through COLMAP and a short 3D Gaussian Splatting optimization. The original phone video is kept outside the repository to avoid a very heavy GitHub Pages payload.</span>
-          <span data-lang-only="zh">这个交互预览由博士帽视频抽帧，经 COLMAP 和短迭代 3D Gaussian Splatting 优化生成。原始手机视频体积较大，没有直接放入 GitHub Pages 仓库。</span>
+          <span data-lang-only="en">This interactive preview is generated from the full graduation-cap video: the source was sampled into 4,758 frames at 30fps for coverage checks, 793 full-duration keyframes were registered with COLMAP, and the 3D Gaussian Splatting model was trained for 7,000 iterations. The embedded viewer uses a web-optimized sample loaded as static HTTP assets.</span>
+          <span data-lang-only="zh">这个交互预览来自完整的博士帽视频：源视频已按 30fps 抽取 4,758 帧用于覆盖检查，并用覆盖全片的 793 张关键帧完成 COLMAP 配准，随后训练 7,000 次迭代的 3D Gaussian Splatting 模型。页面内嵌 viewer 使用适合网页加载的抽样静态资源，并通过普通 HTTP 加载。</span>
         </p>
       </div>
     </div>

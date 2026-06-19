@@ -14,6 +14,7 @@
       positions: null,
       colors: null,
       count: 0,
+      sourceVertices: 0,
       rotX: -0.18,
       rotY: 0.42,
       zoom: 1.08,
@@ -76,23 +77,15 @@
       context.fillStyle = gradient;
       context.fillRect(0, 0, width, height);
 
-      var projected = [];
-      for (var index = 0; index < state.count; index += 1) {
-        projected.push(projectPoint(index, width, height));
-      }
-      projected.sort(function (a, b) {
-        return a.z - b.z;
-      });
-
-      projected.forEach(function (point) {
+      var stride = state.dragging ? Math.max(1, Math.ceil(state.count / 90000)) : Math.max(1, Math.ceil(state.count / 130000));
+      context.globalAlpha = 0.9;
+      for (var index = 0; index < state.count; index += stride) {
+        var point = projectPoint(index, width, height);
         context.beginPath();
         context.fillStyle = "rgba(" + point.r + "," + point.g + "," + point.b + ",0.88)";
-        context.shadowBlur = 6 * state.dpr;
-        context.shadowColor = "rgba(125, 211, 252, 0.22)";
-        context.arc(point.x, point.y, point.size, 0, Math.PI * 2);
-        context.fill();
-      });
-      context.shadowBlur = 0;
+        context.fillRect(point.x, point.y, point.size, point.size);
+      }
+      context.globalAlpha = 1;
     }
 
     function animate() {
@@ -148,8 +141,9 @@
         state.positions = new Float32Array(data.positions || []);
         state.colors = new Float32Array(data.colors || []);
         state.count = data.count || Math.floor(state.positions.length / 3);
+        state.sourceVertices = data.sourceVertices || state.count;
         if (status) {
-          status.textContent = state.count + " 3DGS points";
+          status.textContent = state.count + " / " + state.sourceVertices + " 3DGS sample points";
         }
         root.classList.add("is-loaded");
         animate();
