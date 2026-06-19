@@ -29,13 +29,6 @@
             </li>
           {% endfor %}
         </ul>
-        <div class="site-lang-toggle site-lang-toggle--desktop" aria-label="Language">
-          <button type="button" data-site-lang-toggle="en" aria-pressed="true">EN</button>
-          <button type="button" data-site-lang-toggle="zh" aria-pressed="false">中</button>
-        </div>
-        <a class="plane-nav-button plane-nav-button--desktop" href="#" role="button" data-plane-game-toggle aria-label="Start plane mode" title="Start plane mode">
-          <i class="fas fa-fighter-jet" aria-hidden="true"></i>
-        </a>
         <ul class="hidden-links hidden"></ul>
         <ul id="mobile-menu-links" class="mobile-menu-links" aria-label="Mobile menu">
           {% for link in site.data.navigation.main %}
@@ -59,23 +52,20 @@
               </a>
             </li>
           {% endfor %}
-          <li class="masthead__menu-item">
-            <div class="site-lang-toggle site-lang-toggle--mobile" aria-label="Language">
-              <button type="button" data-site-lang-toggle="en" aria-pressed="true">EN</button>
-              <button type="button" data-site-lang-toggle="zh" aria-pressed="false">中文</button>
-            </div>
-          </li>
-          <li class="masthead__menu-item">
-            <a class="plane-nav-button plane-nav-button--mobile" href="#" role="button" data-plane-game-toggle aria-label="Start plane mode" title="Start plane mode">
-              <i class="fas fa-fighter-jet" aria-hidden="true"></i>
-              <span data-lang-only="en">Plane</span>
-              <span data-lang-only="zh">小飞机</span>
-            </a>
-          </li>
         </ul>
       </nav>
     </div>
   </div>
+</div>
+
+<div class="site-tools" aria-label="Site tools">
+  <div class="site-lang-toggle" aria-label="Language">
+    <button type="button" data-site-lang-toggle="en" aria-pressed="true">EN</button>
+    <button type="button" data-site-lang-toggle="zh" aria-pressed="false">中文</button>
+  </div>
+  <button class="plane-nav-button" type="button" data-plane-game-toggle aria-label="Start plane mode" title="Start plane mode">
+    <i class="fas fa-fighter-jet" aria-hidden="true"></i>
+  </button>
 </div>
 
 <script>
@@ -94,8 +84,7 @@
 
     mobileMenu.addEventListener("click", function(event) {
       if (!event.target.closest) return;
-      if (event.target.closest("[data-site-lang-toggle]")) return;
-      if (event.target.closest("a") || event.target.closest("[data-plane-game-toggle]")) {
+      if (event.target.closest("a")) {
         nav.classList.remove("is-mobile-open");
         button.setAttribute("aria-expanded", "false");
         mobileMenu.style.display = "";

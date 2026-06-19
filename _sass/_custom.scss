@@ -52,8 +52,9 @@
   width: clamp(88px, 10vw, 150px);
   height: var(--comet-height, 2px);
   border-radius: 999px;
-  background: linear-gradient(90deg, transparent 0%, rgba(125, 211, 252, var(--comet-tail-alpha, 0.08)) 32%, rgba(255, 255, 255, var(--comet-core-alpha, 0.44)) 76%, rgba(255, 232, 184, var(--comet-head-alpha, 0.68)) 100%);
-  box-shadow: 0 0 var(--comet-blur, 14px) rgba(125, 211, 252, var(--comet-glow-alpha, 0.22));
+  background: linear-gradient(90deg, transparent 0%, rgba(125, 211, 252, var(--comet-tail-alpha, 0.13)) 32%, rgba(255, 255, 255, var(--comet-core-alpha, 0.62)) 76%, rgba(255, 232, 184, var(--comet-head-alpha, 0.88)) 100%);
+  box-shadow: 0 0 var(--comet-blur, 16px) rgba(125, 211, 252, var(--comet-glow-alpha, 0.34));
+  filter: brightness(1.28) saturate(1.12);
   opacity: 0;
   transform: translate3d(var(--comet-from-x), var(--comet-from-y), 0) rotate(var(--comet-angle));
   transform-origin: 100% 50%;
@@ -544,6 +545,80 @@
   --comet-head-alpha: 0.72;
   --comet-head-size: 3px;
   width: clamp(56px, 6.8vw, 108px);
+}
+
+.site-comet--three,
+.site-comet--five,
+.site-comet--nine,
+.site-comet--eleven,
+.site-comet--thirteen,
+.site-comet--fifteen,
+.site-comet--seventeen,
+.site-comet--twentyone,
+.site-comet--twentythree,
+.site-comet--twentyfive,
+.site-comet--twentynine {
+  --comet-angle: 22deg;
+  --comet-from-x: -18vw;
+  --comet-to-x: 116vw;
+}
+
+.site-comet--three {
+  --comet-from-y: 10vh;
+  --comet-to-y: 52vh;
+}
+
+.site-comet--five {
+  --comet-from-y: 28vh;
+  --comet-to-y: 70vh;
+}
+
+.site-comet--nine {
+  --comet-from-y: 4vh;
+  --comet-to-y: 42vh;
+}
+
+.site-comet--eleven {
+  --comet-from-y: 48vh;
+  --comet-to-y: 88vh;
+}
+
+.site-comet--thirteen {
+  --comet-from-y: 18vh;
+  --comet-to-y: 58vh;
+}
+
+.site-comet--fifteen {
+  --comet-from-y: 66vh;
+  --comet-to-y: 94vh;
+  --comet-angle: 14deg;
+}
+
+.site-comet--seventeen {
+  --comet-from-y: 36vh;
+  --comet-to-y: 76vh;
+}
+
+.site-comet--twentyone {
+  --comet-from-y: 8vh;
+  --comet-to-y: 50vh;
+}
+
+.site-comet--twentythree {
+  --comet-from-y: 58vh;
+  --comet-to-y: 92vh;
+  --comet-angle: 17deg;
+}
+
+.site-comet--twentyfive {
+  --comet-from-y: 22vh;
+  --comet-to-y: 64vh;
+}
+
+.site-comet--twentynine {
+  --comet-from-y: 72vh;
+  --comet-to-y: 102vh;
+  --comet-angle: 15deg;
 }
 
 .site-click-meteor {
@@ -1090,7 +1165,7 @@ body {
 
 .greedy-nav {
   background: transparent;
-  padding-right: 8.8rem;
+  padding-right: 0;
 }
 
 .greedy-nav a {
@@ -1149,14 +1224,6 @@ body {
   box-shadow: inset 0 0 0 1px rgba(125, 211, 252, 0.25);
 }
 
-.site-lang-toggle--desktop {
-  position: absolute;
-  right: 5.15rem;
-  top: 50%;
-  z-index: 101;
-  transform: translateY(-50%);
-}
-
 .greedy-nav a.plane-nav-button,
 .plane-nav-button {
   display: inline-flex;
@@ -1164,7 +1231,7 @@ body {
   justify-content: center;
   width: 2.1rem;
   height: 2.1rem;
-  margin: 0 0 0 0.15rem;
+  margin: 0;
   padding: 0;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 50%;
@@ -1191,17 +1258,20 @@ body {
   font-size: 0.85rem;
 }
 
-.plane-nav-button--desktop {
-  position: absolute;
-  right: 2.7rem;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 101;
-}
-
-.plane-nav-button--desktop:hover,
-.plane-nav-button--desktop[aria-pressed="true"] {
-  transform: translateY(calc(-50% - 1px));
+.site-tools {
+  position: fixed;
+  right: max(0.9rem, env(safe-area-inset-right));
+  top: 4.9rem;
+  z-index: 220;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.28rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(4, 10, 26, 0.54);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
 }
 
 .mobile-menu-links {
@@ -1502,18 +1572,12 @@ body {
 
 .selected-publication__venue,
 .pub-card__venue {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-}
-
-.pub-card__venue {
   display: grid;
   align-items: start;
   gap: 0.4rem;
 }
 
+.selected-publication__venue-text,
 .pub-card__venue-text {
   display: block;
 }
@@ -2048,6 +2112,177 @@ body {
   margin-top: 0.18rem;
 }
 
+.thesis-page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 5.5rem 1.25rem 4rem;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.thesis-hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.4rem;
+  padding: 1.45rem;
+}
+
+.thesis-kicker {
+  margin: 0 0 0.35rem;
+  color: rgba(125, 211, 252, 0.96);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.thesis-hero h1 {
+  max-width: 780px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 2rem;
+  line-height: 1.16;
+  letter-spacing: 0;
+}
+
+.thesis-hero__meta {
+  margin: 0.65rem 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.94rem;
+}
+
+.thesis-hero__actions {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+.thesis-section {
+  margin-top: 1rem;
+  padding: 1.35rem 1.45rem;
+}
+
+.thesis-section h2 {
+  margin: 0 0 0.95rem;
+  color: rgba(125, 211, 252, 0.96);
+  font-size: 1.05rem;
+  font-weight: 850;
+  line-height: 1.3;
+}
+
+.thesis-section p {
+  margin: 0 0 0.86rem;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.65;
+}
+
+.thesis-section p:last-child {
+  margin-bottom: 0;
+}
+
+.thesis-section__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.95rem;
+}
+
+.thesis-section__head h2 {
+  margin: 0;
+}
+
+.thesis-paper-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.thesis-paper-tile {
+  display: grid;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.thesis-paper-tile img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+}
+
+.thesis-paper-tile:hover {
+  color: rgba(125, 211, 252, 0.96);
+}
+
+.thesis-viewer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.thesis-viewer {
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(125, 211, 252, 0.14), transparent 40%),
+    rgba(2, 6, 23, 0.48);
+  cursor: grab;
+}
+
+.thesis-viewer:active {
+  cursor: grabbing;
+}
+
+.thesis-viewer canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 430px;
+  touch-action: none;
+}
+
+.thesis-viewer__status {
+  position: absolute;
+  left: 0.8rem;
+  bottom: 0.8rem;
+  padding: 0.24rem 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(4, 10, 26, 0.56);
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.75rem;
+  font-weight: 750;
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+}
+
+.thesis-video-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.thesis-video-card video {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  background: rgba(2, 6, 23, 0.72);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+}
+
+.thesis-video-card p {
+  font-size: 0.88rem;
+}
+
 @media (max-width: 720px) {
   .greedy-nav {
     display: flex;
@@ -2057,12 +2292,23 @@ body {
     padding-right: 0;
   }
 
-  .plane-nav-button--desktop {
-    display: none !important;
+  .site-tools {
+    top: 4.35rem;
+    right: 0.7rem;
+    gap: 0.32rem;
+    padding: 0.22rem;
   }
 
-  .site-lang-toggle--desktop {
-    display: none !important;
+  .site-tools .site-lang-toggle button {
+    min-width: 1.9rem;
+    height: 1.58rem;
+    padding: 0 0.38rem;
+    font-size: 0.68rem;
+  }
+
+  .site-tools .plane-nav-button {
+    width: 2rem;
+    height: 2rem;
   }
 
   .greedy-nav button,
@@ -2123,51 +2369,6 @@ body {
   }
 
   .greedy-nav .mobile-menu-links a:hover {
-    background: rgba(125, 211, 252, 0.12);
-  }
-
-  .greedy-nav .mobile-menu-links .site-lang-toggle {
-    display: flex;
-    width: 100%;
-    margin: 0.18rem 0 0.3rem;
-    padding: 0.2rem;
-  }
-
-  .greedy-nav .mobile-menu-links .site-lang-toggle button {
-    display: inline-flex !important;
-    visibility: visible !important;
-    position: static;
-    right: auto;
-    flex: 1 1 0;
-    width: auto;
-    min-width: 0;
-    height: 1.92rem;
-    padding: 0 0.6rem;
-    border: 0;
-    border-radius: 999px;
-    background: transparent;
-    color: rgba(255, 255, 255, 0.74);
-  }
-
-  .greedy-nav .mobile-menu-links .site-lang-toggle button[aria-pressed="true"] {
-    background: rgba(125, 211, 252, 0.18);
-    color: rgba(255, 255, 255, 0.96);
-  }
-
-  .greedy-nav .mobile-menu-links .plane-nav-button--mobile {
-    justify-content: flex-start;
-    gap: 0.55rem;
-    width: 100%;
-    height: auto;
-    margin: 0;
-    padding: 0.72rem 0.85rem;
-    border-radius: 10px;
-    background: transparent;
-    color: rgba(255, 255, 255, 0.86);
-  }
-
-  .greedy-nav .mobile-menu-links .plane-nav-button--mobile:hover,
-  .greedy-nav .mobile-menu-links .plane-nav-button--mobile[aria-pressed="true"] {
     background: rgba(125, 211, 252, 0.12);
   }
 
@@ -2269,6 +2470,38 @@ body {
 
   .publication-detail__section {
     padding: 1.1rem;
+  }
+
+  .thesis-page {
+    padding: 4.2rem 1rem 2.5rem;
+  }
+
+  .thesis-hero {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 1.1rem;
+  }
+
+  .thesis-hero h1 {
+    font-size: 1.42rem;
+  }
+
+  .thesis-section {
+    padding: 1.1rem;
+  }
+
+  .thesis-paper-grid,
+  .thesis-viewer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .thesis-paper-grid {
+    gap: 0.95rem;
+  }
+
+  .thesis-viewer,
+  .thesis-viewer canvas {
+    min-height: 330px;
   }
 
   .teaching-card {

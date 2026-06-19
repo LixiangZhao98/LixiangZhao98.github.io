@@ -60,33 +60,33 @@ redirect_from:
          as my advisor.
       </p>
       <p data-lang-only="en">
-        My research focuses on immersive visualization, spatial interaction techniques, and cross-reality environments for exploring complex spatial data.
+        My research focuses on immersive visualization, spatial interaction techniques, high-performance computing and machine learning.
       </p>
       <p data-lang-only="en">
-        Feel free to reach out by email if you are interested in collaboration. I am currently seeking a postdoctoral research position.
+        Feel free to reach out by email if you are interested in collaboration.
       </p>
       <p data-lang-only="zh">
         我是赵理想，博士毕业于西交利物浦大学，导师为
-        <a href="https://yulingyun.com/">郁凌云教授</a>。
+        <a href="https://yulingyun.com/">俞凌云教授</a>。
       </p>
       <p data-lang-only="zh">
-        我的研究关注沉浸式可视化、空间交互技术，以及面向复杂空间数据探索的跨现实环境。
+        我的研究关注沉浸式可视化、空间交互技术，高性能计算以及机器学习。
       </p>
       <p data-lang-only="zh">
-        如果你对合作感兴趣，欢迎通过邮件联系我。我目前正在寻找博士后研究职位。
+        如果你对合作感兴趣，欢迎通过邮件联系我。
       </p>
     </section>
 
     <section class="academic-section academic-panel glass-card">
-      <h2 class="academic-heading"><span data-lang-only="en">NEWS</span><span data-lang-only="zh">新闻</span></h2>
+      <h2 class="academic-heading"><span data-lang-only="en">News</span><span data-lang-only="zh">新闻</span></h2>
       <div class="academic-news">
         <table>
           <tbody>
             <tr>
               <th scope="row">Feb 03, 2026</th>
               <td>
-                <span data-lang-only="en">I successfully defended my Ph.D. dissertation &ldquo;Bridging Immersion Levels in Spatial Data Exploration: Visualization, Interaction, and Computing&rdquo;!</span>
-                <span data-lang-only="zh">我顺利通过博士论文答辩，论文题目为 &ldquo;Bridging Immersion Levels in Spatial Data Exploration: Visualization, Interaction, and Computing&rdquo;！</span>
+                <span data-lang-only="en">I successfully defended my Ph.D. dissertation <a href="/thesis/">&ldquo;Bridging Immersion Levels in Spatial Data Exploration: Visualization, Interaction, and Computing&rdquo;</a>!</span>
+                <span data-lang-only="zh">我顺利通过博士论文答辩，论文题目为 <a href="/thesis/">&ldquo;Bridging Immersion Levels in Spatial Data Exploration: Visualization, Interaction, and Computing&rdquo;</a>！</span>
               </td>
             </tr>
             <tr>
@@ -102,7 +102,7 @@ redirect_from:
     </section>
 
     <section class="academic-section academic-panel glass-card">
-      <h2 class="academic-heading"><a href="/publications/"><span data-lang-only="en">SELECTED PUBLICATIONS</span><span data-lang-only="zh">精选论文</span></a></h2>
+      <h2 class="academic-heading"><a href="/publications/"><span data-lang-only="en">Selected Publications</span><span data-lang-only="zh">精选论文</span></a></h2>
       {% assign selected_ids = "scalefree,spatialtouch,metacast,l-wim" | split: "," %}
       <ol class="selected-publications">
         {% for selected_id in selected_ids %}
@@ -117,9 +117,13 @@ redirect_from:
                   <h3 class="selected-publication__title"><a href="{{ pub.url }}">{{ pub.title }}</a></h3>
                   {% if pub.authors %}<div class="selected-publication__meta">{{ pub.authors }}</div>{% endif %}
                   <div class="selected-publication__meta selected-publication__venue">
-                    {% if pub.venue %}<em>{{ pub.venue }}</em>{% endif %}
-                    {% if pub.ccf %}<span class="pub-badge">{{ pub.ccf }}</span>{% endif %}
-                    {% if pub.jcr %}<span class="pub-badge pub-badge--jcr">{{ pub.jcr }}</span>{% endif %}
+                    {% if pub.venue %}<span class="selected-publication__venue-text"><em>{{ pub.venue }}</em></span>{% endif %}
+                    {% if pub.ccf or pub.jcr %}
+                      <span class="pub-card__badges">
+                        {% if pub.ccf %}<span class="pub-badge">{{ pub.ccf }}</span>{% endif %}
+                        {% if pub.jcr %}<span class="pub-badge pub-badge--jcr">{{ pub.jcr }}</span>{% endif %}
+                      </span>
+                    {% endif %}
                   </div>
                   {% if pub.links and pub.links.size > 0 %}
                     <div class="selected-publication__links">
