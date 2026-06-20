@@ -94,8 +94,8 @@ hide_title: true
       </div>
     </div>
     <p class="splat-shell__footer thesis-inline-splat__help">
-      <span data-lang-only="en">Left drag orbit · hold right mouse + WASD/QE to fly · wheel zoom</span>
-      <span data-lang-only="zh">左键拖拽旋转 · 按住右键配合 WASD/QE 自由观察 · 滚轮缩放</span>
+      <span data-lang-only="en">Left drag orbit · right drag pan · wheel zoom · P toggles point mode · I toggles info</span>
+      <span data-lang-only="zh">左键拖拽旋转 · 右键拖拽平移 · 滚轮缩放 · P 切换点模式 · I 显示信息</span>
     </p>
   </section>
 </main>
@@ -115,204 +115,6 @@ hide_title: true
   let hasStarted = false;
   const sceneCenterOffset = [0.02332621530941987, 0.15569970817993717, -0.08836142132126232];
 
-  function installThesisSplatControls(viewer, THREE) {
-    if (!root || !viewer.camera) return;
-
-    const camera = viewer.camera;
-    const controls = viewer.controls || viewer.orbitControls || null;
-    const target = new THREE.Vector3(0, 0, 0);
-    const worldUp = new THREE.Vector3(0, 0, 1);
-    const offset = new THREE.Vector3();
-    const right = new THREE.Vector3();
-    const forward = new THREE.Vector3();
-    const move = new THREE.Vector3();
-    const qYaw = new THREE.Quaternion();
-    const qPitch = new THREE.Quaternion();
-    const keys = {};
-    const state = {
-      mode: "",
-      pointerId: null,
-      flyYaw: 0,
-      flyPitch: 0,
-      lastFrame: performance.now()
-    };
-
-    camera.near = 0.00005;
-    camera.far = 100;
-    camera.updateProjectionMatrix();
-    if (controls && "enabled" in controls) {
-      controls.enabled = false;
-    }
-
-    function clamp(value, min, max) {
-      return Math.max(min, Math.min(max, value));
-    }
-
-    function applyOrbit(dx, dy) {
-      offset.copy(camera.position).sub(target);
-      if (offset.lengthSq() < 0.000001) {
-        offset.set(0, -0.12, 0.03);
-      }
-
-      qYaw.setFromAxisAngle(camera.up.clone().normalize(), -dx * 0.006);
-      offset.applyQuaternion(qYaw);
-
-      forward.copy(target).sub(camera.position).normalize();
-      right.crossVectors(forward, camera.up).normalize();
-      if (right.lengthSq() < 0.000001) {
-        right.set(1, 0, 0).applyQuaternion(camera.quaternion).normalize();
-      }
-
-      qPitch.setFromAxisAngle(right, -dy * 0.006);
-      offset.applyQuaternion(qPitch);
-      camera.up.applyQuaternion(qPitch).normalize();
-
-      camera.position.copy(target).add(offset);
-      camera.lookAt(target);
-      camera.updateProjectionMatrix();
-    }
-
-    function dolly(deltaY) {
-      offset.copy(camera.position).sub(target);
-      const radius = offset.length();
-      if (radius < 0.000001) return;
-      const nextRadius = clamp(radius * Math.exp(deltaY * 0.00125), 0.012, 8);
-      offset.setLength(nextRadius);
-      camera.position.copy(target).add(offset);
-      camera.lookAt(target);
-      camera.updateProjectionMatrix();
-    }
-
-    function forwardFromAngles(out, yaw, pitch) {
-      const cosPitch = Math.cos(pitch);
-      out.set(
-        Math.sin(yaw) * cosPitch,
-        -Math.cos(yaw) * cosPitch,
-        Math.sin(pitch)
-      );
-      return out.normalize();
-    }
-
-    function syncFlyAngles() {
-      forward.set(0, 0, -1).applyQuaternion(camera.quaternion).normalize();
-      state.flyPitch = Math.asin(clamp(forward.z, -0.99, 0.99));
-      state.flyYaw = Math.atan2(forward.x, -forward.y);
-    }
-
-    function applyFlyLook() {
-      state.flyPitch = clamp(state.flyPitch, -Math.PI / 2 + 0.01, Math.PI / 2 - 0.01);
-      forwardFromAngles(forward, state.flyYaw, state.flyPitch);
-      camera.up.copy(worldUp);
-      camera.lookAt(camera.position.clone().add(forward));
-      camera.updateProjectionMatrix();
-    }
-
-    function endInteraction() {
-      root.classList.remove("is-orbiting", "is-flying");
-      state.mode = "";
-      state.pointerId = null;
-    }
-
-    function intercept(event) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    root.setAttribute("tabindex", "0");
-    root.addEventListener("contextmenu", intercept);
-
-    root.addEventListener("pointerdown", (event) => {
-      if (event.button !== 0 && event.button !== 2) return;
-      intercept(event);
-      root.focus({ preventScroll: true });
-      try {
-        root.setPointerCapture(event.pointerId);
-      } catch (error) {}
-      state.pointerId = event.pointerId;
-      if (event.button === 2) {
-        syncFlyAngles();
-        state.mode = "fly";
-        root.classList.add("is-flying");
-        root.classList.remove("is-orbiting");
-      } else {
-        state.mode = "orbit";
-        root.classList.add("is-orbiting");
-        root.classList.remove("is-flying");
-      }
-    }, { capture: true });
-
-    root.addEventListener("pointermove", (event) => {
-      if (state.pointerId !== event.pointerId) return;
-      intercept(event);
-      if (state.mode === "orbit") {
-        applyOrbit(event.movementX, event.movementY);
-      } else if (state.mode === "fly") {
-        state.flyYaw -= event.movementX * 0.0032;
-        state.flyPitch -= event.movementY * 0.0032;
-        applyFlyLook();
-      }
-    }, { capture: true });
-
-    root.addEventListener("pointerup", (event) => {
-      if (state.pointerId !== event.pointerId) return;
-      intercept(event);
-      endInteraction();
-    }, { capture: true });
-
-    root.addEventListener("pointercancel", (event) => {
-      if (state.pointerId !== event.pointerId) return;
-      intercept(event);
-      endInteraction();
-    }, { capture: true });
-
-    root.addEventListener("wheel", (event) => {
-      intercept(event);
-      if (state.mode === "fly") {
-        forwardFromAngles(forward, state.flyYaw, state.flyPitch);
-        camera.position.add(forward.multiplyScalar(-event.deltaY * 0.00036));
-        applyFlyLook();
-      } else {
-        dolly(event.deltaY);
-      }
-    }, { passive: false, capture: true });
-
-    window.addEventListener("keydown", (event) => {
-      const key = event.key.toLowerCase();
-      if (!/^(w|a|s|d|q|e|shift)$/.test(key)) return;
-      if (state.mode !== "fly" && document.activeElement !== root) return;
-      keys[key] = true;
-      if (state.mode === "fly") event.preventDefault();
-    });
-
-    window.addEventListener("keyup", (event) => {
-      keys[event.key.toLowerCase()] = false;
-    });
-
-    function tick(time) {
-      const dt = Math.min(0.05, (time - state.lastFrame) / 1000);
-      state.lastFrame = time;
-      if (state.mode === "fly") {
-        const speed = (keys.shift ? 1.05 : 0.36) * dt;
-        move.set(0, 0, 0);
-        forwardFromAngles(forward, state.flyYaw, state.flyPitch);
-        right.crossVectors(worldUp, forward).normalize();
-        if (keys.w) move.add(forward);
-        if (keys.s) move.sub(forward);
-        if (keys.d) move.add(right);
-        if (keys.a) move.sub(right);
-        if (keys.e) move.add(worldUp);
-        if (keys.q) move.sub(worldUp);
-        if (move.lengthSq() > 0) {
-          camera.position.add(move.normalize().multiplyScalar(speed));
-          applyFlyLook();
-        }
-      }
-      requestAnimationFrame(tick);
-    }
-
-    requestAnimationFrame(tick);
-  }
-
   async function startThesisViewer() {
     if (!root || hasStarted) return;
     hasStarted = true;
@@ -322,10 +124,7 @@ hide_title: true
       status.textContent = "Loading 3DGS scene...";
     }
 
-    const [GaussianSplats3D, THREE] = await Promise.all([
-      import("https://cdn.jsdelivr.net/npm/@mkkellogg/gaussian-splats-3d@0.4.7/build/gaussian-splats-3d.module.js"),
-      import("three")
-    ]);
+    const GaussianSplats3D = await import("https://cdn.jsdelivr.net/npm/@mkkellogg/gaussian-splats-3d@0.4.7/build/gaussian-splats-3d.module.js");
 
     const viewer = new GaussianSplats3D.Viewer({
       rootElement: root,
@@ -354,14 +153,18 @@ hide_title: true
     });
 
     viewer.start();
-    installThesisSplatControls(viewer, THREE);
+    if (viewer.camera) {
+      viewer.camera.near = 0.00005;
+      viewer.camera.far = 100;
+      viewer.camera.updateProjectionMatrix();
+    }
     root.classList.remove("is-loading");
     root.classList.add("is-loaded");
     if (prompt) {
       prompt.remove();
     }
     if (status) {
-      status.textContent = "323,441 table splats loaded";
+      status.textContent = "1,262,535 high-quality splats loaded";
     }
     window.thesisSplatViewer = viewer;
   }
