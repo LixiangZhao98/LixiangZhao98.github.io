@@ -2387,6 +2387,18 @@ body {
   margin-top: 0.2rem;
 }
 
+.thesis-gaussian-thanks strong {
+  display: inline-block;
+  margin: 0 0.06rem;
+  padding: 0.08rem 0.26rem;
+  border: 1px solid rgba(255, 221, 150, 0.42);
+  border-radius: 6px;
+  background: rgba(255, 221, 150, 0.12);
+  color: rgba(255, 241, 192, 0.96);
+  font-weight: 900;
+  line-height: 1.25;
+}
+
 .thesis-inline-splat {
   margin-top: 1rem;
   height: clamp(520px, 68vh, 720px);

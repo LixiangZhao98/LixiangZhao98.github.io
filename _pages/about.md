@@ -85,15 +85,15 @@ redirect_from:
             <tr>
               <th scope="row">Feb 03, 2026</th>
               <td>
-                <span data-lang-only="en">I successfully defended my Ph.D. dissertation <a href="/thesis/">&ldquo;Bridging Immersion Levels in Spatial Data Exploration: Visualization, Interaction, and Computing&rdquo;</a>!</span>
+                <span data-lang-only="en">I successfully defended my Ph.D. thesis <a href="/thesis/">&ldquo;Bridging Immersion Levels in Spatial Data Exploration: Visualization, Interaction, and Computing&rdquo;</a>!</span>
                 <span data-lang-only="zh">我顺利通过博士论文答辩，论文题目为 <a href="/thesis/">&ldquo;Bridging Immersion Levels in Spatial Data Exploration: Visualization, Interaction, and Computing&rdquo;</a>！</span>
               </td>
             </tr>
             <tr>
               <th scope="row">Jan 10, 2026</th>
               <td>
-                <span data-lang-only="en">Our paper <a href="https://ieeexplore.ieee.org/document/11457550">&ldquo;ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR&rdquo;</a> is accepted by IEEE VR 2026!</span>
-                <span data-lang-only="zh">我们的论文 <a href="https://ieeexplore.ieee.org/document/11457550">&ldquo;ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR&rdquo;</a> 被 IEEE VR 2026 接收！</span>
+                <span data-lang-only="en">Our paper <a href="/publications/scalefree/">&ldquo;ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR&rdquo;</a> is accepted by IEEE VR 2026!</span>
+                <span data-lang-only="zh">我们的论文 <a href="/publications/scalefree/">&ldquo;ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR&rdquo;</a> 被 IEEE VR 2026 接收！</span>
               </td>
             </tr>
           </tbody>

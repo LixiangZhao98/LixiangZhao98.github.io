@@ -4,5 +4,7 @@ main:
     url: /publications/
   - title: "Teaching"
     url: /teaching/
+  - title: "Thesis"
+    url: /thesis/
   - title: "CV"
     url: /cv/
