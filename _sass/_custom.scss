@@ -2383,6 +2383,19 @@ body {
   font-weight: 650;
 }
 
+.thesis-gaussian-note--lead {
+  margin-top: 0.2rem;
+}
+
+.thesis-inline-splat {
+  margin-top: 1rem;
+  height: clamp(520px, 68vh, 720px);
+}
+
+.thesis-inline-splat__help {
+  margin-bottom: 0;
+}
+
 .splat-viewer canvas {
   position: absolute !important;
   inset: 0 !important;
@@ -2435,6 +2448,15 @@ body {
 
 .splat-viewer__load:hover {
   background: rgba(12, 22, 48, 0.82);
+}
+
+.splat-viewer__load--passive {
+  cursor: default;
+  pointer-events: none;
+}
+
+.splat-viewer__load--passive:hover {
+  background: rgba(4, 10, 26, 0.7);
 }
 
 .splat-viewer__load:disabled {
