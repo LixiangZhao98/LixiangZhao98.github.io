@@ -32,19 +32,19 @@ hide_title: true
     <h2><span data-lang-only="en">Research Threads</span><span data-lang-only="zh">论文相关研究</span></h2>
     <div class="thesis-paper-grid">
       <a class="thesis-paper-tile" href="/publications/metacast/">
-        <img src="/assets/Publications/Figures/MeTACAST.png" alt="MeTACAST teaser">
+        <span class="thesis-paper-tile__media"><img src="/assets/Publications/Figures/MeTACAST.png" alt="MeTACAST teaser"></span>
         <span>MeTACAST</span>
       </a>
       <a class="thesis-paper-tile" href="/publications/scalefree/">
-        <img src="/assets/Publications/Figures/ScaleFree.png" alt="ScaleFree teaser">
+        <span class="thesis-paper-tile__media"><img src="/assets/Publications/Figures/ScaleFree.png" alt="ScaleFree teaser"></span>
         <span>ScaleFree</span>
       </a>
       <a class="thesis-paper-tile" href="/publications/l-wim/">
-        <img src="/assets/Publications/Figures/L_Wim.png" alt="L-WiM teaser">
+        <span class="thesis-paper-tile__media"><img src="/assets/Publications/Figures/L_Wim.png" alt="L-WiM teaser"></span>
         <span>L-WiM</span>
       </a>
       <a class="thesis-paper-tile" href="/publications/spatialtouch/">
-        <img src="/assets/Publications/Figures/Cross_reality.png" alt="SpatialTouch teaser">
+        <span class="thesis-paper-tile__media"><img src="/assets/Publications/Figures/Cross_reality.png" alt="SpatialTouch teaser"></span>
         <span>SpatialTouch</span>
       </a>
     </div>
