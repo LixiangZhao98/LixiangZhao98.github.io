@@ -18,11 +18,25 @@
       rotX: -0.18,
       rotY: 0.42,
       zoom: 1.08,
+      panX: 0,
+      panY: 0,
       dragging: false,
+      panning: false,
+      flying: false,
+      keys: {},
+      pointers: {},
+      pinchStartDistance: 0,
+      pinchStartZoom: 1,
+      pinchStartMidX: 0,
+      pinchStartMidY: 0,
+      pinchStartPanX: 0,
+      pinchStartPanY: 0,
       lastX: 0,
       lastY: 0,
+      lastFrame: 0,
       dpr: 1
     };
+    canvas.tabIndex = 0;
 
     function resize() {
       var rect = root.getBoundingClientRect();
@@ -53,8 +67,8 @@
       var scale = (height * 0.42 * state.zoom) / Math.max(0.6, depth);
 
       return {
-        x: width * 0.5 + x1 * scale,
-        y: height * 0.52 - y1 * scale,
+        x: width * 0.5 + state.panX * state.dpr + x1 * scale,
+        y: height * 0.52 + state.panY * state.dpr - y1 * scale,
         z: z2,
         r: Math.round((c[index * 3] || 0.75) * 255),
         g: Math.round((c[index * 3 + 1] || 0.75) * 255),
@@ -88,7 +102,29 @@
       context.globalAlpha = 1;
     }
 
-    function animate() {
+    function updateFly(deltaSeconds) {
+      if (!state.flying) return;
+
+      var forward = (state.keys.w || state.keys.arrowup ? 1 : 0) - (state.keys.s || state.keys.arrowdown ? 1 : 0);
+      var sideways = (state.keys.d || state.keys.arrowright ? 1 : 0) - (state.keys.a || state.keys.arrowleft ? 1 : 0);
+      var vertical = (state.keys.e ? 1 : 0) - (state.keys.q ? 1 : 0);
+      var zoomFactor = Math.pow(2.1, deltaSeconds);
+      var panStep = 260 * deltaSeconds / Math.max(0.8, Math.sqrt(state.zoom));
+
+      if (forward > 0) {
+        state.zoom = Math.max(0.05, state.zoom * zoomFactor);
+      } else if (forward < 0) {
+        state.zoom = Math.max(0.05, state.zoom / zoomFactor);
+      }
+
+      state.panX -= sideways * panStep;
+      state.panY -= vertical * panStep;
+    }
+
+    function animate(timestamp) {
+      var deltaSeconds = state.lastFrame ? Math.min(0.05, (timestamp - state.lastFrame) / 1000) : 0;
+      state.lastFrame = timestamp;
+      updateFly(deltaSeconds);
       if (!state.dragging) {
         state.rotY += 0.0022;
       }
@@ -96,25 +132,98 @@
       window.requestAnimationFrame(animate);
     }
 
+    function getPointerList() {
+      return Object.keys(state.pointers).map(function (key) {
+        return state.pointers[key];
+      });
+    }
+
+    function getPinchMetrics(points) {
+      var dx = points[0].x - points[1].x;
+      var dy = points[0].y - points[1].y;
+      return {
+        distance: Math.max(1, Math.sqrt(dx * dx + dy * dy)),
+        midX: (points[0].x + points[1].x) * 0.5,
+        midY: (points[0].y + points[1].y) * 0.5
+      };
+    }
+
+    function beginPinch() {
+      var points = getPointerList();
+      if (points.length < 2) return;
+      var metrics = getPinchMetrics(points);
+      state.dragging = false;
+      state.panning = true;
+      state.pinchStartDistance = metrics.distance;
+      state.pinchStartZoom = state.zoom;
+      state.pinchStartMidX = metrics.midX;
+      state.pinchStartMidY = metrics.midY;
+      state.pinchStartPanX = state.panX;
+      state.pinchStartPanY = state.panY;
+    }
+
     canvas.addEventListener("pointerdown", function (event) {
+      event.preventDefault();
+      canvas.focus({ preventScroll: true });
+      state.pointers[event.pointerId] = {
+        x: event.clientX,
+        y: event.clientY
+      };
       state.dragging = true;
+      state.flying = event.button === 2;
+      state.panning = !state.flying && (event.shiftKey || event.button === 1);
       state.lastX = event.clientX;
       state.lastY = event.clientY;
+      root.classList.toggle("is-flying", state.flying);
       canvas.setPointerCapture(event.pointerId);
+      if (getPointerList().length >= 2) {
+        beginPinch();
+      }
     });
 
     canvas.addEventListener("pointermove", function (event) {
+      event.preventDefault();
+      if (state.pointers[event.pointerId]) {
+        state.pointers[event.pointerId] = {
+          x: event.clientX,
+          y: event.clientY
+        };
+      }
+      var points = getPointerList();
+      if (points.length >= 2) {
+        var metrics = getPinchMetrics(points);
+        state.zoom = Math.max(0.18, state.pinchStartZoom * (metrics.distance / state.pinchStartDistance));
+        state.panX = state.pinchStartPanX + (metrics.midX - state.pinchStartMidX) / state.dpr;
+        state.panY = state.pinchStartPanY + (metrics.midY - state.pinchStartMidY) / state.dpr;
+        return;
+      }
       if (!state.dragging) return;
       var dx = event.clientX - state.lastX;
       var dy = event.clientY - state.lastY;
       state.lastX = event.clientX;
       state.lastY = event.clientY;
-      state.rotY += dx * 0.008;
-      state.rotX = clamp(state.rotX + dy * 0.006, -1.2, 1.2);
+      if (state.panning || event.shiftKey) {
+        state.panX += dx / state.dpr;
+        state.panY += dy / state.dpr;
+      } else {
+        var lookScale = state.flying ? 0.0052 : 0.008;
+        state.rotY += dx * lookScale;
+        state.rotX = clamp(state.rotX + dy * lookScale, -1.42, 1.42);
+      }
     });
 
     function endDrag(event) {
+      if (event) {
+        delete state.pointers[event.pointerId];
+      }
+      if (getPointerList().length >= 2) {
+        beginPinch();
+        return;
+      }
       state.dragging = false;
+      state.panning = false;
+      state.flying = false;
+      root.classList.remove("is-flying");
       if (event && canvas.releasePointerCapture) {
         try {
           canvas.releasePointerCapture(event.pointerId);
@@ -124,10 +233,49 @@
 
     canvas.addEventListener("pointerup", endDrag);
     canvas.addEventListener("pointercancel", endDrag);
+    canvas.addEventListener("contextmenu", function (event) {
+      event.preventDefault();
+    });
     canvas.addEventListener("wheel", function (event) {
       event.preventDefault();
-      state.zoom = clamp(state.zoom + (event.deltaY < 0 ? 0.08 : -0.08), 0.62, 2.4);
+      var rect = canvas.getBoundingClientRect();
+      var beforeZoom = state.zoom;
+      var nextZoom = Math.max(0.05, beforeZoom * (event.deltaY < 0 ? 1.22 : 0.82));
+      var anchorX = event.clientX - rect.left - rect.width * 0.5 - state.panX;
+      var anchorY = event.clientY - rect.top - rect.height * 0.52 - state.panY;
+      state.zoom = nextZoom;
+      state.panX -= anchorX * (nextZoom / beforeZoom - 1);
+      state.panY -= anchorY * (nextZoom / beforeZoom - 1);
     }, { passive: false });
+
+    window.addEventListener("keydown", function (event) {
+      var key = event.key.toLowerCase();
+      if (!/^(w|a|s|d|q|e|arrowup|arrowdown|arrowleft|arrowright)$/.test(key)) return;
+      if (!state.flying && document.activeElement !== canvas) return;
+      state.keys[key] = true;
+      if (state.flying) {
+        event.preventDefault();
+      }
+    });
+
+    window.addEventListener("keyup", function (event) {
+      var key = event.key.toLowerCase();
+      if (state.keys[key]) {
+        state.keys[key] = false;
+        if (state.flying) {
+          event.preventDefault();
+        }
+      }
+    });
+
+    window.addEventListener("blur", function () {
+      state.keys = {};
+      state.pointers = {};
+      state.dragging = false;
+      state.panning = false;
+      state.flying = false;
+      root.classList.remove("is-flying");
+    });
 
     resize();
     window.addEventListener("resize", resize);
@@ -143,7 +291,7 @@
         state.count = data.count || Math.floor(state.positions.length / 3);
         state.sourceVertices = data.sourceVertices || state.count;
         if (status) {
-          status.textContent = state.count + " / " + state.sourceVertices + " 3DGS sample points";
+          status.textContent = state.count + " / " + state.sourceVertices + " points · Wheel zoom · RMB + WASD fly";
         }
         root.classList.add("is-loaded");
         animate();

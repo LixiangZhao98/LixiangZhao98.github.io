@@ -2175,6 +2175,13 @@ body {
   cursor: grabbing;
 }
 
+.thesis-viewer.is-flying,
+.thesis-viewer.is-flying:active {
+  cursor: crosshair;
+  border-color: rgba(125, 211, 252, 0.48);
+  box-shadow: 0 0 0 1px rgba(125, 211, 252, 0.16), 0 18px 46px rgba(14, 165, 233, 0.14);
+}
+
 .thesis-viewer canvas {
   display: block;
   width: 100%;
