@@ -60,6 +60,35 @@ layout: compress
     {% include scripts.html %}
 
     <script>
+      (function() {
+        var bg = document.querySelector(".site-bg");
+        if (!bg || bg.querySelector(".site-star")) return;
+
+        var seed = 17690221;
+        var colors = ["255,255,255", "125,211,252", "255,232,184", "196,181,253"];
+
+        function random() {
+          seed = (seed * 1664525 + 1013904223) >>> 0;
+          return seed / 4294967296;
+        }
+
+        for (var i = 0; i < 150; i += 1) {
+          var star = document.createElement("span");
+          var size = 1 + Math.pow(random(), 1.8) * 2.7;
+          var alpha = 0.32 + random() * 0.62;
+          star.className = "site-star";
+          star.style.setProperty("--star-x", (random() * 100).toFixed(3) + "vw");
+          star.style.setProperty("--star-y", (random() * 100).toFixed(3) + "vh");
+          star.style.setProperty("--star-size", size.toFixed(2) + "px");
+          star.style.setProperty("--star-alpha", alpha.toFixed(2));
+          star.style.setProperty("--star-glow", (5 + random() * 18).toFixed(1) + "px");
+          star.style.setProperty("--star-duration", (3.8 + random() * 6.8).toFixed(2) + "s");
+          star.style.setProperty("--star-delay", (-random() * 7).toFixed(2) + "s");
+          star.style.setProperty("--star-color", colors[Math.floor(random() * colors.length)]);
+          bg.appendChild(star);
+        }
+      })();
+
       document.addEventListener("pointerdown", function(event) {
         if (event.button !== 0 || event.isPrimary === false) return;
         if (event.target.closest("a, button, input, textarea, select, label, [role='button']")) return;

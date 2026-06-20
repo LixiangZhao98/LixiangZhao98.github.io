@@ -34,15 +34,25 @@
 }
 
 .site-bg::after {
-  background:
-    radial-gradient(circle at 20px 30px, rgba(255, 255, 255, 0.95) 1px, transparent 1.7px),
-    radial-gradient(circle at 120px 180px, rgba(125, 211, 252, 0.85) 1.15px, transparent 2px),
-    radial-gradient(circle at 430px 120px, rgba(255, 232, 184, 0.78) 1.2px, transparent 2.1px);
-  background-size: 220px 220px, 340px 340px, 520px 520px;
-  filter: drop-shadow(0 0 10px rgba(125, 211, 252, 0.18));
+  background: transparent;
+  filter: none;
   mix-blend-mode: screen;
-  opacity: 0.74;
-  animation: star-drift 58s linear infinite, star-twinkle 5.5s ease-in-out infinite alternate;
+  opacity: 1;
+}
+
+.site-star {
+  position: absolute;
+  left: var(--star-x);
+  top: var(--star-y);
+  width: var(--star-size);
+  height: var(--star-size);
+  border-radius: 50%;
+  background: rgba(var(--star-color), var(--star-alpha));
+  box-shadow: 0 0 var(--star-glow) rgba(var(--star-color), calc(var(--star-alpha) * 0.46));
+  opacity: var(--star-alpha);
+  transform: translate(-50%, -50%);
+  animation: star-soft-twinkle var(--star-duration) ease-in-out infinite alternate;
+  animation-delay: var(--star-delay);
 }
 
 .site-comet {
@@ -893,6 +903,17 @@
   }
   100% {
     opacity: 0.86;
+  }
+}
+
+@keyframes star-soft-twinkle {
+  0% {
+    opacity: calc(var(--star-alpha) * 0.58);
+    transform: translate(-50%, -50%) scale(0.82);
+  }
+  100% {
+    opacity: var(--star-alpha);
+    transform: translate(-50%, -50%) scale(1.16);
   }
 }
 
@@ -2180,6 +2201,10 @@ body {
   align-items: stretch;
 }
 
+.thesis-viewer-grid--single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .thesis-viewer {
   position: relative;
   min-height: 430px;
@@ -2214,7 +2239,7 @@ body {
 .thesis-gaussian-card {
   position: relative;
   display: block;
-  min-height: 430px;
+  min-height: clamp(460px, 58vw, 640px);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
@@ -2229,7 +2254,7 @@ body {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 430px;
+  min-height: clamp(460px, 58vw, 640px);
   object-fit: cover;
   opacity: 0.72;
   transform: scale(1.02);
@@ -2351,6 +2376,13 @@ body {
   contain: layout paint size;
 }
 
+.thesis-gaussian-note {
+  max-width: 52rem;
+  margin: 1rem 0 0;
+  color: rgba(255, 255, 255, 0.74);
+  font-weight: 650;
+}
+
 .splat-viewer canvas {
   position: absolute !important;
   inset: 0 !important;
@@ -2430,6 +2462,16 @@ body {
 
 .splat-viewer.is-loaded .splat-viewer__status {
   opacity: 0.68;
+}
+
+.splat-viewer.is-orbiting,
+.splat-viewer.is-orbiting canvas {
+  cursor: grabbing;
+}
+
+.splat-viewer.is-flying,
+.splat-viewer.is-flying canvas {
+  cursor: crosshair;
 }
 
 .splat-viewer.is-error .splat-viewer__status {

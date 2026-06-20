@@ -13,3 +13,6 @@ package-lock.json
 
 # Ignore local reconstruction and generation scratch files
 tmp/
+
+# Large presentation files are hosted from the separate asset repository
+assets/Publications/ppt/

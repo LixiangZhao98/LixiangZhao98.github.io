@@ -44,7 +44,7 @@ hide_title: true
         <span>L-WiM</span>
       </a>
       <a class="thesis-paper-tile" href="/publications/spatialtouch/">
-        <span class="thesis-paper-tile__media"><img src="/assets/Publications/Figures/Cross_reality.png" alt="SpatialTouch teaser" loading="lazy" decoding="async"></span>
+        <span class="thesis-paper-tile__media"><img src="/assets/Publications/Figures/spatialtouch.png" alt="SpatialTouch teaser" loading="lazy" decoding="async"></span>
         <span>SpatialTouch</span>
       </a>
     </div>
@@ -69,10 +69,8 @@ hide_title: true
   <section class="thesis-section glass-card">
     <div class="thesis-section__head">
       <h2><span data-lang-only="en">3D Gaussian Graduation Cap</span><span data-lang-only="zh">博士帽 3D Gaussian Viewer</span></h2>
-      <a class="pub-chip" href="/phd-hat-3dgs/"><span data-lang-only="en">Focused 3DGS Viewer</span><span data-lang-only="zh">聚焦 3DGS Viewer</span></a>
-      <a class="pub-chip" href="/assets/Publications/thesis/phd_hat_3dgs.ply" download="phd_hat_3dgs.ply">PLY</a>
     </div>
-    <div class="thesis-viewer-grid">
+    <div class="thesis-viewer-grid thesis-viewer-grid--single">
       <a class="thesis-gaussian-card" href="/phd-hat-3dgs/">
         <img src="/assets/Publications/thesis/phd_hat_poster.jpg" alt="Ph.D. graduation cap 3DGS preview" loading="lazy" decoding="async">
         <span class="thesis-gaussian-card__label">
@@ -81,15 +79,10 @@ hide_title: true
           <span data-lang-only="zh">打开 3DGS Viewer</span>
         </span>
       </a>
-      <div class="thesis-video-card">
-        <video controls preload="metadata" poster="/assets/Publications/thesis/phd_hat_poster.jpg">
-          <source src="/assets/Publications/thesis/phd_hat_preview.mp4" type="video/mp4">
-        </video>
-        <p>
-          <span data-lang-only="en">This preview is generated from the full graduation-cap video: the source was sampled into 4,758 frames at 30fps for coverage checks, 793 full-duration keyframes were registered with COLMAP, and the 3D Gaussian Splatting model was trained for 7,000 iterations. The interactive 3DGS viewer is loaded only after opening the dedicated viewer page.</span>
-          <span data-lang-only="zh">这个预览来自完整的博士帽视频：源视频已按 30fps 抽取 4,758 帧用于覆盖检查，并用覆盖全片的 793 张关键帧完成 COLMAP 配准，随后训练 7,000 次迭代的 3D Gaussian Splatting 模型。交互式 3DGS viewer 只会在打开专门的 viewer 页面后加载。</span>
-        </p>
-      </div>
     </div>
+    <p class="thesis-gaussian-note">
+      <span data-lang-only="en">This is a 3D Gaussian Splatting reconstruction of my Ph.D. graduation cap. Click the preview to open the dedicated 3DGS viewer.</span>
+      <span data-lang-only="zh">这是我的博士帽 3D Gaussian Splatting 重建。点击预览图可进入专门的 3DGS viewer 页面。</span>
+    </p>
   </section>
 </main>

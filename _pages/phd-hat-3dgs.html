@@ -10,44 +10,30 @@ hide_title: true
   <section class="splat-shell glass-card">
     <header class="splat-shell__header">
       <div>
-        <p class="thesis-kicker">
-          <span data-lang-only="en">Spherical-focus 3D Gaussian Splatting viewer</span>
-          <span data-lang-only="zh">球形聚焦 3D Gaussian Splatting Viewer</span>
-        </p>
         <h1>
           <span data-lang-only="en">Ph.D. Graduation Cap</span>
-          <span data-lang-only="zh">博士帽 3D 重建</span>
+          <span data-lang-only="zh">博士帽</span>
         </h1>
         <p>
-          <span data-lang-only="en">A focused spherical crop of the clear graduation-cap region, rendered with GaussianSplats3D in a static WebGL page.</span>
-          <span data-lang-only="zh">只展示中间清晰博士帽区域的球形裁剪版本，使用 GaussianSplats3D 在静态 WebGL 页面中渲染。</span>
+          <span data-lang-only="en">Many thanks to my lab partners and the cap makers: Wanfang Xu, Fuqi Xie, Shuqi He, Jifan Yang, and Shuzi Zou, and to my advisor Lingyun Yu.</span>
+          <span data-lang-only="zh">特别感谢实验室伙伴和博士帽制作者：徐万芳、谢馥琪、何舒淇、杨济帆、邹树滋，以及导师俞凌云。</span>
         </p>
       </div>
       <div class="splat-shell__actions">
         <a class="pub-chip" href="/thesis/">
           <i class="fas fa-arrow-left" aria-hidden="true"></i>
           <span data-lang-only="en">Thesis</span>
-          <span data-lang-only="zh">博士论文</span>
+          <span data-lang-only="zh">返回 Thesis</span>
         </a>
-        <a class="pub-chip" href="/assets/Publications/thesis/phd_hat_focus.splat" download="phd_hat_focus.splat">
+        <a class="pub-chip" href="/assets/Publications/thesis/phd_hat_cap.splat" download="phd_hat_cap.splat">
           <i class="fas fa-download" aria-hidden="true"></i>
-          <span data-lang-only="en">Focus SPLAT</span>
-          <span data-lang-only="zh">聚焦 SPLAT</span>
-        </a>
-        <a class="pub-chip" href="/assets/Publications/thesis/phd_hat_table.splat" download="phd_hat_table.splat">
-          <i class="fas fa-download" aria-hidden="true"></i>
-          <span data-lang-only="en">Table SPLAT</span>
-          <span data-lang-only="zh">桌面 SPLAT</span>
-        </a>
-        <a class="pub-chip" href="/assets/Publications/thesis/phd_hat_full.splat" download="phd_hat_full.splat">
-          <i class="fas fa-download" aria-hidden="true"></i>
-          <span data-lang-only="en">Full SPLAT</span>
-          <span data-lang-only="zh">完整 SPLAT</span>
+          <span data-lang-only="en">Download SPLAT</span>
+          <span data-lang-only="zh">下载 SPLAT</span>
         </a>
       </div>
     </header>
 
-    <div id="phd-hat-splat-viewer" class="splat-viewer" data-splat-url="/assets/Publications/thesis/phd_hat_table.splat">
+    <div id="phd-hat-splat-viewer" class="splat-viewer" data-splat-url="/assets/Publications/thesis/phd_hat_cap.splat" tabindex="0">
       <div class="splat-viewer__prompt">
         <img src="/assets/Publications/thesis/phd_hat_poster.jpg" alt="Ph.D. graduation cap 3DGS preview">
         <button type="button" class="splat-viewer__load">
@@ -63,8 +49,8 @@ hide_title: true
     </div>
 
     <footer class="splat-shell__footer">
-      <span data-lang-only="en">Left drag orbit · right drag pan · wheel zoom · P toggles point mode · I toggles info</span>
-      <span data-lang-only="zh">左键拖拽旋转 · 右键拖拽平移 · 滚轮缩放 · P 切换点模式 · I 显示信息</span>
+      <span data-lang-only="en">Left drag orbit · hold right mouse + WASD/QE to fly · wheel zoom</span>
+      <span data-lang-only="zh">左键拖拽旋转 · 按住右键配合 WASD/QE 探索 · 滚轮缩放</span>
     </footer>
   </section>
 </main>
@@ -83,7 +69,212 @@ hide_title: true
   const loadButton = root ? root.querySelector(".splat-viewer__load") : null;
   const prompt = root ? root.querySelector(".splat-viewer__prompt") : null;
   let hasStarted = false;
-  const sceneCenterOffset = [0.02332621530941987, 0.15569970817993717, -0.08836142132126232];
+  const sceneCenterOffset = [0.02373568949536609, 0.1561195595484536, -0.08828049712890203];
+
+  function installSplatControls(viewer, THREE) {
+    const camera = viewer.camera;
+    if (!camera) return;
+
+    const controls = viewer.controls || viewer.orbitControls || null;
+    camera.near = 0.00025;
+    camera.far = 100;
+    camera.up.set(0, 0, 1);
+    camera.updateProjectionMatrix();
+
+    if (controls) {
+      controls.enabled = false;
+    }
+
+    const keys = {};
+    const target = new THREE.Vector3(0, 0, 0);
+    const state = {
+      flying: false,
+      orbiting: false,
+      pointerId: null,
+      yaw: 0,
+      pitch: 0,
+      flyYaw: 0,
+      flyPitch: 0,
+      radius: 0.36,
+      lastFrame: performance.now()
+    };
+    const worldUp = new THREE.Vector3(0, 0, 1);
+    const offset = new THREE.Vector3();
+    const forward = new THREE.Vector3();
+    const right = new THREE.Vector3();
+    const move = new THREE.Vector3();
+
+    function clamp(value, min, max) {
+      return Math.max(min, Math.min(max, value));
+    }
+
+    function forwardFromAngles(out, yaw, pitch) {
+      const cosPitch = Math.cos(pitch);
+      out.set(
+        Math.sin(yaw) * cosPitch,
+        -Math.cos(yaw) * cosPitch,
+        Math.sin(pitch)
+      );
+      return out.normalize();
+    }
+
+    function syncOrbitFromCamera() {
+      offset.copy(camera.position).sub(target);
+      state.radius = clamp(offset.length() || state.radius, 0.006, 8);
+      state.pitch = Math.asin(clamp(offset.z / state.radius, -0.99, 0.99));
+      state.yaw = Math.atan2(offset.x, -offset.y);
+    }
+
+    function applyOrbit() {
+      state.pitch = clamp(state.pitch, -Math.PI / 2 + 0.02, Math.PI / 2 - 0.02);
+      state.radius = clamp(state.radius, 0.006, 8);
+      const cosPitch = Math.cos(state.pitch);
+      camera.position.set(
+        target.x + Math.sin(state.yaw) * cosPitch * state.radius,
+        target.y - Math.cos(state.yaw) * cosPitch * state.radius,
+        target.z + Math.sin(state.pitch) * state.radius
+      );
+      camera.lookAt(target);
+      camera.updateProjectionMatrix();
+    }
+
+    function syncFlyAnglesFromCamera() {
+      forward.set(0, 0, -1).applyQuaternion(camera.quaternion).normalize();
+      state.flyPitch = Math.asin(clamp(forward.z, -0.99, 0.99));
+      state.flyYaw = Math.atan2(forward.x, -forward.y);
+    }
+
+    function applyFlyLook() {
+      state.flyPitch = clamp(state.flyPitch, -Math.PI / 2 + 0.02, Math.PI / 2 - 0.02);
+      forwardFromAngles(forward, state.flyYaw, state.flyPitch);
+      camera.lookAt(camera.position.clone().add(forward));
+      camera.updateProjectionMatrix();
+    }
+
+    function endFly() {
+      if (!state.flying) return;
+      state.flying = false;
+      state.pointerId = null;
+      root.classList.remove("is-flying");
+      forwardFromAngles(forward, state.flyYaw, state.flyPitch);
+      target.copy(camera.position).add(forward.multiplyScalar(Math.max(state.radius, 0.08)));
+      syncOrbitFromCamera();
+    }
+
+    function endOrbit() {
+      if (!state.orbiting) return;
+      state.orbiting = false;
+      state.pointerId = null;
+      root.classList.remove("is-orbiting");
+    }
+
+    root.addEventListener("contextmenu", (event) => event.preventDefault());
+
+    root.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0 && event.button !== 2) return;
+      event.preventDefault();
+      root.focus({ preventScroll: true });
+      root.setPointerCapture(event.pointerId);
+      state.pointerId = event.pointerId;
+      if (event.button === 2) {
+        endOrbit();
+        syncFlyAnglesFromCamera();
+        state.flying = true;
+        root.classList.add("is-flying");
+      } else {
+        endFly();
+        syncOrbitFromCamera();
+        state.orbiting = true;
+        root.classList.add("is-orbiting");
+      }
+    });
+
+    root.addEventListener("pointermove", (event) => {
+      if (state.pointerId !== event.pointerId) return;
+      event.preventDefault();
+      if (state.flying) {
+        state.flyYaw -= event.movementX * 0.0036;
+        state.flyPitch -= event.movementY * 0.0036;
+        applyFlyLook();
+      } else if (state.orbiting) {
+        state.yaw -= event.movementX * 0.006;
+        state.pitch += event.movementY * 0.006;
+        applyOrbit();
+      }
+    });
+
+    root.addEventListener("pointerup", (event) => {
+      if (state.pointerId === event.pointerId) {
+        endFly();
+        endOrbit();
+      }
+    });
+
+    root.addEventListener("pointercancel", (event) => {
+      if (state.pointerId === event.pointerId) {
+        endFly();
+        endOrbit();
+      }
+    });
+
+    root.addEventListener("wheel", (event) => {
+      event.preventDefault();
+      const factor = Math.exp(event.deltaY * 0.0014);
+      if (state.flying) {
+        forwardFromAngles(forward, state.flyYaw, state.flyPitch);
+        camera.position.add(forward.multiplyScalar(-event.deltaY * 0.00042));
+        applyFlyLook();
+        return;
+      }
+      syncOrbitFromCamera();
+      state.radius *= factor;
+      applyOrbit();
+    }, { passive: false });
+
+    root.addEventListener("blur", () => {
+      endFly();
+      endOrbit();
+    });
+
+    window.addEventListener("keydown", (event) => {
+      const key = event.key.toLowerCase();
+      if (!/^(w|a|s|d|q|e|shift)$/.test(key)) return;
+      if (!state.flying && document.activeElement !== root) return;
+      keys[key] = true;
+      if (state.flying) event.preventDefault();
+    });
+
+    window.addEventListener("keyup", (event) => {
+      keys[event.key.toLowerCase()] = false;
+    });
+
+    function tick(time) {
+      const dt = Math.min(0.05, (time - state.lastFrame) / 1000);
+      state.lastFrame = time;
+      if (state.flying) {
+        const speed = (keys.shift ? 1.1 : 0.42) * dt;
+        move.set(0, 0, 0);
+        forwardFromAngles(forward, state.flyYaw, state.flyPitch);
+        right.crossVectors(worldUp, forward).normalize();
+        if (keys.w) move.add(forward);
+        if (keys.s) move.sub(forward);
+        if (keys.d) move.add(right);
+        if (keys.a) move.sub(right);
+        if (keys.e) move.add(worldUp);
+        if (keys.q) move.sub(worldUp);
+        if (move.lengthSq() > 0) {
+          move.normalize().multiplyScalar(speed);
+          camera.position.add(move);
+          applyFlyLook();
+        }
+      }
+      requestAnimationFrame(tick);
+    }
+
+    syncOrbitFromCamera();
+    applyOrbit();
+    requestAnimationFrame(tick);
+  }
 
   async function startViewer() {
     if (!root || hasStarted) return;
@@ -94,25 +285,28 @@ hide_title: true
       loadButton.disabled = true;
     }
     if (status) {
-      status.textContent = "Loading focused 3DGS scene...";
+      status.textContent = "Loading 3DGS cap scene...";
     }
 
-    const GaussianSplats3D = await import("https://cdn.jsdelivr.net/npm/@mkkellogg/gaussian-splats-3d@0.4.7/build/gaussian-splats-3d.module.js");
+    const [GaussianSplats3D, THREE] = await Promise.all([
+      import("https://cdn.jsdelivr.net/npm/@mkkellogg/gaussian-splats-3d@0.4.7/build/gaussian-splats-3d.module.js"),
+      import("three")
+    ]);
 
     const viewer = new GaussianSplats3D.Viewer({
       rootElement: root,
       cameraUp: [0, 0, 1],
-      initialCameraPosition: [0, -0.78, 0.16],
+      initialCameraPosition: [0, -0.32, 0.1],
       initialCameraLookAt: [0, 0, 0],
       sharedMemoryForWorkers: false,
-      gpuAcceleratedSort: false,
-      integerBasedSort: false,
-      halfPrecisionCovariancesOnGPU: true,
+      gpuAcceleratedSort: true,
+      integerBasedSort: true,
+      halfPrecisionCovariancesOnGPU: false,
       dynamicScene: false,
       renderMode: GaussianSplats3D.RenderMode.Always,
       sceneRevealMode: GaussianSplats3D.SceneRevealMode.Gradual,
       sphericalHarmonicsDegree: 0,
-      antialiased: false,
+      antialiased: true,
       logLevel: GaussianSplats3D.LogLevel.None
     });
 
@@ -126,13 +320,14 @@ hide_title: true
     });
 
     viewer.start();
+    installSplatControls(viewer, THREE);
     root.classList.remove("is-loading");
     root.classList.add("is-loaded");
     if (prompt) {
       prompt.remove();
     }
     if (status) {
-      status.textContent = "323,441 table splats loaded";
+      status.textContent = "248,410 cap splats loaded";
     }
     window.phdHatSplatViewer = viewer;
   }
@@ -144,7 +339,7 @@ hide_title: true
         root.classList.remove("is-loading");
         root.classList.add("is-error");
         if (status) {
-          status.textContent = "Focused 3DGS scene could not be loaded. Please refresh or download the SPLAT file.";
+          status.textContent = "3DGS cap scene could not be loaded. Please refresh or download the SPLAT file.";
         }
         if (loadButton) {
           loadButton.disabled = false;
