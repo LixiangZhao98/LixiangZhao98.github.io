@@ -6,7 +6,7 @@
   {% for pub in group.items %}
     <div id="{{ pub.id }}" class="pub-card reveal">
       <div class="pub-card__img">
-        <img src="{{ pub.image }}" alt="{{ pub.title }}">
+        <img src="{{ pub.image }}" alt="{{ pub.title }}" loading="lazy" decoding="async">
       </div>
       <div class="pub-card__body">
         <h3 class="pub-card__title"><a href="{{ pub.url }}">{{ pub.title }}</a></h3>

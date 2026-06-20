@@ -66,18 +66,12 @@ hide_title: true
       <h2>Academic Service</h2>
       <ol class="cv-timeline">
         <li class="cv-entry">
-          <div class="cv-entry__side"><span>2026</span></div>
+          <div class="cv-entry__side"><span>2025 - 2026</span></div>
           <div class="cv-entry__body">
             <h3>Programme Committees</h3>
+            <p>IEEE Visualization &amp; Visual Analytics (IEEE VIS) 2025 Poster Programme Committee</p>
             <p>IEEE Visualization &amp; Visual Analytics (IEEE VIS) 2026 Poster Programme Committee</p>
             <p>China Visualization and Visual Analytics Conference (ChinaVis) 2026 Programme Committee</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2025</span></div>
-          <div class="cv-entry__body">
-            <h3>Poster Programme Committee</h3>
-            <p>IEEE Visualization &amp; Visual Analytics (IEEE VIS) 2025</p>
           </div>
         </li>
         <li class="cv-entry">
@@ -103,6 +97,7 @@ hide_title: true
               <section class="cv-review-group">
                 <h4>Conferences</h4>
                 <ul>
+                  <li>IEEE Visualization &amp; Visual Analytics (IEEE VIS)</li>
                   <li>IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR)</li>
                   <li>Computer Supported Cooperative Work and Social Computing (CSCW)</li>
                   <li>CHI Conference on Human Factors in Computing Systems (CHI)</li>
@@ -171,18 +166,12 @@ hide_title: true
       <h2>学术服务</h2>
       <ol class="cv-timeline">
         <li class="cv-entry">
-          <div class="cv-entry__side"><span>2026</span></div>
+          <div class="cv-entry__side"><span>2025 - 2026</span></div>
           <div class="cv-entry__body">
             <h3>程序委员会</h3>
+            <p>IEEE Visualization &amp; Visual Analytics (IEEE VIS) 2025 海报程序委员会</p>
             <p>IEEE Visualization &amp; Visual Analytics (IEEE VIS) 2026 海报程序委员会</p>
             <p>China Visualization and Visual Analytics Conference (ChinaVis) 2026 程序委员会</p>
-          </div>
-        </li>
-        <li class="cv-entry">
-          <div class="cv-entry__side"><span>2025</span></div>
-          <div class="cv-entry__body">
-            <h3>海报程序委员会</h3>
-            <p>IEEE Visualization &amp; Visual Analytics (IEEE VIS) 2025</p>
           </div>
         </li>
         <li class="cv-entry">
@@ -208,6 +197,7 @@ hide_title: true
               <section class="cv-review-group">
                 <h4>会议</h4>
                 <ul>
+                  <li>IEEE 可视化与视觉分析会议 (IEEE VIS)</li>
                   <li>IEEE 虚拟现实与 3D 用户界面会议 (IEEE VR)</li>
                   <li>计算机支持的协同工作与社会计算 (CSCW)</li>
                   <li>CHI 人因与计算系统会议 (CHI)</li>

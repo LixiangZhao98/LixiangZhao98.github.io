@@ -1,0 +1,156 @@
+---
+layout: wide
+title: "PhD Hat 3DGS"
+permalink: /phd-hat-3dgs/
+author_profile: false
+hide_title: true
+---
+
+<main class="splat-page">
+  <section class="splat-shell glass-card">
+    <header class="splat-shell__header">
+      <div>
+        <p class="thesis-kicker">
+          <span data-lang-only="en">Spherical-focus 3D Gaussian Splatting viewer</span>
+          <span data-lang-only="zh">球形聚焦 3D Gaussian Splatting Viewer</span>
+        </p>
+        <h1>
+          <span data-lang-only="en">Ph.D. Graduation Cap</span>
+          <span data-lang-only="zh">博士帽 3D 重建</span>
+        </h1>
+        <p>
+          <span data-lang-only="en">A focused spherical crop of the clear graduation-cap region, rendered with GaussianSplats3D in a static WebGL page.</span>
+          <span data-lang-only="zh">只展示中间清晰博士帽区域的球形裁剪版本，使用 GaussianSplats3D 在静态 WebGL 页面中渲染。</span>
+        </p>
+      </div>
+      <div class="splat-shell__actions">
+        <a class="pub-chip" href="/thesis/">
+          <i class="fas fa-arrow-left" aria-hidden="true"></i>
+          <span data-lang-only="en">Thesis</span>
+          <span data-lang-only="zh">博士论文</span>
+        </a>
+        <a class="pub-chip" href="/assets/Publications/thesis/phd_hat_focus.splat" download="phd_hat_focus.splat">
+          <i class="fas fa-download" aria-hidden="true"></i>
+          <span data-lang-only="en">Focus SPLAT</span>
+          <span data-lang-only="zh">聚焦 SPLAT</span>
+        </a>
+        <a class="pub-chip" href="/assets/Publications/thesis/phd_hat_table.splat" download="phd_hat_table.splat">
+          <i class="fas fa-download" aria-hidden="true"></i>
+          <span data-lang-only="en">Table SPLAT</span>
+          <span data-lang-only="zh">桌面 SPLAT</span>
+        </a>
+        <a class="pub-chip" href="/assets/Publications/thesis/phd_hat_full.splat" download="phd_hat_full.splat">
+          <i class="fas fa-download" aria-hidden="true"></i>
+          <span data-lang-only="en">Full SPLAT</span>
+          <span data-lang-only="zh">完整 SPLAT</span>
+        </a>
+      </div>
+    </header>
+
+    <div id="phd-hat-splat-viewer" class="splat-viewer" data-splat-url="/assets/Publications/thesis/phd_hat_table.splat">
+      <div class="splat-viewer__prompt">
+        <img src="/assets/Publications/thesis/phd_hat_poster.jpg" alt="Ph.D. graduation cap 3DGS preview">
+        <button type="button" class="splat-viewer__load">
+          <i class="fas fa-cube" aria-hidden="true"></i>
+          <span data-lang-only="en">Load 3DGS Viewer</span>
+          <span data-lang-only="zh">加载 3DGS Viewer</span>
+        </button>
+      </div>
+      <div class="splat-viewer__status">
+        <span data-lang-only="en">3DGS is not loaded yet.</span>
+        <span data-lang-only="zh">3DGS 还没有加载。</span>
+      </div>
+    </div>
+
+    <footer class="splat-shell__footer">
+      <span data-lang-only="en">Left drag orbit · right drag pan · wheel zoom · P toggles point mode · I toggles info</span>
+      <span data-lang-only="zh">左键拖拽旋转 · 右键拖拽平移 · 滚轮缩放 · P 切换点模式 · I 显示信息</span>
+    </footer>
+  </section>
+</main>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+
+<script type="module">
+  const root = document.getElementById("phd-hat-splat-viewer");
+  const status = root ? root.querySelector(".splat-viewer__status") : null;
+  const loadButton = root ? root.querySelector(".splat-viewer__load") : null;
+  const prompt = root ? root.querySelector(".splat-viewer__prompt") : null;
+  let hasStarted = false;
+  const sceneCenterOffset = [0.02332621530941987, 0.15569970817993717, -0.08836142132126232];
+
+  async function startViewer() {
+    if (!root || hasStarted) return;
+    hasStarted = true;
+    root.classList.remove("is-error");
+    root.classList.add("is-loading");
+    if (loadButton) {
+      loadButton.disabled = true;
+    }
+    if (status) {
+      status.textContent = "Loading focused 3DGS scene...";
+    }
+
+    const GaussianSplats3D = await import("https://cdn.jsdelivr.net/npm/@mkkellogg/gaussian-splats-3d@0.4.7/build/gaussian-splats-3d.module.js");
+
+    const viewer = new GaussianSplats3D.Viewer({
+      rootElement: root,
+      cameraUp: [0, 0, 1],
+      initialCameraPosition: [0, -0.78, 0.16],
+      initialCameraLookAt: [0, 0, 0],
+      sharedMemoryForWorkers: false,
+      gpuAcceleratedSort: false,
+      integerBasedSort: false,
+      halfPrecisionCovariancesOnGPU: true,
+      dynamicScene: false,
+      renderMode: GaussianSplats3D.RenderMode.Always,
+      sceneRevealMode: GaussianSplats3D.SceneRevealMode.Gradual,
+      sphericalHarmonicsDegree: 0,
+      antialiased: false,
+      logLevel: GaussianSplats3D.LogLevel.None
+    });
+
+    await viewer.addSplatScene(root.getAttribute("data-splat-url"), {
+      splatAlphaRemovalThreshold: 1,
+      showLoadingUI: false,
+      progressiveLoad: true,
+      position: sceneCenterOffset,
+      rotation: [0, 0, 0, 1],
+      scale: [1, 1, 1]
+    });
+
+    viewer.start();
+    root.classList.remove("is-loading");
+    root.classList.add("is-loaded");
+    if (prompt) {
+      prompt.remove();
+    }
+    if (status) {
+      status.textContent = "323,441 table splats loaded";
+    }
+    window.phdHatSplatViewer = viewer;
+  }
+
+  if (loadButton) {
+    loadButton.addEventListener("click", () => {
+      startViewer().catch((error) => {
+        hasStarted = false;
+        root.classList.remove("is-loading");
+        root.classList.add("is-error");
+        if (status) {
+          status.textContent = "Focused 3DGS scene could not be loaded. Please refresh or download the SPLAT file.";
+        }
+        if (loadButton) {
+          loadButton.disabled = false;
+        }
+        console.error(error);
+      });
+    });
+  }
+</script>
