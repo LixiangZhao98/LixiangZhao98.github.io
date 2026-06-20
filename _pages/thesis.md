@@ -32,19 +32,19 @@ hide_title: true
     <h2><span data-lang-only="en">Research Threads</span><span data-lang-only="zh">论文相关研究</span></h2>
     <div class="thesis-paper-grid">
       <a class="thesis-paper-tile" href="/publications/metacast/">
-        <span class="thesis-paper-tile__media"><img src="/assets/Publications/Figures/MeTACAST.png" alt="MeTACAST teaser"></span>
+        <span class="thesis-paper-tile__media"><img src="/assets/Publications/Figures/MeTACAST.png" alt="MeTACAST teaser" loading="lazy" decoding="async"></span>
         <span>MeTACAST</span>
       </a>
       <a class="thesis-paper-tile" href="/publications/scalefree/">
-        <span class="thesis-paper-tile__media"><img src="/assets/Publications/Figures/ScaleFree.png" alt="ScaleFree teaser"></span>
+        <span class="thesis-paper-tile__media"><img src="/assets/Publications/Figures/ScaleFree.png" alt="ScaleFree teaser" loading="lazy" decoding="async"></span>
         <span>ScaleFree</span>
       </a>
       <a class="thesis-paper-tile" href="/publications/l-wim/">
-        <span class="thesis-paper-tile__media"><img src="/assets/Publications/Figures/L_Wim.png" alt="L-WiM teaser"></span>
+        <span class="thesis-paper-tile__media"><img src="/assets/Publications/Figures/L_Wim.png" alt="L-WiM teaser" loading="lazy" decoding="async"></span>
         <span>L-WiM</span>
       </a>
       <a class="thesis-paper-tile" href="/publications/spatialtouch/">
-        <span class="thesis-paper-tile__media"><img src="/assets/Publications/Figures/Cross_reality.png" alt="SpatialTouch teaser"></span>
+        <span class="thesis-paper-tile__media"><img src="/assets/Publications/Figures/Cross_reality.png" alt="SpatialTouch teaser" loading="lazy" decoding="async"></span>
         <span>SpatialTouch</span>
       </a>
     </div>
@@ -73,24 +73,23 @@ hide_title: true
       <a class="pub-chip" href="/assets/Publications/thesis/phd_hat_3dgs.ply" download="phd_hat_3dgs.ply">PLY</a>
     </div>
     <div class="thesis-viewer-grid">
-      <div class="thesis-viewer" data-thesis-viewer data-point-cloud="/assets/Publications/thesis/phd_hat_points.json">
-        <canvas aria-label="Interactive 3D point cloud viewer"></canvas>
-        <div class="thesis-viewer__status">
-          <span data-lang-only="en">Loading 3DGS point cloud...</span>
-          <span data-lang-only="zh">正在加载 3DGS 点云...</span>
-        </div>
-      </div>
+      <a class="thesis-gaussian-card" href="/phd-hat-3dgs/">
+        <img src="/assets/Publications/thesis/phd_hat_poster.jpg" alt="Ph.D. graduation cap 3DGS preview" loading="lazy" decoding="async">
+        <span class="thesis-gaussian-card__label">
+          <i class="fas fa-cube" aria-hidden="true"></i>
+          <span data-lang-only="en">Open 3DGS Viewer</span>
+          <span data-lang-only="zh">打开 3DGS Viewer</span>
+        </span>
+      </a>
       <div class="thesis-video-card">
         <video controls preload="metadata" poster="/assets/Publications/thesis/phd_hat_poster.jpg">
           <source src="/assets/Publications/thesis/phd_hat_preview.mp4" type="video/mp4">
         </video>
         <p>
-          <span data-lang-only="en">This interactive preview is generated from the full graduation-cap video: the source was sampled into 4,758 frames at 30fps for coverage checks, 793 full-duration keyframes were registered with COLMAP, and the 3D Gaussian Splatting model was trained for 7,000 iterations. The embedded viewer uses a web-optimized sample loaded as static HTTP assets.</span>
-          <span data-lang-only="zh">这个交互预览来自完整的博士帽视频：源视频已按 30fps 抽取 4,758 帧用于覆盖检查，并用覆盖全片的 793 张关键帧完成 COLMAP 配准，随后训练 7,000 次迭代的 3D Gaussian Splatting 模型。页面内嵌 viewer 使用适合网页加载的抽样静态资源，并通过普通 HTTP 加载。</span>
+          <span data-lang-only="en">This preview is generated from the full graduation-cap video: the source was sampled into 4,758 frames at 30fps for coverage checks, 793 full-duration keyframes were registered with COLMAP, and the 3D Gaussian Splatting model was trained for 7,000 iterations. The interactive 3DGS viewer is loaded only after opening the dedicated viewer page.</span>
+          <span data-lang-only="zh">这个预览来自完整的博士帽视频：源视频已按 30fps 抽取 4,758 帧用于覆盖检查，并用覆盖全片的 793 张关键帧完成 COLMAP 配准，随后训练 7,000 次迭代的 3D Gaussian Splatting 模型。交互式 3DGS viewer 只会在打开专门的 viewer 页面后加载。</span>
         </p>
       </div>
     </div>
   </section>
 </main>
-
-<script src="/assets/js/thesis-viewer.js" defer></script>
