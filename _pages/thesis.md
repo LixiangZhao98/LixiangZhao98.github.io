@@ -69,6 +69,7 @@ hide_title: true
   <section class="thesis-section glass-card">
     <div class="thesis-section__head">
       <h2><span data-lang-only="en">3D Gaussian Graduation Cap</span><span data-lang-only="zh">博士帽 3D Gaussian Viewer</span></h2>
+      <a class="pub-chip" href="/phd-hat-3dgs/"><span data-lang-only="en">Focused 3DGS Viewer</span><span data-lang-only="zh">聚焦 3DGS Viewer</span></a>
       <a class="pub-chip" href="/assets/Publications/thesis/phd_hat_3dgs.ply" download="phd_hat_3dgs.ply">PLY</a>
     </div>
     <div class="thesis-viewer-grid">
