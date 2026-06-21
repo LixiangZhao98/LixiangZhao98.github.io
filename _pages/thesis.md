@@ -113,7 +113,7 @@ hide_title: true
   const status = root ? root.querySelector(".splat-viewer__status") : null;
   const prompt = root ? root.querySelector(".splat-viewer__prompt") : null;
   let hasStarted = false;
-  const sceneCenterOffset = [0.02332621530941987, 0.15569970817993717, -0.08836142132126232];
+  const sceneCenterOffset = [0.2200795062637785, 0.13634565639040483, -0.14534448228733984];
 
   async function startThesisViewer() {
     if (!root || hasStarted) return;
