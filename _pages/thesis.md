@@ -82,15 +82,15 @@ hide_title: true
     <div id="thesis-splat-viewer" class="splat-viewer thesis-inline-splat" data-splat-url="/assets/Publications/thesis/phd_hat_table.splat">
       <div class="splat-viewer__prompt">
         <img src="/assets/Publications/thesis/phd_hat_poster.jpg" alt="Ph.D. graduation cap 3DGS preview" loading="lazy" decoding="async">
-        <div class="splat-viewer__load splat-viewer__load--passive">
+        <button type="button" class="splat-viewer__load">
           <i class="fas fa-cube" aria-hidden="true"></i>
-          <span data-lang-only="en">Loading 3DGS Viewer</span>
-          <span data-lang-only="zh">正在加载 3DGS Viewer</span>
-        </div>
+          <span data-lang-only="en">Load 3DGS Viewer</span>
+          <span data-lang-only="zh">加载 3DGS Viewer</span>
+        </button>
       </div>
       <div class="splat-viewer__status">
-        <span data-lang-only="en">Preparing 3DGS scene...</span>
-        <span data-lang-only="zh">正在准备 3DGS 场景...</span>
+        <span data-lang-only="en">3DGS viewer is not loaded yet.</span>
+        <span data-lang-only="zh">3DGS Viewer 尚未加载。</span>
       </div>
     </div>
     <p class="splat-shell__footer thesis-inline-splat__help">
@@ -112,6 +112,7 @@ hide_title: true
   const root = document.getElementById("thesis-splat-viewer");
   const status = root ? root.querySelector(".splat-viewer__status") : null;
   const prompt = root ? root.querySelector(".splat-viewer__prompt") : null;
+  const loadButton = root ? root.querySelector(".splat-viewer__load") : null;
   let hasStarted = false;
   const sceneCenterOffset = [0.024805586640232385, 0.15706064112562187, -0.08869689021587693];
 
@@ -120,6 +121,9 @@ hide_title: true
     hasStarted = true;
     root.classList.remove("is-error");
     root.classList.add("is-loading");
+    if (loadButton) {
+      loadButton.disabled = true;
+    }
     if (status) {
       status.textContent = "Loading 3DGS scene...";
     }
@@ -169,15 +173,28 @@ hide_title: true
     window.thesisSplatViewer = viewer;
   }
 
-  startThesisViewer().catch((error) => {
+  function handleViewerError(error) {
     hasStarted = false;
     if (root) {
       root.classList.remove("is-loading");
       root.classList.add("is-error");
     }
+    if (loadButton) {
+      loadButton.disabled = false;
+    }
     if (status) {
       status.textContent = "3DGS scene could not be loaded. Please refresh or download the SPLAT file.";
     }
     console.error(error);
-  });
+  }
+
+  if (status) {
+    status.textContent = "3DGS viewer is not loaded yet.";
+  }
+
+  if (loadButton) {
+    loadButton.addEventListener("click", () => {
+      startThesisViewer().catch(handleViewerError);
+    });
+  }
 </script>
