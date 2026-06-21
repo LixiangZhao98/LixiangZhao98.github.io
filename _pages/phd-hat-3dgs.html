@@ -47,6 +47,9 @@ published: false
         <span data-lang-only="en">3DGS is not loaded yet.</span>
         <span data-lang-only="zh">3DGS 还没有加载。</span>
       </div>
+      <div class="splat-viewer__progress" aria-hidden="true">
+        <div class="splat-viewer__progress-bar"></div>
+      </div>
     </div>
 
     <footer class="splat-shell__footer">
@@ -69,8 +72,78 @@ published: false
   const status = root ? root.querySelector(".splat-viewer__status") : null;
   const loadButton = root ? root.querySelector(".splat-viewer__load") : null;
   const prompt = root ? root.querySelector(".splat-viewer__prompt") : null;
+  const progressBar = root ? root.querySelector(".splat-viewer__progress-bar") : null;
   let hasStarted = false;
+  let activeViewer = null;
+  let loadAttempt = 0;
+  let displayedLoadProgress = 0;
+  const splatAssetVersion = "20260621-touch-progress";
+  const loadTimeoutMs = 45000;
   const sceneCenterOffset = [0.02373568949536609, 0.1561195595484536, -0.08828049712890203];
+  const initialCameraPosition = [0, -1.7, 0.72];
+  const initialCameraLookAt = [0, -0.08, 0.02];
+
+  function clampNumber(value, min, max) {
+    return Math.max(min, Math.min(max, value));
+  }
+
+  function updateProgress(percentComplete, label, stage, floor = 0, span = 100) {
+    const numericPercent = Number.isFinite(percentComplete)
+      ? percentComplete
+      : Number.parseFloat(label) || 0;
+    const nextPercent = floor + (clampNumber(numericPercent, 0, 100) * span / 100);
+    const percent = Math.max(displayedLoadProgress, clampNumber(nextPercent, 0, 100));
+    displayedLoadProgress = percent;
+    if (progressBar) {
+      progressBar.style.width = `${percent}%`;
+    }
+    if (status) {
+      status.textContent = `${stage} ${Math.round(percent)}%`;
+    }
+  }
+
+  function buildSplatUrl(baseUrl, attempt) {
+    const url = new URL(baseUrl, window.location.href);
+    url.searchParams.set("v", splatAssetVersion);
+    if (attempt > 1) {
+      url.searchParams.set("retry", String(Date.now()));
+    }
+    return url.href;
+  }
+
+  function withTimeout(promiseLike, timeoutMs) {
+    let timeoutId = null;
+    const promise = promiseLike && promiseLike.promise
+      ? promiseLike.promise
+      : Promise.resolve(promiseLike);
+    const timeoutPromise = new Promise((_, reject) => {
+      timeoutId = window.setTimeout(() => {
+        if (promiseLike && typeof promiseLike.abort === "function") {
+          promiseLike.abort("3DGS loading timed out.");
+        }
+        const error = new Error("3DGS loading timed out.");
+        error.name = "TimeoutError";
+        reject(error);
+      }, timeoutMs);
+    });
+    return Promise.race([
+      promise.finally(() => {
+        if (timeoutId !== null) {
+          window.clearTimeout(timeoutId);
+        }
+      }),
+      timeoutPromise
+    ]);
+  }
+
+  async function disposeViewer(viewer) {
+    if (!viewer || typeof viewer.dispose !== "function") return;
+    try {
+      await viewer.dispose();
+    } catch (error) {
+      console.warn("3DGS viewer cleanup failed", error);
+    }
+  }
 
   function installSplatControls(viewer, THREE) {
     const camera = viewer.camera;
@@ -87,7 +160,7 @@ published: false
     }
 
     const keys = {};
-    const target = new THREE.Vector3(0, 0, 0);
+    const target = new THREE.Vector3(...initialCameraLookAt);
     const state = {
       flying: false,
       orbiting: false,
@@ -97,6 +170,9 @@ published: false
       flyYaw: 0,
       flyPitch: 0,
       radius: 0.36,
+      activePointers: new Map(),
+      pinchDistance: 0,
+      pinchRadius: 0,
       lastFrame: performance.now()
     };
     const worldUp = new THREE.Vector3(0, 0, 1);
@@ -107,6 +183,36 @@ published: false
 
     function clamp(value, min, max) {
       return Math.max(min, Math.min(max, value));
+    }
+
+    function pointerPoint(event) {
+      return { x: event.clientX, y: event.clientY };
+    }
+
+    function rememberPointer(event) {
+      state.activePointers.set(event.pointerId, pointerPoint(event));
+    }
+
+    function pointerDelta(event) {
+      const previous = state.activePointers.get(event.pointerId);
+      const current = pointerPoint(event);
+      state.activePointers.set(event.pointerId, current);
+      if (!previous) {
+        return { x: event.movementX || 0, y: event.movementY || 0 };
+      }
+      return { x: current.x - previous.x, y: current.y - previous.y };
+    }
+
+    function pinchDistance() {
+      const points = Array.from(state.activePointers.values());
+      if (points.length < 2) return 0;
+      return Math.hypot(points[0].x - points[1].x, points[0].y - points[1].y);
+    }
+
+    function releasePointer(event) {
+      if (root.hasPointerCapture && root.hasPointerCapture(event.pointerId)) {
+        root.releasePointerCapture(event.pointerId);
+      }
     }
 
     function forwardFromAngles(out, yaw, pitch) {
@@ -169,9 +275,66 @@ published: false
       root.classList.remove("is-orbiting");
     }
 
+    function resetTouchGesture() {
+      state.activePointers.clear();
+      state.pinchDistance = 0;
+      state.pinchRadius = 0;
+    }
+
+    function handlePointerEnd(event) {
+      if (event.pointerType === "touch" && state.activePointers.has(event.pointerId)) {
+        event.preventDefault();
+        state.activePointers.delete(event.pointerId);
+        state.pinchDistance = 0;
+        state.pinchRadius = 0;
+        releasePointer(event);
+
+        if (state.activePointers.size === 1) {
+          const remainingPointerId = state.activePointers.keys().next().value;
+          state.pointerId = remainingPointerId;
+          syncOrbitFromCamera();
+          state.orbiting = true;
+          root.classList.add("is-orbiting");
+          return;
+        }
+
+        endFly();
+        endOrbit();
+        return;
+      }
+
+      if (state.pointerId === event.pointerId) {
+        releasePointer(event);
+        endFly();
+        endOrbit();
+      }
+    }
+
     root.addEventListener("contextmenu", (event) => event.preventDefault());
 
     root.addEventListener("pointerdown", (event) => {
+      if (event.pointerType === "touch") {
+        event.preventDefault();
+        root.focus({ preventScroll: true });
+        root.setPointerCapture(event.pointerId);
+        rememberPointer(event);
+        endFly();
+
+        if (state.activePointers.size >= 2) {
+          endOrbit();
+          syncOrbitFromCamera();
+          state.pinchDistance = pinchDistance();
+          state.pinchRadius = state.radius;
+          return;
+        }
+
+        syncOrbitFromCamera();
+        state.pointerId = event.pointerId;
+        state.orbiting = true;
+        root.classList.add("is-orbiting");
+        return;
+      }
+
       if (event.button !== 0 && event.button !== 2) return;
       event.preventDefault();
       root.focus({ preventScroll: true });
@@ -191,6 +354,32 @@ published: false
     });
 
     root.addEventListener("pointermove", (event) => {
+      if (event.pointerType === "touch" && state.activePointers.has(event.pointerId)) {
+        event.preventDefault();
+        const delta = pointerDelta(event);
+
+        if (state.activePointers.size >= 2) {
+          const currentDistance = pinchDistance();
+          if (!state.pinchDistance || !state.pinchRadius) {
+            syncOrbitFromCamera();
+            state.pinchDistance = currentDistance;
+            state.pinchRadius = state.radius;
+          }
+          if (currentDistance > 0) {
+            state.radius = state.pinchRadius * (state.pinchDistance / currentDistance);
+            applyOrbit();
+          }
+          return;
+        }
+
+        if (state.pointerId === event.pointerId && state.orbiting) {
+          state.yaw -= delta.x * 0.006;
+          state.pitch += delta.y * 0.006;
+          applyOrbit();
+        }
+        return;
+      }
+
       if (state.pointerId !== event.pointerId) return;
       event.preventDefault();
       if (state.flying) {
@@ -204,19 +393,8 @@ published: false
       }
     });
 
-    root.addEventListener("pointerup", (event) => {
-      if (state.pointerId === event.pointerId) {
-        endFly();
-        endOrbit();
-      }
-    });
-
-    root.addEventListener("pointercancel", (event) => {
-      if (state.pointerId === event.pointerId) {
-        endFly();
-        endOrbit();
-      }
-    });
+    root.addEventListener("pointerup", handlePointerEnd);
+    root.addEventListener("pointercancel", handlePointerEnd);
 
     root.addEventListener("wheel", (event) => {
       event.preventDefault();
@@ -233,6 +411,7 @@ published: false
     }, { passive: false });
 
     root.addEventListener("blur", () => {
+      resetTouchGesture();
       endFly();
       endOrbit();
     });
@@ -280,73 +459,118 @@ published: false
   async function startViewer() {
     if (!root || hasStarted) return;
     hasStarted = true;
+    const attempt = ++loadAttempt;
     root.classList.remove("is-error");
     root.classList.add("is-loading");
+    if (progressBar) {
+      progressBar.style.width = "0%";
+    }
+    displayedLoadProgress = 0;
     if (loadButton) {
       loadButton.disabled = true;
     }
     if (status) {
-      status.textContent = "Loading 3DGS cap scene...";
+      status.textContent = "Preparing 3DGS cap scene...";
     }
 
-    const [GaussianSplats3D, THREE] = await Promise.all([
-      import("https://cdn.jsdelivr.net/npm/@mkkellogg/gaussian-splats-3d@0.4.7/build/gaussian-splats-3d.module.js"),
-      import("three")
-    ]);
+    let viewer = null;
 
-    const viewer = new GaussianSplats3D.Viewer({
-      rootElement: root,
-      cameraUp: [0, 0, 1],
-      initialCameraPosition: [0, -0.32, 0.1],
-      initialCameraLookAt: [0, 0, 0],
-      sharedMemoryForWorkers: false,
-      gpuAcceleratedSort: true,
-      integerBasedSort: true,
-      halfPrecisionCovariancesOnGPU: false,
-      dynamicScene: false,
-      renderMode: GaussianSplats3D.RenderMode.Always,
-      sceneRevealMode: GaussianSplats3D.SceneRevealMode.Gradual,
-      sphericalHarmonicsDegree: 0,
-      antialiased: true,
-      logLevel: GaussianSplats3D.LogLevel.None
-    });
+    try {
+      const [GaussianSplats3D, THREE] = await Promise.all([
+        import("https://cdn.jsdelivr.net/npm/@mkkellogg/gaussian-splats-3d@0.4.7/build/gaussian-splats-3d.module.js"),
+        import("three")
+      ]);
 
-    await viewer.addSplatScene(root.getAttribute("data-splat-url"), {
-      splatAlphaRemovalThreshold: 1,
-      showLoadingUI: false,
-      progressiveLoad: true,
-      position: sceneCenterOffset,
-      rotation: [0, 0, 0, 1],
-      scale: [1, 1, 1]
-    });
+      const loaderStatus = { Downloading: 0, Processing: 1, Done: 2 };
+      viewer = new GaussianSplats3D.Viewer({
+        rootElement: root,
+        cameraUp: [0, 0, 1],
+        initialCameraPosition,
+        initialCameraLookAt,
+        sharedMemoryForWorkers: false,
+        gpuAcceleratedSort: true,
+        integerBasedSort: true,
+        halfPrecisionCovariancesOnGPU: false,
+        dynamicScene: false,
+        renderMode: GaussianSplats3D.RenderMode.Always,
+        sceneRevealMode: GaussianSplats3D.SceneRevealMode.Gradual,
+        sphericalHarmonicsDegree: 0,
+        antialiased: true,
+        logLevel: GaussianSplats3D.LogLevel.None
+      });
+      activeViewer = viewer;
 
-    viewer.start();
-    installSplatControls(viewer, THREE);
-    root.classList.remove("is-loading");
-    root.classList.add("is-loaded");
-    if (prompt) {
-      prompt.remove();
+      await withTimeout(viewer.addSplatScene(buildSplatUrl(root.getAttribute("data-splat-url"), attempt), {
+        splatAlphaRemovalThreshold: 1,
+        format: GaussianSplats3D.SceneFormat.Splat,
+        showLoadingUI: false,
+        progressiveLoad: false,
+        headers: {
+          "Cache-Control": "no-cache"
+        },
+        onProgress(percentComplete, percentCompleteLabel, currentStatus) {
+          if (currentStatus === loaderStatus.Processing) {
+            updateProgress(percentComplete, percentCompleteLabel, "Processing cap scene", 85, 15);
+            return;
+          }
+          if (currentStatus === loaderStatus.Done) {
+            updateProgress(100, "100%", "Finishing cap scene");
+            return;
+          }
+          updateProgress(percentComplete, percentCompleteLabel, "Downloading cap scene", 0, 85);
+        },
+        position: sceneCenterOffset,
+        rotation: [0, 0, 0, 1],
+        scale: [1, 1, 1]
+      }), loadTimeoutMs);
+
+      viewer.start();
+      installSplatControls(viewer, THREE);
+      root.classList.remove("is-loading");
+      root.classList.add("is-loaded");
+      if (progressBar) {
+        progressBar.style.width = "100%";
+      }
+      if (prompt) {
+        prompt.remove();
+      }
+      if (status) {
+        status.textContent = "248,410 cap splats loaded";
+      }
+      window.phdHatSplatViewer = viewer;
+    } catch (error) {
+      hasStarted = false;
+      if (activeViewer === viewer) {
+        activeViewer = null;
+      }
+      await disposeViewer(viewer);
+      root.classList.remove("is-loading");
+      root.classList.add("is-error");
+      if (progressBar) {
+        progressBar.style.width = "0%";
+      }
+      displayedLoadProgress = 0;
+      if (status) {
+        status.textContent = error && error.name === "TimeoutError"
+          ? "Loading took too long. Please try again; the next attempt will bypass the cached SPLAT."
+          : "3DGS cap scene could not be loaded. Please refresh or download the SPLAT file.";
+      }
+      if (loadButton) {
+        loadButton.disabled = false;
+      }
+      throw error;
     }
-    if (status) {
-      status.textContent = "248,410 cap splats loaded";
-    }
-    window.phdHatSplatViewer = viewer;
   }
 
   if (loadButton) {
     loadButton.addEventListener("click", () => {
-      startViewer().catch((error) => {
-        hasStarted = false;
-        root.classList.remove("is-loading");
-        root.classList.add("is-error");
-        if (status) {
-          status.textContent = "3DGS cap scene could not be loaded. Please refresh or download the SPLAT file.";
-        }
-        if (loadButton) {
-          loadButton.disabled = false;
-        }
-        console.error(error);
-      });
+      startViewer().catch((error) => console.error(error));
     });
   }
+
+  window.addEventListener("pagehide", (event) => {
+    if (event.persisted) return;
+    disposeViewer(activeViewer);
+    activeViewer = null;
+  });
 </script>
