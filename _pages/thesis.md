@@ -116,6 +116,113 @@ hide_title: true
   let hasStarted = false;
   const sceneCenterOffset = [0.024805586640232385, 0.15706064112562187, -0.08869689021587693];
 
+  function installStableThesisControls(viewer, THREE) {
+    const camera = viewer.camera;
+    if (!root || !camera) return;
+
+    const builtInControls = viewer.controls || viewer.orbitControls || null;
+    if (builtInControls) {
+      builtInControls.enabled = false;
+    }
+
+    root.tabIndex = 0;
+    camera.up.set(0, 0, 1);
+    camera.updateProjectionMatrix();
+
+    const target = new THREE.Vector3(0, 0, 0);
+    const offset = new THREE.Vector3();
+    const right = new THREE.Vector3();
+    const up = new THREE.Vector3();
+    const delta = new THREE.Vector3();
+    const orbitRotation = new THREE.Quaternion();
+    const pitchRotation = new THREE.Quaternion();
+    const yawRotation = new THREE.Quaternion();
+    const state = {
+      pointerId: null,
+      mode: null,
+      lastX: 0,
+      lastY: 0
+    };
+
+    function orbit(dx, dy) {
+      offset.copy(camera.position).sub(target);
+      right.set(1, 0, 0).applyQuaternion(camera.quaternion).normalize();
+      up.copy(camera.up).normalize();
+      yawRotation.setFromAxisAngle(up, -dx * 0.006);
+      pitchRotation.setFromAxisAngle(right, -dy * 0.006);
+      orbitRotation.copy(yawRotation).multiply(pitchRotation);
+      offset.applyQuaternion(orbitRotation);
+      camera.up.applyQuaternion(orbitRotation).normalize();
+      camera.position.copy(target).add(offset);
+      camera.lookAt(target);
+      camera.updateProjectionMatrix();
+    }
+
+    function pan(dx, dy) {
+      const distance = Math.max(0.04, camera.position.distanceTo(target));
+      const scale = distance * 0.0014;
+      right.set(1, 0, 0).applyQuaternion(camera.quaternion).normalize();
+      up.copy(camera.up).normalize();
+      delta.copy(right).multiplyScalar(-dx * scale).add(up.multiplyScalar(dy * scale));
+      camera.position.add(delta);
+      target.add(delta);
+      camera.updateProjectionMatrix();
+    }
+
+    function zoom(deltaY) {
+      offset.copy(camera.position).sub(target);
+      const distance = Math.max(0.01, offset.length());
+      const nextDistance = Math.max(0.018, Math.min(4, distance * Math.exp(deltaY * 0.0012)));
+      offset.setLength(nextDistance);
+      camera.position.copy(target).add(offset);
+      camera.lookAt(target);
+      camera.updateProjectionMatrix();
+    }
+
+    root.addEventListener("contextmenu", (event) => event.preventDefault());
+
+    root.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0 && event.button !== 2) return;
+      event.preventDefault();
+      event.stopPropagation();
+      root.focus({ preventScroll: true });
+      root.setPointerCapture(event.pointerId);
+      state.pointerId = event.pointerId;
+      state.mode = event.button === 2 ? "pan" : "orbit";
+      state.lastX = event.clientX;
+      state.lastY = event.clientY;
+    });
+
+    root.addEventListener("pointermove", (event) => {
+      if (state.pointerId !== event.pointerId || !state.mode) return;
+      event.preventDefault();
+      event.stopPropagation();
+      const dx = Number.isFinite(event.movementX) && event.movementX !== 0 ? event.movementX : event.clientX - state.lastX;
+      const dy = Number.isFinite(event.movementY) && event.movementY !== 0 ? event.movementY : event.clientY - state.lastY;
+      state.lastX = event.clientX;
+      state.lastY = event.clientY;
+      if (state.mode === "pan") {
+        pan(dx, dy);
+      } else {
+        orbit(dx, dy);
+      }
+    });
+
+    function endPointer(event) {
+      if (state.pointerId !== event.pointerId) return;
+      state.pointerId = null;
+      state.mode = null;
+    }
+
+    root.addEventListener("pointerup", endPointer);
+    root.addEventListener("pointercancel", endPointer);
+    root.addEventListener("wheel", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      zoom(event.deltaY);
+    }, { passive: false });
+  }
+
   async function startThesisViewer() {
     if (!root || hasStarted) return;
     hasStarted = true;
@@ -128,7 +235,10 @@ hide_title: true
       status.textContent = "Loading 3DGS scene...";
     }
 
-    const GaussianSplats3D = await import("https://cdn.jsdelivr.net/npm/@mkkellogg/gaussian-splats-3d@0.4.7/build/gaussian-splats-3d.module.js");
+    const [GaussianSplats3D, THREE] = await Promise.all([
+      import("https://cdn.jsdelivr.net/npm/@mkkellogg/gaussian-splats-3d@0.4.7/build/gaussian-splats-3d.module.js"),
+      import("three")
+    ]);
 
     const viewer = new GaussianSplats3D.Viewer({
       rootElement: root,
@@ -162,6 +272,7 @@ hide_title: true
       viewer.camera.far = 100;
       viewer.camera.updateProjectionMatrix();
     }
+    installStableThesisControls(viewer, THREE);
     root.classList.remove("is-loading");
     root.classList.add("is-loaded");
     if (prompt) {
