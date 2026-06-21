@@ -113,7 +113,7 @@ hide_title: true
   const status = root ? root.querySelector(".splat-viewer__status") : null;
   const prompt = root ? root.querySelector(".splat-viewer__prompt") : null;
   let hasStarted = false;
-  const sceneCenterOffset = [0.02481833463879667, 0.15649598309664292, -0.08869795384405814];
+  const sceneCenterOffset = [0.024805586640232385, 0.15706064112562187, -0.08869689021587693];
 
   async function startThesisViewer() {
     if (!root || hasStarted) return;
@@ -164,7 +164,7 @@ hide_title: true
       prompt.remove();
     }
     if (status) {
-      status.textContent = "295,884 cropped table splats loaded";
+      status.textContent = "287,639 cropped table splats loaded";
     }
     window.thesisSplatViewer = viewer;
   }
