@@ -76,8 +76,8 @@ hide_title: true
       </a>
     </div>
     <p class="thesis-gaussian-note thesis-gaussian-thanks">
-      <span data-lang-only="en">Many thanks to my lab partners and the cap makers: <strong>Wanfang Xu</strong>, <strong>Fuqi Xie</strong>, <strong>Shuqi He</strong>, <strong>Jifan Yang</strong>, and <strong>Shuzi Zou</strong>, and to my advisor <strong>Lingyun Yu</strong>.</span>
-      <span data-lang-only="zh">特别感谢实验室伙伴和博士帽制作者：<strong>徐万芳</strong>、<strong>谢馥琪</strong>、<strong>何舒淇</strong>、<strong>杨济帆</strong>、<strong>邹树滋</strong>，以及导师 <strong>俞凌云</strong>。</span>
+      <span data-lang-only="en">Many thanks to my supervisor <strong>Lingyun Yu</strong>, and to my lab partners and the cap makers: <strong>Wanfang Xu</strong>, <strong>Fuqi Xie</strong>, <strong>Shuqi He</strong>, <strong>Jifan Yang</strong>, and <strong>Shuzi Zou</strong>.</span>
+      <span data-lang-only="zh">特别感谢导师 <strong>俞凌云</strong>，以及实验室伙伴和博士帽制作者：<strong>徐万芳</strong>、<strong>谢馥琪</strong>、<strong>何舒淇</strong>、<strong>杨济帆</strong>、<strong>邹树滋</strong>。</span>
     </p>
     <div id="thesis-splat-viewer" class="splat-viewer thesis-inline-splat" data-splat-url="/assets/Publications/thesis/phd_hat_table.splat">
       <div class="splat-viewer__prompt">
