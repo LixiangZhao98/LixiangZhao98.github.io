@@ -70,7 +70,7 @@ published: false
   const loadButton = root ? root.querySelector(".splat-viewer__load") : null;
   const prompt = root ? root.querySelector(".splat-viewer__prompt") : null;
   let hasStarted = false;
-  const sceneCenterOffset = [0, 0, 0];
+  const sceneCenterOffset = [0.02373568949536609, 0.1561195595484536, -0.08828049712890203];
 
   function installSplatControls(viewer, THREE) {
     const camera = viewer.camera;
@@ -328,7 +328,7 @@ published: false
       prompt.remove();
     }
     if (status) {
-      status.textContent = "227,757 full-resolution cap splats loaded";
+      status.textContent = "248,410 cap splats loaded";
     }
     window.phdHatSplatViewer = viewer;
   }
