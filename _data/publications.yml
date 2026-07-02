@@ -4,6 +4,9 @@
       title: "ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR"
       url: "/publications/scalefree/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/ScaleFree.png"
+      home_image: "/assets/Publications/Figures/home/ScaleFree.webp"
+      home_image_width: 640
+      home_image_height: 168
       authors: '<strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, <a href="https://scholar.xjtlu.edu.cn/en/persons/FUQIXIE20/">Fuqi Xie</a>, <a href="https://tobias.isenberg.cc/">Tobias Isenberg</a>, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR), 2026"
       ccf: "CCF A"
@@ -54,6 +57,9 @@
       title: "SpatialTouch: Exploring Spatial Data Visualizations in Cross-reality"
       url: "/publications/spatialtouch/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/spatialtouch.png"
+      home_image: "/assets/Publications/Figures/home/spatialtouch.webp"
+      home_image_width: 640
+      home_image_height: 166
       authors: '<strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, <a href="https://tobias.isenberg.cc/">Tobias Isenberg</a>, <a href="https://scholar.xjtlu.edu.cn/en/persons/FUQIXIE20/">Fuqi Xie</a>, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "IEEE Transactions on Visualization and Computer Graphics (TVCG), 2024"
       ccf: "CCF A"
@@ -94,6 +100,9 @@
       title: "MeTACAST: Target- and Context-Aware Spatial Selection in VR"
       url: "/publications/metacast/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/MeTACAST.png"
+      home_image: "/assets/Publications/Figures/home/MeTACAST.webp"
+      home_image_width: 640
+      home_image_height: 222
       authors: '<strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, <a href="https://tobias.isenberg.cc/">Tobias Isenberg</a>, <a href="https://scholar.xjtlu.edu.cn/en/persons/FUQIXIE20/">Fuqi Xie</a>, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "IEEE Transactions on Visualization and Computer Graphics (TVCG), 2023"
       ccf: "CCF A"
@@ -132,6 +141,9 @@
       title: "L-WiM: Collaborative Exploration in Immersive Environments"
       url: "/publications/l-wim/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/L_Wim.png"
+      home_image: "/assets/Publications/Figures/home/L_Wim.webp"
+      home_image_width: 640
+      home_image_height: 250
       authors: '<strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, Nieyu Cao, Shuqi He, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct), 2022"
       ccf: "CCF B"

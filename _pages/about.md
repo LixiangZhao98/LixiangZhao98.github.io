@@ -111,7 +111,8 @@ redirect_from:
             {% if pub %}
               <li id="home-{{ pub.id }}" class="selected-publication">
                 <div class="selected-publication__image">
-                  <img src="{{ pub.image }}" alt="{{ pub.title }}" loading="lazy" decoding="async">
+                  {% assign home_image = pub.home_image | default: pub.image %}
+                  <img src="{{ home_image }}" alt="{{ pub.title }}" loading="lazy" decoding="async"{% if pub.home_image_width and pub.home_image_height %} width="{{ pub.home_image_width }}" height="{{ pub.home_image_height }}"{% endif %}>
                 </div>
                 <div class="selected-publication__body">
                   <h3 class="selected-publication__title"><a href="{{ pub.url }}">{{ pub.title }}</a></h3>
