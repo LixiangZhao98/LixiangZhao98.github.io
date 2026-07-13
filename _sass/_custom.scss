@@ -1537,14 +1537,14 @@ body {
 }
 
 .publication-venue-link {
-  color: inherit;
+  color: rgba(221, 205, 255, 0.94);
   text-decoration: none;
-  border-bottom: 1px solid rgba(166, 215, 245, 0.26);
+  border-bottom: 1px solid rgba(196, 181, 253, 0.36);
 }
 
 .publication-venue-link:hover {
-  color: rgba(255, 255, 255, 0.96);
-  border-bottom-color: rgba(166, 215, 245, 0.64);
+  color: rgba(247, 242, 255, 0.98);
+  border-bottom-color: rgba(196, 181, 253, 0.72);
 }
 
 .pub-card__badges {
@@ -1907,10 +1907,10 @@ body {
   align-items: center;
   min-height: 1.45rem;
   padding: 0.12rem 0.52rem;
-  border: 1px solid rgba(125, 211, 252, 0.25);
+  border: 1px solid rgba(196, 181, 253, 0.32);
   border-radius: 999px;
-  background: rgba(125, 211, 252, 0.08);
-  color: rgba(214, 232, 246, 0.86);
+  background: rgba(139, 92, 246, 0.1);
+  color: rgba(232, 223, 255, 0.9);
   font-size: 0.76rem;
   font-weight: 700;
 }
@@ -1922,8 +1922,8 @@ body {
 
 .pub-venue-chip--link:hover {
   transform: translateY(-1px);
-  border-color: rgba(125, 211, 252, 0.5);
-  background: rgba(125, 211, 252, 0.14);
+  border-color: rgba(196, 181, 253, 0.62);
+  background: rgba(139, 92, 246, 0.18);
   color: rgba(255, 255, 255, 0.96);
 }
 
