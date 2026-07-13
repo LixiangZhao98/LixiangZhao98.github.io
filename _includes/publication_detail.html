@@ -16,7 +16,8 @@
 
     <article class="publication-detail__hero glass-card">
       <div class="publication-detail__teaser">
-        <img src="{{ pub.image }}" alt="{{ pub.title }}">
+        {% assign teaser_image = pub.teaser_image | default: pub.image %}
+        <img src="{{ teaser_image }}" alt="{{ pub.title }}" decoding="async" fetchpriority="high"{% if pub.teaser_image_width and pub.teaser_image_height %} width="{{ pub.teaser_image_width }}" height="{{ pub.teaser_image_height }}"{% endif %}>
       </div>
       <div class="publication-detail__intro">
         <div class="publication-detail__badges">

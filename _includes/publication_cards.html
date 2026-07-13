@@ -6,7 +6,8 @@
   {% for pub in group.items %}
     <div id="{{ pub.id }}" class="pub-card reveal">
       <div class="pub-card__img">
-        <img src="{{ pub.image }}" alt="{{ pub.title }}" loading="lazy" decoding="async">
+        {% assign teaser_image = pub.teaser_image | default: pub.image %}
+        <img src="{{ teaser_image }}" alt="{{ pub.title }}" loading="lazy" decoding="async"{% if pub.teaser_image_width and pub.teaser_image_height %} width="{{ pub.teaser_image_width }}" height="{{ pub.teaser_image_height }}"{% endif %}>
       </div>
       <div class="pub-card__body">
         <h3 class="pub-card__title"><a href="{{ pub.url }}">{{ pub.title }}</a></h3>

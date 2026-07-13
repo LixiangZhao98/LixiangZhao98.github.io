@@ -4,6 +4,9 @@
       title: "ScaleFree: Dynamic KDE for Multiscale Point Cloud Exploration in VR"
       url: "/publications/scalefree/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/ScaleFree.png"
+      teaser_image: "/assets/Publications/Figures/optimized/ScaleFree.webp"
+      teaser_image_width: 1200
+      teaser_image_height: 314
       home_image: "/assets/Publications/Figures/home/ScaleFree.webp"
       home_image_width: 640
       home_image_height: 168
@@ -30,6 +33,9 @@
       title: "Mozualization: Crafting Music and Visual Representation with Multimodal AI"
       url: "/publications/mozualization/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/Mozualization.png"
+      teaser_image: "/assets/Publications/Figures/optimized/Mozualization.webp"
+      teaser_image_width: 1200
+      teaser_image_height: 608
       authors: 'Wanfang Xu, <strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, Haiwen Song, <a href="https://www.edu.sot.tum.de/hctl/team/visiting-researchers/xinheng-song/">Xinheng Song</a>, <a href="https://pure.bit.edu.cn/en/persons/zhaolin-lu/">Zhaolin Lu</a>, <a href="https://6ris1.github.io/YuLiu-homepage.github.io/">Yu Liu</a>, <a href="https://scholar.xjtlu.edu.cn/en/persons/MinChen/">Min Chen</a>, <a href="https://scholar.xjtlu.edu.cn/en/persons/enggee-lim/">Eng Gee Lim</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "CHI Conference on Human Factors in Computing Systems Extended Abstracts (CHI EA), 2025"
       ccf: "CCF A"
@@ -42,6 +48,9 @@
       title: "3DStoryline: Immersive Visual Storytelling"
       url: "/publications/3dstoryline/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/storyline.png"
+      teaser_image: "/assets/Publications/Figures/optimized/storyline.webp"
+      teaser_image_width: 853
+      teaser_image_height: 233
       authors: 'Haonan Yao, <strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, Boyuan Chen, Kaiwen Li, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "Journal of Visualization (JOV), 2025"
       jcr: "JCR Q3"
@@ -59,6 +68,9 @@
       title: "SpatialTouch: Exploring Spatial Data Visualizations in Cross-reality"
       url: "/publications/spatialtouch/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/spatialtouch.png"
+      teaser_image: "/assets/Publications/Figures/optimized/spatialtouch.webp"
+      teaser_image_width: 1200
+      teaser_image_height: 311
       home_image: "/assets/Publications/Figures/home/spatialtouch.webp"
       home_image_width: 640
       home_image_height: 166
@@ -85,6 +97,9 @@
       title: "Exploring Embodied Asymmetric Two-Handed Interactions for Immersive Data Exploration"
       url: "/publications/eea/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/EEA.png"
+      teaser_image: "/assets/Publications/Figures/optimized/EEA.webp"
+      teaser_image_width: 1200
+      teaser_image_height: 213
       authors: 'Haonan Yao, <strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://6ris1.github.io/YuLiu-homepage.github.io/">Yu Liu</a>, Yue Li, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "CHI Conference on Human Factors in Computing Systems Extended Abstracts (CHI EA), 2024"
       ccf: "CCF A"
@@ -102,6 +117,9 @@
       title: "MeTACAST: Target- and Context-Aware Spatial Selection in VR"
       url: "/publications/metacast/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/MeTACAST.png"
+      teaser_image: "/assets/Publications/Figures/optimized/MeTACAST.webp"
+      teaser_image_width: 914
+      teaser_image_height: 317
       home_image: "/assets/Publications/Figures/home/MeTACAST.webp"
       home_image_width: 640
       home_image_height: 222
@@ -128,6 +146,9 @@
       title: "ImmerView: Adaptive Multi-View Layout for Immersive Situated Visualizations"
       url: "/publications/immerview/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/ImmerView.png"
+      teaser_image: "/assets/Publications/Figures/optimized/ImmerView.webp"
+      teaser_image_width: 1200
+      teaser_image_height: 613
       authors: 'Jiayin Li, <strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct), 2023"
       ccf: "CCF B"
@@ -143,6 +164,9 @@
       title: "L-WiM: Collaborative Exploration in Immersive Environments"
       url: "/publications/l-wim/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/L_Wim.png"
+      teaser_image: "/assets/Publications/Figures/optimized/L_Wim.webp"
+      teaser_image_width: 1200
+      teaser_image_height: 468
       home_image: "/assets/Publications/Figures/home/L_Wim.webp"
       home_image_width: 640
       home_image_height: 250
@@ -161,6 +185,9 @@
       title: "Influence of Hand Representation Design on Presence and Embodiment in Virtual Environment"
       url: "/publications/ihr/"
       image: "https://LixiangZhao98.github.io/assets/Publications/Figures/IHR.png"
+      teaser_image: "/assets/Publications/Figures/optimized/IHR.webp"
+      teaser_image_width: 1200
+      teaser_image_height: 235
       authors: 'Jingjing Zhang, Mengjie Huang, <strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, Rui Yang, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://experts.exeter.ac.uk/39056-ji-han">Ji Han</a>, Liu Wang, Wenxin Sun'
       venue: "International Symposium on Computational Intelligence and Design (ISCID), 2020"
       links:
