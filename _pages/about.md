@@ -118,7 +118,24 @@ redirect_from:
                   <h3 class="selected-publication__title"><a href="{{ pub.url }}">{{ pub.title }}</a></h3>
                   {% if pub.authors %}<div class="selected-publication__meta">{{ pub.authors }}</div>{% endif %}
                   <div class="selected-publication__meta selected-publication__venue">
-                    {% if pub.venue %}<span class="selected-publication__venue-text"><em>{{ pub.venue }}</em></span>{% endif %}
+                    {% assign venue_link = pub.venue_url %}
+                    {% if venue_link == nil or venue_link == "" %}
+                      {% if pub.links and pub.links.size > 0 %}
+                        {% assign primary_link = pub.links | first %}
+                        {% assign venue_link = primary_link.url %}
+                      {% endif %}
+                    {% endif %}
+                    {% if pub.venue %}
+                      <span class="selected-publication__venue-text">
+                        <em>
+                          {% if venue_link and venue_link != "" %}
+                            <a class="publication-venue-link" href="{{ venue_link | escape }}">{{ pub.venue }}</a>
+                          {% else %}
+                            {{ pub.venue }}
+                          {% endif %}
+                        </em>
+                      </span>
+                    {% endif %}
                     {% if pub.ccf or pub.jcr %}
                       <span class="pub-card__badges">
                         {% if pub.ccf %}<span class="pub-badge">{{ pub.ccf }}</span>{% endif %}
