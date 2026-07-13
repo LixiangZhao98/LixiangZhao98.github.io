@@ -119,12 +119,6 @@ redirect_from:
                   {% if pub.authors %}<div class="selected-publication__meta">{{ pub.authors }}</div>{% endif %}
                   <div class="selected-publication__meta selected-publication__venue">
                     {% assign venue_link = pub.venue_url %}
-                    {% if venue_link == nil or venue_link == "" %}
-                      {% if pub.links and pub.links.size > 0 %}
-                        {% assign primary_link = pub.links | first %}
-                        {% assign venue_link = primary_link.url %}
-                      {% endif %}
-                    {% endif %}
                     {% if pub.venue %}
                       <span class="selected-publication__venue-text">
                         <em>

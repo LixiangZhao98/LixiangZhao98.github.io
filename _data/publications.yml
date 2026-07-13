@@ -12,6 +12,7 @@
       home_image_height: 168
       authors: '<strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, <a href="https://scholar.xjtlu.edu.cn/en/persons/FUQIXIE20/">Fuqi Xie</a>, <a href="https://tobias.isenberg.cc/">Tobias Isenberg</a>, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "IEEE Conference on Virtual Reality and 3D User Interfaces (IEEE VR), 2026"
+      venue_url: "https://ieeevr.org/2026/"
       ccf: "CCF A"
       links:
         - label: "IEEE"
@@ -38,6 +39,7 @@
       teaser_image_height: 608
       authors: 'Wanfang Xu, <strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, Haiwen Song, <a href="https://www.edu.sot.tum.de/hctl/team/visiting-researchers/xinheng-song/">Xinheng Song</a>, <a href="https://pure.bit.edu.cn/en/persons/zhaolin-lu/">Zhaolin Lu</a>, <a href="https://6ris1.github.io/YuLiu-homepage.github.io/">Yu Liu</a>, <a href="https://scholar.xjtlu.edu.cn/en/persons/MinChen/">Min Chen</a>, <a href="https://scholar.xjtlu.edu.cn/en/persons/enggee-lim/">Eng Gee Lim</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "CHI Conference on Human Factors in Computing Systems Extended Abstracts (CHI EA), 2025"
+      venue_url: "https://chi2025.acm.org/"
       ccf: "CCF A"
       links:
         - label: "ACM"
@@ -53,6 +55,7 @@
       teaser_image_height: 233
       authors: 'Haonan Yao, <strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, Boyuan Chen, Kaiwen Li, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "Journal of Visualization (JOV), 2025"
+      venue_url: "https://link.springer.com/journal/12650"
       jcr: "JCR Q3"
       links:
         - label: "Springer"
@@ -76,6 +79,7 @@
       home_image_height: 166
       authors: '<strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, <a href="https://tobias.isenberg.cc/">Tobias Isenberg</a>, <a href="https://scholar.xjtlu.edu.cn/en/persons/FUQIXIE20/">Fuqi Xie</a>, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "IEEE Transactions on Visualization and Computer Graphics (TVCG), 2024"
+      venue_url: "https://www.computer.org/csdl/journal/tg"
       ccf: "CCF A"
       jcr: "JCR Q1"
       links:
@@ -102,6 +106,7 @@
       teaser_image_height: 213
       authors: 'Haonan Yao, <strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://6ris1.github.io/YuLiu-homepage.github.io/">Yu Liu</a>, Yue Li, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "CHI Conference on Human Factors in Computing Systems Extended Abstracts (CHI EA), 2024"
+      venue_url: "https://chi2024.acm.org/"
       ccf: "CCF A"
       links:
         - label: "ACM"
@@ -125,6 +130,7 @@
       home_image_height: 222
       authors: '<strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, <a href="https://tobias.isenberg.cc/">Tobias Isenberg</a>, <a href="https://scholar.xjtlu.edu.cn/en/persons/FUQIXIE20/">Fuqi Xie</a>, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "IEEE Transactions on Visualization and Computer Graphics (TVCG), 2023"
+      venue_url: "https://www.computer.org/csdl/journal/tg"
       ccf: "CCF A"
       jcr: "JCR Q1"
       links:
@@ -151,6 +157,7 @@
       teaser_image_height: 613
       authors: 'Jiayin Li, <strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct), 2023"
+      venue_url: "https://ismar2023.vgtc.org/"
       ccf: "CCF B"
       links:
         - label: "IEEE"
@@ -172,6 +179,7 @@
       home_image_height: 250
       authors: '<strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, Nieyu Cao, Shuqi He, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://yulingyun.com/">Lingyun Yu</a>*'
       venue: "IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct), 2022"
+      venue_url: "https://ismar2022.vgtc.org/index.html"
       ccf: "CCF B"
       links:
         - label: "IEEE"
@@ -190,6 +198,7 @@
       teaser_image_height: 235
       authors: 'Jingjing Zhang, Mengjie Huang, <strong><a href="https://lixiangzhao98.github.io/">Lixiang Zhao</a></strong>, Rui Yang, <a href="https://hai-ning-liang.github.io/">Hai-Ning Liang</a>, <a href="https://experts.exeter.ac.uk/39056-ji-han">Ji Han</a>, Liu Wang, Wenxin Sun'
       venue: "International Symposium on Computational Intelligence and Design (ISCID), 2020"
+      venue_url: "https://www.aconf.org/conf_175479.2020_13th_International_Symposium_on_Computational_Intelligence_and_Design.html"
       links:
         - label: "IEEE"
           url: "https://doi.org/10.1109/ISCID51228.2020.00088"
