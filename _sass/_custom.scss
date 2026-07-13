@@ -1502,18 +1502,18 @@ body {
 .pub-card__meta strong a {
   display: inline-block;
   padding: 0.02rem 0.24rem;
-  border: 1px solid rgba(52, 211, 153, 0.44);
+  border: 1px solid rgba(255, 218, 118, 0.42);
   border-radius: 6px;
-  background: rgba(16, 185, 129, 0.14);
-  color: rgba(216, 255, 241, 0.98);
+  background: rgba(255, 218, 118, 0.13);
+  color: rgba(255, 244, 199, 0.98);
   font-weight: 800;
-  text-shadow: 0 0 14px rgba(52, 211, 153, 0.32);
+  text-shadow: 0 0 14px rgba(255, 218, 118, 0.34);
 }
 
 .selected-publication__meta strong a:hover,
 .pub-card__meta strong a:hover {
-  border-color: rgba(110, 231, 183, 0.72);
-  background: rgba(16, 185, 129, 0.22);
+  border-color: rgba(255, 232, 162, 0.68);
+  background: rgba(255, 218, 118, 0.2);
   color: rgba(255, 255, 255, 1);
 }
 
@@ -1827,15 +1827,15 @@ body {
   width: fit-content;
   min-height: 1.45rem;
   padding: 0.12rem 0.48rem;
-  border: 1px solid rgba(255, 218, 118, 0.42);
+  border: 1px solid rgba(52, 211, 153, 0.44);
   border-radius: 999px;
-  background: rgba(255, 218, 118, 0.13);
-  color: rgba(255, 244, 199, 0.98);
+  background: rgba(16, 185, 129, 0.14);
+  color: rgba(216, 255, 241, 0.98);
   font-size: 0.72rem;
   font-weight: 800;
   line-height: 1;
   white-space: nowrap;
-  text-shadow: 0 0 12px rgba(255, 218, 118, 0.28);
+  text-shadow: 0 0 12px rgba(52, 211, 153, 0.28);
 }
 
 .pub-badge--jcr {
@@ -1957,16 +1957,16 @@ body {
 .publication-detail__authors strong a {
   display: inline-block;
   padding: 0.02rem 0.24rem;
-  border: 1px solid rgba(52, 211, 153, 0.44);
+  border: 1px solid rgba(255, 218, 118, 0.42);
   border-radius: 6px;
-  background: rgba(16, 185, 129, 0.14);
-  color: rgba(216, 255, 241, 0.98);
+  background: rgba(255, 218, 118, 0.13);
+  color: rgba(255, 244, 199, 0.98);
   font-weight: 800;
 }
 
 .publication-detail__authors strong a:hover {
-  border-color: rgba(110, 231, 183, 0.72);
-  background: rgba(16, 185, 129, 0.22);
+  border-color: rgba(255, 232, 162, 0.68);
+  background: rgba(255, 218, 118, 0.2);
   color: rgba(255, 255, 255, 1);
 }
 

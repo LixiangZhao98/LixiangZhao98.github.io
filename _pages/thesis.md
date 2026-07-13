@@ -32,19 +32,19 @@ hide_title: true
     <h2><span data-lang-only="en">Research Threads</span><span data-lang-only="zh">论文相关研究</span></h2>
     <div class="thesis-paper-grid">
       <a class="thesis-paper-tile" href="/publications/metacast/">
-        <span class="thesis-paper-tile__media"><img src="/assets/Publications/Figures/MeTACAST.png" alt="MeTACAST teaser" loading="lazy" decoding="async"></span>
+        <span class="thesis-paper-tile__media"><img src="/assets/Publications/thesis/teasers/MeTACAST.webp" alt="MeTACAST teaser" loading="lazy" decoding="async" width="560" height="194"></span>
         <span>MeTACAST</span>
       </a>
       <a class="thesis-paper-tile" href="/publications/scalefree/">
-        <span class="thesis-paper-tile__media"><img src="/assets/Publications/Figures/ScaleFree.png" alt="ScaleFree teaser" loading="lazy" decoding="async"></span>
+        <span class="thesis-paper-tile__media"><img src="/assets/Publications/thesis/teasers/ScaleFree.webp" alt="ScaleFree teaser" loading="lazy" decoding="async" width="560" height="147"></span>
         <span>ScaleFree</span>
       </a>
       <a class="thesis-paper-tile" href="/publications/l-wim/">
-        <span class="thesis-paper-tile__media"><img src="/assets/Publications/Figures/L_Wim.png" alt="L-WiM teaser" loading="lazy" decoding="async"></span>
+        <span class="thesis-paper-tile__media"><img src="/assets/Publications/thesis/teasers/L_Wim.webp" alt="L-WiM teaser" loading="lazy" decoding="async" width="560" height="218"></span>
         <span>L-WiM</span>
       </a>
       <a class="thesis-paper-tile" href="/publications/spatialtouch/">
-        <span class="thesis-paper-tile__media"><img src="/assets/Publications/Figures/spatialtouch.png" alt="SpatialTouch teaser" loading="lazy" decoding="async"></span>
+        <span class="thesis-paper-tile__media"><img src="/assets/Publications/thesis/teasers/spatialtouch.webp" alt="SpatialTouch teaser" loading="lazy" decoding="async" width="560" height="145"></span>
         <span>SpatialTouch</span>
       </a>
     </div>
@@ -81,7 +81,7 @@ hide_title: true
     </p>
     <div id="thesis-splat-viewer" class="splat-viewer thesis-inline-splat" data-splat-url="/assets/Publications/thesis/phd_hat_table.splat">
       <div class="splat-viewer__prompt">
-        <img src="/assets/Publications/thesis/phd_hat_poster.jpg" alt="Ph.D. graduation cap 3DGS preview" loading="lazy" decoding="async">
+        <img src="/assets/Publications/thesis/phd_hat_poster.webp" alt="Ph.D. graduation cap 3DGS preview" loading="lazy" decoding="async" width="1600" height="675">
         <button type="button" class="splat-viewer__load">
           <i class="fas fa-cube" aria-hidden="true"></i>
           <span data-lang-only="en">Load 3DGS Viewer</span>
