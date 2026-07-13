@@ -36,7 +36,7 @@ published: false
 
     <div id="phd-hat-splat-viewer" class="splat-viewer" data-splat-url="/assets/Publications/thesis/phd_hat_cap.splat" tabindex="0">
       <div class="splat-viewer__prompt">
-        <img src="/assets/Publications/thesis/phd_hat_poster.jpg" alt="Ph.D. graduation cap 3DGS preview">
+        <img src="/assets/Publications/thesis/phd_hat_poster.webp" alt="Ph.D. graduation cap 3DGS preview" loading="lazy" decoding="async" width="1600" height="675">
         <button type="button" class="splat-viewer__load">
           <i class="fas fa-cube" aria-hidden="true"></i>
           <span data-lang-only="en">Load 3DGS Viewer</span>
@@ -77,11 +77,11 @@ published: false
   let activeViewer = null;
   let loadAttempt = 0;
   let displayedLoadProgress = 0;
-  const splatAssetVersion = "20260621-touch-progress";
-  const loadTimeoutMs = 45000;
-  const sceneCenterOffset = [0.02373568949536609, 0.1561195595484536, -0.08828049712890203];
-  const initialCameraPosition = [0, -1.7, 0.72];
-  const initialCameraLookAt = [0, -0.08, 0.02];
+  const splatAssetVersion = "20260713-cap-progress";
+  const loadTimeoutMs = 90000;
+  const sceneCenterOffset = [0.023077924024633843, 0.15635754090441117, -0.08743903913058844];
+  const initialCameraPosition = [0, -0.78, 0.16];
+  const initialCameraLookAt = [0, 0, 0];
 
   function clampNumber(value, min, max) {
     return Math.max(min, Math.min(max, value));
@@ -488,14 +488,14 @@ published: false
         initialCameraPosition,
         initialCameraLookAt,
         sharedMemoryForWorkers: false,
-        gpuAcceleratedSort: true,
-        integerBasedSort: true,
-        halfPrecisionCovariancesOnGPU: false,
+        gpuAcceleratedSort: false,
+        integerBasedSort: false,
+        halfPrecisionCovariancesOnGPU: true,
         dynamicScene: false,
         renderMode: GaussianSplats3D.RenderMode.Always,
         sceneRevealMode: GaussianSplats3D.SceneRevealMode.Gradual,
         sphericalHarmonicsDegree: 0,
-        antialiased: true,
+        antialiased: false,
         logLevel: GaussianSplats3D.LogLevel.None
       });
       activeViewer = viewer;
@@ -504,7 +504,7 @@ published: false
         splatAlphaRemovalThreshold: 1,
         format: GaussianSplats3D.SceneFormat.Splat,
         showLoadingUI: false,
-        progressiveLoad: false,
+        progressiveLoad: true,
         headers: {
           "Cache-Control": "no-cache"
         },
@@ -535,7 +535,7 @@ published: false
         prompt.remove();
       }
       if (status) {
-        status.textContent = "248,410 cap splats loaded";
+        status.textContent = "305,513 cap splats loaded";
       }
       window.phdHatSplatViewer = viewer;
     } catch (error) {
