@@ -1827,14 +1827,21 @@ body {
   width: fit-content;
   min-height: 1.45rem;
   padding: 0.12rem 0.48rem;
-  border: 1px solid rgba(52, 211, 153, 0.44);
+  border: 1px solid rgba(148, 163, 184, 0.34);
   border-radius: 999px;
-  background: rgba(16, 185, 129, 0.14);
-  color: rgba(216, 255, 241, 0.98);
+  background: rgba(148, 163, 184, 0.1);
+  color: rgba(226, 232, 240, 0.96);
   font-size: 0.72rem;
   font-weight: 800;
   line-height: 1;
   white-space: nowrap;
+  text-shadow: none;
+}
+
+.pub-badge--ccf {
+  border-color: rgba(52, 211, 153, 0.48);
+  background: rgba(16, 185, 129, 0.16);
+  color: rgba(216, 255, 241, 0.98);
   text-shadow: 0 0 12px rgba(52, 211, 153, 0.28);
 }
 

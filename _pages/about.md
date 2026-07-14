@@ -132,7 +132,7 @@ redirect_from:
                     {% endif %}
                     {% if pub.ccf or pub.jcr %}
                       <span class="pub-card__badges">
-                        {% if pub.ccf %}<span class="pub-badge">{{ pub.ccf }}</span>{% endif %}
+                        {% if pub.ccf %}<span class="pub-badge pub-badge--ccf">{{ pub.ccf }}</span>{% endif %}
                         {% if pub.jcr %}<span class="pub-badge pub-badge--jcr">{{ pub.jcr }}</span>{% endif %}
                       </span>
                     {% endif %}

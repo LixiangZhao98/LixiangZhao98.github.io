@@ -21,7 +21,7 @@
       </div>
       <div class="publication-detail__intro">
         <div class="publication-detail__badges">
-          {% if pub.ccf %}<span class="pub-badge">{{ pub.ccf }}</span>{% endif %}
+          {% if pub.ccf %}<span class="pub-badge pub-badge--ccf">{{ pub.ccf }}</span>{% endif %}
           {% if pub.jcr %}<span class="pub-badge pub-badge--jcr">{{ pub.jcr }}</span>{% endif %}
           {% assign venue_link = pub.venue_url %}
           {% if pub.venue %}

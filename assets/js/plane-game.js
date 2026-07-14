@@ -323,6 +323,10 @@
     }
   }
 
+  function placeBullet(bullet) {
+    bullet.node.style.transform = "translate3d(" + bullet.x + "px, " + bullet.y + "px, 0) translate(-50%, -50%)";
+  }
+
   function shoot(now) {
     if (!layer || now - lastShot < 118) return;
     lastShot = now;
@@ -333,6 +337,7 @@
       node: document.createElement("span")
     };
     bullet.node.className = "plane-game__bullet";
+    placeBullet(bullet);
     layer.appendChild(bullet.node);
     bullets.push(bullet);
   }
@@ -341,7 +346,7 @@
     for (var index = bullets.length - 1; index >= 0; index -= 1) {
       var bullet = bullets[index];
       bullet.y -= bullet.speed * delta;
-      bullet.node.style.transform = "translate3d(" + bullet.x + "px, " + bullet.y + "px, 0) translate(-50%, -50%)";
+      placeBullet(bullet);
 
       var hit = findHit(bullet.x, bullet.y);
       if (hit) {
