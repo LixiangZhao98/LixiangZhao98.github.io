@@ -91,8 +91,8 @@ metacast:
       url: "https://www.youtube.com/watch?v=R_WRfzgnOAM&t=1s"
       embed: "https://www.youtube-nocookie.com/embed/R_WRfzgnOAM?start=1&rel=0&modestbranding=1&playsinline=1"
     - label: "Presentation"
-      url: "https://www.youtube.com/watch?v=svIhmLlMcAE&t=3312s"
-      embed: "https://www.youtube-nocookie.com/embed/svIhmLlMcAE?start=3312&rel=0&modestbranding=1&playsinline=1"
+      url: "https://www.youtube.com/watch?v=Qy5hAHDtJ9Y"
+      embed: "https://www.youtube-nocookie.com/embed/Qy5hAHDtJ9Y?rel=0&modestbranding=1&playsinline=1"
   bibtex: |
     @article{zhao2024metacast,
       author = {Zhao, Lixiang and Isenberg, Tobias and Xie, Fuqi and Liang, Hai-Ning and Yu, Lingyun},
