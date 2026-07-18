@@ -121,11 +121,12 @@ hide_title: true
   let activeViewer = null;
   let loadAttempt = 0;
   let displayedLoadProgress = 0;
-  const splatAssetVersion = "20260713-cap-progress";
+  const splatAssetVersion = "20260718-cap-centered";
   const loadTimeoutMs = 90000;
   const loadedSplatLabel = "305,513 cap splats loaded";
-  const sceneCenterOffset = [0.023077924024633843, 0.15635754090441117, -0.08743903913058844];
-  const initialCameraPosition = [0, -0.78, 0.16];
+  const sceneCenterOffset = [0.002505391836166382, 0.1549801304936409, -0.07000245712697506];
+  const sceneScale = 0.92;
+  const initialCameraPosition = [0, -0.88, 0.18];
   const initialCameraLookAt = [0, 0, 0];
 
   function clampNumber(value, min, max) {
@@ -471,7 +472,7 @@ hide_title: true
         },
         position: sceneCenterOffset,
         rotation: [0, 0, 0, 1],
-        scale: [1, 1, 1]
+        scale: [sceneScale, sceneScale, sceneScale]
       }), loadTimeoutMs);
 
       viewer.start();
