@@ -2304,6 +2304,11 @@ body {
   transition: opacity 180ms ease, transform 180ms ease;
 }
 
+.thesis-gaussian-card--compact,
+.thesis-gaussian-card--compact img {
+  min-height: clamp(300px, 42vw, 460px);
+}
+
 .thesis-gaussian-card:hover img {
   opacity: 0.9;
   transform: scale(1.045);
@@ -2372,6 +2377,19 @@ body {
 
 .splat-shell {
   padding: 1.25rem;
+}
+
+.splat-scene-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.splat-scene-switch .pub-chip[aria-current="page"] {
+  border-color: rgba(125, 211, 252, 0.54);
+  background: rgba(14, 165, 233, 0.2);
+  color: rgba(224, 247, 255, 0.98);
 }
 
 .splat-shell__header {

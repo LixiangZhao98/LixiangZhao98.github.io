@@ -69,11 +69,18 @@ hide_title: true
   <section id="graduation-cap-3dgs" class="thesis-section glass-card">
     <div class="thesis-section__head">
       <h2><span data-lang-only="en">3D Gaussian Graduation Cap</span><span data-lang-only="zh">博士帽 3D Gaussian Viewer</span></h2>
-      <a class="pub-chip" href="/assets/Publications/thesis/phd_hat_cap.splat" download="phd_hat_cap.splat">
-        <i class="fas fa-download" aria-hidden="true"></i>
-        <span data-lang-only="en">Download SPLAT</span>
-        <span data-lang-only="zh">下载 SPLAT</span>
-      </a>
+      <div class="splat-shell__actions">
+        <a class="pub-chip" href="/phd-hat-3dgs/">
+          <i class="fas fa-expand" aria-hidden="true"></i>
+          <span data-lang-only="en">Full Viewer</span>
+          <span data-lang-only="zh">全屏查看</span>
+        </a>
+        <a class="pub-chip" href="/assets/Publications/thesis/phd_hat_cap.splat" download="phd_hat_cap.splat">
+          <i class="fas fa-download" aria-hidden="true"></i>
+          <span data-lang-only="en">Download SPLAT</span>
+          <span data-lang-only="zh">下载 SPLAT</span>
+        </a>
+      </div>
     </div>
     <p class="thesis-gaussian-note thesis-gaussian-thanks">
       <span data-lang-only="en">Many thanks to my supervisor <strong>Lingyun Yu</strong>, and to my lab partners and the cap makers: <strong>Wanfang Xu</strong>, <strong>Fuqi Xie</strong>, <strong>Shuqi He</strong>, <strong>Jifan Yang</strong>, and <strong>Shuzi Zou</strong>.</span>
@@ -81,7 +88,7 @@ hide_title: true
     </p>
     <div id="thesis-splat-viewer" class="splat-viewer thesis-inline-splat" data-splat-url="/assets/Publications/thesis/phd_hat_cap.splat">
       <div class="splat-viewer__prompt">
-        <img src="/assets/Publications/thesis/phd_hat_poster.webp" alt="Ph.D. graduation cap 3DGS preview" loading="lazy" decoding="async" width="1600" height="675">
+        <img src="/assets/Publications/thesis/phd_hat_poster.webp" alt="Ph.D. graduation cap 3DGS preview" loading="lazy" decoding="async" width="1600" height="900">
         <button type="button" class="splat-viewer__load">
           <i class="fas fa-cube" aria-hidden="true"></i>
           <span data-lang-only="en">Load 3DGS Viewer</span>
@@ -100,6 +107,36 @@ hide_title: true
       <span data-lang-only="en">Left drag orbit · right drag pan · wheel or pinch zoom · P toggles point mode · I toggles info</span>
       <span data-lang-only="zh">左键拖拽旋转 · 右键拖拽平移 · 滚轮或双指缩放 · P 切换点模式 · I 显示信息</span>
     </p>
+  </section>
+
+  <section id="seal-flower-3dgs" class="thesis-section glass-card">
+    <div class="thesis-section__head">
+      <h2><span data-lang-only="en">3D Gaussian Seal Flower Bouquet</span><span data-lang-only="zh">海豹花束 3D Gaussian Viewer</span></h2>
+      <div class="splat-shell__actions">
+        <a class="pub-chip" href="/phd-hat-3dgs/?scene=seal-flower">
+          <i class="fas fa-cube" aria-hidden="true"></i>
+          <span data-lang-only="en">Open Viewer</span>
+          <span data-lang-only="zh">打开查看器</span>
+        </a>
+        <a class="pub-chip" href="/assets/Publications/thesis/seal_flower.splat" download="seal_flower.splat">
+          <i class="fas fa-download" aria-hidden="true"></i>
+          <span data-lang-only="en">Download SPLAT</span>
+          <span data-lang-only="zh">下载 SPLAT</span>
+        </a>
+      </div>
+    </div>
+    <p class="thesis-gaussian-note thesis-gaussian-note--lead">
+      <span data-lang-only="en">A handcrafted seal-shaped flower bouquet reconstructed from a high-resolution orbit video.</span>
+      <span data-lang-only="zh">由高清环绕视频重建的手工海豹花束。</span>
+    </p>
+    <a class="thesis-gaussian-card thesis-gaussian-card--compact" href="/phd-hat-3dgs/?scene=seal-flower">
+      <img src="/assets/Publications/thesis/seal_flower_poster.webp" alt="Seal flower bouquet 3DGS preview" loading="lazy" decoding="async" width="1600" height="900">
+      <span class="thesis-gaussian-card__label">
+        <i class="fas fa-cube" aria-hidden="true"></i>
+        <span data-lang-only="en">Explore the Seal Flower Bouquet</span>
+        <span data-lang-only="zh">探索海豹花束</span>
+      </span>
+    </a>
   </section>
 </main>
 
@@ -121,12 +158,13 @@ hide_title: true
   let activeViewer = null;
   let loadAttempt = 0;
   let displayedLoadProgress = 0;
-  const splatAssetVersion = "20260718-cap-centered";
+  const splatAssetVersion = "20260728-hq-mcmc";
   const loadTimeoutMs = 90000;
-  const loadedSplatLabel = "305,513 cap splats loaded";
-  const sceneCenterOffset = [0.002505391836166382, 0.1549801304936409, -0.07000245712697506];
-  const sceneScale = 0.92;
-  const initialCameraPosition = [0, -0.88, 0.18];
+  const loadedSplatLabel = "663,056 graduation cap splats loaded";
+  const sceneCenterOffset = [0, 0, 0];
+  const sceneScale = 0.9;
+  const sceneRotation = [0.8644837, -0.4242528, -0.258897, -0.0751659];
+  const initialCameraPosition = [0, -1.75, 0.51];
   const initialCameraLookAt = [0, 0, 0];
 
   function clampNumber(value, min, max) {
@@ -471,7 +509,7 @@ hide_title: true
           updateProgress(percentComplete, percentCompleteLabel, "Downloading cap scene", 0, 85);
         },
         position: sceneCenterOffset,
-        rotation: [0, 0, 0, 1],
+        rotation: sceneRotation,
         scale: [sceneScale, sceneScale, sceneScale]
       }), loadTimeoutMs);
 
