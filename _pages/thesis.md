@@ -149,6 +149,8 @@ hide_title: true
 </script>
 
 <script type="module">
+  import { downloadSplatInChunks } from "/assets/js/splat-download.js";
+
   const root = document.getElementById("thesis-splat-viewer");
   const status = root ? root.querySelector(".splat-viewer__status") : null;
   const prompt = root ? root.querySelector(".splat-viewer__prompt") : null;
@@ -156,10 +158,11 @@ hide_title: true
   const progressBar = root ? root.querySelector(".splat-viewer__progress-bar") : null;
   let hasStarted = false;
   let activeViewer = null;
+  let activeSplatObjectUrl = null;
   let loadAttempt = 0;
   let displayedLoadProgress = 0;
   const splatAssetVersion = "20260728-hq-mcmc";
-  const loadTimeoutMs = 180000;
+  const loadTimeoutMs = 300000;
   const loadedSplatLabel = "663,056 graduation cap splats loaded";
   const sceneCenterOffset = [0, 0, 0];
   const sceneScale = 0.9;
@@ -469,6 +472,21 @@ hide_title: true
         import("https://cdn.jsdelivr.net/npm/@mkkellogg/gaussian-splats-3d@0.4.7/build/gaussian-splats-3d.module.js"),
         import("three")
       ]);
+      const sourceSplatUrl = buildSplatUrl(root.getAttribute("data-splat-url"), attempt);
+      const downloadController = new AbortController();
+      const splatBlob = await withTimeout({
+        promise: downloadSplatInChunks(sourceSplatUrl, {
+          signal: downloadController.signal,
+          onProgress({ percent }) {
+            updateProgress(percent, `${percent.toFixed(1)}%`, "Downloading cap scene", 0, 85);
+          }
+        }),
+        abort(reason) {
+          downloadController.abort(reason);
+        }
+      }, loadTimeoutMs);
+      activeSplatObjectUrl = URL.createObjectURL(splatBlob);
+      updateProgress(100, "100%", "Downloaded cap scene", 0, 85);
 
       const loaderStatus = { Downloading: 0, Processing: 1, Done: 2 };
       viewer = new GaussianSplats3D.Viewer({
@@ -489,27 +507,21 @@ hide_title: true
       });
       activeViewer = viewer;
 
-      const firstVisiblePromise = viewer.addSplatScene(buildSplatUrl(root.getAttribute("data-splat-url"), attempt), {
+      const firstVisiblePromise = viewer.addSplatScene(activeSplatObjectUrl, {
         splatAlphaRemovalThreshold: 1,
         format: GaussianSplats3D.SceneFormat.Splat,
         showLoadingUI: false,
         progressiveLoad: true,
-        headers: {
-          "Cache-Control": "no-cache"
-        },
         onProgress(percentComplete, percentCompleteLabel, currentStatus) {
           if (currentStatus === loaderStatus.Processing) {
-            updateProgress(percentComplete, percentCompleteLabel, "Processing cap scene", 90, 6);
+            updateProgress(percentComplete, percentCompleteLabel, "Processing cap scene", 92, 4);
             return;
           }
           if (currentStatus === loaderStatus.Done) {
             updateProgress(97, "97%", "Building cap scene");
             return;
           }
-          const downloadStage = percentComplete >= 100
-            ? "Preparing cap scene"
-            : "Downloading cap scene";
-          updateProgress(percentComplete, percentCompleteLabel, downloadStage, 0, 90);
+          updateProgress(percentComplete, percentCompleteLabel, "Reading cap scene", 85, 7);
         },
         position: sceneCenterOffset,
         rotation: sceneRotation,
@@ -526,6 +538,8 @@ hide_title: true
       ]), loadTimeoutMs);
 
       updateProgress(100, "100%", "Ready cap scene");
+      URL.revokeObjectURL(activeSplatObjectUrl);
+      activeSplatObjectUrl = null;
       root.classList.remove("is-loading");
       root.classList.add("is-loaded");
       if (progressBar) {
@@ -544,6 +558,10 @@ hide_title: true
         activeViewer = null;
       }
       await disposeViewer(viewer);
+      if (activeSplatObjectUrl) {
+        URL.revokeObjectURL(activeSplatObjectUrl);
+        activeSplatObjectUrl = null;
+      }
       root.classList.remove("is-loading");
       root.classList.add("is-error");
       if (progressBar) {
@@ -576,5 +594,9 @@ hide_title: true
     if (event.persisted) return;
     disposeViewer(activeViewer);
     activeViewer = null;
+    if (activeSplatObjectUrl) {
+      URL.revokeObjectURL(activeSplatObjectUrl);
+      activeSplatObjectUrl = null;
+    }
   });
 </script>
