@@ -154,7 +154,7 @@ published: true
   let loadAttempt = 0;
   let displayedLoadProgress = 0;
   const splatAssetVersion = scene.version;
-  const loadTimeoutMs = 90000;
+  const loadTimeoutMs = 180000;
   const sceneCenterOffset = scene.centerOffset;
   const sceneScale = scene.scale;
   const sceneRotation = scene.rotation;
@@ -571,14 +571,14 @@ published: true
         halfPrecisionCovariancesOnGPU: true,
         dynamicScene: false,
         renderMode: GaussianSplats3D.RenderMode.Always,
-        sceneRevealMode: GaussianSplats3D.SceneRevealMode.Gradual,
+        sceneRevealMode: GaussianSplats3D.SceneRevealMode.Instant,
         sphericalHarmonicsDegree: 0,
         antialiased: false,
         logLevel: GaussianSplats3D.LogLevel.None
       });
       activeViewer = viewer;
 
-      await withTimeout(viewer.addSplatScene(buildSplatUrl(root.getAttribute("data-splat-url"), attempt), {
+      const firstVisiblePromise = viewer.addSplatScene(buildSplatUrl(root.getAttribute("data-splat-url"), attempt), {
         splatAlphaRemovalThreshold: 1,
         format: GaussianSplats3D.SceneFormat.Splat,
         showLoadingUI: false,
@@ -588,22 +588,33 @@ published: true
         },
         onProgress(percentComplete, percentCompleteLabel, currentStatus) {
           if (currentStatus === loaderStatus.Processing) {
-            updateProgress(percentComplete, percentCompleteLabel, `Processing ${scene.loadingName}`, 85, 15);
+            updateProgress(percentComplete, percentCompleteLabel, `Processing ${scene.loadingName}`, 90, 6);
             return;
           }
           if (currentStatus === loaderStatus.Done) {
-            updateProgress(100, "100%", `Finishing ${scene.loadingName}`);
+            updateProgress(97, "97%", `Building ${scene.loadingName}`);
             return;
           }
-          updateProgress(percentComplete, percentCompleteLabel, `Downloading ${scene.loadingName}`, 0, 85);
+          const downloadStage = percentComplete >= 100
+            ? `Preparing ${scene.loadingName}`
+            : `Downloading ${scene.loadingName}`;
+          updateProgress(percentComplete, percentCompleteLabel, downloadStage, 0, 90);
         },
         position: sceneCenterOffset,
         rotation: sceneRotation,
         scale: [sceneScale, sceneScale, sceneScale]
-      }), loadTimeoutMs);
+      });
+      const completeLoadPromise = viewer.splatSceneDownloadAndBuildPromise || firstVisiblePromise;
 
-      viewer.start();
-      installSplatControls(viewer, THREE);
+      await withTimeout(Promise.all([
+        Promise.resolve(firstVisiblePromise).then(() => {
+          viewer.start();
+          installSplatControls(viewer, THREE);
+        }),
+        Promise.resolve(completeLoadPromise)
+      ]), loadTimeoutMs);
+
+      updateProgress(100, "100%", `Ready ${scene.loadingName}`);
       root.classList.remove("is-loading");
       root.classList.add("is-loaded");
       if (progressBar) {

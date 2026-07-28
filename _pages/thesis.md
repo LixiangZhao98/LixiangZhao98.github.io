@@ -159,7 +159,7 @@ hide_title: true
   let loadAttempt = 0;
   let displayedLoadProgress = 0;
   const splatAssetVersion = "20260728-hq-mcmc";
-  const loadTimeoutMs = 90000;
+  const loadTimeoutMs = 180000;
   const loadedSplatLabel = "663,056 graduation cap splats loaded";
   const sceneCenterOffset = [0, 0, 0];
   const sceneScale = 0.9;
@@ -482,14 +482,14 @@ hide_title: true
         halfPrecisionCovariancesOnGPU: true,
         dynamicScene: false,
         renderMode: GaussianSplats3D.RenderMode.Always,
-        sceneRevealMode: GaussianSplats3D.SceneRevealMode.Gradual,
+        sceneRevealMode: GaussianSplats3D.SceneRevealMode.Instant,
         sphericalHarmonicsDegree: 0,
         antialiased: false,
         logLevel: GaussianSplats3D.LogLevel.None
       });
       activeViewer = viewer;
 
-      await withTimeout(viewer.addSplatScene(buildSplatUrl(root.getAttribute("data-splat-url"), attempt), {
+      const firstVisiblePromise = viewer.addSplatScene(buildSplatUrl(root.getAttribute("data-splat-url"), attempt), {
         splatAlphaRemovalThreshold: 1,
         format: GaussianSplats3D.SceneFormat.Splat,
         showLoadingUI: false,
@@ -499,22 +499,33 @@ hide_title: true
         },
         onProgress(percentComplete, percentCompleteLabel, currentStatus) {
           if (currentStatus === loaderStatus.Processing) {
-            updateProgress(percentComplete, percentCompleteLabel, "Processing cap scene", 85, 15);
+            updateProgress(percentComplete, percentCompleteLabel, "Processing cap scene", 90, 6);
             return;
           }
           if (currentStatus === loaderStatus.Done) {
-            updateProgress(100, "100%", "Finishing cap scene");
+            updateProgress(97, "97%", "Building cap scene");
             return;
           }
-          updateProgress(percentComplete, percentCompleteLabel, "Downloading cap scene", 0, 85);
+          const downloadStage = percentComplete >= 100
+            ? "Preparing cap scene"
+            : "Downloading cap scene";
+          updateProgress(percentComplete, percentCompleteLabel, downloadStage, 0, 90);
         },
         position: sceneCenterOffset,
         rotation: sceneRotation,
         scale: [sceneScale, sceneScale, sceneScale]
-      }), loadTimeoutMs);
+      });
+      const completeLoadPromise = viewer.splatSceneDownloadAndBuildPromise || firstVisiblePromise;
 
-      viewer.start();
-      installStableThesisControls(viewer, THREE);
+      await withTimeout(Promise.all([
+        Promise.resolve(firstVisiblePromise).then(() => {
+          viewer.start();
+          installStableThesisControls(viewer, THREE);
+        }),
+        Promise.resolve(completeLoadPromise)
+      ]), loadTimeoutMs);
+
+      updateProgress(100, "100%", "Ready cap scene");
       root.classList.remove("is-loading");
       root.classList.add("is-loaded");
       if (progressBar) {
