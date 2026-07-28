@@ -36,15 +36,15 @@ published: true
           <span data-lang-only="en">Thesis</span>
           <span data-lang-only="zh">返回 Thesis</span>
         </a>
-        <a class="pub-chip splat-scene-download" href="/assets/Publications/thesis/phd_hat_cap.splat" download="phd_hat_cap.splat">
+        <a class="pub-chip splat-scene-download" href="/assets/Publications/thesis/phd_hat_cap.ksplat" download="phd_hat_cap.ksplat">
           <i class="fas fa-download" aria-hidden="true"></i>
-          <span data-lang-only="en">Download SPLAT</span>
-          <span data-lang-only="zh">下载 SPLAT</span>
+          <span data-lang-only="en">Download 3DGS</span>
+          <span data-lang-only="zh">下载 3DGS</span>
         </a>
       </div>
     </header>
 
-    <div id="phd-hat-splat-viewer" class="splat-viewer" data-splat-url="/assets/Publications/thesis/phd_hat_cap.splat" tabindex="0">
+    <div id="phd-hat-splat-viewer" class="splat-viewer" data-splat-url="/assets/Publications/thesis/phd_hat_cap.ksplat" tabindex="0">
       <div class="splat-viewer__prompt">
         <img src="/assets/Publications/thesis/phd_hat_poster.webp" alt="Ph.D. graduation cap 3DGS preview" loading="lazy" decoding="async" width="1600" height="900">
         <button type="button" class="splat-viewer__load">
@@ -91,13 +91,18 @@ published: true
       titleZh: "博士帽",
       descriptionEn: "Many thanks to my supervisor Lingyun Yu, and to my lab partners and the cap makers: Wanfang Xu, Fuqi Xie, Shuqi He, Jifan Yang, and Shuzi Zou.",
       descriptionZh: "特别感谢导师俞凌云，以及实验室伙伴和博士帽制作者：徐万芳、谢馥琪、何舒淇、杨济帆、邹树滋。",
-      url: "/assets/Publications/thesis/phd_hat_cap.splat",
+      url: "/assets/Publications/thesis/phd_hat_cap.ksplat",
       poster: "/assets/Publications/thesis/phd_hat_poster.webp",
       posterAlt: "Ph.D. graduation cap 3DGS preview",
-      downloadName: "phd_hat_cap.splat",
-      version: "20260728-hq-mcmc",
+      downloadName: "phd_hat_cap.ksplat",
+      version: "20260729-hq-sh2",
       loadingName: "graduation cap",
-      loadedLabel: "663,056 graduation cap splats loaded",
+      loadedLabel: "712,157 graduation cap splats loaded",
+      format: "ksplat",
+      sphericalHarmonicsDegree: 2,
+      halfPrecisionCovariancesOnGPU: false,
+      focalAdjustment: 1.35,
+      splatSortDistanceMapPrecision: 24,
       centerOffset: [0, 0, 0],
       scale: 0.9,
       rotation: [0.8644837, -0.4242528, -0.258897, -0.0751659],
@@ -586,19 +591,24 @@ published: true
         sharedMemoryForWorkers: false,
         gpuAcceleratedSort: false,
         integerBasedSort: false,
-        halfPrecisionCovariancesOnGPU: true,
+        splatSortDistanceMapPrecision: scene.splatSortDistanceMapPrecision ?? 16,
+        halfPrecisionCovariancesOnGPU: scene.halfPrecisionCovariancesOnGPU ?? true,
         dynamicScene: false,
         renderMode: GaussianSplats3D.RenderMode.Always,
         sceneRevealMode: GaussianSplats3D.SceneRevealMode.Instant,
-        sphericalHarmonicsDegree: 0,
+        sphericalHarmonicsDegree: scene.sphericalHarmonicsDegree ?? 0,
+        focalAdjustment: scene.focalAdjustment ?? 1,
         antialiased: false,
         logLevel: GaussianSplats3D.LogLevel.None
       });
       activeViewer = viewer;
 
+      const sceneFormat = scene.format === "ksplat"
+        ? GaussianSplats3D.SceneFormat.KSplat
+        : GaussianSplats3D.SceneFormat.Splat;
       const firstVisiblePromise = viewer.addSplatScene(activeSplatObjectUrl, {
         splatAlphaRemovalThreshold: 1,
-        format: GaussianSplats3D.SceneFormat.Splat,
+        format: sceneFormat,
         showLoadingUI: false,
         progressiveLoad: true,
         onProgress(percentComplete, percentCompleteLabel, currentStatus) {

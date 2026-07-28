@@ -75,10 +75,10 @@ hide_title: true
           <span data-lang-only="en">Full Viewer</span>
           <span data-lang-only="zh">全屏查看</span>
         </a>
-        <a class="pub-chip" href="/assets/Publications/thesis/phd_hat_cap.splat" download="phd_hat_cap.splat">
+        <a class="pub-chip" href="/assets/Publications/thesis/phd_hat_cap.ksplat" download="phd_hat_cap.ksplat">
           <i class="fas fa-download" aria-hidden="true"></i>
-          <span data-lang-only="en">Download SPLAT</span>
-          <span data-lang-only="zh">下载 SPLAT</span>
+          <span data-lang-only="en">Download 3DGS</span>
+          <span data-lang-only="zh">下载 3DGS</span>
         </a>
       </div>
     </div>
@@ -86,7 +86,7 @@ hide_title: true
       <span data-lang-only="en">Many thanks to my supervisor <strong>Lingyun Yu</strong>, and to my lab partners and the cap makers: <strong>Wanfang Xu</strong>, <strong>Fuqi Xie</strong>, <strong>Shuqi He</strong>, <strong>Jifan Yang</strong>, and <strong>Shuzi Zou</strong>.</span>
       <span data-lang-only="zh">特别感谢导师 <strong>俞凌云</strong>，以及实验室伙伴和博士帽制作者：<strong>徐万芳</strong>、<strong>谢馥琪</strong>、<strong>何舒淇</strong>、<strong>杨济帆</strong>、<strong>邹树滋</strong>。</span>
     </p>
-    <div id="thesis-splat-viewer" class="splat-viewer thesis-inline-splat" data-splat-url="/assets/Publications/thesis/phd_hat_cap.splat">
+    <div id="thesis-splat-viewer" class="splat-viewer thesis-inline-splat" data-splat-url="/assets/Publications/thesis/phd_hat_cap.ksplat">
       <div class="splat-viewer__prompt">
         <img src="/assets/Publications/thesis/phd_hat_poster.webp" alt="Ph.D. graduation cap 3DGS preview" loading="lazy" decoding="async" width="1600" height="900">
         <button type="button" class="splat-viewer__load">
@@ -161,9 +161,9 @@ hide_title: true
   let activeSplatObjectUrl = null;
   let loadAttempt = 0;
   let displayedLoadProgress = 0;
-  const splatAssetVersion = "20260728-hq-mcmc";
+  const splatAssetVersion = "20260729-hq-sh2";
   const loadTimeoutMs = 300000;
-  const loadedSplatLabel = "663,056 graduation cap splats loaded";
+  const loadedSplatLabel = "712,157 graduation cap splats loaded";
   const sceneCenterOffset = [0, 0, 0];
   const sceneScale = 0.9;
   const sceneRotation = [0.8644837, -0.4242528, -0.258897, -0.0751659];
@@ -497,11 +497,13 @@ hide_title: true
         sharedMemoryForWorkers: false,
         gpuAcceleratedSort: false,
         integerBasedSort: false,
-        halfPrecisionCovariancesOnGPU: true,
+        splatSortDistanceMapPrecision: 24,
+        halfPrecisionCovariancesOnGPU: false,
         dynamicScene: false,
         renderMode: GaussianSplats3D.RenderMode.Always,
         sceneRevealMode: GaussianSplats3D.SceneRevealMode.Instant,
-        sphericalHarmonicsDegree: 0,
+        sphericalHarmonicsDegree: 2,
+        focalAdjustment: 1.35,
         antialiased: false,
         logLevel: GaussianSplats3D.LogLevel.None
       });
@@ -509,7 +511,7 @@ hide_title: true
 
       const firstVisiblePromise = viewer.addSplatScene(activeSplatObjectUrl, {
         splatAlphaRemovalThreshold: 1,
-        format: GaussianSplats3D.SceneFormat.Splat,
+        format: GaussianSplats3D.SceneFormat.KSplat,
         showLoadingUI: false,
         progressiveLoad: true,
         onProgress(percentComplete, percentCompleteLabel, currentStatus) {
