@@ -65,7 +65,10 @@ redirect_from:
     <figure class="academic-profile">
       <img class="academic-profile__photo" src="/images/Lixiang_Zhao-900.webp" alt="Portrait of {{ site.author.name }}" width="900" height="632" loading="eager" decoding="async" fetchpriority="high">
       {% if site.author.location %}
-        <figcaption class="academic-profile__info"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{ site.author.location }}</figcaption>
+        <figcaption class="academic-profile__info">
+          <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+          <span data-lang-only="en">{{ site.author.location }}</span><span data-lang-only="zh">中国苏州</span>
+        </figcaption>
       {% endif %}
     </figure>
   </header>
